@@ -1,0 +1,993 @@
+[
+  {
+    "id": "soc_language",
+    "name": "语言系统化",
+    "year": "-50000",
+    "yearRange": [
+      -100000,
+      -10000
+    ],
+    "era": "prehistoric",
+    "domain": "social",
+    "prerequisites": [],
+    "description": "复杂语言系统的形成使人类能够传递抽象概念、积累知识和协作行动，是社会结构形成的基础。",
+    "importance": 5,
+    "tags": [
+      "语言",
+      "沟通",
+      "抽象"
+    ]
+  },
+  {
+    "id": "soc_writing",
+    "name": "文字系统",
+    "year": "-3200",
+    "yearRange": [
+      -3500,
+      -2500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_language",
+      "math_counting"
+    ],
+    "description": "苏美尔楔形文字和埃及象形文字使知识可以跨越时空传递，开启了有文字记载的历史。",
+    "importance": 5,
+    "tags": [
+      "文字",
+      "记录",
+      "历史"
+    ]
+  },
+  {
+    "id": "soc_law_code",
+    "name": "法典",
+    "year": "-1754",
+    "yearRange": [
+      -1800,
+      -1500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_writing",
+      "soc_state"
+    ],
+    "description": "汉谟拉比法典是最早的成文法之一，以文字形式确立社会规则和惩罚标准，是法治思想的开端。",
+    "importance": 5,
+    "tags": [
+      "法典",
+      "法律",
+      "汉谟拉比"
+    ]
+  },
+  {
+    "id": "soc_state",
+    "name": "国家组织",
+    "year": "-3500",
+    "yearRange": [
+      -4000,
+      -2500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_language",
+      "ag_plant_domestication"
+    ],
+    "description": "农业剩余产品催生了社会分工和等级制度，出现了最早的城邦和国家形态。",
+    "importance": 5,
+    "tags": [
+      "国家",
+      "城邦",
+      "分工"
+    ]
+  },
+  {
+    "id": "soc_money",
+    "name": "货币制度",
+    "year": "-600",
+    "yearRange": [
+      -700,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "mat_copper"
+    ],
+    "description": " Lydia 的铸币使商品交换有了统一的价值度量，是金融和经济体系的基石。",
+    "importance": 5,
+    "tags": [
+      "货币",
+      "铸币",
+      "交换"
+    ]
+  },
+  {
+    "id": "soc_democracy_ancient",
+    "name": "古代民主",
+    "year": "-508",
+    "yearRange": [
+      -520,
+      -450
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_law_code"
+    ],
+    "description": "雅典的民主制度让公民直接参与政治决策，是民主思想的起源，尽管仅限成年男性公民。",
+    "importance": 5,
+    "tags": [
+      "民主",
+      "雅典",
+      "公民"
+    ]
+  },
+  {
+    "id": "soc_religion_org",
+    "name": "制度化宗教",
+    "year": "-1500",
+    "yearRange": [
+      -2000,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_language"
+    ],
+    "description": "从多神教到一神教，制度化宗教提供了社会凝聚力、道德框架和知识传承的载体。",
+    "importance": 4,
+    "tags": [
+      "宗教",
+      "制度",
+      "信仰"
+    ]
+  },
+  {
+    "id": "soc_philosophy",
+    "name": "哲学传统",
+    "year": "-600",
+    "yearRange": [
+      -700,
+      -300
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_language",
+      "soc_state"
+    ],
+    "description": "从古希腊到中国诸子百家，不同文明独立发展出理性思考世界和人性的哲学传统。",
+    "importance": 5,
+    "tags": [
+      "哲学",
+      "理性",
+      "传统"
+    ]
+  },
+  {
+    "id": "soc_empire",
+    "name": "帝国体系",
+    "year": "-500",
+    "yearRange": [
+      -600,
+      200
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_law_code"
+    ],
+    "description": "从波斯帝国到罗马帝国，大规模跨民族的政治整合创造了行政管理、基础设施和文化传播的新模式。",
+    "importance": 4,
+    "tags": [
+      "帝国",
+      "行政",
+      "整合"
+    ]
+  },
+  {
+    "id": "soc_feudalism",
+    "name": "封建制度",
+    "year": "500",
+    "yearRange": [
+      400,
+      900
+    ],
+    "era": "medieval",
+    "domain": "social",
+    "prerequisites": [
+      "soc_empire",
+      "soc_religion_org"
+    ],
+    "description": "中世纪欧洲的封建制度以领主-附庸关系和庄园经济为特征，是罗马帝国崩溃后的社会组织形式。",
+    "importance": 3,
+    "tags": [
+      "封建",
+      "庄园",
+      "领主"
+    ]
+  },
+  {
+    "id": "soc_university",
+    "name": "大学制度",
+    "year": "1088",
+    "yearRange": [
+      1080,
+      1200
+    ],
+    "era": "medieval",
+    "domain": "social",
+    "prerequisites": [
+      "soc_philosophy",
+      "soc_religion_org"
+    ],
+    "description": "博洛尼亚大学等中世纪大学开创了制度化高等教育的传统，成为知识保存和创新的中心。",
+    "importance": 5,
+    "tags": [
+      "大学",
+      "教育",
+      "博洛尼亚"
+    ]
+  },
+  {
+    "id": "soc_magna_carta",
+    "name": "大宪章",
+    "year": "1215",
+    "yearRange": [
+      1215,
+      1220
+    ],
+    "era": "medieval",
+    "domain": "social",
+    "prerequisites": [
+      "soc_feudalism",
+      "soc_law_code"
+    ],
+    "description": "英国贵族迫使国王签署大宪章，限制王权，确立了法律高于君主的原则，是宪政的起源。",
+    "importance": 5,
+    "tags": [
+      "大宪章",
+      "限权",
+      "宪政"
+    ]
+  },
+  {
+    "id": "soc_renaissance",
+    "name": "文艺复兴",
+    "year": "1400",
+    "yearRange": [
+      1350,
+      1550
+    ],
+    "era": "renaissance",
+    "domain": "social",
+    "prerequisites": [
+      "soc_university",
+      "soc_philosophy"
+    ],
+    "description": "对古典文化的重新发现和人文主义的兴起，挑战了中世纪的宗教权威，强调人的价值和理性。",
+    "importance": 5,
+    "tags": [
+      "文艺复兴",
+      "人文",
+      "古典"
+    ]
+  },
+  {
+    "id": "soc_reformation",
+    "name": "宗教改革",
+    "year": "1517",
+    "yearRange": [
+      1515,
+      1550
+    ],
+    "era": "renaissance",
+    "domain": "social",
+    "prerequisites": [
+      "soc_renaissance",
+      "eng_printing_press"
+    ],
+    "description": "马丁·路德发起的宗教改革打破了天主教会的垄断，推动了宗教自由和个人信仰权利。",
+    "importance": 5,
+    "tags": [
+      "改革",
+      "新教",
+      "信仰"
+    ]
+  },
+  {
+    "id": "soc_nation_state",
+    "name": "民族国家",
+    "year": "1648",
+    "yearRange": [
+      1640,
+      1700
+    ],
+    "era": "renaissance",
+    "domain": "social",
+    "prerequisites": [
+      "soc_magna_carta",
+      "soc_reformation"
+    ],
+    "description": "威斯特伐利亚和约确立的主权国家体系，以领土和民族认同为基础，是现代国际关系的基石。",
+    "importance": 5,
+    "tags": [
+      "主权",
+      "民族",
+      "国家"
+    ]
+  },
+  {
+    "id": "soc_enlightenment",
+    "name": "启蒙运动",
+    "year": "1690",
+    "yearRange": [
+      1680,
+      1800
+    ],
+    "era": "renaissance",
+    "domain": "social",
+    "prerequisites": [
+      "soc_renaissance",
+      "soc_philosophy",
+      "soc_nation_state"
+    ],
+    "description": "洛克、伏尔泰、卢梭等启蒙思想家以理性为武器，提出天赋人权、社会契约和三权分立。",
+    "importance": 5,
+    "tags": [
+      "启蒙",
+      "理性",
+      "人权"
+    ]
+  },
+  {
+    "id": "soc_capitalism",
+    "name": "资本主义经济",
+    "year": "1700",
+    "yearRange": [
+      1680,
+      1800
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_money",
+      "eng_steam_engine"
+    ],
+    "description": "以私有制、市场竞争和利润驱动为特征的经济体系，与工业革命相互促进，创造了前所未有的财富。",
+    "importance": 5,
+    "tags": [
+      "资本",
+      "市场",
+      "私有制"
+    ]
+  },
+  {
+    "id": "soc_industrial_society",
+    "name": "工业社会",
+    "year": "1800",
+    "yearRange": [
+      1780,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_capitalism",
+      "eng_steam_engine"
+    ],
+    "description": "工业化彻底改变了社会结构，城市化加速、工人阶级形成、社会流动性增加，新的社会矛盾随之出现。",
+    "importance": 5,
+    "tags": [
+      "工业",
+      "城市",
+      "阶级"
+    ]
+  },
+  {
+    "id": "soc_democracy_modern",
+    "name": "现代民主",
+    "year": "1789",
+    "yearRange": [
+      1776,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_enlightenment",
+      "soc_nation_state"
+    ],
+    "description": "美国独立和法国大革命将启蒙思想付诸实践，确立了人民主权、三权分立和权利法案。",
+    "importance": 5,
+    "tags": [
+      "革命",
+      "民主",
+      "权利"
+    ]
+  },
+  {
+    "id": "soc_socialism",
+    "name": "社会主义运动",
+    "year": "1848",
+    "yearRange": [
+      1840,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_industrial_society",
+      "soc_capitalism"
+    ],
+    "description": "马克思和恩格斯对资本主义的批判和对无阶级社会的设想，推动了全球范围的社会改革运动。",
+    "importance": 5,
+    "tags": [
+      "社会主义",
+      "马克思",
+      "阶级"
+    ]
+  },
+  {
+    "id": "soc_labor_movement",
+    "name": "劳工运动",
+    "year": "1860",
+    "yearRange": [
+      1850,
+      1920
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_socialism",
+      "soc_industrial_society"
+    ],
+    "description": "工会运动争取工人权利——八小时工作制、最低工资和劳动保护，改善了工业时代工人阶级的生活。",
+    "importance": 4,
+    "tags": [
+      "工会",
+      "劳动",
+      "权利"
+    ]
+  },
+  {
+    "id": "soc_sociology",
+    "name": "社会学",
+    "year": "1838",
+    "yearRange": [
+      1835,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "math_statistics_modern",
+      "soc_philosophy"
+    ],
+    "description": "孔德创立的社会学用科学方法研究社会现象，涂尔干和韦伯进一步建立了社会学的理论框架。",
+    "importance": 4,
+    "tags": [
+      "社会学",
+      "孔德",
+      "结构"
+    ]
+  },
+  {
+    "id": "soc_economics",
+    "name": "现代经济学",
+    "year": "1776",
+    "yearRange": [
+      1770,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "math_statistics_modern",
+      "soc_capitalism"
+    ],
+    "description": "亚当·斯密的《国富论》开创了系统的经济分析，边际革命后发展为新古典经济学。",
+    "importance": 5,
+    "tags": [
+      "经济学",
+      "斯密",
+      "市场"
+    ]
+  },
+  {
+    "id": "soc_public_education",
+    "name": "公共教育",
+    "year": "1870",
+    "yearRange": [
+      1860,
+      1920
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_democracy_modern",
+      "soc_industrial_society"
+    ],
+    "description": "义务教育制度的建立使教育从贵族特权变为全民权利，极大提高了人口素质和社会流动性。",
+    "importance": 5,
+    "tags": [
+      "教育",
+      "义务",
+      "普及"
+    ]
+  },
+  {
+    "id": "soc_feminism_wave1",
+    "name": "第一波女权运动",
+    "year": "1848",
+    "yearRange": [
+      1840,
+      1920
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_democracy_modern",
+      "soc_labor_movement"
+    ],
+    "description": "从塞内卡瀑布会议到女性获得投票权，第一波女权运动争取女性的基本政治权利。",
+    "importance": 5,
+    "tags": [
+      "女权",
+      "投票",
+      "平等"
+    ]
+  },
+  {
+    "id": "soc_welfare_state",
+    "name": "福利国家",
+    "year": "1945",
+    "yearRange": [
+      1930,
+      1970
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_socialism",
+      "soc_democracy_modern"
+    ],
+    "description": "二战后西欧国家建立的社会保障体系——全民医疗、失业保险和养老金，实现了社会安全网。",
+    "importance": 5,
+    "tags": [
+      "福利",
+      "保障",
+      "国家"
+    ]
+  },
+  {
+    "id": "soc_human_rights",
+    "name": "普遍人权",
+    "year": "1948",
+    "yearRange": [
+      1945,
+      1950
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_democracy_modern",
+      "soc_enlightenment"
+    ],
+    "description": "联合国《世界人权宣言》首次在全球范围内确认了每个人与生俱来的基本权利。",
+    "importance": 5,
+    "tags": [
+      "人权",
+      "联合国",
+      "普遍"
+    ]
+  },
+  {
+    "id": "soc_decolonization",
+    "name": "非殖民化",
+    "year": "1947",
+    "yearRange": [
+      1945,
+      1970
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_human_rights",
+      "soc_nation_state"
+    ],
+    "description": "二战后亚非拉殖民地纷纷独立，结束了数百年的殖民统治，重塑了世界政治版图。",
+    "importance": 5,
+    "tags": [
+      "独立",
+      "殖民",
+      "民族自决"
+    ]
+  },
+  {
+    "id": "soc_cold_war",
+    "name": "冷战格局",
+    "year": "1947",
+    "yearRange": [
+      1947,
+      1991
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_socialism",
+      "soc_capitalism",
+      "eng_nuclear_reactor"
+    ],
+    "description": "美苏两大阵营的意识形态对抗塑造了近半个世纪的世界格局，核威慑维持了不稳定的和平。",
+    "importance": 5,
+    "tags": [
+      "冷战",
+      "美苏",
+      "核威慑"
+    ]
+  },
+  {
+    "id": "soc_mass_media",
+    "name": "大众传媒",
+    "year": "1920",
+    "yearRange": [
+      1920,
+      1960
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "eng_telegraph",
+      "eng_steam_engine"
+    ],
+    "description": "从广播到电视，大众传媒使信息传播速度从天缩短到秒，深刻影响了政治和文化。",
+    "importance": 4,
+    "tags": [
+      "传媒",
+      "广播",
+      "电视"
+    ]
+  },
+  {
+    "id": "soc_consumer_society",
+    "name": "消费社会",
+    "year": "1950",
+    "yearRange": [
+      1945,
+      1970
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_capitalism",
+      "eng_assembly_line"
+    ],
+    "description": "大规模生产带来的廉价商品和广告驱动的消费文化，创造了人类历史上最富裕的社会。",
+    "importance": 4,
+    "tags": [
+      "消费",
+      "广告",
+      "丰裕"
+    ]
+  },
+  {
+    "id": "soc_civil_rights",
+    "name": "民权运动",
+    "year": "1955",
+    "yearRange": [
+      1950,
+      1970
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_human_rights",
+      "soc_feminism_wave1"
+    ],
+    "description": "马丁·路德·金领导的美国民权运动争取种族平等，影响了全球范围的反歧视斗争。",
+    "importance": 5,
+    "tags": [
+      "民权",
+      "平等",
+      "种族"
+    ]
+  },
+  {
+    "id": "soc_globalization",
+    "name": "全球化",
+    "year": "1990",
+    "yearRange": [
+      1985,
+      2010
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "soc_cold_war",
+      "it_internet",
+      "soc_capitalism"
+    ],
+    "description": "冷战结束后，互联网和国际贸易使全球连接为统一的经济和文化体系。",
+    "importance": 5,
+    "tags": [
+      "全球化",
+      "贸易",
+      "互联"
+    ]
+  },
+  {
+    "id": "soc_environmentalism",
+    "name": "环保运动",
+    "year": "1970",
+    "yearRange": [
+      1965,
+      1990
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "soc_consumer_society",
+      "bio_ecology"
+    ],
+    "description": "从《寂静的春天》到巴黎气候协定，环境意识从边缘走向主流，推动了绿色政治和可持续发展。",
+    "importance": 4,
+    "tags": [
+      "环保",
+      "气候",
+      "可持续"
+    ]
+  },
+  {
+    "id": "soc_feminism_wave2",
+    "name": "第二波女权运动",
+    "year": "1963",
+    "yearRange": [
+      1960,
+      1985
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_feminism_wave1",
+      "soc_civil_rights"
+    ],
+    "description": "争取职场平等、生育自主和终结性别歧视的社会运动，深刻改变了性别角色和期望。",
+    "importance": 4,
+    "tags": [
+      "女权",
+      "平等",
+      "性别"
+    ]
+  },
+  {
+    "id": "soc_digital_society",
+    "name": "数字社会",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2025
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "it_smartphone",
+      "it_social_media"
+    ],
+    "description": "社交媒体和智能手机使信息传播和人际互动彻底数字化，创造了虚拟社交和数字文化。",
+    "importance": 4,
+    "tags": [
+      "数字",
+      "社交",
+      "虚拟"
+    ]
+  },
+  {
+    "id": "soc_cognitive_science",
+    "name": "认知科学",
+    "year": "1956",
+    "yearRange": [
+      1950,
+      1980
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "math_logic",
+      "bio_nervous",
+      "soc_psychology"
+    ],
+    "description": "跨学科研究心智和智能的科学，融合心理学、语言学、神经科学和计算机科学。",
+    "importance": 4,
+    "tags": [
+      "认知",
+      "心智",
+      "跨学科"
+    ]
+  },
+  {
+    "id": "soc_psychology",
+    "name": "科学心理学",
+    "year": "1879",
+    "yearRange": [
+      1875,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_philosophy",
+      "math_statistics_modern"
+    ],
+    "description": "冯特在莱比锡建立第一个心理学实验室，将人类心理过程纳入实验科学研究。",
+    "importance": 5,
+    "tags": [
+      "心理学",
+      "实验",
+      "冯特"
+    ]
+  },
+  {
+    "id": "soc_behavioral_econ",
+    "name": "行为经济学",
+    "year": "1979",
+    "yearRange": [
+      1970,
+      2000
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "soc_economics",
+      "soc_psychology"
+    ],
+    "description": "卡尼曼和特沃斯基证明人类决策偏离理性假设，将心理学引入经济学，创立了行为经济学。",
+    "importance": 4,
+    "tags": [
+      "行为",
+      "偏差",
+      "决策"
+    ]
+  },
+  {
+    "id": "soc_social_media_rev",
+    "name": "社交媒体革命",
+    "year": "2010",
+    "yearRange": [
+      2008,
+      2020
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "it_social_media",
+      "soc_digital_society"
+    ],
+    "description": "社交媒体平台改变了政治动员、新闻传播和公共讨论的方式，带来了信息民主化和虚假信息双重挑战。",
+    "importance": 4,
+    "tags": [
+      "社交",
+      "动员",
+      "信息"
+    ]
+  },
+  {
+    "id": "soc_data_privacy",
+    "name": "数据隐私运动",
+    "year": "2018",
+    "yearRange": [
+      2013,
+      2025
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "soc_digital_society",
+      "it_big_data"
+    ],
+    "description": "从斯诺登事件到GDPR，对数字时代个人隐私和数据权利的关注推动了隐私保护立法。",
+    "importance": 3,
+    "tags": [
+      "隐私",
+      "GDPR",
+      "数据"
+    ]
+  },
+  {
+    "id": "soc_global_governance",
+    "name": "全球治理",
+    "year": "1945",
+    "yearRange": [
+      1945,
+      2000
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_human_rights",
+      "soc_cold_war"
+    ],
+    "description": "联合国、世贸组织和世界银行等国际机构构建的全球治理框架，协调国际冲突和合作。",
+    "importance": 4,
+    "tags": [
+      "联合国",
+      "治理",
+      "国际"
+    ]
+  },
+  {
+    "id": "soc_population_transition",
+    "name": "人口转型",
+    "year": "1960",
+    "yearRange": [
+      1950,
+      2000
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "med_public_health",
+      "soc_welfare_state"
+    ],
+    "description": "从高出生率高死亡率到低出生率低死亡率的人口转型，改变了全球人口结构和增长趋势。",
+    "importance": 4,
+    "tags": [
+      "人口",
+      "转型",
+      "老龄化"
+    ]
+  },
+  {
+    "id": "soc_cultural_exchange",
+    "name": "文化交流",
+    "year": "-300",
+    "yearRange": [
+      -500,
+      2000
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_writing",
+      "soc_trade_route"
+    ],
+    "description": "丝绸之路和大航海时代等跨文化交流推动了技术、思想和艺术的全球传播。",
+    "importance": 4,
+    "tags": [
+      "文化",
+      "交流",
+      "丝路"
+    ]
+  },
+  {
+    "id": "soc_trade_route",
+    "name": "贸易网络",
+    "year": "-2000",
+    "yearRange": [
+      -3000,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_money"
+    ],
+    "description": "从早期城邦间贸易到丝绸之路，远距离贸易网络促进了经济繁荣和文化交流。",
+    "importance": 4,
+    "tags": [
+      "贸易",
+      "丝路",
+      "网络"
+    ]
+  }
+]

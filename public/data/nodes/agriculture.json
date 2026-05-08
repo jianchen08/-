@@ -1,0 +1,982 @@
+[
+  {
+    "id": "ag_plant_domestication",
+    "name": "植物驯化",
+    "year": "-9500",
+    "yearRange": [
+      -11000,
+      -8000
+    ],
+    "era": "prehistoric",
+    "domain": "agriculture",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "人类开始有选择地培育野生植物，将小麦、水稻、玉米等从野生种驯化为栽培种，是农业起源的标志。",
+    "importance": 5,
+    "tags": [
+      "驯化",
+      "作物",
+      "起源"
+    ]
+  },
+  {
+    "id": "ag_animal_domestication",
+    "name": "动物驯化",
+    "year": "-9000",
+    "yearRange": [
+      -12000,
+      -7000
+    ],
+    "era": "prehistoric",
+    "domain": "agriculture",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "从驯化狗开始，逐步驯化羊、牛、猪、马等动物，为人类提供稳定的肉、奶、毛皮和劳动力来源。",
+    "importance": 5,
+    "tags": [
+      "驯化",
+      "畜牧",
+      "家畜"
+    ]
+  },
+  {
+    "id": "ag_irrigation",
+    "name": "灌溉技术",
+    "year": "-6000",
+    "yearRange": [
+      -8000,
+      -4000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "人工引水灌溉农田的技术，美索不达米亚和古埃及最早发展出沟渠灌溉系统，使农业不再完全依赖降雨。",
+    "importance": 5,
+    "tags": [
+      "灌溉",
+      "水利",
+      "渠道"
+    ]
+  },
+  {
+    "id": "ag_plow",
+    "name": "犁的发明",
+    "year": "-3500",
+    "yearRange": [
+      -4000,
+      -3000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "mat_stone_tools"
+    ],
+    "description": "犁使翻土效率大幅提高，最初是人力拉动的简单木犁，后来发展为畜力犁，是传统农业最重要的工具。",
+    "importance": 5,
+    "tags": [
+      "犁",
+      "翻土",
+      "工具"
+    ]
+  },
+  {
+    "id": "ag_fermentation",
+    "name": "发酵技术",
+    "year": "-6000",
+    "yearRange": [
+      -8000,
+      -4000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "利用微生物发酵制作面包、啤酒、葡萄酒和酱油的技术，是人类最早利用生物化学过程的实践。",
+    "importance": 4,
+    "tags": [
+      "发酵",
+      "酿造",
+      "食品"
+    ]
+  },
+  {
+    "id": "ag_crop_rotation",
+    "name": "轮作制度",
+    "year": "-600",
+    "yearRange": [
+      -800,
+      -400
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "ag_irrigation"
+    ],
+    "description": "有计划地轮换种植不同作物以恢复土壤肥力的耕作制度，比连续种植同一作物产量更高更稳定。",
+    "importance": 4,
+    "tags": [
+      "轮作",
+      "土壤",
+      "肥力"
+    ]
+  },
+  {
+    "id": "ag_terracing",
+    "name": "梯田农业",
+    "year": "-200",
+    "yearRange": [
+      -500,
+      200
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_irrigation",
+      "ag_plant_domestication"
+    ],
+    "description": "在山坡上修筑阶梯状田地的技术，有效利用了山地资源，防止水土流失，中国、东南亚和印加帝国都有杰出的梯田系统。",
+    "importance": 3,
+    "tags": [
+      "梯田",
+      "山地",
+      "水土"
+    ]
+  },
+  {
+    "id": "ag_cattle_breeding",
+    "name": "家畜选育",
+    "year": "-3000",
+    "yearRange": [
+      -4000,
+      -2000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_animal_domestication"
+    ],
+    "description": "通过选择性配种改良家畜品质的系统方法，培育出适应不同用途的专用品种。",
+    "importance": 4,
+    "tags": [
+      "选育",
+      "家畜",
+      "品种"
+    ]
+  },
+  {
+    "id": "ag_windmill",
+    "name": "风车磨坊",
+    "year": "634",
+    "yearRange": [
+      600,
+      700
+    ],
+    "era": "medieval",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "mat_stone_tools"
+    ],
+    "description": "利用风能驱动磨石碾磨粮食的装置，在荷兰和中东广泛使用，是农业加工机械化的重要里程碑。",
+    "importance": 3,
+    "tags": [
+      "风车",
+      "磨坊",
+      "风能"
+    ]
+  },
+  {
+    "id": "ag_three_field",
+    "name": "三圃制",
+    "year": "800",
+    "yearRange": [
+      700,
+      900
+    ],
+    "era": "medieval",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_crop_rotation"
+    ],
+    "description": "将耕地分为三部分轮流种植冬作物、春作物和休耕的农业制度，比二圃制提高了土地利用效率。",
+    "importance": 4,
+    "tags": [
+      "三圃制",
+      "休耕",
+      "中世纪"
+    ]
+  },
+  {
+    "id": "ag_horse_collar",
+    "name": "马项圈",
+    "year": "900",
+    "yearRange": [
+      800,
+      1000
+    ],
+    "era": "medieval",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_animal_domestication",
+      "ag_plow"
+    ],
+    "description": "改进的马具使马能发挥全部拉力而不窒息，马的牵引力比牛大50%，极大提高了耕作效率。",
+    "importance": 3,
+    "tags": [
+      "马具",
+      "畜力",
+      "效率"
+    ]
+  },
+  {
+    "id": "ag_columbian_exchange",
+    "name": "哥伦布大交换",
+    "year": "1492",
+    "yearRange": [
+      1490,
+      1600
+    ],
+    "era": "renaissance",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "哥伦布发现美洲后，新旧大陆之间的农作物和家畜大规模交换，玉米、马铃薯、番茄传入旧大陆，小麦、马牛传入新大陆。",
+    "importance": 5,
+    "tags": [
+      "交换",
+      "美洲",
+      "全球"
+    ]
+  },
+  {
+    "id": "ag_seed_drill",
+    "name": "播种机",
+    "year": "1701",
+    "yearRange": [
+      1695,
+      1710
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "eng_mechanical"
+    ],
+    "description": "杰思罗·塔尔发明的机械播种机将种子以精确的间距和深度播入土中，大幅提高了播种效率和出苗率。",
+    "importance": 4,
+    "tags": [
+      "播种",
+      "机械",
+      "效率"
+    ]
+  },
+  {
+    "id": "ag_thresher",
+    "name": "脱粒机",
+    "year": "1786",
+    "yearRange": [
+      1780,
+      1795
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_seed_drill",
+      "mat_wrought_iron"
+    ],
+    "description": "安德鲁·梅克尔发明的机械脱粒机将谷物从穗上分离，结束了人工打谷的历史，是农业机械化的重要一步。",
+    "importance": 4,
+    "tags": [
+      "脱粒",
+      "机械",
+      "分离"
+    ]
+  },
+  {
+    "id": "ag_fertilizer_natural",
+    "name": "天然肥料应用",
+    "year": "-3000",
+    "yearRange": [
+      -5000,
+      -1000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_animal_domestication"
+    ],
+    "description": "系统利用动物粪便、绿肥和堆肥补充土壤养分，是维持地力最古老而持续有效的方法。",
+    "importance": 4,
+    "tags": [
+      "肥料",
+      "有机",
+      "堆肥"
+    ]
+  },
+  {
+    "id": "ag_fertilizer_synthetic",
+    "name": "合成化肥",
+    "year": "1910",
+    "yearRange": [
+      1905,
+      1920
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "chem_haber",
+      "ag_fertilizer_natural"
+    ],
+    "description": "哈伯-博施法合成氨使化肥大规模生产成为可能，全球粮食产量因此翻倍，养活了数十亿人口。",
+    "importance": 5,
+    "tags": [
+      "化肥",
+      "哈伯",
+      "氮"
+    ]
+  },
+  {
+    "id": "ag_pesticide",
+    "name": "化学农药",
+    "year": "1939",
+    "yearRange": [
+      1935,
+      1950
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_fertilizer_synthetic",
+      "chem_organic"
+    ],
+    "description": "DDT等化学农药的大规模使用有效控制了病虫害，但后来发现其环境危害，催生了绿色农业理念。",
+    "importance": 4,
+    "tags": [
+      "农药",
+      "DDT",
+      "害虫"
+    ]
+  },
+  {
+    "id": "ag_tractor",
+    "name": "拖拉机",
+    "year": "1904",
+    "yearRange": [
+      1900,
+      1915
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "ag_plow",
+      "mat_steel_bessemer"
+    ],
+    "description": "内燃机驱动的拖拉机取代了畜力，成为现代农业机械化的核心动力，彻底改变了农业生产方式。",
+    "importance": 5,
+    "tags": [
+      "拖拉机",
+      "机械化",
+      "动力"
+    ]
+  },
+  {
+    "id": "ag_combine",
+    "name": "联合收割机",
+    "year": "1835",
+    "yearRange": [
+      1830,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_thresher",
+      "mat_steel_bessemer"
+    ],
+    "description": "将收割、脱粒、清选合为一体的农业机械，一台联合收割机可替代上百人的劳动。",
+    "importance": 4,
+    "tags": [
+      "收割",
+      "联合",
+      "效率"
+    ]
+  },
+  {
+    "id": "ag_green_revolution",
+    "name": "绿色革命",
+    "year": "1960",
+    "yearRange": [
+      1955,
+      1970
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_fertilizer_synthetic",
+      "ag_pesticide",
+      "ag_irrigation"
+    ],
+    "description": "博洛格等人培育的高产小麦和水稻品种配合化肥和灌溉，使印度、墨西哥等国粮食产量翻倍，避免了大规模饥荒。",
+    "importance": 5,
+    "tags": [
+      "绿色革命",
+      "高产",
+      "博洛格"
+    ]
+  },
+  {
+    "id": "ag_drip_irrigation",
+    "name": "滴灌技术",
+    "year": "1965",
+    "yearRange": [
+      1960,
+      1975
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_irrigation",
+      "eng_plastic_pipe"
+    ],
+    "description": "以色列发展的精确灌溉技术，将水直接输送到植物根部，节水效率达90%以上，适合干旱地区。",
+    "importance": 4,
+    "tags": [
+      "滴灌",
+      "节水",
+      "以色列"
+    ]
+  },
+  {
+    "id": "ag_gm_crop",
+    "name": "转基因作物",
+    "year": "1996",
+    "yearRange": [
+      1990,
+      2000
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "bio_genetic_eng",
+      "ag_green_revolution"
+    ],
+    "description": "通过基因工程将抗虫、抗除草剂等基因导入作物，Bt棉和抗除草剂大豆等转基因作物已广泛种植。",
+    "importance": 5,
+    "tags": [
+      "转基因",
+      "基因工程",
+      "作物"
+    ]
+  },
+  {
+    "id": "ag_precision_farming",
+    "name": "精准农业",
+    "year": "1995",
+    "yearRange": [
+      1990,
+      2005
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_tractor",
+      "eng_gps"
+    ],
+    "description": "利用GPS定位、传感器和大数据分析实现精准施肥、喷药和灌溉，减少浪费提高产量的现代农业方式。",
+    "importance": 4,
+    "tags": [
+      "精准",
+      "GPS",
+      "数据"
+    ]
+  },
+  {
+    "id": "ag_hydroponics",
+    "name": "水培技术",
+    "year": "1937",
+    "yearRange": [
+      1930,
+      1950
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_fertilizer_synthetic",
+      "ag_irrigation"
+    ],
+    "description": "不使用土壤而用营养液直接培养植物的技术，在温室和城市农业中应用广泛，节水且产量高。",
+    "importance": 3,
+    "tags": [
+      "水培",
+      "无土",
+      "温室"
+    ]
+  },
+  {
+    "id": "ag_vertical_farm",
+    "name": "垂直农业",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2020
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_hydroponics",
+      "eng_led_light"
+    ],
+    "description": "在多层建筑中进行室内种植，利用人工光照和水培技术实现全年无休生产，是城市食物生产的前沿模式。",
+    "importance": 3,
+    "tags": [
+      "垂直",
+      "城市",
+      "室内"
+    ]
+  },
+  {
+    "id": "ag_crispr_crop",
+    "name": "基因编辑作物",
+    "year": "2013",
+    "yearRange": [
+      2012,
+      2020
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_gm_crop",
+      "bio_crispr"
+    ],
+    "description": "利用CRISPR等基因编辑工具精确改良作物性状，比传统转基因更精确且争议更小。",
+    "importance": 4,
+    "tags": [
+      "CRISPR",
+      "基因编辑",
+      "精准"
+    ]
+  },
+  {
+    "id": "ag_drone_farming",
+    "name": "农业无人机",
+    "year": "2015",
+    "yearRange": [
+      2010,
+      2025
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_precision_farming",
+      "eng_drone"
+    ],
+    "description": "用于农情监测、精准喷药和播种的无人机，大幅提高了农业管理的效率和精度。",
+    "importance": 3,
+    "tags": [
+      "无人机",
+      "监测",
+      "喷药"
+    ]
+  },
+  {
+    "id": "ag_aquaculture",
+    "name": "现代水产养殖",
+    "year": "1970",
+    "yearRange": [
+      1960,
+      1985
+    ],
+    "era": "information",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_fertilizer_synthetic"
+    ],
+    "description": "系统化的鱼类和贝类养殖技术，已成为全球增长最快的食品生产部门，提供了人类消费的一半以上的鱼类。",
+    "importance": 3,
+    "tags": [
+      "水产",
+      "养殖",
+      "鱼类"
+    ]
+  },
+  {
+    "id": "ag_dairy",
+    "name": "乳业技术",
+    "year": "-4000",
+    "yearRange": [
+      -5000,
+      -3000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_animal_domestication",
+      "ag_fermentation"
+    ],
+    "description": "从奶牛挤奶到制作黄油、奶酪的一系列乳制品加工技术，丰富了人类的蛋白质来源。",
+    "importance": 3,
+    "tags": [
+      "乳业",
+      "奶酪",
+      "加工"
+    ]
+  },
+  {
+    "id": "ag_silk",
+    "name": "养蚕缫丝",
+    "year": "-3000",
+    "yearRange": [
+      -3500,
+      -2500
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_animal_domestication",
+      "mat_weaving"
+    ],
+    "description": "中国独创的蚕桑丝绸技术，将蚕茧抽丝织成华美丝绸，通过丝绸之路传播到全世界。",
+    "importance": 4,
+    "tags": [
+      "丝绸",
+      "蚕",
+      "中国"
+    ]
+  },
+  {
+    "id": "ag_tea",
+    "name": "茶叶种植",
+    "year": "-500",
+    "yearRange": [
+      -1000,
+      -200
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "ag_fermentation"
+    ],
+    "description": "从中国起源的茶叶种植和加工技术，发展出绿茶、红茶等多种品类，成为全球最受欢迎的饮品之一。",
+    "importance": 3,
+    "tags": [
+      "茶叶",
+      "饮品",
+      "中国"
+    ]
+  },
+  {
+    "id": "ag_sugar",
+    "name": "蔗糖生产",
+    "year": "500",
+    "yearRange": [
+      400,
+      700
+    ],
+    "era": "medieval",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "ag_fermentation"
+    ],
+    "description": "从甘蔗中提取蔗糖的技术，从印度经阿拉伯世界传播，后来成为全球贸易的重要商品。",
+    "importance": 3,
+    "tags": [
+      "蔗糖",
+      "甘蔗",
+      "贸易"
+    ]
+  },
+  {
+    "id": "ag_spice_trade",
+    "name": "香料贸易",
+    "year": "-1000",
+    "yearRange": [
+      -2000,
+      0
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "胡椒、肉桂、丁香等香料的生产和远距离贸易，推动了东西方贸易路线的开辟和大航海时代的到来。",
+    "importance": 4,
+    "tags": [
+      "香料",
+      "贸易",
+      "航海"
+    ]
+  },
+  {
+    "id": "ag_food_preserve",
+    "name": "食品保存技术",
+    "year": "-3000",
+    "yearRange": [
+      -5000,
+      -1000
+    ],
+    "era": "ancient",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "chem_distillation"
+    ],
+    "description": "腌制、烟熏、干燥等保存食物的方法，使人类能够储存食物度过冬季和饥荒。",
+    "importance": 4,
+    "tags": [
+      "保存",
+      "腌制",
+      "干燥"
+    ]
+  },
+  {
+    "id": "ag_canning",
+    "name": "罐头技术",
+    "year": "1809",
+    "yearRange": [
+      1805,
+      1815
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_food_preserve",
+      "mat_glass"
+    ],
+    "description": "阿佩尔发明的加热密封保存食物的方法，为拿破仑军队解决口粮问题而诞生，开启了现代食品工业。",
+    "importance": 4,
+    "tags": [
+      "罐头",
+      "密封",
+      "杀菌"
+    ]
+  },
+  {
+    "id": "ag_pastuerize",
+    "name": "巴氏杀菌",
+    "year": "1864",
+    "yearRange": [
+      1860,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_canning",
+      "bio_germ_theory"
+    ],
+    "description": "巴斯德发明的低温加热杀菌法，在杀灭有害微生物的同时保留食物风味，广泛用于牛奶和果汁处理。",
+    "importance": 5,
+    "tags": [
+      "巴氏杀菌",
+      "牛奶",
+      "微生物"
+    ]
+  },
+  {
+    "id": "ag_refrigeration",
+    "name": "冷链技术",
+    "year": "1876",
+    "yearRange": [
+      1860,
+      1890
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "eng_refrigeration",
+      "ag_food_preserve"
+    ],
+    "description": "机械制冷技术使食物可以长途运输和长期保存，彻底改变了全球食品供应链。",
+    "importance": 4,
+    "tags": [
+      "冷藏",
+      "冷链",
+      "保鲜"
+    ]
+  },
+  {
+    "id": "ag_organic_farming",
+    "name": "有机农业",
+    "year": "1940",
+    "yearRange": [
+      1930,
+      1960
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_fertilizer_natural",
+      "ag_pesticide"
+    ],
+    "description": "反对过度使用化学品的农业理念，采用生物防治、有机肥料等自然方法，追求可持续的农业生产。",
+    "importance": 3,
+    "tags": [
+      "有机",
+      "可持续",
+      "生态"
+    ]
+  },
+  {
+    "id": "ag_system_rice",
+    "name": "水稻种植体系",
+    "year": "-7000",
+    "yearRange": [
+      -9000,
+      -5000
+    ],
+    "era": "prehistoric",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication",
+      "ag_irrigation"
+    ],
+    "description": "亚洲发展的水稻种植技术体系，包括育秧、插秧、水田管理等环节，养活了世界一半以上的人口。",
+    "importance": 5,
+    "tags": [
+      "水稻",
+      "亚洲",
+      "水田"
+    ]
+  },
+  {
+    "id": "ag_corn_system",
+    "name": "玉米种植体系",
+    "year": "-5000",
+    "yearRange": [
+      -7000,
+      -3000
+    ],
+    "era": "prehistoric",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "中美洲原住民从野生蜀黍驯化出玉米，并发展出三姐妹(玉米、豆类、南瓜)间作体系，是美洲农业的基石。",
+    "importance": 4,
+    "tags": [
+      "玉米",
+      "美洲",
+      "间作"
+    ]
+  },
+  {
+    "id": "ag_wheat_breeding",
+    "name": "小麦育种",
+    "year": "-8000",
+    "yearRange": [
+      -10000,
+      -6000
+    ],
+    "era": "prehistoric",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "从野生一粒小麦到现代面包小麦的系统选育过程，是人类最早也是最成功的作物改良实践之一。",
+    "importance": 4,
+    "tags": [
+      "小麦",
+      "育种",
+      "新月沃地"
+    ]
+  },
+  {
+    "id": "ag_soil_science",
+    "name": "土壤学",
+    "year": "1860",
+    "yearRange": [
+      1840,
+      1880
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_crop_rotation",
+      "chem_elements"
+    ],
+    "description": "对土壤组成、性质和肥力进行系统科学研究，为合理施肥和土壤管理提供了科学依据。",
+    "importance": 3,
+    "tags": [
+      "土壤",
+      "科学",
+      "肥力"
+    ]
+  },
+  {
+    "id": "ag_agronomy",
+    "name": "农学体系",
+    "year": "1840",
+    "yearRange": [
+      1830,
+      1860
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_soil_science",
+      "chem_organic"
+    ],
+    "description": "将化学、生物学和地质学知识应用于农业生产的科学体系，使农业从经验走向科学。",
+    "importance": 4,
+    "tags": [
+      "农学",
+      "科学",
+      "系统"
+    ]
+  },
+  {
+    "id": "ag_farm_animal",
+    "name": "集约化养殖",
+    "year": "1950",
+    "yearRange": [
+      1945,
+      1965
+    ],
+    "era": "modern",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_tractor",
+      "ag_fertilizer_synthetic"
+    ],
+    "description": "大规模、高密度的工厂化动物养殖模式，大幅提高了肉类产量，但也带来了环境和动物福利问题。",
+    "importance": 3,
+    "tags": [
+      "集约化",
+      "工厂",
+      "养殖"
+    ]
+  },
+  {
+    "id": "ag_biocontrol",
+    "name": "生物防治",
+    "year": "1888",
+    "yearRange": [
+      1880,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "agriculture",
+    "prerequisites": [
+      "ag_pesticide",
+      "bio_evolution"
+    ],
+    "description": "利用天敌、寄生虫和病原体控制农业害虫的方法，是有害生物综合管理的核心策略。",
+    "importance": 3,
+    "tags": [
+      "生物防治",
+      "天敌",
+      "生态"
+    ]
+  }
+]

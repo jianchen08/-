@@ -1,0 +1,98 @@
+[
+  {
+    "id": "materials",
+    "name": "材料科学",
+    "nameEn": "Materials Science",
+    "icon": "🔩",
+    "description": "研究材料的发现、合成、加工与应用，从石器、青铜、钢铁到现代半导体、纳米材料和超导体的全谱系演进",
+    "color": "#8B7355"
+  },
+  {
+    "id": "energy",
+    "name": "能源技术",
+    "nameEn": "Energy Technology",
+    "icon": "⚡",
+    "description": "涵盖能源获取、转换、存储与传输全链条，从人力畜力、火力水力到核能、太阳能及未来聚变能的技术跨越",
+    "color": "#FFD700"
+  },
+  {
+    "id": "engineering",
+    "name": "工程技术",
+    "nameEn": "Engineering",
+    "icon": "⚙️",
+    "description": "机械、建筑、制造、交通等领域的工程实践，从古代水利灌溉到现代机器人、航空航天工程的系统化建造能力",
+    "color": "#708090"
+  },
+  {
+    "id": "agriculture",
+    "name": "农业技术",
+    "nameEn": "Agriculture",
+    "icon": "🌾",
+    "description": "种植、畜牧、灌溉、食品加工与农业机械化的演进历程，从刀耕火种到基因改良作物的农业革命全景",
+    "color": "#228B22"
+  },
+  {
+    "id": "medicine",
+    "name": "医学技术",
+    "nameEn": "Medicine",
+    "icon": "💊",
+    "description": "疾病诊断、治疗、预防与公共卫生的进步，从传统草药到基因疗法、精准医学和人工智能辅助诊疗的医学演进",
+    "color": "#DC143C"
+  },
+  {
+    "id": "physics",
+    "name": "物理学",
+    "nameEn": "Physics",
+    "icon": "🔬",
+    "description": "探索物质、能量、时空基本规律的科学，从经典力学到相对论、量子力学和粒子物理标准模型的理论大厦",
+    "color": "#4169E1"
+  },
+  {
+    "id": "chemistry",
+    "name": "化学",
+    "nameEn": "Chemistry",
+    "icon": "🧪",
+    "description": "研究物质的组成、结构、性质与变化规律，从炼金术、元素发现到有机合成、高分子化学和绿色化学的学科发展",
+    "color": "#9932CC"
+  },
+  {
+    "id": "biology",
+    "name": "生物学",
+    "nameEn": "Biology",
+    "icon": "🧬",
+    "description": "研究生命现象与生物体规律的科学，从博物学到进化论、分子生物学、基因组学和合成生物学的生命科学演进",
+    "color": "#32CD32"
+  },
+  {
+    "id": "astronomy",
+    "name": "天文学",
+    "nameEn": "Astronomy",
+    "icon": "🔭",
+    "description": "天体观测与宇宙探索的科学，从肉眼观星、望远镜到空间探测器、引力波探测和多信使天文学的宇宙认知拓展",
+    "color": "#191970"
+  },
+  {
+    "id": "math",
+    "name": "数学",
+    "nameEn": "Mathematics",
+    "icon": "📐",
+    "description": "研究数量、结构、变化与空间模式的抽象科学，从计数、几何到微积分、群论、拓扑学的纯数学与应用数学全谱系",
+    "color": "#FF6347"
+  },
+  {
+    "id": "it",
+    "name": "信息技术",
+    "nameEn": "Information Technology",
+    "icon": "💻",
+    "description": "计算、通信、数据处理的软硬件技术体系，从算盘、计算机到互联网、云计算、人工智能和量子计算的信息革命",
+    "color": "#1E90FF"
+  },
+  {
+    "id": "social",
+    "name": "社会科学",
+    "nameEn": "Social Sciences",
+    "icon": "📜",
+    "description": "研究人类社会、经济、政治、法律与文化的学科群，从城邦制度到现代经济学、社会学和国际法的治理智慧演进",
+    "color": "#DAA520"
+  }
+]
