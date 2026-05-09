@@ -2,7 +2,7 @@
 export interface TechNode {
   id: string;
   name: string;
-  year: number;
+  year: number | string;
   yearRange?: [number, number];
   era: string;
   domain: string;
@@ -38,4 +38,27 @@ export interface TechTreeData {
   nodes: TechNode[];
   domains: Domain[];
   eras: Era[];
+}
+
+/** 布局类型 */
+export type LayoutType = 'dagre' | 'force' | 'timeline';
+
+/** 筛选条件 */
+export interface FilterState {
+  selectedEras: string[];
+  selectedDomains: string[];
+  hubThreshold: number;
+}
+
+/** 选中节点信息（传递给 NodeDetail） */
+export interface SelectedNode {
+  id: string;
+  name: string;
+  description: string;
+  year: number | string;
+  era: string;
+  domain: string;
+  tags: string[];
+  hubScore: number;
+  prerequisites: string[];
 }
