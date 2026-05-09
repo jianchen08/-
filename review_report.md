@@ -1,306 +1,395 @@
-# 科技树可视化项目 — 代码审查报告
+# 代码审查报告：PDF 导出功能 + 构建配置 + README
 
-> 审查日期：2026-05-09  
-> 项目：tech-tree-visualizer  
-> 审查范围：10 个核心文件（配置、类型、工具、组件、样式）
+## 1. 概述
 
----
-
-## 目录
-
-1. [总体评价](#总体评价)
-2. [逐文件审查](#逐文件审查)
-3. [问题汇总（按严重程度分类）](#问题汇总按严重程度分类)
-4. [已修复问题](#已修复问题)
-5. [改进建议](#改进建议)
+- **审查范围**：`src/utils/pdfExporter.ts`、`src/components/Toolbar.tsx`（新增导出部分）、`src/App.tsx`（导出集成）、`vite.config.ts`、`README.md`
+- **代码类型**：前端（React + TypeScript）
+- **审查维度**：Google 八大维度 + 前端专项规则
+- **审查日期**：2026-05-09
+- **变更概述**：新增 PDF 导出功能（视口导出 + 全景导出），修改 Toolbar 组件集成导出按钮，更新 vite.config.ts 支持离线部署，更新 README 文档
 
 ---
 
-## 总体评价
+## 2. 静态扫描指标
 
-项目整体结构清晰，模块职责分明，TypeScript 严格模式已启用，Cytoscape.js 集成思路正确。代码量不大但功能完整，具备加载状态和错误处理的基本框架。
+| 检查项 | 工具 | 结果 | 状态 |
+|--------|------|------|------|
+| TypeScript 类型检查 | `tsc --noEmit --strict` | 0 错误 / 0 警告 | ✅ 通过 |
+| 未使用变量/参数检查 | `tsc --noUnusedLocals --noUnusedParameters` | 0 错误 / 0 警告 | ✅ 通过 |
+| ESLint 代码规范 | ESLint | ⚠️ 项目未配置 ESLint | ⚠️ 缺失 |
+| 生产构建 | `vite build` | 构建成功，1 个 chunk 大小警告 | ⚠️ 部分通过 |
+| 单元测试 | — | 项目无测试文件 | ❌ 缺失 |
 
-审查过程中发现的严重和中等问题已全部修复：消除了 `as any` 类型绕过、修复了 StrictMode 竞态条件和内存泄漏、增强了数据加载健壮性、改为不可变的枢纽值计算。修复后项目代码质量达到较高水平。
+### 构建产物分析
 
----
+| 产物 | 大小 | Gzip | 备注 |
+|------|------|------|------|
+| `index-DmNtU9Xs.js` | 1,378 KB | 427 KB | ⚠️ 超过 500KB 警告阈值 |
+| `index.es-BEthgigX.js` | 160 KB | 54 KB | Cytoscape 核心库 |
+| `purify.es-BaNf_EpD.js` | 24 KB | 9 KB | DOMPurify |
+| `index-CILThu0N.css` | 8 KB | 2 KB | 样式 |
+| `index.html` | 0.4 KB | 0.3 KB | ✅ 使用相对路径 |
 
-## 逐文件审查
+### 量化指标汇总
 
-### 1. `package.json` — ✅ 良好
-
-**审查结论**：依赖配置合理，版本选择恰当。
-
-**优点**：
-- React 18 + TypeScript + Vite 的技术栈搭配现代且合理
-- `cytoscape` + `cytoscape-dagre` 用于有向图布局是正确选择
-- 生产依赖和开发依赖分离清晰
-
-**残留建议**：
-- 建议添加 `eslint`、`prettier` 配置，统一代码风格
-- 确认 `@types/cytoscape-dagre` 是否需要额外安装
-
----
-
-### 2. `vite.config.ts` — ✅ 良好
-
-**审查结论**：配置极简但够用。
-
-**残留建议**：
-- `dataLoader.ts` 从 `/data/*.json` 加载数据，依赖 Vite 的 `public/` 目录静态服务。建议在 README 中说明数据文件的放置要求。
+| 指标 | 值 | 评级 |
+|------|------|------|
+| TypeScript 严格模式错误数 | 0 | 良好 |
+| 类型注解覆盖度 | 100%（公共接口） | 良好 |
+| 主 JS Chunk 大小 | 1,378 KB | 差 |
+| 代码规范工具配置 | 未配置 | 差 |
+| 测试覆盖率 | 0% | 差 |
 
 ---
 
-### 3. `tsconfig.json` — ✅ 良好
+## 3. 维度审查发现的问题
 
-**审查结论**：TypeScript 配置严格且完善。
+### 3.1 Design（设计）
 
-**优点**：
-- `strict: true` 开启了所有严格检查
-- `noUnusedLocals`、`noUnusedParameters` 避免死代码
-- `noUncheckedIndexedAccess` 防止数组/对象索引越界
-- `moduleResolution: "bundler"` 适配 Vite 的打包模式
+**架构合理性** ✅ 良好
 
-**注意**：引用了 `tsconfig.node.json`（`references` 字段），应确认该文件存在且配置正确。
+`pdfExporter.ts` 作为独立 utils 模块，职责单一，只负责 PDF 生成逻辑。Toolbar 组件只负责 UI 展示和用户交互，App.tsx 负责状态管理和胶水代码。三层分离清晰。
 
----
+**接口设计** ✅ 良好
 
-### 4. `src/types/index.ts` — ✅ 良好（已修复）
+公共接口仅暴露 `exportViewport` 和 `exportFullView` 两个函数，参数简洁（element + fileName），内部函数 `sliceCanvas`、`addImageFitToPage`、`addImageMultiPage` 均为模块私有。
 
-**审查结论**：类型定义完整准确。
+### 3.2 Functionality（功能）
 
-**修复内容**：
-- ~~`CyNodeData` / `CyEdgeData` 未使用的接口定义已删除~~
-- ~~`TechNode.year` 类型从 `string | number` 收窄为 `number`~~
+#### 问题 F-1：`sliceCanvas` 中 `getContext('2d')` 返回 null 时静默失败
 
-**当前状态**：
+- **文件**：`src/utils/pdfExporter.ts` 第 54-57 行
+- **级别**：Must Fix
+- **描述**：当 `getContext('2d')` 返回 `null`（如 canvas 已被其他上下文占用）时，函数返回一个空白 canvas，不会抛出错误。这会导致 PDF 中出现空白页，用户无法得知原因。
+- **修复建议**：
+
 ```typescript
-export interface TechNode {
-  id: string;
-  name: string;
-  year: number;           // ✅ 精确类型
-  yearRange?: [number, number];
-  era: string;
-  domain: string;
-  prerequisites: string[];
-  description: string;
-  importance?: number;
-  tags?: string[];
-  hubScore?: number;
-}
-// Domain, Era, TechTreeData — 均定义完整，无冗余
-```
-
----
-
-### 5. `src/utils/dataLoader.ts` — ✅ 良好（已修复）
-
-**审查结论**：数据加载具备错误处理和超时机制。
-
-**修复内容**：
-- ~~添加了 `AbortController` 超时机制（默认 10 秒）~~
-
-**当前状态**：
-```typescript
-async function fetchJson<T>(url: string, timeout = 10000): Promise<T> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeout);
-  try {
-    const response = await fetch(url, { signal: controller.signal });
-    // ...错误处理...
-  } finally {
-    clearTimeout(timer);
+function sliceCanvas(...): HTMLCanvasElement {
+  const sliced = document.createElement('canvas');
+  sliced.width = width;
+  sliced.height = height;
+  const ctx = sliced.getContext('2d');
+  if (!ctx) {
+    throw new Error('无法创建 Canvas 2D 上下文，PDF 分页切片失败');
   }
+  ctx.drawImage(source, startX, startY, width, height, 0, 0, width, height);
+  return sliced;
 }
 ```
 
-**残留建议**：
-- 可引入 zod 进行运行时 schema 验证，进一步提升健壮性
-- 可添加重试逻辑（1-2 次）
+#### 问题 F-2：导出失败时用户无反馈
 
----
+- **文件**：`src/App.tsx` 第 104-105 行、第 118-119 行
+- **级别**：Should Fix
+- **描述**：`handleExportViewport` 和 `handleExportFullView` 的 catch 块仅使用 `console.error` 输出错误，用户在界面上看不到任何提示。导出失败后，按钮恢复可点击状态，但用户不知道发生了什么。
+- **修复建议**：添加一个错误状态（如 `exportError`），在 UI 中显示 toast 或内联错误提示。
 
-### 6. `src/utils/hubCalculator.ts` — ✅ 良好（已修复）
+#### 问题 F-3：大尺寸 Canvas 可能导致内存溢出
 
-**审查结论**：算法正确，实现清晰，不可变设计。
+- **文件**：`src/utils/pdfExporter.ts` 第 29 行
+- **级别**：Should Fix
+- **描述**：`CAPTURE_SCALE = 2` 固定缩放 2 倍。对于全景导出，如果完整科技树实际尺寸为 5000×8000 像素，截图将生成 10000×16000 像素的 Canvas（约 640MB 内存），可能导致浏览器崩溃。`html2canvas` 没有内建的上限保护。
+- **修复建议**：根据元素尺寸动态调整 scale，或设置最大 canvas 像素面积上限：
 
-**修复内容**：
-- ~~`calculateHubScores` 从 `void`（修改输入）改为返回 `Map<string, number>`（不修改输入）~~
-- ~~`getRankedNodeIds` 新增 `scoreMap` 参数，从外部传入计算结果~~
-
-**算法验证**：
-- ✅ 正确统计每个节点被其他节点 `prerequisites` 引用的次数
-- ✅ 正确处理引用不存在节点的情况
-- ✅ 归一化到 0-100 的计算正确
-- ✅ 边界情况 `maxCount === 0` 正确处理
-- ✅ 函数式不可变设计，无副作用
-
----
-
-### 7. `src/components/TechTree.tsx` — ✅ 良好（已修复）
-
-**审查结论**：核心组件的类型安全、内存管理和异步处理均已修复。
-
-**修复内容**：
-
-#### 7.1 消除 `as any` 类型转换
-- ~~`getCyStyle()` 返回类型从自定义 `CytoscapeStyleRule[]` 改为 cytoscape 内置的 `Stylesheet[]`~~
-- ~~移除了 `// eslint-disable-next-line` 注释和 `as any` 转换~~
-- 现在样式部分享有完整的编译期类型安全
-
-#### 7.2 修复 StrictMode 竞态条件和内存泄漏
-- ~~添加 `cancelled` 标志保护异步操作~~
-- ~~使用 `cyRef = useRef` 保存 cytoscape 实例引用，确保清理函数能正确销毁~~
-- ~~在 `await` 后、`cytoscape()` 调用前、`setState` 调用前均检查 `cancelled` 标志~~
-
-#### 7.3 适配不可变的 hubCalculator API
-- ~~`calculateHubScores(nodes)` 返回 `scoreMap`，传递给 `getRankedNodeIds` 和 `buildElements`~~
-
-#### 7.4 修复 Cytoscape 选择器语法
-- ~~布尔属性选择器从 `[isTop20 = true]` 改为 `[?isTop20]`（truthy 检查）~~
-
-**当前核心代码结构**：
 ```typescript
-useEffect(() => {
-  let cancelled = false;
+function getSafeScale(width: number, height: number): number {
+  const MAX_PIXELS = 16_000_000; // 约 64MB RGBA
+  const totalPixels = width * height;
+  if (totalPixels * 4 > MAX_PIXELS) {
+    return Math.max(1, Math.floor(Math.sqrt(MAX_PIXELS / totalPixels)));
+  }
+  return CAPTURE_SCALE;
+}
+```
 
-  (async () => {
-    const data = await loadTechTreeData();
-    if (cancelled) return;           // ✅ 卸载保护
-    // ... 构建元素 ...
-    if (cancelled || !containerRef.current) return;  // ✅ 二次检查
-    cyRef.current = cytoscape({...});  // ✅ 类型安全，无 as any
-    if (!cancelled) setLoading(false); // ✅ 卸载保护
-  })();
+#### 问题 F-4：`exportFullView` 修改 DOM 样式时用户可见
 
-  return () => {
-    cancelled = true;
-    cyRef.current?.destroy();         // ✅ 可靠清理
-    cyRef.current = null;
-  };
-}, []);
+- **文件**：`src/utils/pdfExporter.ts` 第 110-114 行
+- **级别**：Should Fix
+- **描述**：`exportFullView` 在截图前临时修改容器的 `overflow`、`width`、`height` 样式。如果 `html2canvas` 耗时较长（全景截图通常需要数秒），用户会看到布局突然变化再恢复，体验不佳。
+- **修复建议**：在修改样式前先将容器设为不可见（如 `visibility: hidden` 或覆盖一个 loading 遮罩），截图完成后恢复。或者使用 `cloneNode` 克隆 DOM 再截图（html2canvas 不支持 clone，需要自行处理）。
+
+### 3.3 Complexity（复杂度）
+
+**可读性** ✅ 良好
+
+代码组织清晰，函数职责单一：
+- `sliceCanvas`：纯函数，负责 canvas 裁切
+- `addImageFitToPage`：负责单页图片适配
+- `addImageMultiPage`：负责多页分页逻辑
+- `exportViewport` / `exportFullView`：高层导出入口
+
+数学计算部分（px/mm 转换、分页计算）注释充分，易于理解。
+
+### 3.4 Tests（测试）
+
+#### 问题 T-1：完全缺失测试
+
+- **文件**：项目根目录无 `tests/` 目录或 `*.test.ts` 文件
+- **级别**：Must Fix
+- **描述**：PDF 导出功能没有对应的单元测试或集成测试。关键逻辑（分页计算、canvas 切片、图片适配）都应该有测试覆盖。
+- **修复建议**：至少添加以下测试：
+  1. `sliceCanvas` 裁切正确性
+  2. `addImageFitToPage` 宽高比适配逻辑（宽图、高图、正方形）
+  3. `addImageMultiPage` 分页数量计算（单页、多页、边界值）
+  4. `exportViewport` / `exportFullView` 的集成测试（mock html2canvas 和 jsPDF）
+
+### 3.5 Naming（命名）
+
+**命名清晰** ✅ 良好
+
+- 常量命名：`A4_WIDTH_MM`、`CONTENT_HEIGHT_MM`、`CAPTURE_SCALE` —— 含义明确，含单位
+- 函数命名：`exportViewport`、`exportFullView`、`sliceCanvas`、`addImageFitToPage` —— 动词开头，表达意图
+- 变量命名：`pxPerMm`、`totalPages`、`sliceHeightMm` —— 简洁准确
+
+### 3.6 Comments（注释）
+
+**注释质量** ✅ 良好
+
+- 模块级 JSDoc 说明功能和使用方式
+- 每个 exported 函数有完整的 `@param` 和功能说明
+- 关键计算步骤有行内注释（如 "计算按宽度适配时的高度"、"如果高度超出，则按高度适配"）
+- 魔法数字全部提取为命名常量
+
+### 3.7 Style（风格）
+
+**风格一致性** ✅ 良好
+
+- TypeScript 严格模式通过，类型注解完整
+- 代码格式统一（2 空格缩进、一致的空行分隔）
+- 但项目缺少 ESLint/Prettier 配置，建议补充
+
+### 3.8 Documentation（文档）
+
+**README 更新** ✅ 良好
+
+README.md 已包含：
+- ✅ 项目简介和功能特性（含 PDF 导出说明）
+- ✅ 技术栈（含 html2canvas 和 jsPDF）
+- ✅ 安装步骤
+- ✅ 运行命令
+- ✅ 构建命令
+- ✅ 部署方式（本地预览 / 浏览器直接打开 / 静态服务器）
+- ✅ 项目结构（含 pdfExporter.ts）
+
+#### 问题 D-1：README 缺少 Node.js 版本要求
+
+- **文件**：`README.md`
+- **级别**：Should Fix
+- **描述**：未说明 Node.js 最低版本要求。项目使用了 Vite 6 和 TypeScript 5.6，对 Node.js 版本有最低要求（Vite 5+ 需要 Node.js 18+）。
+- **修复建议**：在"安装"章节添加 Node.js 版本要求说明。
+
+### 3.9 前端专项：组件设计
+
+**Toolbar 集成** ✅ 良好
+
+对比 `Toolbar.tsx.bak`，新增部分仅限于：
+- 新增 3 个可选 Props：`exporting`、`onExportViewport`、`onExportFullView`
+- 新增导出按钮下拉菜单的 UI 和逻辑
+- 原有的布局切换按钮和重置按钮完全未改动 ✅
+
+Props 接口使用可选属性（`exporting?`、`onExportViewport?`），向后兼容。
+
+### 3.10 前端专项：交互完整性
+
+#### 问题 I-1：导出下拉菜单无键盘可访问性
+
+- **文件**：`src/components/Toolbar.tsx` 第 86-116 行
+- **级别**：Should Fix
+- **描述**：导出下拉菜单不支持键盘操作：
+  - 缺少 `aria-expanded`、`aria-haspopup` 属性
+  - 无 Escape 键关闭菜单的处理
+  - 无 Arrow 键导航菜单项
+  - 菜单项无 `role="menuitem"`
+- **修复建议**：
+
+```tsx
+<button
+  className="toolbar-btn toolbar-export"
+  onClick={toggleExportMenu}
+  disabled={exporting}
+  aria-haspopup="true"
+  aria-expanded={exportMenuOpen}
+  title="导出PDF"
+>
+```
+
+并添加 `onKeyDown` 处理 Escape 关闭。
+
+### 3.11 前端专项：用户体验
+
+#### 问题 U-1：全景导出无进度反馈
+
+- **文件**：`src/utils/pdfExporter.ts`、`src/App.tsx`
+- **级别**：Should Fix
+- **描述**：全景导出可能耗时数秒（取决于图大小），但只显示"导出中..."的静态文字，没有进度信息。用户可能以为程序卡死了。
+- **修复建议**：可以考虑在多页导出时回调进度（当前页/总页数），或者至少在导出中遮罩界面避免用户误操作。
+
+### 3.12 构建配置审查
+
+#### 问题 B-1：缺少代码分割配置
+
+- **文件**：`vite.config.ts`
+- **级别**：Should Fix
+- **描述**：构建产物 `index-DmNtU9Xs.js` 高达 1,378 KB（gzip 后 427 KB），触发 Vite 的 chunk 大小警告。所有依赖（React、Cytoscape、html2canvas、jsPDF）打包在一个 chunk 中。`base: './'` 配置正确（构建产物使用相对路径），支持离线运行 ✅。
+- **修复建议**：
+
+```typescript
+export default defineConfig({
+  plugins: [react()],
+  base: './',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-cytoscape': ['cytoscape', 'cytoscape-cose-bilkent', 'cytoscape-dagre'],
+          'vendor-pdf': ['html2canvas', 'jspdf'],
+        },
+      },
+    },
+  },
+});
 ```
 
 ---
 
-### 8. `src/App.tsx` — ✅ 良好
+## 4. 细节清单核对结果
 
-**审查结论**：简洁的应用入口，职责单一，无问题。
+| # | 检查项 | 级别 | 结果 | 说明 |
+|---|--------|------|------|------|
+| **Design（设计）** |||||
+| 1 | 架构合理性 | [error] | ✅ | pdfExporter 独立模块，职责清晰 |
+| 2 | 模块划分 | [error] | ✅ | PDF逻辑与UI分离，Toolbar仅负责交互 |
+| 3 | 扩展性 | [warning] | ✅ | 函数参数化，易于扩展 |
+| 4 | 接口设计 | [warning] | ✅ | 公共接口最小化（2个导出函数） |
+| **Functionality（功能）** |||||
+| 5 | 行为正确性 | [error] | ✅ | exportViewport/exportFullView 实现完整 |
+| 6 | 边界情况 | [error] | ❌ | sliceCanvas ctx=null 静默失败（F-1） |
+| 7 | 用户价值 | [warning] | ✅ | PDF导出对用户有明确价值 |
+| 8 | 副作用处理 | [error] | ✅ | try/finally 正确恢复DOM样式 |
+| **Complexity（复杂度）** |||||
+| 9 | 可读性 | [error] | ✅ | 函数职责单一，注释充分 |
+| 10 | 过度设计 | [warning] | ✅ | 无过度设计 |
+| 11 | 抽象层次 | [warning] | ✅ | 辅助函数抽象层次恰当 |
+| **Tests（测试）** |||||
+| 12 | 测试覆盖 | [error] | ❌ | 无任何测试文件（T-1） |
+| 13 | 测试质量 | [error] | ❌ | N/A，无测试 |
+| 14 | 测试命名 | [warning] | — | N/A |
+| 15 | 缺失测试 | [warning] | ❌ | 缺少边界条件和集成测试 |
+| **Naming（命名）** |||||
+| 16 | 命名清晰 | [error] | ✅ | 常量含单位，函数动宾结构 |
+| 17 | 命名一致 | [warning] | ✅ | 风格统一 |
+| 18 | 命名规范 | [warning] | ✅ | 遵循 TypeScript 约定 |
+| **Comments（注释）** |||||
+| 19 | 注释必要性 | [warning] | ✅ | JSDoc 完整 |
+| 20 | 注释准确性 | [error] | ✅ | 注释与代码一致 |
+| 21 | 自文档化 | [warning] | ✅ | 命名清晰减少注释依赖 |
+| **Style（风格）** |||||
+| 22 | 风格一致性 | [warning] | ⚠️ | 代码一致但缺 ESLint 配置 |
+| 23 | 格式规范 | [warning] | ✅ | 缩进、空行统一 |
+| **Documentation（文档）** |||||
+| 24 | 文档更新 | [warning] | ✅ | README 含 PDF 导出说明 |
+| 25 | 接口文档 | [error] | ✅ | JSDoc 参数文档完整 |
+| **前端专项** |||||
+| 26 | 组件职责 | [error] | ✅ | Toolbar 职责单一 |
+| 27 | 组件复用性 | [warning] | ✅ | Props 接口通用 |
+| 28 | 错误反馈 | [error] | ❌ | 导出失败无用户提示（F-2） |
+| 29 | 加载状态 | [warning] | ✅ | 导出中有 loading 状态 |
+| 30 | 渲染优化 | [error] | ❌ | 大 canvas 内存风险（F-3） |
+| 31 | 内存泄漏 | [error] | ⚠️ | 大 canvas 对象未释放（GC处理） |
+| 32 | 键盘导航 | [error] | ❌ | 下拉菜单不支持键盘（I-1） |
+| 33 | 屏幕阅读器 | [warning] | ❌ | 缺少 ARIA 属性（I-1） |
+| **安全与健壮性** |||||
+| 34 | 输入验证 | [error] | ✅ | fileName 有默认值 |
+| 35 | 权限控制 | [error] | ✅ | N/A，纯前端无权限 |
+| 36 | 资源清理 | [warning] | ✅ | useEffect 正确清理事件监听 |
+| **构建配置** |||||
+| 37 | base 配置 | — | ✅ | `./` 正确支持离线运行 |
+| 38 | 代码分割 | [warning] | ❌ | 缺少 manualChunks（B-1） |
+| 39 | 无安全漏洞 | [error] | ✅ | 依赖版本较新 |
+
+### 通过统计
+
+| 级别 | 总数 | ✅ 通过 | ❌ 未通过 | ⚠️ 部分通过 | 通过率 |
+|------|------|---------|-----------|-------------|--------|
+| [error] 必须项 | 16 | 11 | 5 | 0 | **68.8%** |
+| [warning] 建议项 | 16 | 11 | 4 | 1 | **68.8%** |
+| **合计** | **39** | **25** | **10** | **2** | **64.1%** |
 
 ---
 
-### 9. `src/main.tsx` — ✅ 良好
+## 5. 验收标准核对结果
 
-**审查结论**：标准的 React 18 入口，使用 `StrictMode`。TechTree 组件已正确处理 StrictMode 的双 mount 行为。
+基于任务描述中的审查要点逐条核对：
+
+| AC# | 验收标准 | 状态 | 说明 |
+|-----|----------|------|------|
+| AC-1 | exportViewport 和 exportFullView 实现完整正确 | ✅ 已实现 | 两个函数逻辑完整，截图→适配→生成PDF→下载流程正确 |
+| AC-2 | html2canvas 和 jsPDF 使用方式正确，类型安全 | ✅ 已实现 | TypeScript 严格模式无错误，API 使用方式正确 |
+| AC-3 | html2canvas 和 jsPDF 使用类型安全 | ✅ 已实现 | `tsc --strict` 通过，无类型错误 |
+| AC-4 | 大图分页处理逻辑合理 | ⚠️ 部分实现 | 分页数学逻辑正确，但存在内存风险和静默失败问题 |
+| AC-5 | Toolbar 集成只添加了导出功能未改动已有逻辑 | ✅ 已实现 | 对比 .bak 文件，原有按钮和逻辑完全未变 |
+| AC-6 | vite.config.ts 的 base: './' 配置正确支持离线 | ✅ 已实现 | 构建产物使用相对路径，dist/index.html 确认 |
+| AC-7 | README 内容完整（简介/安装/运行/构建/部署） | ✅ 已实现 | 所有章节齐全，项目结构准确 |
+| AC-8 | 代码质量：类型定义、错误处理、代码风格 | ⚠️ 部分实现 | 类型定义优秀，错误处理有遗漏，无 lint 配置 |
+| AC-9 | 无安全隐患或性能问题 | ⚠️ 部分实现 | 无安全隐患，但存在大 canvas 内存性能问题 |
 
 ---
 
-### 10. `src/App.css` — ✅ 良好
+## 6. 改进建议
 
-**审查结论**：暗色主题样式简洁实用，对比度良好。
+### Must Fix（必须修复，阻止合并）
 
-**残留建议**：
-- 可添加加载动画（旋转指示器）替代纯文本提示
-- 如需添加非全屏内容，调整 `overflow: hidden` 策略
-
----
-
-## 问题汇总（按严重程度分类）
-
-### 修复前问题清单
-
-#### 🔴 严重（2 个）— ✅ 已全部修复
-
-| # | 文件 | 问题 | 修复方式 |
-|---|------|------|----------|
-| S1 | `TechTree.tsx` | `as any` 绕过类型检查 | 改用 cytoscape 内置 `Stylesheet` 类型 |
-| S2 | `TechTree.tsx` | StrictMode 下 cytoscape 实例泄漏 | 添加 `cancelled` 标志 + `useRef` 保存实例 |
-
-#### 🟠 中等（4 个）— ✅ 已全部修复
-
-| # | 文件 | 问题 | 修复方式 |
-|---|------|------|----------|
-| M1 | `TechTree.tsx` | 异步操作无卸载保护 | `cancelled` 标志 + 所有 `setState` 前检查 |
-| M2 | `types/index.ts` | `CyNodeData`/`CyEdgeData` 未使用且不一致 | 删除未使用的接口定义 |
-| M3 | `dataLoader.ts` | fetch 无超时机制 | 添加 `AbortController` 超时（10s） |
-| M4 | `hubCalculator.ts` | 直接修改输入参数 | 改为返回 `Map<string, number>` |
-
-#### 🟡 轻微（5 个残留）
-
-| # | 文件 | 问题 | 建议 |
+| # | 问题 | 文件 | 建议 |
 |---|------|------|------|
-| L1 | `package.json` | 缺少 eslint / prettier | 添加代码质量工具链 |
-| L2 | `dataLoader.ts` | 无运行时数据校验 | 可引入 zod 进行 schema 验证 |
-| L3 | `dataLoader.ts` | 无重试逻辑 | 可添加 1-2 次自动重试 |
-| L4 | `TechTree.tsx` | `cytoscape.use(dagre)` 模块级副作用 | 可移入 useEffect 内部 |
-| L5 | `App.css` | `overflow: hidden` 限制扩展性 | 按需调整布局策略 |
+| 1 | sliceCanvas ctx=null 静默失败 | `pdfExporter.ts:54-57` | 抛出明确错误而非返回空白 canvas |
+| 2 | 完全缺失测试 | 项目根目录 | 至少添加分页逻辑和 canvas 裁切的单元测试 |
+
+### Should Fix（建议修复，不阻止合并但影响质量）
+
+| # | 问题 | 文件 | 建议 |
+|---|------|------|------|
+| 3 | 导出失败无用户反馈 | `App.tsx:104-105` | 添加 toast 或错误状态提示 |
+| 4 | 大 canvas 内存风险 | `pdfExporter.ts:29` | 动态调整 scale，设置像素上限 |
+| 5 | 导出时 DOM 变化可见 | `pdfExporter.ts:110-114` | 截图前添加 loading 遮罩 |
+| 6 | 导出下拉菜单无键盘支持 | `Toolbar.tsx:86-116` | 添加 ARIA 属性和键盘事件处理 |
+| 7 | 构建产物过大（1378KB） | `vite.config.ts` | 配置 manualChunks 分割 vendor |
+| 8 | 缺少 ESLint 配置 | 项目根目录 | 添加 eslint.config.js + prettier |
+| 9 | README 缺 Node.js 版本要求 | `README.md` | 在安装章节说明版本要求 |
+
+### Nit（可选改进）
+
+| # | 问题 | 文件 | 建议 |
+|---|------|------|------|
+| 10 | useCORS: true 不必要 | `pdfExporter.ts:76` | 项目无跨域图片，可移除 |
+| 11 | 全景导出无进度反馈 | `pdfExporter.ts` | 多页导出时回调进度信息 |
+| 12 | 备份文件残留 | 多个 `.bak` 文件 | 清理 `.bak` 文件，使用 Git 管理版本 |
 
 ---
 
-## 已修复问题
+## 7. 总结
 
-### 修改文件清单
+### 整体评价
 
-| 文件 | 修改类型 | 说明 |
-|------|----------|------|
-| `src/types/index.ts` | 精简 | 删除未使用的 `CyNodeData`/`CyEdgeData`，`year` 类型收窄为 `number` |
-| `src/utils/dataLoader.ts` | 增强 | 添加 `AbortController` 超时机制（默认 10 秒） |
-| `src/utils/hubCalculator.ts` | 重构 | `calculateHubScores` 返回 `Map` 而非修改输入；`getRankedNodeIds` 接收外部 `scoreMap` |
-| `src/components/TechTree.tsx` | 修复 | 消除 `as any`（使用 `Stylesheet` 类型）、添加卸载保护（`cancelled` + `useRef`）、适配新 API、修复选择器语法 |
+本次 PDF 导出功能的实现**质量良好**，代码组织清晰、类型安全、文档完善。核心亮点包括：
 
----
+1. **模块设计优秀**：pdfExporter 作为独立 utils 模块，公共接口简洁，内部函数职责单一
+2. **类型安全**：TypeScript 严格模式零错误，类型注解覆盖完整
+3. **Toolbar 集成干净**：仅新增导出相关代码，完全未影响已有功能
+4. **构建配置正确**：`base: './'` 使 dist 可直接双击打开，支持离线运行
+5. **README 完善**：涵盖所有必要章节，部署方式说明清晰
 
-## 改进建议
+### 主要风险
 
-### 优先级 P2：长期优化
+1. **缺少测试**是最大的质量缺口，关键的分页计算和 canvas 操作应覆盖自动化测试
+2. **大 canvas 内存风险**在全景导出时可能导致低端设备浏览器崩溃
+3. **用户反馈不足**：导出失败时用户看不到任何提示
 
-#### 1. 添加运行时数据校验
+### 审查结论
 
-```typescript
-import { z } from 'zod';
+| 结论 | 判定依据 |
+|------|----------|
+| **Request Changes** | 存在 2 个 Must Fix 级别问题（sliceCanvas 静默失败 + 缺失测试），[error] 项通过率 68.8% < 80% |
 
-const TechNodeSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  year: z.number(),
-  // ...
-});
-
-// 在 dataLoader 中使用
-const nodes = TechNodeSchema.array().parse(await response.json());
-```
-
-#### 2. 添加节点交互
-
-```typescript
-cy.on('tap', 'node', (evt) => {
-  const node = evt.target;
-  // 显示 tooltip / 侧边详情面板
-});
-```
-
-#### 3. 性能优化
-
-- 对于大型图谱（> 500 节点），考虑启用 `cytoscape` 的 `headless` 模式做预计算
-- 添加虚拟化渲染（仅渲染视口内的节点）
-
-#### 4. 工程化增强
-
-- 添加 ESLint + Prettier 配置
-- 添加 Vitest 单元测试（重点覆盖 `hubCalculator` 和 `dataLoader`）
-- 添加 CI/CD 流水线配置
-
----
-
-## 审查总结
-
-| 维度 | 修复前 | 修复后 | 说明 |
-|------|--------|--------|------|
-| TypeScript 类型 | ⭐⭐⭐☆☆ | ⭐⭐⭐⭐⭐ | 消除 `as any`，删除死代码，收窄类型 |
-| React Hooks | ⭐⭐☆☆☆ | ⭐⭐⭐⭐⭐ | 完整的卸载保护，可靠实例清理 |
-| Cytoscape 集成 | ⭐⭐⭐⭐☆ | ⭐⭐⭐⭐⭐ | 类型安全样式，正确选择器语法 |
-| 错误处理 | ⭐⭐⭐☆☆ | ⭐⭐⭐⭐☆ | 添加超时机制，残留：运行时校验、重试 |
-| 算法正确性 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 算法不变，改为不可变设计 |
-| 代码结构 | ⭐⭐⭐⭐☆ | ⭐⭐⭐⭐⭐ | 更清晰的模块职责和 API 设计 |
-| 性能/安全 | ⭐⭐⭐☆☆ | ⭐⭐⭐⭐☆ | 修复内存泄漏，残留：大规模图谱优化 |
-
-**综合评价**：修复后项目代码质量优秀，TypeScript 类型安全完善，React Hooks 使用规范，无内存泄漏风险，模块职责清晰。建议后续关注运行时数据校验和工程化工具链的完善。
+修复 Must Fix 问题后，建议重新提交审查。Should Fix 项可在后续迭代中逐步完善。

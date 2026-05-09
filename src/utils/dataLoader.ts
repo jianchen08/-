@@ -1,6 +1,9 @@
 import type { TechNode, Domain, Era, TechTreeData } from '../types';
 import { calculateHubScores } from './hubCalculator';
 
+/** 构建基础路径，Vite 会根据 base 配置自动注入 */
+const BASE = import.meta.env.BASE_URL;
+
 async function fetchJson<T>(url: string, timeout = 15000): Promise<T> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
@@ -17,9 +20,9 @@ async function fetchJson<T>(url: string, timeout = 15000): Promise<T> {
 
 export async function loadTechTreeData(): Promise<TechTreeData> {
   const [nodes, domains, eras] = await Promise.all([
-    fetchJson<TechNode[]>('/data/full_data.json'),
-    fetchJson<Domain[]>('/data/domains.json'),
-    fetchJson<Era[]>('/data/eras.json'),
+    fetchJson<TechNode[]>(`${BASE}data/full_data.json`),
+    fetchJson<Domain[]>(`${BASE}data/domains.json`),
+    fetchJson<Era[]>(`${BASE}data/eras.json`),
   ]);
 
   // 计算 hubScore 并注入

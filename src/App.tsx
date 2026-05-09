@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { TechTreeData, TechNode, FilterState, LayoutType } from './types';
 import { loadTechTreeData } from './utils/dataLoader';
+import { exportViewport, exportFullView } from './utils/pdfExporter';
 import TechTree from './components/TechTree';
 import SearchPanel from './components/SearchPanel';
 import FilterPanel from './components/FilterPanel';
@@ -24,6 +25,9 @@ export default function App() {
   });
   const [layout, setLayout] = useState<LayoutType>('dagre');
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+
+  // 导出状态
+  const [exporting, setExporting] = useState(false);
 
   // TechTree 容器 ref（用于调用 resetView/focusNode）
   const treeContainerRef = useRef<HTMLDivElement | null>(null);
@@ -90,6 +94,34 @@ export default function App() {
     }
   }, []);
 
+  // 导出视口截图
+  const handleExportViewport = useCallback(async () => {
+    const container = treeContainerRef.current?.querySelector('.tech-tree-container');
+    if (!container || exporting) return;
+    setExporting(true);
+    try {
+      await exportViewport(container as HTMLElement);
+    } catch (err) {
+      console.error('视口导出失败:', err);
+    } finally {
+      setExporting(false);
+    }
+  }, [exporting]);
+
+  // 导出全景
+  const handleExportFullView = useCallback(async () => {
+    const wrapper = treeContainerRef.current?.querySelector('.tech-tree-container');
+    if (!wrapper || exporting) return;
+    setExporting(true);
+    try {
+      await exportFullView(wrapper as HTMLElement);
+    } catch (err) {
+      console.error('全景导出失败:', err);
+    } finally {
+      setExporting(false);
+    }
+  }, [exporting]);
+
   // 获取选中的节点
   const selectedNode: TechNode | null = selectedNodeId && data
     ? data.nodes.find((n) => n.id === selectedNodeId) ?? null
@@ -137,6 +169,9 @@ export default function App() {
             layout={layout}
             onLayoutChange={setLayout}
             onResetView={handleResetView}
+            exporting={exporting}
+            onExportViewport={handleExportViewport}
+            onExportFullView={handleExportFullView}
           />
         </div>
 

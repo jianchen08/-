@@ -633,3 +633,86 @@ html, body, #root {
     box-shadow: 0 0 8px 3px rgba(255, 69, 0, 0.6);
   }
 }
+
+/* ==========================================
+   导出下拉菜单
+   ========================================== */
+.toolbar-export-wrap {
+  position: relative;
+  margin-left: 4px;
+}
+
+.toolbar-export {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar-export:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.toolbar-btn-arrow {
+  font-size: 10px;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+.toolbar-export-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background: rgba(30, 30, 50, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 220px;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.toolbar-export-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: #ccc;
+  transition: all 0.15s;
+}
+
+.toolbar-export-item:hover {
+  background: rgba(79, 195, 247, 0.1);
+  color: #fff;
+}
+
+.toolbar-export-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.toolbar-export-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toolbar-export-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.toolbar-export-desc {
+  font-size: 11px;
+  color: #888;
+}
