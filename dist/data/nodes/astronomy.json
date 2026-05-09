@@ -1,0 +1,943 @@
+[
+  {
+    "id": "astro_ancient_obs",
+    "name": "古代天文观测",
+    "year": "-3000",
+    "yearRange": [
+      -5000,
+      -2000
+    ],
+    "era": "ancient",
+    "domain": "astronomy",
+    "prerequisites": [
+      "math_counting"
+    ],
+    "description": "古埃及、美索不达米亚和古中国的天文观测记录，用于制定历法、预测季节和导航，是天文学的起源。",
+    "importance": 4,
+    "tags": [
+      "观测",
+      "历法",
+      "古代"
+    ]
+  },
+  {
+    "id": "astro_star_catalog",
+    "name": "星表编制",
+    "year": "-300",
+    "yearRange": [
+      -400,
+      -200
+    ],
+    "era": "ancient",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_ancient_obs",
+      "math_geometry_basic"
+    ],
+    "description": "中国甘德和石申编制的世界上最早星表，记录了约800颗恒星的位置，比古希腊的喜帕恰斯星表早约150年。",
+    "importance": 4,
+    "tags": [
+      "星表",
+      "恒星",
+      "记录"
+    ]
+  },
+  {
+    "id": "astro_heliocentric",
+    "name": "日心说",
+    "year": "1543",
+    "yearRange": [
+      1530,
+      1550
+    ],
+    "era": "renaissance",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_ancient_obs",
+      "math_trigonometry"
+    ],
+    "description": "哥白尼发表的日心说将太阳置于宇宙中心，挑战了延续千年的地心说，引发了天文学的根本革命。",
+    "importance": 5,
+    "tags": [
+      "日心",
+      "哥白尼",
+      "革命"
+    ]
+  },
+  {
+    "id": "astro_telescope_refract",
+    "name": "折射望远镜",
+    "year": "1608",
+    "yearRange": [
+      1605,
+      1612
+    ],
+    "era": "renaissance",
+    "domain": "astronomy",
+    "prerequisites": [
+      "mat_glass",
+      "phys_optics_ancient"
+    ],
+    "description": "利珀希发明的折射望远镜被伽利略改良后用于天文观测，发现了木星卫星和月球表面细节，彻底改变了天文学。",
+    "importance": 5,
+    "tags": [
+      "望远镜",
+      "折射",
+      "伽利略"
+    ]
+  },
+  {
+    "id": "astro_telescope_reflect",
+    "name": "反射望远镜",
+    "year": "1668",
+    "yearRange": [
+      1665,
+      1675
+    ],
+    "era": "renaissance",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_telescope_refract",
+      "mat_glass"
+    ],
+    "description": "牛顿发明的反射望远镜用凹面镜代替透镜聚焦，避免了色差问题，成为大型天文望远镜的主流设计。",
+    "importance": 4,
+    "tags": [
+      "望远镜",
+      "反射",
+      "牛顿"
+    ]
+  },
+  {
+    "id": "astro_planetary_motion",
+    "name": "行星运动定律",
+    "year": "1609",
+    "yearRange": [
+      1605,
+      1620
+    ],
+    "era": "renaissance",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_heliocentric",
+      "math_trigonometry"
+    ],
+    "description": "开普勒发现行星运动三定律：椭圆轨道定律、面积定律和周期定律，为万有引力定律的发现铺平道路。",
+    "importance": 5,
+    "tags": [
+      "行星",
+      "椭圆",
+      "开普勒"
+    ]
+  },
+  {
+    "id": "astro_gravity_apply",
+    "name": "万有引力天文学",
+    "year": "1687",
+    "yearRange": [
+      1685,
+      1700
+    ],
+    "era": "renaissance",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_planetary_motion",
+      "phys_gravity"
+    ],
+    "description": "牛顿将万有引力定律应用于天体运动，精确预测了行星轨道和彗星回归，建立了天体力学。",
+    "importance": 5,
+    "tags": [
+      "引力",
+      "天体力学",
+      "预测"
+    ]
+  },
+  {
+    "id": "astro_stellar_parallax",
+    "name": "恒星视差",
+    "year": "1838",
+    "yearRange": [
+      1835,
+      1842
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_telescope_reflect",
+      "math_trigonometry"
+    ],
+    "description": "贝塞尔首次测量到恒星视差，确定了天鹅座61的距离，首次为日心说提供了直接观测证据。",
+    "importance": 4,
+    "tags": [
+      "视差",
+      "距离",
+      "恒星"
+    ]
+  },
+  {
+    "id": "astro_spectroscopy",
+    "name": "天体光谱学",
+    "year": "1863",
+    "yearRange": [
+      1860,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_spectrum",
+      "astro_telescope_reflect"
+    ],
+    "description": "哈金斯等人将光谱分析应用于天体，发现恒星由与地球相同的元素组成，建立了天体物理学。",
+    "importance": 5,
+    "tags": [
+      "光谱",
+      "元素",
+      "天体物理"
+    ]
+  },
+  {
+    "id": "astro_photography",
+    "name": "天文照相术",
+    "year": "1840",
+    "yearRange": [
+      1835,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_telescope_reflect"
+    ],
+    "description": "德雷珀拍摄的第一张月球照片开创了天文照相术，使天体影像可以客观记录和长期积累。",
+    "importance": 3,
+    "tags": [
+      "照相",
+      "记录",
+      "月球"
+    ]
+  },
+  {
+    "id": "astro_hertzsprung",
+    "name": "赫罗图",
+    "year": "1913",
+    "yearRange": [
+      1910,
+      1920
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_spectroscopy",
+      "astro_stellar_parallax"
+    ],
+    "description": "赫茨普龙和罗素独立发展的恒星颜色-亮度图，揭示了恒星演化的规律，是恒星天文学最重要的工具。",
+    "importance": 4,
+    "tags": [
+      "赫罗图",
+      "恒星",
+      "演化"
+    ]
+  },
+  {
+    "id": "astro_general_relativity_apply",
+    "name": "广义相对论天文验证",
+    "year": "1919",
+    "yearRange": [
+      1919,
+      1920
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_relativity_general",
+      "astro_telescope_reflect"
+    ],
+    "description": "爱丁顿在日全食观测中验证了光线在引力场中偏折的预言，首次证实了广义相对论。",
+    "importance": 5,
+    "tags": [
+      "相对论",
+      "验证",
+      "日食"
+    ]
+  },
+  {
+    "id": "astro_galaxy",
+    "name": "银河系结构",
+    "year": "1920",
+    "yearRange": [
+      1915,
+      1930
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_stellar_parallax",
+      "astro_hertzsprung"
+    ],
+    "description": "沙普利确定太阳不在银河系中心，哈勃确认银河系只是宇宙中众多星系之一，彻底改变了人类的宇宙观。",
+    "importance": 5,
+    "tags": [
+      "银河系",
+      "星系",
+      "尺度"
+    ]
+  },
+  {
+    "id": "astro_expanding_universe",
+    "name": "宇宙膨胀",
+    "year": "1929",
+    "yearRange": [
+      1927,
+      1932
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_galaxy",
+      "astro_spectroscopy"
+    ],
+    "description": "哈勃发现所有遥远星系都在远离我们，且距离越远退行速度越快，证明宇宙正在膨胀。",
+    "importance": 5,
+    "tags": [
+      "膨胀",
+      "哈勃",
+      "宇宙"
+    ]
+  },
+  {
+    "id": "astro_big_bang",
+    "name": "大爆炸理论",
+    "year": "1927",
+    "yearRange": [
+      1927,
+      1948
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_expanding_universe",
+      "phys_relativity_general"
+    ],
+    "description": "勒梅特提出宇宙起源于一个原初原子的爆炸，伽莫夫发展为完整的宇宙热大爆炸理论。",
+    "importance": 5,
+    "tags": [
+      "大爆炸",
+      "起源",
+      "宇宙"
+    ]
+  },
+  {
+    "id": "astro_cmb",
+    "name": "宇宙微波背景辐射",
+    "year": "1965",
+    "yearRange": [
+      1964,
+      1966
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_big_bang"
+    ],
+    "description": "彭齐亚斯和威尔逊发现的宇宙微波背景辐射，温度约2.7K，是大爆炸理论最强有力的观测证据。",
+    "importance": 5,
+    "tags": [
+      "微波背景",
+      "2.7K",
+      "证据"
+    ]
+  },
+  {
+    "id": "astro_radio_astronomy",
+    "name": "射电天文学",
+    "year": "1933",
+    "yearRange": [
+      1930,
+      1940
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_electromagnetism",
+      "phys_maxwell"
+    ],
+    "description": "央斯基发现来自银河系中心的射电辐射，开创了射电天文学，使人类可以在电磁波谱的射电波段观测宇宙。",
+    "importance": 4,
+    "tags": [
+      "射电",
+      "电磁波",
+      "银河"
+    ]
+  },
+  {
+    "id": "astro_pulsar",
+    "name": "脉冲星发现",
+    "year": "1967",
+    "yearRange": [
+      1967,
+      1968
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_radio_astronomy"
+    ],
+    "description": "贝尔和休伊什发现快速旋转的中子星发出的周期性射电脉冲信号，验证了中子星的理论预言。",
+    "importance": 4,
+    "tags": [
+      "脉冲星",
+      "中子星",
+      "周期"
+    ]
+  },
+  {
+    "id": "astro_black_hole",
+    "name": "黑洞观测",
+    "year": "1971",
+    "yearRange": [
+      1965,
+      1980
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_relativity_general",
+      "astro_xray"
+    ],
+    "description": "天鹅座X-1被确认为第一个黑洞候选体，2019年事件视界望远镜拍摄了首张黑洞照片，直接验证了广义相对论预言。",
+    "importance": 5,
+    "tags": [
+      "黑洞",
+      "事件视界",
+      "X射线"
+    ]
+  },
+  {
+    "id": "astro_xray",
+    "name": "X射线天文学",
+    "year": "1962",
+    "yearRange": [
+      1960,
+      1970
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_electromagnetism",
+      "astro_radio_astronomy"
+    ],
+    "description": "贾科尼发现宇宙X射线源，开创了X射线天文学，揭示了黑洞、中子星等高能天体的剧烈活动。",
+    "importance": 4,
+    "tags": [
+      "X射线",
+      "高能",
+      "天体"
+    ]
+  },
+  {
+    "id": "astro_exoplanet",
+    "name": "系外行星发现",
+    "year": "1992",
+    "yearRange": [
+      1990,
+      1995
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_spectroscopy",
+      "astro_telescope_reflect"
+    ],
+    "description": "沃尔兹森发现第一颗系外行星，马约尔和奎洛兹发现第一颗绕类太阳恒星运行的行星，开启了系外行星研究时代。",
+    "importance": 5,
+    "tags": [
+      "系外行星",
+      "宜居",
+      "搜寻"
+    ]
+  },
+  {
+    "id": "astro_dark_matter",
+    "name": "暗物质天文证据",
+    "year": "1933",
+    "yearRange": [
+      1930,
+      1980
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_galaxy",
+      "phys_gravity"
+    ],
+    "description": "兹威基发现星系团中可见物质不足以产生观测到的引力束缚，鲁宾证实星系旋转曲线异常，表明存在大量暗物质。",
+    "importance": 5,
+    "tags": [
+      "暗物质",
+      "引力",
+      "星系"
+    ]
+  },
+  {
+    "id": "astro_dark_energy",
+    "name": "暗能量发现",
+    "year": "1998",
+    "yearRange": [
+      1997,
+      2000
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_expanding_universe",
+      "astro_cmb"
+    ],
+    "description": "两个独立团队通过Ia超新星观测发现宇宙在加速膨胀，暗示存在驱动膨胀的暗能量。",
+    "importance": 5,
+    "tags": [
+      "暗能量",
+      "加速膨胀",
+      "超新星"
+    ]
+  },
+  {
+    "id": "astro_gravitational_wave",
+    "name": "引力波探测",
+    "year": "2015",
+    "yearRange": [
+      2015,
+      2016
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_relativity_general",
+      "phys_laser"
+    ],
+    "description": "LIGO首次探测到来自双黑洞合并的引力波信号，开启了多信使天文学时代。",
+    "importance": 5,
+    "tags": [
+      "引力波",
+      "LIGO",
+      "双黑洞"
+    ]
+  },
+  {
+    "id": "astro_space_telescope",
+    "name": "空间望远镜",
+    "year": "1990",
+    "yearRange": [
+      1985,
+      1995
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_telescope_reflect",
+      "eng_rocket"
+    ],
+    "description": "哈勃太空望远镜在大气层外运行，不受大气湍流影响，拍摄了宇宙最深处的照片，深刻改变了人类对宇宙的认识。",
+    "importance": 5,
+    "tags": [
+      "哈勃",
+      "太空",
+      "深空"
+    ]
+  },
+  {
+    "id": "astro_jwst",
+    "name": "韦伯太空望远镜",
+    "year": "2021",
+    "yearRange": [
+      2018,
+      2023
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_space_telescope",
+      "astro_infrared"
+    ],
+    "description": "詹姆斯·韦伯太空望远镜工作在红外波段，能观测宇宙最早期的星系和系外行星大气成分。",
+    "importance": 4,
+    "tags": [
+      "韦伯",
+      "红外",
+      "早期宇宙"
+    ]
+  },
+  {
+    "id": "astro_cmb_satellite",
+    "name": "CMB精确测量",
+    "year": "2003",
+    "yearRange": [
+      1992,
+      2015
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_cmb",
+      "astro_space_telescope"
+    ],
+    "description": "COBE、WMAP和Planck卫星对宇宙微波背景辐射进行越来越精确的测量，确定了宇宙的年龄和组成。",
+    "importance": 4,
+    "tags": [
+      "CMB",
+      "卫星",
+      "精确"
+    ]
+  },
+  {
+    "id": "astro_neutrino_astronomy",
+    "name": "中微子天文学",
+    "year": "1987",
+    "yearRange": [
+      1985,
+      1995
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_supernova_theory",
+      "phys_neutrino"
+    ],
+    "description": "探测到来自1987A超新星的中微子暴，首次实现中微子天文观测，开启了多信使天文学。",
+    "importance": 4,
+    "tags": [
+      "中微子",
+      "超新星",
+      "多信使"
+    ]
+  },
+  {
+    "id": "astro_supernova_theory",
+    "name": "超新星理论",
+    "year": "1934",
+    "yearRange": [
+      1930,
+      1960
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_hertzsprung",
+      "phys_nuclear_fusion"
+    ],
+    "description": "巴德和兹威基提出超新星是恒星演化末期的爆发，核心塌缩形成中子星，爆发产生重元素。",
+    "importance": 4,
+    "tags": [
+      "超新星",
+      "爆发",
+      "重元素"
+    ]
+  },
+  {
+    "id": "astro_stellar_nucleosynthesis",
+    "name": "恒星核合成",
+    "year": "1957",
+    "yearRange": [
+      1955,
+      1960
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_nuclear_fusion",
+      "astro_hertzsprung"
+    ],
+    "description": "B2FH论文详细阐述了恒星内部从氢到铁的核合成过程，解释了宇宙中元素的来源。",
+    "importance": 5,
+    "tags": [
+      "核合成",
+      "元素",
+      "恒星"
+    ]
+  },
+  {
+    "id": "astro_pulsar_timing",
+    "name": "脉冲星计时阵列",
+    "year": "1974",
+    "yearRange": [
+      1970,
+      1990
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_pulsar"
+    ],
+    "description": "利用毫秒脉冲星的精确计时探测低频引力波，2023年多个PTA合作宣布发现纳赫兹引力波证据。",
+    "importance": 4,
+    "tags": [
+      "脉冲星",
+      "计时",
+      "低频引力波"
+    ]
+  },
+  {
+    "id": "astro_multi_messenger",
+    "name": "多信使天文学",
+    "year": "2017",
+    "yearRange": [
+      2017,
+      2018
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_gravitational_wave",
+      "astro_neutrino_astronomy"
+    ],
+    "description": "首次同时探测到双中子星合并的引力波和电磁辐射，开启了多信使天文学新时代。",
+    "importance": 5,
+    "tags": [
+      "多信使",
+      "引力波",
+      "电磁"
+    ]
+  },
+  {
+    "id": "astro_planet_formation",
+    "name": "行星形成理论",
+    "year": "1755",
+    "yearRange": [
+      1750,
+      1800
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_heliocentric",
+      "phys_gravity"
+    ],
+    "description": "康德和拉普拉斯提出的星云假说，认为太阳系由旋转的气体和尘埃盘凝聚而成，是行星形成理论的开端。",
+    "importance": 4,
+    "tags": [
+      "星云",
+      "形成",
+      "太阳系"
+    ]
+  },
+  {
+    "id": "astro_celestial_mechanics",
+    "name": "天体力学",
+    "year": "1799",
+    "yearRange": [
+      1790,
+      1830
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_gravity_apply",
+      "math_calculus"
+    ],
+    "description": "拉普拉斯的《天体力学》系统应用牛顿力学解决天体运动问题，能精确预测行星轨道和潮汐。",
+    "importance": 4,
+    "tags": [
+      "天体力学",
+      "拉普拉斯",
+      "轨道"
+    ]
+  },
+  {
+    "id": "astro_stellar_evolution",
+    "name": "恒星演化理论",
+    "year": "1938",
+    "yearRange": [
+      1935,
+      1960
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_hertzsprung",
+      "phys_nuclear_fusion",
+      "astro_stellar_nucleosynthesis"
+    ],
+    "description": "理解恒星从诞生到死亡的全过程，包括主序星、红巨星、白矮星、中子星和黑洞等不同演化阶段。",
+    "importance": 5,
+    "tags": [
+      "演化",
+      "生命周期",
+      "恒星"
+    ]
+  },
+  {
+    "id": "astro_comet_predict",
+    "name": "彗星回归预测",
+    "year": "1705",
+    "yearRange": [
+      1700,
+      1760
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_gravity_apply",
+      "math_calculus"
+    ],
+    "description": "哈雷预测一颗彗星将在1758年回归并被证实，是万有引力定律最辉煌的验证之一。",
+    "importance": 3,
+    "tags": [
+      "彗星",
+      "哈雷",
+      "预测"
+    ]
+  },
+  {
+    "id": "astro_uranus_discovery",
+    "name": "天王星发现",
+    "year": "1781",
+    "yearRange": [
+      1780,
+      1782
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_telescope_reflect"
+    ],
+    "description": "赫歇尔用望远镜发现天王星，这是人类发现的第一颗肉眼不可见的行星，扩大了已知太阳系的边界。",
+    "importance": 3,
+    "tags": [
+      "天王星",
+      "行星",
+      "发现"
+    ]
+  },
+  {
+    "id": "astro_neptune_predict",
+    "name": "海王星数学预测",
+    "year": "1846",
+    "yearRange": [
+      1843,
+      1846
+    ],
+    "era": "industrial",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_celestial_mechanics",
+      "astro_uranus_discovery"
+    ],
+    "description": "勒威耶和亚当斯通过天王星轨道异常用数学预测海王星的位置，是理论指导观测的典范。",
+    "importance": 4,
+    "tags": [
+      "海王星",
+      "预测",
+      "数学"
+    ]
+  },
+  {
+    "id": "astro_infrared",
+    "name": "红外天文学",
+    "year": "1965",
+    "yearRange": [
+      1960,
+      1975
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_electromagnetism",
+      "phys_maxwell"
+    ],
+    "description": "红外波段观测能穿透宇宙尘埃看到被遮挡的天体，揭示恒星形成区域和星系核心的秘密。",
+    "importance": 3,
+    "tags": [
+      "红外",
+      "尘埃",
+      "恒星形成"
+    ]
+  },
+  {
+    "id": "astro_grav_lens",
+    "name": "引力透镜",
+    "year": "1979",
+    "yearRange": [
+      1979,
+      1990
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "phys_relativity_general",
+      "astro_galaxy"
+    ],
+    "description": "利用大质量天体弯曲光线的引力透镜效应观测遥远天体，成为探测暗物质和测量宇宙学参数的重要工具。",
+    "importance": 4,
+    "tags": [
+      "引力透镜",
+      "暗物质",
+      "放大"
+    ]
+  },
+  {
+    "id": "astro_cosmic_inflation",
+    "name": "宇宙暴胀理论",
+    "year": "1980",
+    "yearRange": [
+      1980,
+      1985
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_big_bang",
+      "phys_relativity_general"
+    ],
+    "description": "古斯提出的暴胀理论解释了宇宙在大爆炸后极短时间内经历了指数级膨胀，解决了大爆炸理论的几个关键问题。",
+    "importance": 5,
+    "tags": [
+      "暴胀",
+      "极早期",
+      "宇宙"
+    ]
+  },
+  {
+    "id": "astro_cepheid",
+    "name": "造父变星测距",
+    "year": "1912",
+    "yearRange": [
+      1910,
+      1920
+    ],
+    "era": "modern",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_stellar_parallax",
+      "astro_photography"
+    ],
+    "description": "勒维特发现造父变星的周期-光度关系，提供了测量星系距离的标准烛光，是建立宇宙距离阶梯的关键。",
+    "importance": 5,
+    "tags": [
+      "造父",
+      "标准烛光",
+      "测距"
+    ]
+  },
+  {
+    "id": "astro_planet_migration",
+    "name": "行星迁移理论",
+    "year": "2005",
+    "yearRange": [
+      2000,
+      2015
+    ],
+    "era": "information",
+    "domain": "astronomy",
+    "prerequisites": [
+      "astro_exoplanet",
+      "astro_planet_formation"
+    ],
+    "description": "解释热木星和太阳系外缘行星分布的行星轨道迁移理论，揭示了行星系统比想象中更具动态性。",
+    "importance": 3,
+    "tags": [
+      "迁移",
+      "轨道",
+      "热木星"
+    ]
+  }
+]

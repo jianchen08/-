@@ -1,0 +1,927 @@
+[
+  {
+    "id": "med_herbal",
+    "name": "草药医学",
+    "year": "-5000",
+    "yearRange": [
+      -10000,
+      -2000
+    ],
+    "era": "prehistoric",
+    "domain": "medicine",
+    "prerequisites": [
+      "ag_plant_domestication"
+    ],
+    "description": "人类利用植物治疗疾病的最早实践，所有传统医学体系都以草药为基础，许多现代药物源于传统草药。",
+    "importance": 4,
+    "tags": [
+      "草药",
+      "传统",
+      "植物"
+    ]
+  },
+  {
+    "id": "med_trepanation",
+    "name": "颅骨钻孔术",
+    "year": "-6500",
+    "yearRange": [
+      -8000,
+      -3000
+    ],
+    "era": "prehistoric",
+    "domain": "medicine",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "史前人类进行的最古老外科手术，在颅骨上钻孔可能用于治疗头痛或释放邪灵，许多患者术后存活。",
+    "importance": 3,
+    "tags": [
+      "外科",
+      "颅骨",
+      "远古"
+    ]
+  },
+  {
+    "id": "med_hippocrates",
+    "name": "希波克拉底医学",
+    "year": "-400",
+    "yearRange": [
+      -450,
+      -350
+    ],
+    "era": "ancient",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_herbal"
+    ],
+    "description": "希波克拉底将医学从巫术和宗教中分离，提出疾病有自然原因，强调观察和记录，被称为医学之父。",
+    "importance": 5,
+    "tags": [
+      "希波克拉底",
+      "理性",
+      "观察"
+    ]
+  },
+  {
+    "id": "med_anatomy_galen",
+    "name": "盖伦解剖学",
+    "year": "160",
+    "yearRange": [
+      150,
+      200
+    ],
+    "era": "ancient",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_anatomy_ancient",
+      "med_hippocrates"
+    ],
+    "description": "盖伦通过动物解剖建立的人体解剖学体系统治医学一千多年，虽有错误但系统性强。",
+    "importance": 4,
+    "tags": [
+      "解剖",
+      "盖伦",
+      "体系"
+    ]
+  },
+  {
+    "id": "med_hospital",
+    "name": "医院制度",
+    "year": "400",
+    "yearRange": [
+      300,
+      600
+    ],
+    "era": "ancient",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_hippocrates"
+    ],
+    "description": "从拜占庭和伊斯兰世界的医疗机构到中世纪教会医院，系统化的医疗照护机构逐渐发展。",
+    "importance": 4,
+    "tags": [
+      "医院",
+      "照护",
+      "制度"
+    ]
+  },
+  {
+    "id": "med_islamic_medicine",
+    "name": "伊斯兰医学",
+    "year": "900",
+    "yearRange": [
+      800,
+      1100
+    ],
+    "era": "medieval",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_hippocrates",
+      "med_hospital"
+    ],
+    "description": "伊本·西那的《医学典范》综合了希腊和东方医学知识，在制药、外科和传染病方面有重要创新。",
+    "importance": 4,
+    "tags": [
+      "伊斯兰",
+      "伊本西那",
+      "综合"
+    ]
+  },
+  {
+    "id": "med_dissection",
+    "name": "人体解剖复兴",
+    "year": "1543",
+    "yearRange": [
+      1530,
+      1560
+    ],
+    "era": "renaissance",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_anatomy_galen"
+    ],
+    "description": "维萨里通过实际人体解剖纠正了盖伦的诸多错误，出版《人体结构》，开创了现代解剖学。",
+    "importance": 5,
+    "tags": [
+      "解剖",
+      "维萨里",
+      "纠正"
+    ]
+  },
+  {
+    "id": "med_circulation",
+    "name": "血液循环发现",
+    "year": "1628",
+    "yearRange": [
+      1620,
+      1640
+    ],
+    "era": "renaissance",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_dissection",
+      "phys_classical_mechanics"
+    ],
+    "description": "哈维通过实验证明血液在体内循环流动，心脏是泵，彻底推翻了盖伦的潮汐理论。",
+    "importance": 5,
+    "tags": [
+      "血液",
+      "循环",
+      "哈维"
+    ]
+  },
+  {
+    "id": "med_vaccination",
+    "name": "疫苗接种",
+    "year": "1796",
+    "yearRange": [
+      1780,
+      1800
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_herbal",
+      "bio_natural_history"
+    ],
+    "description": "詹纳发明牛痘接种预防天花，是人类第一种有效的疫苗，开创了免疫学。",
+    "importance": 5,
+    "tags": [
+      "疫苗",
+      "天花",
+      "免疫"
+    ]
+  },
+  {
+    "id": "med_anesthesia",
+    "name": "麻醉术",
+    "year": "1846",
+    "yearRange": [
+      1842,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "chem_elements",
+      "eng_mechanical"
+    ],
+    "description": "乙醚麻醉首次公开演示使外科手术从痛苦折磨变为可控的医疗程序，彻底改变了外科学。",
+    "importance": 5,
+    "tags": [
+      "麻醉",
+      "乙醚",
+      "外科"
+    ]
+  },
+  {
+    "id": "med_antiseptic",
+    "name": "防腐消毒",
+    "year": "1867",
+    "yearRange": [
+      1865,
+      1875
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_germ_theory",
+      "med_anesthesia"
+    ],
+    "description": "李斯特将石炭酸用于手术消毒使术后感染率大幅下降，与麻醉和抗生素并称现代外科三大基石。",
+    "importance": 5,
+    "tags": [
+      "消毒",
+      "李斯特",
+      "感染"
+    ]
+  },
+  {
+    "id": "med_germ_disease",
+    "name": "病原菌学说应用",
+    "year": "1880",
+    "yearRange": [
+      1870,
+      1890
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_germ_theory",
+      "med_antiseptic"
+    ],
+    "description": "科赫发现结核杆菌和霍乱弧菌等病原体，建立了科赫法则，使传染病研究走上科学道路。",
+    "importance": 5,
+    "tags": [
+      "病原",
+      "科赫",
+      "传染"
+    ]
+  },
+  {
+    "id": "med_xray",
+    "name": "X射线诊断",
+    "year": "1895",
+    "yearRange": [
+      1895,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "phys_electron"
+    ],
+    "description": "伦琴发现X射线后立即被用于医学诊断，首次使医生无需手术即可看到人体内部结构。",
+    "importance": 5,
+    "tags": [
+      "X射线",
+      "诊断",
+      "影像"
+    ]
+  },
+  {
+    "id": "med_blood_transfusion",
+    "name": "输血技术",
+    "year": "1901",
+    "yearRange": [
+      1900,
+      1915
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_circulation",
+      "chem_elements"
+    ],
+    "description": "兰德施泰纳发现ABO血型系统使安全输血成为可能，在两次世界大战中挽救了无数伤员。",
+    "importance": 5,
+    "tags": [
+      "输血",
+      "血型",
+      "兰德施泰纳"
+    ]
+  },
+  {
+    "id": "med_insulin",
+    "name": "胰岛素",
+    "year": "1922",
+    "yearRange": [
+      1920,
+      1925
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_germ_disease",
+      "bio_cell_theory"
+    ],
+    "description": "班廷和贝斯特提取的胰岛素使糖尿病从绝症变为可控的慢性病，是生物制药的开端。",
+    "importance": 5,
+    "tags": [
+      "胰岛素",
+      "糖尿病",
+      "激素"
+    ]
+  },
+  {
+    "id": "med_antibiotics",
+    "name": "抗生素",
+    "year": "1928",
+    "yearRange": [
+      1928,
+      1945
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_germ_theory",
+      "med_antiseptic"
+    ],
+    "description": "弗莱明发现青霉素开启了抗生素时代，细菌感染不再是主要死因，人均寿命大幅延长。",
+    "importance": 5,
+    "tags": [
+      "青霉素",
+      "抗生素",
+      "弗莱明"
+    ]
+  },
+  {
+    "id": "med_vitamin",
+    "name": "维生素发现",
+    "year": "1912",
+    "yearRange": [
+      1905,
+      1925
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "chem_organic",
+      "med_herbal"
+    ],
+    "description": "芬克提出维生素概念，发现微量营养素缺乏是脚气病、坏血病等疾病的原因，开创了营养医学。",
+    "importance": 4,
+    "tags": [
+      "维生素",
+      "营养",
+      "微量"
+    ]
+  },
+  {
+    "id": "med_chemotherapy",
+    "name": "化学疗法",
+    "year": "1946",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_antibiotics",
+      "chem_organic"
+    ],
+    "description": "利用化学药物治疗癌症和其他疾病，从氮芥治疗淋巴瘤开始，发展为现代肿瘤学的核心手段。",
+    "importance": 4,
+    "tags": [
+      "化疗",
+      "癌症",
+      "药物"
+    ]
+  },
+  {
+    "id": "med_polio_vaccine",
+    "name": "脊髓灰质炎疫苗",
+    "year": "1955",
+    "yearRange": [
+      1950,
+      1965
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_vaccination",
+      "bio_cell_theory"
+    ],
+    "description": "索尔克和萨宾分别开发的注射和口服脊灰疫苗使小儿麻痹症在多数国家绝迹。",
+    "importance": 4,
+    "tags": [
+      "脊灰",
+      "疫苗",
+      "预防"
+    ]
+  },
+  {
+    "id": "med_organ_transplant",
+    "name": "器官移植",
+    "year": "1954",
+    "yearRange": [
+      1950,
+      1970
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_antiseptic",
+      "med_blood_transfusion",
+      "bio_cell_theory"
+    ],
+    "description": "第一例成功的肾移植开启了器官移植时代，后来扩展到心脏、肝脏和肺等器官。",
+    "importance": 5,
+    "tags": [
+      "移植",
+      "器官",
+      "免疫"
+    ]
+  },
+  {
+    "id": "med_pill",
+    "name": "口服避孕药",
+    "year": "1960",
+    "yearRange": [
+      1955,
+      1965
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_chemotherapy",
+      "chem_organic"
+    ],
+    "description": "口服避孕药使女性获得了生育控制权，深刻改变了人口结构、家庭关系和社会发展。",
+    "importance": 4,
+    "tags": [
+      "避孕",
+      "激素",
+      "社会"
+    ]
+  },
+  {
+    "id": "med_ct_scan",
+    "name": "CT扫描",
+    "year": "1971",
+    "yearRange": [
+      1970,
+      1975
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_xray",
+      "it_computer",
+      "math_fourier"
+    ],
+    "description": "计算机断层扫描将X射线与计算机处理结合，生成人体横截面图像，是医学影像学的重大突破。",
+    "importance": 5,
+    "tags": [
+      "CT",
+      "断层",
+      "影像"
+    ]
+  },
+  {
+    "id": "med_mri",
+    "name": "MRI成像",
+    "year": "1977",
+    "yearRange": [
+      1975,
+      1985
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "chem_nmr",
+      "it_computer",
+      "phys_quantum_theory"
+    ],
+    "description": "磁共振成像利用核磁共振原理生成高分辨率软组织图像，无辐射，成为现代医学诊断的核心工具。",
+    "importance": 5,
+    "tags": [
+      "MRI",
+      "磁共振",
+      "影像"
+    ]
+  },
+  {
+    "id": "med_stent",
+    "name": "心脏支架",
+    "year": "1986",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "mat_stainless_steel",
+      "med_xray"
+    ],
+    "description": "植入冠状动脉的金属支架撑开堵塞血管，微创治疗冠心病，成为最常见的心血管介入治疗。",
+    "importance": 4,
+    "tags": [
+      "支架",
+      "微创",
+      "心血管"
+    ]
+  },
+  {
+    "id": "med_minimally_invasive",
+    "name": "微创手术",
+    "year": "1987",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_anesthesia",
+      "med_ct_scan",
+      "it_fiber_optic"
+    ],
+    "description": "腹腔镜等微创手术通过小切口完成传统大手术的操作，大幅减少创伤和恢复时间。",
+    "importance": 4,
+    "tags": [
+      "微创",
+      "腹腔镜",
+      "恢复"
+    ]
+  },
+  {
+    "id": "med_gene_therapy",
+    "name": "基因治疗",
+    "year": "1990",
+    "yearRange": [
+      1990,
+      2005
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_genetic_eng",
+      "bio_dna"
+    ],
+    "description": "将正常基因导入患者细胞以治疗遗传疾病的尝试，已在某些单基因疾病中取得突破。",
+    "importance": 5,
+    "tags": [
+      "基因",
+      "治疗",
+      "遗传"
+    ]
+  },
+  {
+    "id": "med_antiretroviral",
+    "name": "抗逆转录病毒疗法",
+    "year": "1996",
+    "yearRange": [
+      1990,
+      2000
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_virology",
+      "med_chemotherapy"
+    ],
+    "description": "高效抗逆转录病毒治疗将艾滋病从绝症变为可控慢性病，是现代医学最伟大的成就之一。",
+    "importance": 5,
+    "tags": [
+      "HIV",
+      "鸡尾酒",
+      "慢性"
+    ]
+  },
+  {
+    "id": "med_targeted_therapy",
+    "name": "靶向药物",
+    "year": "1997",
+    "yearRange": [
+      1990,
+      2005
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_chemotherapy",
+      "bio_molecular_bio",
+      "bio_genome_human"
+    ],
+    "description": "针对癌细胞特定分子靶点的精准药物，比传统化疗更有效且副作用更小，开创了精准医学。",
+    "importance": 4,
+    "tags": [
+      "靶向",
+      "精准",
+      "分子"
+    ]
+  },
+  {
+    "id": "med_robotic_surgery",
+    "name": "手术机器人",
+    "year": "2000",
+    "yearRange": [
+      1995,
+      2010
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_minimally_invasive",
+      "eng_robotics"
+    ],
+    "description": "达芬奇手术机器人使外科医生能进行更精确的微创操作，已在泌尿外科和心脏外科广泛应用。",
+    "importance": 4,
+    "tags": [
+      "机器人",
+      "精确",
+      "微创"
+    ]
+  },
+  {
+    "id": "med_precision",
+    "name": "精准医学",
+    "year": "2015",
+    "yearRange": [
+      2010,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_genome_human",
+      "med_targeted_therapy",
+      "it_big_data"
+    ],
+    "description": "根据患者基因组信息定制个性化治疗方案，从同一疾病统一治疗转向因人而异的精准治疗。",
+    "importance": 5,
+    "tags": [
+      "精准",
+      "基因组",
+      "个性化"
+    ]
+  },
+  {
+    "id": "med_immunotherapy",
+    "name": "免疫疗法",
+    "year": "2011",
+    "yearRange": [
+      2010,
+      2020
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_immunology",
+      "med_targeted_therapy"
+    ],
+    "description": "利用患者自身免疫系统攻击癌症的免疫检查点抑制剂，对某些晚期癌症展现出前所未有的疗效。",
+    "importance": 5,
+    "tags": [
+      "免疫",
+      "癌症",
+      "PD-1"
+    ]
+  },
+  {
+    "id": "med_crispr_therapy",
+    "name": "CRISPR基因治疗",
+    "year": "2020",
+    "yearRange": [
+      2018,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_crispr",
+      "med_gene_therapy"
+    ],
+    "description": "利用CRISPR在体内直接编辑致病基因，已在镰刀型贫血和先天性失明等疾病中取得突破。",
+    "importance": 5,
+    "tags": [
+      "CRISPR",
+      "编辑",
+      "遗传"
+    ]
+  },
+  {
+    "id": "med_ai_diagnosis",
+    "name": "AI辅助诊断",
+    "year": "2018",
+    "yearRange": [
+      2015,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "it_deep_learning",
+      "med_mri",
+      "it_big_data"
+    ],
+    "description": "深度学习模型在医学影像诊断中达到或超过专家水平，正在改变疾病的早期发现和诊断方式。",
+    "importance": 4,
+    "tags": [
+      "AI",
+      "诊断",
+      "影像"
+    ]
+  },
+  {
+    "id": "med_telemedicine",
+    "name": "远程医疗",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "it_internet",
+      "it_smartphone"
+    ],
+    "description": "通过互联网实现远程诊断和治疗，新冠疫情期间大规模应用，使优质医疗资源突破地理限制。",
+    "importance": 3,
+    "tags": [
+      "远程",
+      "互联网",
+      "新冠"
+    ]
+  },
+  {
+    "id": "med_tissue_eng",
+    "name": "组织工程",
+    "year": "1997",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_stem_cell",
+      "mat_biomaterial"
+    ],
+    "description": "结合细胞、生物材料和工程学方法在体外构建功能性组织替代物，为器官短缺问题提供解决方案。",
+    "importance": 4,
+    "tags": [
+      "组织",
+      "工程",
+      "再生"
+    ]
+  },
+  {
+    "id": "med_3d_print_organ",
+    "name": "3D打印器官",
+    "year": "2019",
+    "yearRange": [
+      2015,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "mat_3d_print",
+      "med_tissue_eng",
+      "bio_stem_cell"
+    ],
+    "description": "利用生物3D打印技术制造功能性人体组织，最终目标是打印可用的人体器官。",
+    "importance": 4,
+    "tags": [
+      "3D打印",
+      "器官",
+      "生物"
+    ]
+  },
+  {
+    "id": "med_nanomedicine",
+    "name": "纳米医学",
+    "year": "2005",
+    "yearRange": [
+      2000,
+      2020
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "med_targeted_therapy"
+    ],
+    "description": "利用纳米尺度的材料和器件进行药物递送、诊断和治疗，纳米颗粒可精准靶向肿瘤细胞。",
+    "importance": 4,
+    "tags": [
+      "纳米",
+      "递送",
+      "靶向"
+    ]
+  },
+  {
+    "id": "med_stroke_treatment",
+    "name": "卒中急救",
+    "year": "1996",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_ct_scan",
+      "med_blood_transfusion"
+    ],
+    "description": "溶栓药物和机械取栓术使缺血性脑卒中从不可逆损伤变为可治疗的急症，时间就是大脑。",
+    "importance": 4,
+    "tags": [
+      "卒中",
+      "溶栓",
+      "急救"
+    ]
+  },
+  {
+    "id": "med_epidemiology",
+    "name": "流行病学",
+    "year": "1854",
+    "yearRange": [
+      1850,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "math_statistics_modern",
+      "med_germ_disease"
+    ],
+    "description": "斯诺通过霍乱地图开创流行病学调查方法，系统研究疾病在人群中的分布和传播规律。",
+    "importance": 4,
+    "tags": [
+      "流行病",
+      "斯诺",
+      "统计"
+    ]
+  },
+  {
+    "id": "med_public_health",
+    "name": "公共卫生体系",
+    "year": "1850",
+    "yearRange": [
+      1850,
+      1950
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_epidemiology",
+      "med_germ_disease"
+    ],
+    "description": "系统化的公共卫生基础设施，包括饮水安全、疫苗接种、传染病监控和健康教育。",
+    "importance": 5,
+    "tags": [
+      "公共卫生",
+      "防疫",
+      "体系"
+    ]
+  },
+  {
+    "id": "med_mental_illness",
+    "name": "精神医学",
+    "year": "1900",
+    "yearRange": [
+      1880,
+      1950
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_hippocrates",
+      "bio_nervous"
+    ],
+    "description": "从弗洛伊德的精神分析到现代生物精神病学，精神疾病从道德缺陷转变为可治疗的医学状况。",
+    "importance": 4,
+    "tags": [
+      "精神",
+      "心理",
+      "治疗"
+    ]
+  },
+  {
+    "id": "med_traditional_chinese",
+    "name": "中医药体系",
+    "year": "-200",
+    "yearRange": [
+      -500,
+      200
+    ],
+    "era": "ancient",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_herbal"
+    ],
+    "description": "以阴阳五行理论为基础的传统医学体系，包括针灸、中药、推拿等，延续两千多年。",
+    "importance": 4,
+    "tags": [
+      "中医",
+      "针灸",
+      "中药"
+    ]
+  }
+]

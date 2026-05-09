@@ -1,0 +1,1120 @@
+[
+  {
+    "id": "math_counting",
+    "name": "计数与数字概念",
+    "year": "-50000",
+    "yearRange": [
+      -100000,
+      -10000
+    ],
+    "era": "prehistoric",
+    "domain": "math",
+    "prerequisites": [],
+    "description": "人类最早的数学活动，通过刻痕、结绳等方式记录数量，发展出基本的数字概念和一一对应关系。",
+    "importance": 5,
+    "tags": [
+      "基础",
+      "数字",
+      "远古"
+    ]
+  },
+  {
+    "id": "math_geometry_basic",
+    "name": "基本几何",
+    "year": "-3000",
+    "yearRange": [
+      -5000,
+      -2000
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_counting"
+    ],
+    "description": "古埃及和古巴比伦人在土地丈量、建筑建造中发展出的几何知识，包括面积和体积的基本计算。",
+    "importance": 4,
+    "tags": [
+      "几何",
+      "测量",
+      "古代"
+    ]
+  },
+  {
+    "id": "math_arithmetic",
+    "name": "算术运算",
+    "year": "-3000",
+    "yearRange": [
+      -4000,
+      -2000
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_counting"
+    ],
+    "description": "加减乘除四则运算的系统化，包括分数概念的形成，是数学最基础的运算体系。",
+    "importance": 5,
+    "tags": [
+      "算术",
+      "基础",
+      "运算"
+    ]
+  },
+  {
+    "id": "math_babylonian",
+    "name": "巴比伦数学",
+    "year": "-1800",
+    "yearRange": [
+      -2000,
+      -1600
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_arithmetic",
+      "math_geometry_basic"
+    ],
+    "description": "巴比伦人发展出的六十进制数学体系，能解二次方程，编制三角函数表，数学水平远超同时代。",
+    "importance": 4,
+    "tags": [
+      "六十进制",
+      "方程",
+      "巴比伦"
+    ]
+  },
+  {
+    "id": "math_pythagorean",
+    "name": "毕达哥拉斯定理",
+    "year": "-550",
+    "yearRange": [
+      -600,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_geometry_basic",
+      "math_arithmetic"
+    ],
+    "description": "直角三角形三边关系的定理，虽巴比伦和中国更早发现，但毕达哥拉斯学派首次给出严格证明，开创了数学证明的传统。",
+    "importance": 5,
+    "tags": [
+      "几何",
+      "定理",
+      "证明"
+    ]
+  },
+  {
+    "id": "math_irrational",
+    "name": "无理数发现",
+    "year": "-500",
+    "yearRange": [
+      -530,
+      -470
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_pythagorean"
+    ],
+    "description": "毕达哥拉斯学派发现根号2不能用整数比表示，动摇了万物皆整数的信仰，引发了第一次数学危机。",
+    "importance": 4,
+    "tags": [
+      "无理数",
+      "危机",
+      "基础"
+    ]
+  },
+  {
+    "id": "math_axiom",
+    "name": "公理化方法",
+    "year": "-300",
+    "yearRange": [
+      -350,
+      -250
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_pythagorean"
+    ],
+    "description": "欧几里得《几何原本》建立的公理化演绎体系，从少数公理出发推导整个几何学，成为此后两千年数学推理的范本。",
+    "importance": 5,
+    "tags": [
+      "公理",
+      "演绎",
+      "逻辑"
+    ]
+  },
+  {
+    "id": "math_conic",
+    "name": "圆锥曲线",
+    "year": "-250",
+    "yearRange": [
+      -300,
+      -200
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_geometry_basic"
+    ],
+    "description": "阿波罗尼奥斯系统研究的椭圆、抛物线和双曲线，为两千年后开普勒和牛顿的工作奠定了数学基础。",
+    "importance": 4,
+    "tags": [
+      "曲线",
+      "几何",
+      "解析"
+    ]
+  },
+  {
+    "id": "math_trigonometry",
+    "name": "三角学",
+    "year": "-150",
+    "yearRange": [
+      -200,
+      200
+    ],
+    "era": "ancient",
+    "domain": "math",
+    "prerequisites": [
+      "math_geometry_basic",
+      "math_babylonian"
+    ],
+    "description": "希帕尔克斯建立系统的三角学，编制弦表，用于天文计算。后经印度和伊斯兰数学家发展为现代形式。",
+    "importance": 4,
+    "tags": [
+      "三角",
+      "天文",
+      "函数"
+    ]
+  },
+  {
+    "id": "math_hindu_decimal",
+    "name": "印度十进制位值法",
+    "year": "500",
+    "yearRange": [
+      400,
+      600
+    ],
+    "era": "medieval",
+    "domain": "math",
+    "prerequisites": [
+      "math_arithmetic"
+    ],
+    "description": "印度数学家发展出包含零的十进制位值记数法，这一系统后来经阿拉伯世界传入欧洲，成为现代数字系统的基础。",
+    "importance": 5,
+    "tags": [
+      "十进制",
+      "零",
+      "记数"
+    ]
+  },
+  {
+    "id": "math_algebra_khwarizmi",
+    "name": "代数学创立",
+    "year": "820",
+    "yearRange": [
+      800,
+      850
+    ],
+    "era": "medieval",
+    "domain": "math",
+    "prerequisites": [
+      "math_arithmetic",
+      "math_hindu_decimal"
+    ],
+    "description": "花拉子密的《代数学》系统论述了一元一次和一元二次方程的解法，代数一词即源于此书书名。",
+    "importance": 5,
+    "tags": [
+      "代数",
+      "方程",
+      "伊斯兰"
+    ]
+  },
+  {
+    "id": "math_fibonacci",
+    "name": "斐波那契数列",
+    "year": "1202",
+    "yearRange": [
+      1200,
+      1210
+    ],
+    "era": "medieval",
+    "domain": "math",
+    "prerequisites": [
+      "math_hindu_decimal",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "斐波那契在《算盘书》中引入印度-阿拉伯数字系统到欧洲，并提出了著名的斐波那契数列，揭示了数学与自然的深层联系。",
+    "importance": 3,
+    "tags": [
+      "数列",
+      "黄金比例",
+      "传播"
+    ]
+  },
+  {
+    "id": "math_logarithm",
+    "name": "对数发明",
+    "year": "1614",
+    "yearRange": [
+      1610,
+      1620
+    ],
+    "era": "renaissance",
+    "domain": "math",
+    "prerequisites": [
+      "math_trigonometry",
+      "math_hindu_decimal"
+    ],
+    "description": "纳皮尔发明对数，将乘除运算转化为加减运算，极大简化了天文计算，被拉普拉斯誉为缩短了天文学家寿命的发明。",
+    "importance": 4,
+    "tags": [
+      "对数",
+      "计算",
+      "简化"
+    ]
+  },
+  {
+    "id": "math_analytic_geometry",
+    "name": "解析几何",
+    "year": "1637",
+    "yearRange": [
+      1630,
+      1640
+    ],
+    "era": "renaissance",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "笛卡尔创立的解析几何将代数与几何统一，用坐标系将几何图形转化为代数方程，彻底改变了数学的面貌。",
+    "importance": 5,
+    "tags": [
+      "坐标",
+      "笛卡尔",
+      "统一"
+    ]
+  },
+  {
+    "id": "math_probability",
+    "name": "概率论",
+    "year": "1654",
+    "yearRange": [
+      1650,
+      1660
+    ],
+    "era": "renaissance",
+    "domain": "math",
+    "prerequisites": [
+      "math_arithmetic",
+      "math_counting"
+    ],
+    "description": "帕斯卡和费马在通信中奠定了概率论基础，起源于赌徒分赌金问题，后发展为描述随机现象的数学理论。",
+    "importance": 5,
+    "tags": [
+      "概率",
+      "随机",
+      "统计"
+    ]
+  },
+  {
+    "id": "math_calculus",
+    "name": "微积分",
+    "year": "1687",
+    "yearRange": [
+      1665,
+      1695
+    ],
+    "era": "renaissance",
+    "domain": "math",
+    "prerequisites": [
+      "math_analytic_geometry",
+      "math_logarithm"
+    ],
+    "description": "牛顿和莱布尼茨各自独立发明微积分，建立了研究连续变化的数学工具，成为现代科学和工程的数学基石。",
+    "importance": 5,
+    "tags": [
+      "微积分",
+      "极限",
+      "牛顿"
+    ]
+  },
+  {
+    "id": "math_graph_theory",
+    "name": "图论",
+    "year": "1736",
+    "yearRange": [
+      1730,
+      1740
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom"
+    ],
+    "description": "欧拉通过解决哥尼斯堡七桥问题创立图论，开创了研究离散结构的数学分支，后来在计算机科学中至关重要。",
+    "importance": 4,
+    "tags": [
+      "图论",
+      "离散",
+      "欧拉"
+    ]
+  },
+  {
+    "id": "math_euler_formula",
+    "name": "欧拉公式",
+    "year": "1748",
+    "yearRange": [
+      1740,
+      1755
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_trigonometry"
+    ],
+    "description": "欧拉发现e的iπ次方加1等于0，将数学中五个最重要的常数统一于一个公式中，被誉为数学中最美的公式。",
+    "importance": 4,
+    "tags": [
+      "复分析",
+      "欧拉",
+      "美丽公式"
+    ]
+  },
+  {
+    "id": "math_least_squares",
+    "name": "最小二乘法",
+    "year": "1805",
+    "yearRange": [
+      1795,
+      1810
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_probability"
+    ],
+    "description": "勒让德和高斯各自发展的最小二乘法，为数据拟合和统计估计提供了最优方法，是现代统计学的基石之一。",
+    "importance": 4,
+    "tags": [
+      "统计",
+      "拟合",
+      "高斯"
+    ]
+  },
+  {
+    "id": "math_fourier",
+    "name": "傅里叶分析",
+    "year": "1822",
+    "yearRange": [
+      1807,
+      1830
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_trigonometry"
+    ],
+    "description": "傅里叶证明任何周期函数都可以分解为正弦和余弦函数之和，这一理论后来在信号处理、热传导、量子力学等领域极为重要。",
+    "importance": 5,
+    "tags": [
+      "傅里叶",
+      "变换",
+      "信号"
+    ]
+  },
+  {
+    "id": "math_non_euclidean",
+    "name": "非欧几何",
+    "year": "1829",
+    "yearRange": [
+      1820,
+      1840
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_analytic_geometry"
+    ],
+    "description": "罗巴切夫斯基和波尔约独立发现的非欧几何打破了欧几里得几何的唯一性，证明平行公设不可证明，为广义相对论铺平道路。",
+    "importance": 5,
+    "tags": [
+      "几何",
+      "非欧",
+      "革命"
+    ]
+  },
+  {
+    "id": "math_group_theory",
+    "name": "群论",
+    "year": "1832",
+    "yearRange": [
+      1820,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "伽罗瓦在解决五次方程求根问题时创立群论，用对称性研究代数结构，后来成为现代数学和物理学的核心语言。",
+    "importance": 5,
+    "tags": [
+      "群论",
+      "对称",
+      "抽象"
+    ]
+  },
+  {
+    "id": "math_boolean",
+    "name": "布尔代数",
+    "year": "1847",
+    "yearRange": [
+      1840,
+      1860
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom"
+    ],
+    "description": "乔治布尔创立的布尔代数用代数方法研究逻辑推理，将逻辑学纳入数学框架，成为数字电路和计算机科学的数学基础。",
+    "importance": 5,
+    "tags": [
+      "逻辑",
+      "布尔",
+      "计算机"
+    ]
+  },
+  {
+    "id": "math_matrix",
+    "name": "矩阵代数",
+    "year": "1858",
+    "yearRange": [
+      1850,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_algebra_khwarizmi",
+      "math_analytic_geometry"
+    ],
+    "description": "凯莱系统建立的矩阵理论，将线性方程组和线性变换的研究统一起来，成为线性代数的核心工具。",
+    "importance": 4,
+    "tags": [
+      "矩阵",
+      "线性代数",
+      "变换"
+    ]
+  },
+  {
+    "id": "math_set_theory",
+    "name": "集合论",
+    "year": "1874",
+    "yearRange": [
+      1870,
+      1885
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_boolean"
+    ],
+    "description": "康托尔创立的集合论为所有数学分支提供了统一的基础语言，同时也引发了关于无穷大的深刻思考。",
+    "importance": 5,
+    "tags": [
+      "集合",
+      "无穷",
+      "基础"
+    ]
+  },
+  {
+    "id": "math_logic",
+    "name": "数理逻辑",
+    "year": "1879",
+    "yearRange": [
+      1850,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_axiom",
+      "math_boolean"
+    ],
+    "description": "弗雷格等人开创的数理逻辑将数学推理本身作为研究对象，试图为整个数学建立严密的逻辑基础。",
+    "importance": 4,
+    "tags": [
+      "逻辑",
+      "证明",
+      "形式化"
+    ]
+  },
+  {
+    "id": "math_topology",
+    "name": "拓扑学",
+    "year": "1895",
+    "yearRange": [
+      1880,
+      1910
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_analytic_geometry"
+    ],
+    "description": "庞加莱创立的拓扑学研究空间在连续变形下不变的性质，被称为橡皮泥几何，成为现代数学的重要分支。",
+    "importance": 4,
+    "tags": [
+      "拓扑",
+      "空间",
+      "连续"
+    ]
+  },
+  {
+    "id": "math_hilbert",
+    "name": "希尔伯特纲领",
+    "year": "1900",
+    "yearRange": [
+      1899,
+      1902
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_logic"
+    ],
+    "description": "希尔伯特在1900年巴黎数学家大会上提出23个未解决的重要问题，规划了20世纪数学的发展方向，影响深远。",
+    "importance": 4,
+    "tags": [
+      "问题",
+      "纲领",
+      "希尔伯特"
+    ]
+  },
+  {
+    "id": "math_measure_theory",
+    "name": "测度论",
+    "year": "1902",
+    "yearRange": [
+      1895,
+      1910
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_calculus"
+    ],
+    "description": "勒贝格发展的测度论为积分学提供了更坚实的基础，也使概率论有了严格的数学框架。",
+    "importance": 4,
+    "tags": [
+      "测度",
+      "积分",
+      "勒贝格"
+    ]
+  },
+  {
+    "id": "math_tensor",
+    "name": "张量分析",
+    "year": "1900",
+    "yearRange": [
+      1890,
+      1915
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_matrix",
+      "math_calculus"
+    ],
+    "description": "里奇和列维奇维塔发展的张量分析，为广义相对论和后来的连续介质力学提供了数学工具。",
+    "importance": 4,
+    "tags": [
+      "张量",
+      "微分",
+      "坐标"
+    ]
+  },
+  {
+    "id": "math_relativity_math",
+    "name": "微分几何",
+    "year": "1915",
+    "yearRange": [
+      1850,
+      1920
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_non_euclidean",
+      "math_calculus",
+      "math_tensor"
+    ],
+    "description": "黎曼几何和张量分析为爱因斯坦广义相对论提供了数学框架，展示了纯数学与物理学的深刻统一。",
+    "importance": 5,
+    "tags": [
+      "微分几何",
+      "黎曼",
+      "相对论"
+    ]
+  },
+  {
+    "id": "math_statistics_modern",
+    "name": "现代统计学",
+    "year": "1922",
+    "yearRange": [
+      1915,
+      1940
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_least_squares",
+      "math_measure_theory"
+    ],
+    "description": "费歇尔建立的现代统计推断框架，包括极大似然估计、假设检验、实验设计等，使统计学成为一门独立的数学学科。",
+    "importance": 5,
+    "tags": [
+      "统计",
+      "推断",
+      "费歇尔"
+    ]
+  },
+  {
+    "id": "math_incompleteness",
+    "name": "哥德尔不完备性定理",
+    "year": "1931",
+    "yearRange": [
+      1930,
+      1932
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_logic",
+      "math_hilbert"
+    ],
+    "description": "哥德尔证明在任何包含算术的一致形式系统中，必存在既不能被证明也不能被否定的命题，彻底粉碎了希尔伯特纲领。",
+    "importance": 5,
+    "tags": [
+      "不完备",
+      "逻辑",
+      "哥德尔"
+    ]
+  },
+  {
+    "id": "math_turing",
+    "name": "图灵机与可计算性",
+    "year": "1936",
+    "yearRange": [
+      1935,
+      1937
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_logic",
+      "math_incompleteness"
+    ],
+    "description": "图灵提出图灵机模型，精确定义了可计算的概念，证明了停机问题的不可判定性，奠定了计算机科学的理论基础。",
+    "importance": 5,
+    "tags": [
+      "图灵",
+      "计算",
+      "可判定"
+    ]
+  },
+  {
+    "id": "math_information_theory",
+    "name": "信息论",
+    "year": "1948",
+    "yearRange": [
+      1945,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_logarithm"
+    ],
+    "description": "香农创立信息论，精确定义了信息的度量（熵），建立了数据压缩和通信信道的理论基础，是数字时代的数学基石。",
+    "importance": 5,
+    "tags": [
+      "信息",
+      "熵",
+      "香农"
+    ]
+  },
+  {
+    "id": "math_game_theory",
+    "name": "博弈论",
+    "year": "1944",
+    "yearRange": [
+      1928,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_set_theory"
+    ],
+    "description": "冯诺依曼和摩根斯顿系统建立的博弈论，用数学方法研究策略决策，对经济学、政治学和进化生物学产生了深远影响。",
+    "importance": 4,
+    "tags": [
+      "博弈",
+      "策略",
+      "经济"
+    ]
+  },
+  {
+    "id": "math_categorical",
+    "name": "范畴论",
+    "year": "1945",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_topology",
+      "math_group_theory"
+    ],
+    "description": "麦克莱恩和艾伦伯格创立的范畴论，将数学各分支的结构统一在函子和自然变换的框架下，被称为数学的数学。",
+    "importance": 4,
+    "tags": [
+      "范畴",
+      "函子",
+      "抽象"
+    ]
+  },
+  {
+    "id": "math_linear_prog",
+    "name": "线性规划",
+    "year": "1939",
+    "yearRange": [
+      1935,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_matrix",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "坎托罗维奇和丹齐格分别发展的线性规划理论，用单纯形法求解资源最优分配问题，开创了现代运筹学。",
+    "importance": 4,
+    "tags": [
+      "线性规划",
+      "单纯形",
+      "运筹"
+    ]
+  },
+  {
+    "id": "math_optimization",
+    "name": "优化理论",
+    "year": "1947",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_matrix",
+      "math_linear_prog"
+    ],
+    "description": "系统化的数学优化理论，包括线性规划单纯形法、非线性规划和凸优化，在运筹学和工程中应用广泛。",
+    "importance": 4,
+    "tags": [
+      "优化",
+      "线性规划",
+      "决策"
+    ]
+  },
+  {
+    "id": "math_control_theory",
+    "name": "控制论",
+    "year": "1948",
+    "yearRange": [
+      1940,
+      1955
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_probability",
+      "math_matrix"
+    ],
+    "description": "维纳创立的控制论研究系统中的通信和控制规律，用数学方法统一处理机械、生物和社会系统的反馈机制。",
+    "importance": 4,
+    "tags": [
+      "控制",
+      "反馈",
+      "系统"
+    ]
+  },
+  {
+    "id": "math_chaos_theory",
+    "name": "混沌理论",
+    "year": "1963",
+    "yearRange": [
+      1960,
+      1975
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_calculus",
+      "math_topology"
+    ],
+    "description": "洛伦兹发现确定性系统中的混沌现象——蝴蝶效应，揭示了非线性动力系统的复杂行为，改变了人们对可预测性的认识。",
+    "importance": 4,
+    "tags": [
+      "混沌",
+      "非线性",
+      "蝴蝶效应"
+    ]
+  },
+  {
+    "id": "math_fuzzy_logic",
+    "name": "模糊逻辑",
+    "year": "1965",
+    "yearRange": [
+      1960,
+      1970
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_logic"
+    ],
+    "description": "扎德创立的模糊集合和模糊逻辑理论，允许真值在0和1之间连续取值，为处理不确定性和模糊性提供了数学工具。",
+    "importance": 3,
+    "tags": [
+      "模糊",
+      "不确定性",
+      "集合"
+    ]
+  },
+  {
+    "id": "math_number_theory",
+    "name": "现代数论",
+    "year": "1930",
+    "yearRange": [
+      1920,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "哈代、拉马努金、韦伊等人发展的现代数论，将解析方法和代数几何方法引入数论研究，远超古典数论的范畴。",
+    "importance": 4,
+    "tags": [
+      "数论",
+      "解析",
+      "代数"
+    ]
+  },
+  {
+    "id": "math_rsa",
+    "name": "RSA加密算法",
+    "year": "1977",
+    "yearRange": [
+      1975,
+      1980
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_number_theory",
+      "math_information_theory"
+    ],
+    "description": "基于大数分解困难性的公钥加密算法，将数论从纯数学推向实用，成为互联网安全通信的数学基础。",
+    "importance": 5,
+    "tags": [
+      "加密",
+      "数论",
+      "安全"
+    ]
+  },
+  {
+    "id": "math_complexity_theory",
+    "name": "计算复杂性理论",
+    "year": "1971",
+    "yearRange": [
+      1965,
+      1980
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_turing",
+      "math_logic"
+    ],
+    "description": "研究计算问题的内在难度，定义P、NP、NP完全等复杂性类，P vs NP问题成为计算机科学最重要的开放问题。",
+    "importance": 5,
+    "tags": [
+      "复杂性",
+      "NP",
+      "计算"
+    ]
+  },
+  {
+    "id": "math_fractal",
+    "name": "分形几何",
+    "year": "1975",
+    "yearRange": [
+      1967,
+      1982
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_topology",
+      "math_chaos_theory"
+    ],
+    "description": "芒德布罗创立的分形几何学描述了自然界中不规则但自相似的形状，揭示了自然界隐藏的数学秩序。",
+    "importance": 4,
+    "tags": [
+      "分形",
+      "自相似",
+      "曼德布罗"
+    ]
+  },
+  {
+    "id": "math_wavelet",
+    "name": "小波分析",
+    "year": "1980",
+    "yearRange": [
+      1975,
+      1990
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_fourier",
+      "math_set_theory"
+    ],
+    "description": "小波分析是傅里叶分析的发展，能在时间和频率两个域同时获得良好分辨率，在图像压缩和信号处理中极为重要。",
+    "importance": 4,
+    "tags": [
+      "小波",
+      "信号",
+      "时频"
+    ]
+  },
+  {
+    "id": "math_graph_algorithms",
+    "name": "图算法",
+    "year": "1959",
+    "yearRange": [
+      1955,
+      1970
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_graph_theory",
+      "math_complexity_theory"
+    ],
+    "description": "Dijkstra最短路径、Kruskal最小生成树等经典图算法，成为网络分析、路径规划和社交网络分析的核心工具。",
+    "importance": 4,
+    "tags": [
+      "图",
+      "算法",
+      "网络"
+    ]
+  },
+  {
+    "id": "math_randomized_algo",
+    "name": "随机化算法",
+    "year": "1977",
+    "yearRange": [
+      1975,
+      1985
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_complexity_theory"
+    ],
+    "description": "利用随机性设计高效算法，如素性测试和近似计数，在许多问题上比确定性算法更高效。",
+    "importance": 3,
+    "tags": [
+      "随机",
+      "算法",
+      "效率"
+    ]
+  },
+  {
+    "id": "math_homotopy_type",
+    "name": "同伦类型论",
+    "year": "2013",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_topology",
+      "math_logic",
+      "math_incompleteness"
+    ],
+    "description": "将同伦论与类型论统一的新数学基础方案，为计算机辅助数学证明提供了新的形式化框架。",
+    "importance": 3,
+    "tags": [
+      "类型论",
+      "同伦",
+      "形式化"
+    ]
+  },
+  {
+    "id": "math_bayesian",
+    "name": "贝叶斯定理",
+    "year": "1763",
+    "yearRange": [
+      1760,
+      1800
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_calculus"
+    ],
+    "description": "贝叶斯定理提供了在获得新证据后更新信念的数学方法，后来在机器学习和人工智能中成为核心方法论。",
+    "importance": 5,
+    "tags": [
+      "贝叶斯",
+      "推断",
+      "更新"
+    ]
+  }
+]

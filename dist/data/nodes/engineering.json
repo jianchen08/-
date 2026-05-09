@@ -1,0 +1,1059 @@
+[
+  {
+    "id": "eng_mechanical",
+    "name": "简单机械",
+    "year": "-3000",
+    "yearRange": [
+      -5000,
+      -1000
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "杠杆、轮轴、斜面、滑轮、楔子和螺旋六种简单机械的组合运用，是所有复杂机械的基础。",
+    "importance": 4,
+    "tags": [
+      "机械",
+      "杠杆",
+      "基础"
+    ]
+  },
+  {
+    "id": "eng_wheel",
+    "name": "轮子发明",
+    "year": "-3500",
+    "yearRange": [
+      -4000,
+      -3000
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_stone_tools",
+      "mat_stone_tools"
+    ],
+    "description": "轮子是人类最重要的机械发明之一，将滑动摩擦转化为滚动摩擦，使运输效率革命性提升。",
+    "importance": 5,
+    "tags": [
+      "轮子",
+      "运输",
+      "摩擦"
+    ]
+  },
+  {
+    "id": "eng_water_wheel",
+    "name": "水车",
+    "year": "-200",
+    "yearRange": [
+      -300,
+      -50
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_wheel",
+      "eng_mechanical"
+    ],
+    "description": "利用水流驱动的水力机械，用于磨面、灌溉和驱动各种工业设备，是工业革命前最重要的动力机械之一。",
+    "importance": 4,
+    "tags": [
+      "水车",
+      "水力",
+      "磨坊"
+    ]
+  },
+  {
+    "id": "eng_aqueduct",
+    "name": "引水渠",
+    "year": "-312",
+    "yearRange": [
+      -400,
+      -100
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_mechanical",
+      "math_geometry_basic"
+    ],
+    "description": "罗马高架引水渠是古代最伟大的工程成就之一，利用重力将远处的水源引入城市，供应百万人口。",
+    "importance": 4,
+    "tags": [
+      "引水渠",
+      "罗马",
+      "水利"
+    ]
+  },
+  {
+    "id": "eng_architecture_ancient",
+    "name": "古代大型建筑",
+    "year": "-2600",
+    "yearRange": [
+      -3000,
+      -200
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_stone_tools",
+      "math_geometry_basic"
+    ],
+    "description": "埃及金字塔、帕特农神庙和罗马万神殿等巨型建筑展示了古代工程的惊人成就。",
+    "importance": 4,
+    "tags": [
+      "建筑",
+      "金字塔",
+      "结构"
+    ]
+  },
+  {
+    "id": "eng_gothic",
+    "name": "哥特式建筑",
+    "year": "1140",
+    "yearRange": [
+      1130,
+      1250
+    ],
+    "era": "medieval",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_architecture_ancient",
+      "mat_stone_tools"
+    ],
+    "description": "飞扶壁、尖拱和肋架拱顶使哥特教堂能达到前所未有的高度，是中世纪建筑技术的巅峰。",
+    "importance": 3,
+    "tags": [
+      "哥特",
+      "拱顶",
+      "教堂"
+    ]
+  },
+  {
+    "id": "eng_canal",
+    "name": "运河工程",
+    "year": "-500",
+    "yearRange": [
+      -600,
+      200
+    ],
+    "era": "ancient",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_water_wheel",
+      "eng_aqueduct"
+    ],
+    "description": "从中国大运河到苏伊士运河的漫长发展，运河连接水系实现大规模物资运输，是重要的水利工程。",
+    "importance": 4,
+    "tags": [
+      "运河",
+      "航运",
+      "水利"
+    ]
+  },
+  {
+    "id": "eng_compass",
+    "name": "指南针应用",
+    "year": "1040",
+    "yearRange": [
+      1000,
+      1100
+    ],
+    "era": "medieval",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_magnetism_ancient"
+    ],
+    "description": "中国发明的磁罗盘用于航海导航，使远洋航行成为可能，直接推动了大航海时代的到来。",
+    "importance": 5,
+    "tags": [
+      "指南针",
+      "导航",
+      "航海"
+    ]
+  },
+  {
+    "id": "eng_windmill_power",
+    "name": "风车动力",
+    "year": "1180",
+    "yearRange": [
+      1100,
+      1300
+    ],
+    "era": "medieval",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_water_wheel"
+    ],
+    "description": "欧洲广泛使用的风车为排水、磨面和锯木提供动力，是工业革命前机械动力的重要来源。",
+    "importance": 3,
+    "tags": [
+      "风车",
+      "动力",
+      "排水"
+    ]
+  },
+  {
+    "id": "eng_clock_mech",
+    "name": "机械钟",
+    "year": "1283",
+    "yearRange": [
+      1270,
+      1300
+    ],
+    "era": "medieval",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_mechanical",
+      "math_arithmetic"
+    ],
+    "description": "欧洲发明的机械擒纵机构钟表是精密机械的开端，也促进了标准化时间概念的普及。",
+    "importance": 4,
+    "tags": [
+      "钟表",
+      "擒纵",
+      "精密"
+    ]
+  },
+  {
+    "id": "eng_printing_press",
+    "name": "印刷机",
+    "year": "1440",
+    "yearRange": [
+      1435,
+      1455
+    ],
+    "era": "renaissance",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_printing_types",
+      "eng_mechanical"
+    ],
+    "description": "古腾堡将活字印刷与螺旋压力机结合，创造了高效印刷系统，引发知识传播革命。",
+    "importance": 5,
+    "tags": [
+      "印刷",
+      "古腾堡",
+      "知识传播"
+    ]
+  },
+  {
+    "id": "eng_steam_atmospheric",
+    "name": "大气蒸汽机",
+    "year": "1712",
+    "yearRange": [
+      1705,
+      1720
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_blast_furnace_modern",
+      "phys_thermodynamics_1"
+    ],
+    "description": "纽科门发明的大气蒸汽机首次将热能转化为机械运动，虽效率低下但开启了蒸汽动力时代。",
+    "importance": 5,
+    "tags": [
+      "蒸汽",
+      "纽科门",
+      "热能"
+    ]
+  },
+  {
+    "id": "eng_steam_engine",
+    "name": "瓦特蒸汽机",
+    "year": "1769",
+    "yearRange": [
+      1765,
+      1785
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_steam_atmospheric",
+      "mat_wrought_iron"
+    ],
+    "description": "瓦特通过分离冷凝器等重大改良大幅提高蒸汽机效率，成为工业革命的核心动力源。",
+    "importance": 5,
+    "tags": [
+      "蒸汽机",
+      "瓦特",
+      "工业革命"
+    ]
+  },
+  {
+    "id": "eng_railway",
+    "name": "铁路运输",
+    "year": "1804",
+    "yearRange": [
+      1800,
+      1830
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_steam_engine",
+      "mat_steel_bessemer",
+      "eng_wheel"
+    ],
+    "description": "蒸汽机车驱动的铁路系统革命性地改变了陆地运输，铁路网在数十年内覆盖了主要工业国家。",
+    "importance": 5,
+    "tags": [
+      "铁路",
+      "蒸汽机车",
+      "运输"
+    ]
+  },
+  {
+    "id": "eng_steamship",
+    "name": "蒸汽轮船",
+    "year": "1807",
+    "yearRange": [
+      1803,
+      1820
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_steam_engine",
+      "eng_wheel"
+    ],
+    "description": "富尔顿建造的蒸汽轮船克勒蒙号首次实现商业航行，使水运不再完全依赖风力。",
+    "importance": 4,
+    "tags": [
+      "轮船",
+      "蒸汽",
+      "航海"
+    ]
+  },
+  {
+    "id": "eng_telegraph",
+    "name": "电报系统",
+    "year": "1837",
+    "yearRange": [
+      1835,
+      1845
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_electromagnetism"
+    ],
+    "description": "莫尔斯电报系统实现了远距离即时通信，铁路和电报的结合彻底改变了信息传递的速度。",
+    "importance": 5,
+    "tags": [
+      "电报",
+      "莫尔斯",
+      "通信"
+    ]
+  },
+  {
+    "id": "eng_suspension_bridge",
+    "name": "悬索桥",
+    "year": "1826",
+    "yearRange": [
+      1820,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_steel_bessemer",
+      "math_calculus"
+    ],
+    "description": "特尔福德和布鲁内尔建造的现代悬索桥利用钢缆承受荷载，实现了前所未有的大跨度。",
+    "importance": 3,
+    "tags": [
+      "桥梁",
+      "悬索",
+      "跨度"
+    ]
+  },
+  {
+    "id": "eng_internal_combustion",
+    "name": "内燃机",
+    "year": "1876",
+    "yearRange": [
+      1860,
+      1885
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_thermodynamics_1",
+      "chem_gas_laws"
+    ],
+    "description": "奥托发明的四冲程内燃机将燃料直接在气缸内燃烧产生动力，比蒸汽机更轻便更高效。",
+    "importance": 5,
+    "tags": [
+      "内燃机",
+      "四冲程",
+      "动力"
+    ]
+  },
+  {
+    "id": "eng_automobile",
+    "name": "汽车",
+    "year": "1886",
+    "yearRange": [
+      1885,
+      1890
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "mat_rubber_vulcan"
+    ],
+    "description": "本茨和戴姆勒各自制造的汽油汽车开启了个人交通工具的新时代，深刻改变了人类的生活方式。",
+    "importance": 5,
+    "tags": [
+      "汽车",
+      "汽油",
+      "交通"
+    ]
+  },
+  {
+    "id": "eng_airplane",
+    "name": "飞机",
+    "year": "1903",
+    "yearRange": [
+      1900,
+      1910
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "phys_classical_mechanics",
+      "mat_aluminum"
+    ],
+    "description": "莱特兄弟首次实现有动力可控飞行，开启了航空时代，最终使跨洋旅行只需数小时。",
+    "importance": 5,
+    "tags": [
+      "飞机",
+      "飞行",
+      "莱特"
+    ]
+  },
+  {
+    "id": "eng_assembly_line",
+    "name": "流水线生产",
+    "year": "1913",
+    "yearRange": [
+      1910,
+      1920
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_automobile",
+      "mat_steel_bessemer"
+    ],
+    "description": "福特发明的移动流水线将汽车装配时间从12小时缩短到1.5小时，开创了大规模工业生产模式。",
+    "importance": 5,
+    "tags": [
+      "流水线",
+      "福特",
+      "量产"
+    ]
+  },
+  {
+    "id": "eng_reinforced_concrete",
+    "name": "钢筋混凝土",
+    "year": "1854",
+    "yearRange": [
+      1850,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_cement_roman",
+      "mat_steel_bessemer"
+    ],
+    "description": "混凝土抗压和钢筋抗拉的完美组合，使摩天大楼和大型桥梁的建造成为可能，定义了现代建筑。",
+    "importance": 5,
+    "tags": [
+      "混凝土",
+      "钢筋",
+      "建筑"
+    ]
+  },
+  {
+    "id": "eng_elevator",
+    "name": "安全电梯",
+    "year": "1853",
+    "yearRange": [
+      1850,
+      1860
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_mechanical",
+      "mat_steel_bessemer"
+    ],
+    "description": "奥蒂斯发明的安全电梯使高层建筑的垂直交通成为可能，直接催生了摩天大楼的出现。",
+    "importance": 4,
+    "tags": [
+      "电梯",
+      "高层",
+      "安全"
+    ]
+  },
+  {
+    "id": "eng_skyscraper",
+    "name": "摩天大楼",
+    "year": "1885",
+    "yearRange": [
+      1880,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_reinforced_concrete",
+      "eng_elevator",
+      "mat_steel_bessemer"
+    ],
+    "description": "钢框架结构配合电梯和混凝土，使建筑高度突破了结构限制，改变了城市的面貌。",
+    "importance": 4,
+    "tags": [
+      "摩天楼",
+      "钢结构",
+      "城市"
+    ]
+  },
+  {
+    "id": "eng_refrigeration",
+    "name": "机械制冷",
+    "year": "1851",
+    "yearRange": [
+      1845,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_thermodynamics_1"
+    ],
+    "description": "利用蒸发吸热原理的人工制冷技术，不仅用于食品保鲜，还为空调和工业冷却提供了基础。",
+    "importance": 4,
+    "tags": [
+      "制冷",
+      "空调",
+      "冷链"
+    ]
+  },
+  {
+    "id": "eng_diesel",
+    "name": "柴油机",
+    "year": "1893",
+    "yearRange": [
+      1890,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "phys_thermodynamics_2"
+    ],
+    "description": "狄塞尔发明的压燃式内燃机热效率更高，成为重型运输和发电的主要动力装置。",
+    "importance": 4,
+    "tags": [
+      "柴油",
+      "压燃",
+      "效率"
+    ]
+  },
+  {
+    "id": "eng_jet_engine",
+    "name": "喷气发动机",
+    "year": "1939",
+    "yearRange": [
+      1935,
+      1945
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "mat_superalloy"
+    ],
+    "description": "惠特尔和冯奥安发明的喷气发动机以高速喷气产生推力，使飞行速度突破了螺旋桨的极限。",
+    "importance": 5,
+    "tags": [
+      "喷气",
+      "推力",
+      "超音速"
+    ]
+  },
+  {
+    "id": "eng_rocket",
+    "name": "液体火箭",
+    "year": "1926",
+    "yearRange": [
+      1920,
+      1945
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_internal_combustion",
+      "phys_classical_mechanics"
+    ],
+    "description": "戈达德发射的第一枚液体燃料火箭开启了航天推进技术，后来发展为送人类上月的土星五号。",
+    "importance": 5,
+    "tags": [
+      "火箭",
+      "液体燃料",
+      "航天"
+    ]
+  },
+  {
+    "id": "eng_satellite",
+    "name": "人造卫星",
+    "year": "1957",
+    "yearRange": [
+      1955,
+      1960
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_rocket",
+      "phys_relativity_special"
+    ],
+    "description": "苏联发射的第一颗人造卫星开启了太空时代，卫星通信和导航深刻改变了人类社会。",
+    "importance": 5,
+    "tags": [
+      "卫星",
+      "太空",
+      "斯普特尼克"
+    ]
+  },
+  {
+    "id": "eng_spacecraft",
+    "name": "载人航天",
+    "year": "1961",
+    "yearRange": [
+      1960,
+      1970
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_satellite",
+      "eng_rocket",
+      "mat_titanium"
+    ],
+    "description": "从加加林首次太空飞行到阿波罗登月，人类突破了地球引力的束缚，踏上了其他天体。",
+    "importance": 5,
+    "tags": [
+      "载人",
+      "登月",
+      "阿波罗"
+    ]
+  },
+  {
+    "id": "eng_nuclear_reactor",
+    "name": "核反应堆",
+    "year": "1942",
+    "yearRange": [
+      1940,
+      1955
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_nuclear_fission",
+      "eng_plumbing"
+    ],
+    "description": "费米领导的团队建造了第一座核反应堆，实现了可控核裂变链式反应，开启了核能时代。",
+    "importance": 5,
+    "tags": [
+      "核反应堆",
+      "链式反应",
+      "费米"
+    ]
+  },
+  {
+    "id": "eng_plumbing",
+    "name": "现代管道系统",
+    "year": "1850",
+    "yearRange": [
+      1830,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_cast_iron",
+      "eng_water_wheel"
+    ],
+    "description": "铸铁管道和阀门系统使城市自来水供应和污水排放成为可能，极大改善了公共卫生。",
+    "importance": 3,
+    "tags": [
+      "管道",
+      "给排水",
+      "卫生"
+    ]
+  },
+  {
+    "id": "eng_robotics",
+    "name": "工业机器人",
+    "year": "1961",
+    "yearRange": [
+      1955,
+      1975
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "it_computer",
+      "eng_mechanical",
+      "math_control_theory"
+    ],
+    "description": "第一台工业机器人Unimate在通用汽车工厂投入使用，开启了制造业自动化的新时代。",
+    "importance": 5,
+    "tags": [
+      "机器人",
+      "自动化",
+      "工业"
+    ]
+  },
+  {
+    "id": "eng_cnc",
+    "name": "数控机床",
+    "year": "1952",
+    "yearRange": [
+      1950,
+      1960
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "it_computer",
+      "eng_mechanical"
+    ],
+    "description": "麻省理工学院开发的数控铣床用数字指令控制刀具运动，实现了加工精度和效率的飞跃。",
+    "importance": 4,
+    "tags": [
+      "数控",
+      "机床",
+      "精度"
+    ]
+  },
+  {
+    "id": "eng_microelectromech",
+    "name": "微机电系统",
+    "year": "1982",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_lithography",
+      "eng_cnc"
+    ],
+    "description": "在硅芯片上制造微型机械结构的技术，手机中的加速度计和陀螺仪就是MEMS器件。",
+    "importance": 4,
+    "tags": [
+      "MEMS",
+      "微型",
+      "传感器"
+    ]
+  },
+  {
+    "id": "eng_drone",
+    "name": "无人机技术",
+    "year": "1994",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "it_computer",
+      "eng_robotics",
+      "eng_airplane"
+    ],
+    "description": "无人驾驶飞行器从军事侦察发展到商业物流和航拍，正在改变航空运输的格局。",
+    "importance": 4,
+    "tags": [
+      "无人机",
+      "自主",
+      "飞行"
+    ]
+  },
+  {
+    "id": "eng_ev",
+    "name": "电动汽车",
+    "year": "2008",
+    "yearRange": [
+      2005,
+      2020
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_automobile",
+      "it_battery",
+      "eng_electric_motor"
+    ],
+    "description": "锂电池驱动的电动汽车正在取代内燃机汽车，引领交通运输的清洁能源转型。",
+    "importance": 4,
+    "tags": [
+      "电动",
+      "清洁",
+      "电池"
+    ]
+  },
+  {
+    "id": "eng_electric_motor",
+    "name": "电动机",
+    "year": "1834",
+    "yearRange": [
+      1830,
+      1850
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_electromagnetism"
+    ],
+    "description": "利用电磁感应将电能转化为机械能的装置，从工厂动力到家电驱动都离不开电动机。",
+    "importance": 5,
+    "tags": [
+      "电动机",
+      "电磁",
+      "动力"
+    ]
+  },
+  {
+    "id": "eng_generator",
+    "name": "发电机",
+    "year": "1831",
+    "yearRange": [
+      1830,
+      1840
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_electromagnetism"
+    ],
+    "description": "法拉第发现的电磁感应原理使机械能转化为电能成为可能，是整个电力工业的基础。",
+    "importance": 5,
+    "tags": [
+      "发电机",
+      "电磁感应",
+      "电力"
+    ]
+  },
+  {
+    "id": "eng_power_grid",
+    "name": "电力网络",
+    "year": "1882",
+    "yearRange": [
+      1880,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_generator",
+      "eng_electric_motor",
+      "phys_maxwell"
+    ],
+    "description": "爱迪生和特斯拉分别发展的直流和交流电力系统，最终交流输电胜出，实现了电力的远距离传输。",
+    "importance": 5,
+    "tags": [
+      "电力",
+      "输电",
+      "交流"
+    ]
+  },
+  {
+    "id": "eng_plastic_pipe",
+    "name": "塑料管道",
+    "year": "1950",
+    "yearRange": [
+      1945,
+      1965
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_polyethylene"
+    ],
+    "description": "塑料管道耐腐蚀、低成本、易安装，取代了大量金属管道在建筑和市政工程中的应用。",
+    "importance": 2,
+    "tags": [
+      "塑料",
+      "管道",
+      "建筑"
+    ]
+  },
+  {
+    "id": "eng_led_light",
+    "name": "LED照明",
+    "year": "1962",
+    "yearRange": [
+      1960,
+      2000
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_quantum_theory",
+      "mat_silicon_purify"
+    ],
+    "description": "发光二极管利用半导体PN结发光，比白炽灯节能90%以上，正在全面取代传统照明。",
+    "importance": 3,
+    "tags": [
+      "LED",
+      "照明",
+      "节能"
+    ]
+  },
+  {
+    "id": "eng_gps",
+    "name": "GPS系统",
+    "year": "1978",
+    "yearRange": [
+      1975,
+      1995
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_satellite",
+      "phys_relativity_special"
+    ],
+    "description": "全球定位系统利用卫星信号三角定位，精度可达米级，是现代导航和定位的基础设施。",
+    "importance": 5,
+    "tags": [
+      "GPS",
+      "导航",
+      "定位"
+    ]
+  },
+  {
+    "id": "eng_tunnel_boring",
+    "name": "盾构隧道技术",
+    "year": "1825",
+    "yearRange": [
+      1820,
+      2000
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "mat_steel_bessemer",
+      "eng_mechanical"
+    ],
+    "description": "从布鲁内尔到现代盾构机，隧道掘进技术的发展使穿越山脉和海底的隧道成为可能。",
+    "importance": 3,
+    "tags": [
+      "盾构",
+      "隧道",
+      "掘进"
+    ]
+  },
+  {
+    "id": "eng_structural_analysis",
+    "name": "结构力学",
+    "year": "1826",
+    "yearRange": [
+      1820,
+      1860
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "math_calculus",
+      "phys_classical_mechanics"
+    ],
+    "description": "纳维建立的工程结构力学分析方法，使工程师能够精确计算梁、柱和桁架的受力变形。",
+    "importance": 4,
+    "tags": [
+      "结构",
+      "力学",
+      "计算"
+    ]
+  },
+  {
+    "id": "eng_fluid_mechanics",
+    "name": "流体力学",
+    "year": "1755",
+    "yearRange": [
+      1750,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "math_calculus",
+      "phys_classical_mechanics"
+    ],
+    "description": "欧拉和纳维-斯托克斯建立的流体运动方程，是航空、船舶和管道设计的理论基础。",
+    "importance": 4,
+    "tags": [
+      "流体",
+      "纳维-斯托克斯",
+      "空气动力学"
+    ]
+  },
+  {
+    "id": "eng_control_system",
+    "name": "自动控制系统",
+    "year": "1948",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "math_control_theory",
+      "eng_mechanical"
+    ],
+    "description": "维纳等人发展的自动控制理论，使机械系统能够自主调节和稳定运行，是自动化的核心。",
+    "importance": 4,
+    "tags": [
+      "控制",
+      "自动化",
+      "反馈"
+    ]
+  },
+  {
+    "id": "eng_reusable_rocket",
+    "name": "可回收火箭",
+    "year": "2015",
+    "yearRange": [
+      2012,
+      2020
+    ],
+    "era": "information",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_rocket",
+      "it_computer",
+      "eng_control_system"
+    ],
+    "description": "SpaceX实现火箭第一级回收复用，将航天发射成本降低了一个数量级，开启了商业航天新时代。",
+    "importance": 5,
+    "tags": [
+      "回收",
+      "SpaceX",
+      "商业航天"
+    ]
+  }
+]
