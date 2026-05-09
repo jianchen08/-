@@ -2,6 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import coseBilkent from 'cytoscape-cose-bilkent';
+import type cytoscapeType from 'cytoscape';
 import type { TechNode, Domain, LayoutType, FilterState } from '../types';
 
 cytoscape.use(dagre);
@@ -15,6 +16,7 @@ interface TechTreeProps {
   layout: LayoutType;
   selectedNodeId: string | null;
   onNodeSelect: (nodeId: string) => void;
+  onCyReady?: (cy: cytoscapeType.Core | null) => void;
 }
 
 /** hubScore (0-100) → 节点大小 (20-50px) */
@@ -231,6 +233,7 @@ export default function TechTree({
   layout,
   selectedNodeId,
   onNodeSelect,
+  onCyReady,
 }: TechTreeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
@@ -286,10 +289,12 @@ export default function TechTree({
 
     cyRef.current = cy;
     isFirstRenderRef.current = false;
+    onCyReady?.(cy);
 
     return () => {
       cy.destroy();
       cyRef.current = null;
+      onCyReady?.(null);
     };
     // 只在 nodes 和 domains 变化时重建实例
     // eslint-disable-next-line react-hooks/exhaustive-deps

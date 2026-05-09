@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import type cytoscape from 'cytoscape';
 import type { TechTreeData, TechNode, FilterState, LayoutType } from './types';
 import { loadTechTreeData } from './utils/dataLoader';
 import { exportViewport, exportFullView } from './utils/pdfExporter';
@@ -8,6 +9,8 @@ import FilterPanel from './components/FilterPanel';
 import NodeDetail from './components/NodeDetail';
 import Toolbar from './components/Toolbar';
 import Legend from './components/Legend';
+import MiniMap from './components/MiniMap';
+import TimelineSlider from './components/TimelineSlider';
 import './App.css';
 
 export default function App() {
@@ -28,6 +31,13 @@ export default function App() {
 
   // 导出状态
   const [exporting, setExporting] = useState(false);
+
+  // Cytoscape 实例引用（供 MiniMap 使用）
+  const [cyInstance, setCyInstance] = useState<cytoscape.Core | null>(null);
+
+  const handleCyReady = useCallback((cy: cytoscape.Core | null) => {
+    setCyInstance(cy);
+  }, []);
 
   // TechTree 容器 ref（用于调用 resetView/focusNode）
   const treeContainerRef = useRef<HTMLDivElement | null>(null);
@@ -184,10 +194,17 @@ export default function App() {
           layout={layout}
           selectedNodeId={selectedNodeId}
           onNodeSelect={handleNodeSelect}
+          onCyReady={handleCyReady}
         />
 
         {/* 左下图例 */}
         <Legend domains={data.domains} />
+
+        {/* 右下小地图 */}
+        <MiniMap domains={data.domains} cy={cyInstance} />
+
+        {/* 底部时间轴 */}
+        <TimelineSlider eras={data.eras} filter={filter} onFilterChange={setFilter} />
       </main>
 
       {/* 右侧：详情侧栏 */}
