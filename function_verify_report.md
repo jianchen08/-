@@ -17,7 +17,7 @@
 | TypeScript 类型定义 | ✅ 通过 | 类型完整 |
 | 应用入口 | ✅ 通过 | 正确挂载 |
 
-**整体验证结论**: ✅ **通过** — 所有核心功能点均已正确实现，项目可正常构建和运行。发现 1 个轻微偏差（Top20 光晕效果使用边框近似实现），不影响功能可用性。
+**整体验证结论**: ✅ **通过** — 所有核心功能点均已正确实现，项目可正常构建和运行。发现 1 个轻微偏差（hubScore≥60 枢纽节点光晕效果使用边框近似实现），不影响功能可用性。
 
 ---
 
@@ -83,9 +83,9 @@
 - **调用位置** (第136行): `const displayColor = adjustBrightness(baseColor, hubScore);`
 - **样式应用** (第183行): `'background-color': 'data(displayColor)'`
 
-#### 2.5 Top20 枢纽节点有光晕效果 — ⚠️ 轻微偏差
+#### 2.5 hubScore≥60 枢纽节点有光晕效果 — ⚠️ 轻微偏差
 
-- **代码证据** (第194-201行):
+- **代码证据** (第194-201行，`isTop20` 为布尔属性，当 hubScore≥60 时为 true):
   ```typescript
   {
     selector: 'node[?isTop20]',
@@ -96,12 +96,12 @@
     },
   }
   ```
-- **分析**: 使用 3px 金色边框（#FFD700）模拟光晕效果，而非真正的发光/阴影效果。在 Cytoscape.js 中实现真正的 glow 效果需要额外的自定义渲染。当前边框方案在视觉上能区分 Top20 节点，是合理的工程折中方案。
+- **分析**: 使用 3px 金色边框（#FFD700）模拟光晕效果，而非真正的发光/阴影效果。在 Cytoscape.js 中实现真正的 glow 效果需要额外的自定义渲染。当前边框方案在视觉上能区分 hubScore≥60 枢纽节点，是合理的工程折中方案。
 
-#### 2.6 Top10 枢纽节点有星标标记 — ✅ 通过
+#### 2.6 hubScore≥80 枢纽节点有星标标记 — ✅ 通过
 
-- **代码证据** (第138行): `const displayLabel = isTop10 ? \`☆ ${node.name}\` : node.name;`
-- **Top10 边框增强** (第202-209行): 4px 橙红色边框（#FF4500），opacity 1.0，比 Top20 更醒目
+- **代码证据** (第108行): `name: hubScore >= 80 ? \`⭐ ${node.name}\` : node.name,`（枢纽值≥80时添加⭐星标前缀）
+- **枢纽值≥80 边框增强** (第252-258行): 4px 橙红色边框（#FF4500），opacity 1.0，比枢纽值≥60更醒目
 
 #### 2.7 支持鼠标滚轮缩放和拖拽平移 — ✅ 通过
 
@@ -134,7 +134,7 @@
 
 #### 3.4 错误处理 — ✅ 通过
 
-- **超时控制** (第4-5行): 使用 `AbortController` + `setTimeout(10000ms)` 实现请求超时
+- **超时控制** (第4-5行): 使用 `AbortController` + `setTimeout(15000ms)` 实现请求超时
 - **HTTP 状态检查** (第8-10行): `if (!response.ok)` 抛出含状态信息的 Error
 - **组件级错误处理** (TechTree.tsx 第92-97行): try-catch 捕获异常并展示错误信息
 - **组件卸载保护** (TechTree.tsx 第52-53行, 第67-68行): 使用 `cancelled` 标记防止卸载后更新状态
@@ -300,7 +300,7 @@ createRoot(rootElement).render(
 
 | # | 严重程度 | 模块 | 问题描述 | 建议 |
 |---|---------|------|---------|------|
-| 1 | ⚠️ 轻微 | TechTree.tsx | Top20 光晕效果使用 border 边框（3px #FFD700）近似实现，非真正的发光效果 | 可考虑使用 Cytoscape.js 的 `underlay-*` 属性或多层节点模拟光晕 |
+| 1 | ⚠️ 轻微 | TechTree.tsx | hubScore≥60 光晕效果使用 border 边框（3px #FFD700）近似实现，非真正的发光效果 | 可考虑使用 Cytoscape.js 的 `underlay-*` 属性或多层节点模拟光晕 |
 | 2 | 💡 建议 | 构建产物 | JS chunk (687KB) 超过 500KB 建议阈值 | 可使用动态 import() 或 manualChunks 进行代码分割 |
 | 3 | 💡 建议 | hubCalculator.ts | hubScore 通过独立 Map 传递，未回写到 TechNode 数组 | 当前不可变性设计更优，仅为文档说明差异 |
 
@@ -318,7 +318,7 @@ createRoot(rootElement).render(
 2. **可视化核心正确**: Cytoscape.js + dagre (LR方向) 渲染引擎配置正确
 3. **数据管道完整**: fetch 加载三个 JSON 数据源，含超时和 HTTP 错误处理
 4. **枢纽值算法正确**: prerequisites 反向统计 → 归一化 0-100 → 写入节点数据
-5. **视觉效果齐全**: 节点大小映射(20-50px)、亮度调节、Top20边框高亮、Top10星标+边框
+5. **视觉效果齐全**: 节点大小映射(20-50px)、亮度调节、枢纽值≥60边框高亮、枢纽值≥80星标+边框
 6. **交互功能就绪**: 缩放(0.1x~3x) + 平移 + 滚轮灵敏度配置
 7. **类型系统完善**: TechNode、Era、Domain、TechTreeData 四个接口定义完整
 8. **应用入口正确**: React 18 + StrictMode + createRoot 标准挂载方式

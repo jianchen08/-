@@ -11,6 +11,7 @@ import Toolbar from './components/Toolbar';
 import Legend from './components/Legend';
 import MiniMap from './components/MiniMap';
 import TimelineSlider from './components/TimelineSlider';
+import type { TechTreeHandle } from './components/TechTree';
 import './App.css';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
 
   // 导出状态
   const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState<string | null>(null);
 
   // Cytoscape 实例引用（供 MiniMap 使用）
   const [cyInstance, setCyInstance] = useState<cytoscape.Core | null>(null);
@@ -40,8 +42,8 @@ export default function App() {
     setCyInstance(cy);
   }, []);
 
-  // TechTree 容器 ref（用于调用 resetView/focusNode）
-  const treeContainerRef = useRef<HTMLDivElement | null>(null);
+  // TechTree 组件 ref（用于调用 resetView/focusNode）
+  const techTreeRef = useRef<TechTreeHandle>(null);
 
   // 加载数据
   useEffect(() => {
@@ -87,13 +89,7 @@ export default function App() {
   const handleDetailNodeClick = useCallback((nodeId: string) => {
     setSelectedNodeId(nodeId);
     // 聚焦到节点
-    const container = treeContainerRef.current?.querySelector('.tech-tree-container');
-    if (container) {
-      const focusFn = (container as unknown as Record<string, unknown>)._focusNode;
-      if (typeof focusFn === 'function') {
-        (focusFn as (id: string) => void)(nodeId);
-      }
-    }
+    techTreeRef.current?.focusNode(nodeId);
   }, []);
 
   // 关闭详情
@@ -103,24 +99,22 @@ export default function App() {
 
   // 重置视图
   const handleResetView = useCallback(() => {
-    const container = treeContainerRef.current?.querySelector('.tech-tree-container');
-    if (container) {
-      const resetFn = (container as unknown as Record<string, unknown>)._resetView;
-      if (typeof resetFn === 'function') {
-        (resetFn as () => void)();
-      }
-    }
+    techTreeRef.current?.resetView();
   }, []);
 
   // 导出视口截图
   const handleExportViewport = useCallback(async () => {
-    const container = treeContainerRef.current?.querySelector('.tech-tree-container');
+    const container = document.querySelector('.tech-tree-container');
     if (!container || exporting) return;
     setExporting(true);
+    setExportError(null);
     try {
       await exportViewport(container as HTMLElement);
     } catch (err) {
+      const msg = err instanceof Error ? err.message : '视口导出失败';
       console.error('视口导出失败:', err);
+      setExportError(msg);
+      setTimeout(() => setExportError(null), 5000);
     } finally {
       setExporting(false);
     }
@@ -128,13 +122,17 @@ export default function App() {
 
   // 导出全景
   const handleExportFullView = useCallback(async () => {
-    const wrapper = treeContainerRef.current?.querySelector('.tech-tree-container');
+    const wrapper = document.querySelector('.tech-tree-container');
     if (!wrapper || exporting) return;
     setExporting(true);
+    setExportError(null);
     try {
       await exportFullView(wrapper as HTMLElement);
     } catch (err) {
+      const msg = err instanceof Error ? err.message : '全景导出失败';
       console.error('全景导出失败:', err);
+      setExportError(msg);
+      setTimeout(() => setExportError(null), 5000);
     } finally {
       setExporting(false);
     }
@@ -179,7 +177,7 @@ export default function App() {
       </aside>
 
       {/* 中间：主区域 */}
-      <main className="app-main" ref={treeContainerRef}>
+      <main className="app-main">
         {/* 顶部栏：搜索 + 工具栏 */}
         <div className="app-top-bar">
           <SearchPanel searchText={searchText} onSearchChange={setSearchText} />
@@ -195,6 +193,7 @@ export default function App() {
 
         {/* 图区域 */}
         <TechTree
+          ref={techTreeRef}
           nodes={data.nodes}
           domains={data.domains}
           eras={data.eras}
@@ -226,6 +225,13 @@ export default function App() {
           onNodeClick={handleDetailNodeClick}
         />
       </aside>
+
+      {/* 导出错误提示 */}
+      {exportError && (
+        <div className="export-error-toast">
+          ⚠️ {exportError}
+        </div>
+      )}
     </div>
   );
 }

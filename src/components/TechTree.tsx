@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useCallback, useState, forwardRef, useImperativeHandle } from 'react';
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import coseBilkent from 'cytoscape-cose-bilkent';
@@ -118,16 +118,20 @@ function buildElements(
     });
   }
 
-  // 只添加两端都可见的边
+  // 只添加两端都可见的边，根据源节点枢纽值设置边宽度（1-4px分级）
   for (const node of visibleNodes) {
     for (const prereq of node.prerequisites) {
       if (visibleIds.has(prereq)) {
+        const prereqNode = nodes.find((n) => n.id === prereq);
+        const prereqHub = prereqNode?.hubScore ?? 0;
+        const edgeWidth = prereqHub >= 80 ? 4 : prereqHub >= 60 ? 3 : prereqHub >= 30 ? 2 : 1.5;
         elements.push({
           group: 'edges',
           data: {
             id: `${prereq}->${node.id}`,
             source: prereq,
             target: node.id,
+            edgeWidth,
           },
         });
       }
@@ -212,6 +216,12 @@ function getLayoutOptions(
   }
 }
 
+/** TechTree 暴露给父组件的方法 */
+export interface TechTreeHandle {
+  resetView: () => void;
+  focusNode: (nodeId: string) => void;
+}
+
 /** Cytoscape 样式 */
 function getCyStyle(): cytoscape.StylesheetStyle[] {
   return [
@@ -281,7 +291,7 @@ function getCyStyle(): cytoscape.StylesheetStyle[] {
     {
       selector: 'edge',
       style: {
-        width: 1.5,
+        width: 'data(edgeWidth)',
         'line-color': 'rgba(100, 140, 180, 0.35)',
         'target-arrow-color': 'rgba(100, 140, 180, 0.35)',
         'target-arrow-shape': 'triangle',
@@ -304,7 +314,7 @@ function getCyStyle(): cytoscape.StylesheetStyle[] {
   ];
 }
 
-export default function TechTree({
+const TechTree = forwardRef<TechTreeHandle, TechTreeProps>(function TechTree({
   nodes,
   domains,
   eras,
@@ -314,7 +324,7 @@ export default function TechTree({
   selectedNodeId,
   onNodeSelect,
   onCyReady,
-}: TechTreeProps) {
+}, ref) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const domainColorMapRef = useRef<Map<string, string>>(new Map());
@@ -615,13 +625,11 @@ export default function TechTree({
   }, []);
 
   // 存储 resetView 和 focusNode 到 ref 供父组件使用
-  // 通过 DOM data 属性传递（简化方案）
-  useEffect(() => {
-    if (containerRef.current) {
-      (containerRef.current as unknown as Record<string, unknown>)._resetView = resetView;
-      (containerRef.current as unknown as Record<string, unknown>)._focusNode = focusNode;
-    }
-  }, [resetView, focusNode]);
+  // 通过 useImperativeHandle 暴露方法给父组件
+  useImperativeHandle(ref, () => ({
+    resetView,
+    focusNode,
+  }), [resetView, focusNode]);
 
   return (
     <div
@@ -644,4 +652,6 @@ export default function TechTree({
       )}
     </div>
   );
-}
+});
+
+export default TechTree;

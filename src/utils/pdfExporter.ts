@@ -52,9 +52,10 @@ function sliceCanvas(
   sliced.width = width;
   sliced.height = height;
   const ctx = sliced.getContext('2d');
-  if (ctx) {
-    ctx.drawImage(source, startX, startY, width, height, 0, 0, width, height);
+  if (!ctx) {
+    throw new Error('无法创建 Canvas 2D 上下文，PDF 导出失败');
   }
+  ctx.drawImage(source, startX, startY, width, height, 0, 0, width, height);
   return sliced;
 }
 
