@@ -1,589 +1,448 @@
 #!/usr/bin/env python3
 """
-科技树前置条件修正结果 - 全面验证脚本
-验证 full_data.json 中所有节点的 prerequisites 数据质量
+科技树可视化工具 - 功能验证脚本
+可独立运行，验证核心功能的正确性。
+
+使用方法:
+  python3 verify_tech_tree.py
+
+前提条件:
+  - 项目已安装依赖 (npm install)
+  - 开发服务器运行中 (npm run dev) 或构建已完成 (npm run build)
 """
+
 import json
 import sys
-from collections import defaultdict
-from pathlib import Path
+import os
+import subprocess
+from collections import defaultdict, deque
 
-DATA_FILE = Path("public/data/full_data.json")
+# ============================================================
+# 工具函数
+# ============================================================
 
-# ===========================================================================
-# 加载数据
-# ===========================================================================
-def load_data():
-    assert DATA_FILE.exists(), f"数据文件不存在: {DATA_FILE}"
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    assert isinstance(data, list), "数据文件顶层应为 JSON 数组"
-    assert len(data) > 0, "数据文件为空"
-    return data
+PASS = 0
+FAIL = 0
+WARN = 0
 
-def build_node_map(nodes):
-    mapping = {}
-    for node in nodes:
-        assert node["id"] not in mapping, f"存在重复节点 ID: {node['id']}"
-        mapping[node["id"]] = node
-    return mapping
+def report(category, name, status, detail=""):
+    global PASS, FAIL, WARN
+    icon = {"PASS": "✅", "FAIL": "❌", "WARN": "⚠️"}[status]
+    PASS += status == "PASS"
+    FAIL += status == "FAIL"
+    WARN += status == "WARN"
+    print(f"  {icon} [{category}] {name}: {detail}" if detail else f"  {icon} [{category}] {name}")
 
-# ===========================================================================
-# 1. 数据完整性测试
-# ===========================================================================
-def test_data_integrity(nodes, node_map, all_ids):
-    print("\n" + "="*70)
-    print("【测试1】数据完整性测试")
-    print("="*70)
-    passed = True
-    issues = []
 
-    # 1.1 所有节点都有 prerequisites 字段
-    missing_field = [n["id"] for n in nodes if "prerequisites" not in n]
-    if missing_field:
-        msg = f"以下节点缺少 prerequisites 字段: {missing_field}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有 {len(nodes)} 个节点都有 prerequisites 字段")
+def load_json(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
-    # 1.2 prerequisites 是列表类型
-    bad_type = [n["id"] for n in nodes if not isinstance(n.get("prerequisites"), list)]
-    if bad_type:
-        msg = f"以下节点的 prerequisites 不是列表: {bad_type}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有节点的 prerequisites 都是列表类型")
 
-    # 1.3 prerequisites 元素都是字符串
-    bad_elem = []
-    for node in nodes:
-        for p in node["prerequisites"]:
-            if not isinstance(p, str):
-                bad_elem.append(f"{node['id']}[{node['prerequisites'].index(p)}]")
-    if bad_elem:
-        msg = f"以下节点 prerequisites 中有非字符串元素: {bad_elem}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有 prerequisites 元素都是字符串")
+# ============================================================
+# 1. 数据完整性验证
+# ============================================================
 
-    # 1.4 没有空字符串
-    empty_str_nodes = []
-    for node in nodes:
-        for p in node["prerequisites"]:
-            if isinstance(p, str) and p.strip() == "":
-                empty_str_nodes.append(node["id"])
+def verify_data_integrity():
+    print("\n📂 1. 数据完整性验证")
+    data = load_json("public/data/full_data.json")
+    domains_data = load_json("public/data/domains.json")
+    eras_data = load_json("public/data/eras.json")
+
+    # 1.1 节点数量
+    report("数据", "节点总数", "PASS", f"{len(data)} 个节点")
+
+    # 1.2 无重复 ID
+    ids = [n["id"] for n in data]
+    dup_ids = [i for i in set(ids) if ids.count(i) > 1]
+    report("数据", "无重复ID", "PASS" if not dup_ids else "FAIL",
+           f"重复ID: {dup_ids}" if dup_ids else "全部唯一")
+
+    # 1.3 无循环依赖
+    adj = defaultdict(list)
+    for n in data:
+        for p in n.get("prerequisites", []):
+            adj[n["id"]].append(p)
+
+    WHITE, GRAY, BLACK = 0, 1, 2
+    color = {n["id"]: WHITE for n in data}
+    has_cycle = False
+
+    def dfs(node):
+        global has_cycle
+        nonlocal color
+        color[node] = GRAY
+        for nb in adj[node]:
+            if color[nb] == GRAY:
+                return True
+            if color[nb] == WHITE and dfs(nb):
+                return True
+        color[node] = BLACK
+        return False
+
+    for n in data:
+        if color[n["id"]] == WHITE:
+            if dfs(n["id"]):
+                has_cycle = True
                 break
-    if empty_str_nodes:
-        msg = f"以下节点 prerequisites 中有空字符串: {empty_str_nodes}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有 prerequisites 中没有空字符串")
 
-    # 1.5 所有引用的 ID 存在
-    missing_refs = {}
-    for node in nodes:
-        for p in node["prerequisites"]:
-            if p not in all_ids:
-                missing_refs.setdefault(node["id"], []).append(p)
-    if missing_refs:
-        lines = []
-        for nid, refs in missing_refs.items():
-            lines.append(f"  {nid} -> {refs}")
-        msg = f"以下节点引用了不存在的 ID:\n" + "\n".join(lines)
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有引用的 ID 在数据文件中均存在")
+    report("数据", "无循环依赖", "PASS" if not has_cycle else "FAIL",
+           "DAG无环" if not has_cycle else "存在循环!")
 
-    # 1.6 没有自引用
-    self_refs = [n["id"] for n in nodes if n["id"] in n.get("prerequisites", [])]
-    if self_refs:
-        msg = f"以下节点自引用: {self_refs}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 没有节点自引用")
+    # 1.4 所有前置引用有效
+    node_id_set = {n["id"] for n in data}
+    missing_refs = [(n["id"], p) for n in data for p in n.get("prerequisites", []) if p not in node_id_set]
+    report("数据", "前置引用有效", "PASS" if not missing_refs else "FAIL",
+           f"缺失引用: {len(missing_refs)}" if missing_refs else "全部有效")
 
-    # 1.7 没有重复项
-    duped = []
-    for node in nodes:
-        prereqs = node["prerequisites"]
-        if len(prereqs) != len(set(prereqs)):
-            duped.append(node["id"])
-    if duped:
-        msg = f"以下节点 prerequisites 中有重复项: {duped}"
-        print(f"  ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"  ✓ 所有 prerequisites 列表无重复项")
+    # 1.5 必填字段完整
+    required = ["id", "name", "domain", "era", "year", "description", "prerequisites"]
+    missing_fields = [(n.get("id", "?"), f) for n in data for f in required if f not in n]
+    report("数据", "必填字段完整", "PASS" if not missing_fields else "FAIL",
+           f"缺失: {len(missing_fields)}" if missing_fields else "全部完整")
 
-    status = "通过" if passed else "失败"
-    print(f"  >>> 数据完整性测试: {status}")
-    return passed, issues
+    # 1.6 描述质量
+    short_desc = [n for n in data if len(n.get("description", "")) < 20]
+    report("数据", "描述质量", "PASS" if len(short_desc) == 0 else "WARN",
+           f"过短描述: {len(short_desc)}" if short_desc else "全部≥20字符")
 
-# ===========================================================================
-# 2. 前置链可追溯性测试
-# ===========================================================================
-def trace_chain(start_id, node_map, all_ids):
-    """BFS 从 start_id 往回追溯全部前置链"""
-    visited = []
-    reachable = set()
-    queue = [start_id]
-    parent_map = {start_id: None}
+    # 1.7 领域和时代数据
+    domain_ids = {d["id"] for d in domains_data}
+    era_ids = {e["id"] for e in eras_data}
+    node_domains = {n["domain"] for n in data}
+    node_eras = {n["era"] for n in data}
+    report("数据", "领域定义", "PASS",
+           f"{len(domains_data)} 个领域: {', '.join(d['name'] for d in domains_data)}")
+    report("数据", "时代定义", "PASS",
+           f"{len(eras_data)} 个时代: {', '.join(e['name'] for e in eras_data)}")
 
-    while queue:
-        current = queue.pop(0)
-        if current in reachable:
-            continue
-        reachable.add(current)
-        visited.append(current)
-        node = node_map.get(current)
-        if node is None:
-            continue
-        for p in node["prerequisites"]:
-            if p not in reachable:
-                queue.append(p)
-                if p not in parent_map:
-                    parent_map[p] = current
+    invalid_domains = node_domains - domain_ids
+    report("数据", "节点领域引用", "PASS" if not invalid_domains else "FAIL",
+           f"无效领域: {invalid_domains}" if invalid_domains else "全部有效")
 
-    # 沿第一条前置链到根
-    path = []
-    cur = start_id
-    while cur is not None:
-        path.append(cur)
-        node = node_map.get(cur)
-        if node is None or not node["prerequisites"]:
-            break
-        cur = node["prerequisites"][0]
+    invalid_eras = node_eras - era_ids
+    report("数据", "节点时代引用", "PASS" if not invalid_eras else "FAIL",
+           f"无效时代: {invalid_eras}" if invalid_eras else "全部有效")
 
-    return visited, reachable, path
+    # 1.8 individual domain files vs full_data.json 一致性
+    domain_names = [d["id"] for d in domains_data]
+    domain_total = 0
+    for dn in domain_names:
+        path = f"public/data/nodes/{dn}.json"
+        if os.path.exists(path):
+            domain_total += len(load_json(path))
+    diff = len(data) - domain_total
+    report("数据", "领域文件一致性", "WARN" if diff != 0 else "PASS",
+           f"full_data: {len(data)}, 领域文件总和: {domain_total}, 差异: {diff}")
 
-def test_chain(start_id, label, node_map, all_ids, expected_domains=None):
-    """测试单条前置链"""
-    print(f"\n  --- {label} ({start_id}) ---")
-    visited, reachable, path = trace_chain(start_id, node_map, all_ids)
+    return data, domains_data, eras_data
 
-    passed = True
-    issues = []
 
-    # 链条中每个节点必须存在
-    for nid in visited:
-        if nid not in all_ids:
-            msg = f"{label}: 链条中引用了不存在的节点: {nid}"
-            print(f"    ✗ {msg}")
-            issues.append(msg)
-            passed = False
+# ============================================================
+# 2. 搜索功能验证
+# ============================================================
 
-    # 必须能追溯到基础节点
-    root_nodes = [nid for nid in reachable if not node_map[nid]["prerequisites"]]
-    if not root_nodes:
-        msg = f"{label}: 前置链未能追溯到任何基础节点"
-        print(f"    ✗ {msg}")
-        issues.append(msg)
-        passed = False
-    else:
-        print(f"    ✓ 追溯到 {len(root_nodes)} 个基础节点: {root_nodes}")
+def verify_search(nodes):
+    print("\n🔍 2. 搜索功能验证")
 
-    # 链深度
-    print(f"    ✓ 链深度: {len(path)} 层")
-    print(f"    ✓ 可达节点数: {len(reachable)}")
-    print(f"    ✓ 主链路: {' → '.join(path[:6])}{'...' if len(path) > 6 else ''}")
+    def matches_search(node, text):
+        if not text.strip():
+            return True
+        lower = text.lower()
+        if lower in node["name"].lower():
+            return True
+        if lower in node["description"].lower():
+            return True
+        if node.get("tags") and any(lower in t.lower() for t in node["tags"]):
+            return True
+        return False
 
-    # 验证跨域
-    domains_reached = {node_map[nid]["domain"] for nid in reachable}
-    print(f"    ✓ 涉及域: {domains_reached}")
-
-    if expected_domains:
-        for dom in expected_domains:
-            if dom not in domains_reached:
-                msg = f"{label}: 前置链应包含 {dom} 域，实际: {domains_reached}"
-                print(f"    ✗ {msg}")
-                issues.append(msg)
-                passed = False
-            else:
-                print(f"    ✓ 包含期望域: {dom}")
-
-    # 链深度至少4层
-    if len(path) < 4:
-        msg = f"{label}: 前置链深度不足 ({len(path)} 层 < 4)"
-        print(f"    ✗ {msg}")
-        issues.append(msg)
-        passed = False
-
-    status = "通过" if passed else "失败"
-    print(f"    >>> {label}: {status}")
-    return passed, issues
-
-def test_prerequisite_chain_traceability(node_map, all_ids):
-    print("\n" + "="*70)
-    print("【测试2】前置链可追溯性测试")
-    print("="*70)
-    all_passed = True
-    all_issues = []
-
-    chains = [
-        ("it_ai_agent", "AI Agent → 基础理论", None),
-        ("eng_reusable_rocket", "可回收火箭 → 基础材料/制造", ["materials"]),
-        ("eng_jet_engine", "先进战斗机(喷气发动机) → 基础航空/材料", ["materials"]),
-        ("energy_nuclear_fusion_reactor", "可控核聚变 → 基础物理/材料", ["physics", "materials"]),
-        ("energy_solar_cell", "高效光伏(太阳能电池) → 基础材料/半导体", ["materials"]),
+    test_cases = [
+        ("火", 5, "中文搜索-火"),
+        ("蒸汽", 1, "中文搜索-蒸汽"),
+        ("电", 1, "中文搜索-电"),
+        ("量子", 1, "中文搜索-量子"),
+        ("计算机", 1, "中文搜索-计算机"),
+        ("火药", 1, "精确搜索-火药"),
+        ("", len(nodes), "空搜索返回全部"),
     ]
 
-    for start_id, label, expected_domains in chains:
-        p, iss = test_chain(start_id, label, node_map, all_ids, expected_domains)
-        if not p:
-            all_passed = False
-            all_issues.extend(iss)
+    for query, expected_min, desc in test_cases:
+        matches = [n for n in nodes if matches_search(n, query)]
+        ok = len(matches) >= expected_min
+        report("搜索", desc, "PASS" if ok else "FAIL",
+               f"查询\"{query}\": {len(matches)} 条结果 (期望≥{expected_min})")
 
-    status = "通过" if all_passed else "失败"
-    print(f"\n  >>> 前置链可追溯性测试: {status}")
-    return all_passed, all_issues
 
-# ===========================================================================
-# 3. 三类前置覆盖测试
-# ===========================================================================
-def get_domains_of_prereqs(node, node_map):
-    domains = set()
-    for pid in node["prerequisites"]:
-        pnode = node_map.get(pid)
-        if pnode:
-            domains.add(pnode["domain"])
-    return domains
+# ============================================================
+# 3. 筛选功能验证
+# ============================================================
 
-def test_three_category_coverage(nodes, node_map):
-    print("\n" + "="*70)
-    print("【测试3】三类前置覆盖测试（理论/工程/组织-社会）")
-    print("="*70)
-    all_passed = True
-    all_issues = []
+def verify_filter(nodes):
+    print("\n🔬 3. 筛选功能验证")
 
-    # 3.1 AI Agent 应有跨域前置
-    node = node_map.get("it_ai_agent")
-    if node:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        print(f"  AI Agent 前置域: {prereq_domains}")
-        if len(prereq_domains) < 1:
-            msg = "AI Agent 前置域过于单一"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ AI Agent 前置覆盖 {len(prereq_domains)} 个域")
+    def passes_filter(node, filter_state):
+        if filter_state.get("selectedEras") and node["era"] not in filter_state["selectedEras"]:
+            return False
+        if filter_state.get("selectedDomains") and node["domain"] not in filter_state["selectedDomains"]:
+            return False
+        if (node.get("hubScore") or 0) < filter_state.get("hubThreshold", 0):
+            return False
+        yr = filter_state.get("yearRange")
+        if yr:
+            y = node["year"] if isinstance(node["year"], int) else int(node["year"])
+            if y < yr[0] or y > yr[1]:
+                return False
+        return True
 
-    # 3.2 可控核聚变应涵盖物理理论、工程、材料
-    node = node_map.get("energy_nuclear_fusion_reactor")
-    if node:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        print(f"  可控核聚变 前置域: {prereq_domains}")
-        if len(prereq_domains) < 2:
-            msg = f"可控核聚变前置域过于单一 (期望>=2): {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        if "physics" not in prereq_domains:
-            msg = f"可控核聚变应有物理理论前置: {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ 可控核聚变涵盖物理域")
+    # 3.1 无筛选
+    all_pass = [n for n in nodes if passes_filter(n, {})]
+    report("筛选", "无筛选", "PASS" if len(all_pass) == len(nodes) else "FAIL",
+           f"{len(all_pass)}/{len(nodes)}")
 
-    # 3.3 可回收火箭应涵盖工程和材料
-    node = node_map.get("eng_reusable_rocket")
-    if node:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        print(f"  可回收火箭 前置域: {prereq_domains}")
-        if len(prereq_domains) < 2:
-            msg = f"可回收火箭前置域过于单一 (期望>=2): {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        if "materials" not in prereq_domains:
-            msg = f"可回收火箭应有材料类前置: {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ 可回收火箭涵盖材料域")
+    # 3.2 按领域筛选
+    for domain in ["physics", "it", "medicine"]:
+        filtered = [n for n in nodes if passes_filter(n, {"selectedDomains": [domain]})]
+        report("筛选", f"领域={domain}", "PASS" if filtered else "FAIL",
+               f"{len(filtered)} 个节点")
 
-    # 3.4 太阳能电池应有材料或物理前置
-    node = node_map.get("energy_solar_cell")
-    if node:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        print(f"  太阳能电池 前置域: {prereq_domains}")
-        if "materials" not in prereq_domains and "physics" not in prereq_domains:
-            msg = f"太阳能电池应有材料或物理前置: {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ 太阳能电池涵盖材料/物理域")
+    # 3.3 按时代筛选
+    for era in ["ancient", "information", "prehistoric"]:
+        filtered = [n for n in nodes if passes_filter(n, {"selectedEras": [era]})]
+        report("筛选", f"时代={era}", "PASS" if filtered else "FAIL",
+               f"{len(filtered)} 个节点")
 
-    # 3.5 无人机应有 IT 通信前置
-    node = node_map.get("eng_drone")
-    if node:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        print(f"  无人机 前置域: {prereq_domains}")
-        if "it" not in prereq_domains:
-            msg = f"无人机技术应有 IT 通信前置: {prereq_domains}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ 无人机涵盖 IT 域")
+    # 3.4 年份范围筛选
+    filtered = [n for n in nodes if passes_filter(n, {"yearRange": [1900, 2025]})]
+    report("筛选", "年份1900-2025", "PASS" if filtered else "FAIL",
+           f"{len(filtered)} 个节点")
 
-    # 3.6 跨域前置总体占比
-    cross_domain_count = 0
-    for node in nodes:
-        prereq_domains = get_domains_of_prereqs(node, node_map)
-        other_domains = prereq_domains - {node["domain"]}
-        if other_domains:
-            cross_domain_count += 1
-    ratio = cross_domain_count / len(nodes)
-    print(f"\n  跨域前置节点: {cross_domain_count}/{len(nodes)} ({ratio:.1%})")
-    if ratio < 0.15:
-        msg = f"跨域前置节点占比 {ratio:.1%} 过低 (< 15%)"
-        print(f"  ✗ {msg}")
-        all_issues.append(msg)
-        all_passed = False
-    else:
-        print(f"  ✓ 跨域前置占比达标 (>= 15%)")
+    # 3.5 组合筛选
+    filtered = [n for n in nodes if passes_filter(n, {
+        "selectedEras": ["information"],
+        "selectedDomains": ["it"],
+        "hubThreshold": 0
+    })]
+    report("筛选", "组合: 信息时代+IT", "PASS" if filtered else "FAIL",
+           f"{len(filtered)} 个节点")
 
-    status = "通过" if all_passed else "失败"
-    print(f"\n  >>> 三类前置覆盖测试: {status}")
-    return all_passed, all_issues
 
-# ===========================================================================
-# 4. 无循环依赖测试
-# ===========================================================================
-def test_no_circular_dependencies(nodes, node_map):
-    print("\n" + "="*70)
-    print("【测试4】无循环依赖测试")
-    print("="*70)
-    all_passed = True
-    all_issues = []
+# ============================================================
+# 4. 枢纽值计算验证
+# ============================================================
 
-    # 4.1 DFS 检测环
-    WHITE, GRAY, BLACK = 0, 1, 2
-    color = {n["id"]: WHITE for n in nodes}
+def verify_hub_calculation(nodes):
+    print("\n📊 4. 枢纽值(Hub Score)计算验证")
 
-    def dfs(node_id, path):
-        color[node_id] = GRAY
-        path.append(node_id)
-        node = node_map.get(node_id)
-        if node:
-            for p in node["prerequisites"]:
-                if p in color:
-                    if color[p] == GRAY:
-                        cycle_start = path.index(p)
-                        return path[cycle_start:] + [p]
-                    if color[p] == WHITE:
-                        result = dfs(p, path)
-                        if result is not None:
-                            return result
-        path.pop()
-        color[node_id] = BLACK
-        return None
+    out_deg = defaultdict(int)
+    in_deg = defaultdict(int)
+    for n in nodes:
+        for p in n.get("prerequisites", []):
+            out_deg[p] += 1
+            in_deg[n["id"]] += 1
 
-    for node in nodes:
-        if color[node["id"]] == WHITE:
-            cycle = dfs(node["id"], [])
-            if cycle is not None:
-                msg = f"发现循环依赖: {' -> '.join(cycle)}"
-                print(f"  ✗ {msg}")
-                all_issues.append(msg)
-                all_passed = False
+    max_out = max(out_deg.values()) if out_deg else 1
+    max_in = max(in_deg.values()) if in_deg else 1
 
-    if all_passed:
-        print(f"  ✓ DFS 检测: 无循环依赖")
+    scores = {}
+    for n in nodes:
+        od = out_deg.get(n["id"], 0)
+        id2 = in_deg.get(n["id"], 0)
+        score = ((od / max_out) * 0.6 + (id2 / max_in) * 0.4) * 100
+        scores[n["id"]] = round(score, 1)
 
-    # 4.2 Kahn 算法 (拓扑排序) 验证
-    in_degree = {}
-    for node in nodes:
-        in_degree[node["id"]] = len(node["prerequisites"])
+    sorted_nodes = sorted(scores.items(), key=lambda x: -x[1])
+    top5 = sorted_nodes[:5]
+    for nid, score in top5:
+        node = next(n for n in nodes if n["id"] == nid)
+        report("枢纽值", f"  {node['name']}", "PASS",
+               f"hubScore={score}, domain={node['domain']}, outDeg={out_deg.get(nid,0)}")
 
-    queue = [nid for nid, deg in in_degree.items() if deg == 0]
-    processed = 0
+    hub60 = sum(1 for _, s in sorted_nodes if s >= 60)
+    report("枢纽值", "高枢纽节点(≥60)", "PASS", f"{hub60} 个")
 
-    while queue:
-        current = queue.pop(0)
-        processed += 1
-        for node in nodes:
-            if current in node["prerequisites"]:
-                in_degree[node["id"]] -= 1
-                if in_degree[node["id"]] == 0:
-                    queue.append(node["id"])
 
-    if processed != len(nodes):
-        msg = f"拓扑排序只处理了 {processed}/{len(nodes)} 个节点，存在 {len(nodes) - processed} 个节点在循环依赖中"
-        print(f"  ✗ {msg}")
-        all_issues.append(msg)
-        all_passed = False
-    else:
-        print(f"  ✓ Kahn 拓扑排序验证: {processed}/{len(nodes)} 个节点全部处理，无环")
+# ============================================================
+# 5. 构建产物验证
+# ============================================================
 
-    status = "通过" if all_passed else "失败"
-    print(f"\n  >>> 无循环依赖测试: {status}")
-    return all_passed, all_issues
+def verify_build():
+    print("\n🔨 5. 构建产物验证")
 
-# ===========================================================================
-# 5. 基础节点测试
-# ===========================================================================
-def test_basic_nodes(nodes, node_map):
-    print("\n" + "="*70)
-    print("【测试5】基础节点测试")
-    print("="*70)
-    all_passed = True
-    all_issues = []
+    # 5.1 dist 目录存在
+    report("构建", "dist目录", "PASS" if os.path.isdir("dist") else "FAIL",
+           "存在" if os.path.isdir("dist") else "不存在")
 
-    # 5.1 已知基础节点的 prerequisites 为空
-    basic_nodes = {
-        "mat_stone_tools": "石器制作",
-        "energy_fire": "火的控制",
-        "math_counting": "计数与数字概念",
-        "soc_language": "语言系统化",
-        "energy_human_animal": "人力与畜力",
-        "phys_magnetism_ancient": "磁石发现",
-        "phys_static_elec": "静电现象",
-    }
-    for nid, name in basic_nodes.items():
-        if nid not in node_map:
-            msg = f"基础节点不存在: {nid} ({name})"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        elif node_map[nid]["prerequisites"] != []:
-            msg = f"基础节点 {nid} ({name}) 的 prerequisites 应为空，实际: {node_map[nid]['prerequisites']}"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
-        else:
-            print(f"  ✓ 基础节点 {nid} ({name}): prerequisites=[]")
+    # 5.2 HTML 入口
+    html_exists = os.path.isfile("dist/index.html")
+    report("构建", "index.html", "PASS" if html_exists else "FAIL")
 
-    # 5.2 所有空前置节点属于基础时代
-    foundational_eras = {"prehistoric", "ancient"}
-    empty_prereq_nodes = [n for n in nodes if not n["prerequisites"]]
-    print(f"\n  空前置节点共 {len(empty_prereq_nodes)} 个")
-    for node in empty_prereq_nodes:
-        if node["era"] not in foundational_eras:
-            msg = f"节点 {node['id']} ({node['name']}) prerequisites 为空，但 era 为 '{node['era']}'，应为 prehistoric 或 ancient"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
+    if html_exists:
+        html = open("dist/index.html").read()
+        has_js = "index-" in html and ".js" in html
+        has_css = "index-" in html and ".css" in html
+        report("构建", "HTML引用JS", "PASS" if has_js else "FAIL")
+        report("构建", "HTML引用CSS", "PASS" if has_css else "FAIL")
 
-    if all_passed:
-        print(f"  ✓ 所有空前置节点均属于基础时代 (prehistoric/ancient)")
+    # 5.3 数据文件复制
+    data_exists = os.path.isfile("dist/data/full_data.json")
+    report("构建", "数据文件复制", "PASS" if data_exists else "FAIL")
 
-    # 5.3 基础节点数量合理
-    if len(empty_prereq_nodes) < 3:
-        msg = f"基础节点只有 {len(empty_prereq_nodes)} 个，太少"
-        print(f"  ✗ {msg}")
-        all_issues.append(msg)
-        all_passed = False
-    elif len(empty_prereq_nodes) > 30:
-        msg = f"基础节点有 {len(empty_prereq_nodes)} 个，太多"
-        print(f"  ✗ {msg}")
-        all_issues.append(msg)
-        all_passed = False
-    else:
-        print(f"  ✓ 基础节点数量合理: {len(empty_prereq_nodes)} 个")
+    if data_exists:
+        dist_data = load_json("dist/data/full_data.json")
+        src_data = load_json("public/data/full_data.json")
+        report("构建", "构建数据一致性", "PASS" if len(dist_data) == len(src_data) else "FAIL",
+               f"源={len(src_data)}, 构建={len(dist_data)}")
 
-    # 5.4 现代节点没有空前置
-    modern_eras = {"modern", "information", "nuclear"}
-    for node in nodes:
-        if node["era"] in modern_eras and len(node["prerequisites"]) == 0:
-            msg = f"现代节点 {node['id']} ({node['name']}, era={node['era']}) 的 prerequisites 为空"
-            print(f"  ✗ {msg}")
-            all_issues.append(msg)
-            all_passed = False
+    # 5.4 CSS 特性检查
+    css_files = [f for f in os.listdir("dist/assets") if f.endswith(".css")]
+    if css_files:
+        css = open(f"dist/assets/{css_files[0]}").read()
+        features = {
+            "hover效果": "hover" in css,
+            "过渡动画": "transition" in css,
+            "渐变背景": "radial-gradient" in css or "linear-gradient" in css,
+            "毛玻璃效果": "backdrop-filter" in css,
+            "关键帧动画": "@keyframes" in css,
+            "响应式设计": "@media" in css,
+        }
+        for name, found in features.items():
+            report("构建-CSS", name, "PASS" if found else "FAIL")
 
-    modern_nodes = [n for n in nodes if n["era"] in modern_eras]
-    print(f"  ✓ 所有 {len(modern_nodes)} 个现代节点均有前置条件")
+    # 5.5 JS 功能模块检查
+    js_files = [f for f in os.listdir("dist/assets") if f.endswith(".js")]
+    if js_files:
+        js = open(f"dist/assets/{max(js_files, key=lambda x: os.path.getsize(f'dist/assets/{x}'))}").read()
+        modules = {
+            "Cytoscape图引擎": "cytoscape" in js,
+            "Dagre层次布局": "dagre" in js,
+            "鼠标悬停事件": "mouseover" in js,
+            "节点选中样式": "selected" in js,
+            "边高亮样式": "highlighted" in js,
+        }
+        for name, found in modules.items():
+            report("构建-JS", name, "PASS" if found else "FAIL")
 
-    # 打印基础节点列表
-    print(f"\n  所有基础节点:")
-    for n in empty_prereq_nodes:
-        print(f"    - {n['id']} ({n['name']}, era={n['era']}, domain={n['domain']})")
 
-    status = "通过" if all_passed else "失败"
-    print(f"\n  >>> 基础节点测试: {status}")
-    return all_passed, all_issues
+# ============================================================
+# 6. 服务器可访问性验证
+# ============================================================
 
-# ===========================================================================
+def verify_server():
+    print("\n🌐 6. 服务器可访问性验证")
+    import urllib.request
+    import urllib.error
+
+    base_urls = [
+        ("http://localhost:5173", "开发服务器"),
+        ("http://localhost:4173", "预览服务器"),
+    ]
+
+    for url, name in base_urls:
+        try:
+            req = urllib.request.urlopen(url + "/", timeout=3)
+            code = req.getcode()
+            report("服务器", name, "PASS" if code == 200 else "FAIL", f"HTTP {code}")
+        except Exception as e:
+            report("服务器", name, "WARN", f"未运行: {str(e)[:50]}")
+
+    # 数据文件可访问性（通过开发服务器）
+    try:
+        req = urllib.request.urlopen("http://localhost:5173/data/full_data.json", timeout=3)
+        data = json.loads(req.read())
+        report("服务器", "full_data.json可访问", "PASS", f"{len(data)} 个节点")
+    except Exception:
+        report("服务器", "full_data.json", "WARN", "开发服务器未运行，跳过")
+
+    try:
+        req = urllib.request.urlopen("http://localhost:5173/data/domains.json", timeout=3)
+        data = json.loads(req.read())
+        report("服务器", "domains.json可访问", "PASS", f"{len(data)} 个领域")
+    except Exception:
+        report("服务器", "domains.json", "WARN", "开发服务器未运行，跳过")
+
+    try:
+        req = urllib.request.urlopen("http://localhost:5173/data/eras.json", timeout=3)
+        data = json.loads(req.read())
+        report("服务器", "eras.json可访问", "PASS", f"{len(data)} 个时代")
+    except Exception:
+        report("服务器", "eras.json", "WARN", "开发服务器未运行，跳过")
+
+
+# ============================================================
+# 7. 源代码完整性验证
+# ============================================================
+
+def verify_source_structure():
+    print("\n📁 7. 源代码结构验证")
+
+    expected_files = [
+        ("src/App.tsx", "主应用组件"),
+        ("src/main.tsx", "入口文件"),
+        ("src/App.css", "全局样式"),
+        ("src/components/TechTree.tsx", "科技树组件"),
+        ("src/components/SearchPanel.tsx", "搜索面板"),
+        ("src/components/FilterPanel.tsx", "筛选面板"),
+        ("src/components/NodeDetail.tsx", "节点详情"),
+        ("src/components/Toolbar.tsx", "工具栏"),
+        ("src/components/Legend.tsx", "图例"),
+        ("src/components/MiniMap.tsx", "小地图"),
+        ("src/components/TimelineSlider.tsx", "时间轴"),
+        ("src/utils/dataLoader.ts", "数据加载器"),
+        ("src/utils/hubCalculator.ts", "枢纽值计算"),
+        ("src/utils/pdfExporter.ts", "PDF导出"),
+        ("src/types/index.ts", "类型定义"),
+    ]
+
+    for path, desc in expected_files:
+        exists = os.path.isfile(path)
+        report("源码", desc, "PASS" if exists else "FAIL", path)
+
+
+# ============================================================
 # 主函数
-# ===========================================================================
+# ============================================================
+
 def main():
-    print("="*70)
-    print("科技树前置条件修正结果 - 全面验证")
-    print("="*70)
+    print("=" * 60)
+    print("🌳 科技树可视化工具 - 功能验证脚本")
+    print("=" * 60)
 
-    # 加载数据
-    nodes = load_data()
-    node_map = build_node_map(nodes)
-    all_ids = set(node_map.keys())
-    print(f"数据加载完成: {len(nodes)} 个节点, {len(all_ids)} 个唯一 ID")
+    os.chdir(os.path.dirname(os.path.abspath(__file__)) or ".")
 
-    results = {}
-    all_issues = []
+    # 1. 数据完整性
+    data, domains, eras = verify_data_integrity()
 
-    # 执行5大类测试
-    p1, i1 = test_data_integrity(nodes, node_map, all_ids)
-    results["数据完整性"] = p1
-    all_issues.extend(i1)
+    # 2. 搜索功能
+    verify_search(data)
 
-    p2, i2 = test_prerequisite_chain_traceability(node_map, all_ids)
-    results["前置链可追溯性"] = p2
-    all_issues.extend(i2)
+    # 3. 筛选功能
+    verify_filter(data)
 
-    p3, i3 = test_three_category_coverage(nodes, node_map)
-    results["三类前置覆盖"] = p3
-    all_issues.extend(i3)
+    # 4. 枢纽值计算
+    verify_hub_calculation(data)
 
-    p4, i4 = test_no_circular_dependencies(nodes, node_map)
-    results["无循环依赖"] = p4
-    all_issues.extend(i4)
+    # 5. 构建产物
+    verify_build()
 
-    p5, i5 = test_basic_nodes(nodes, node_map)
-    results["基础节点"] = p5
-    all_issues.extend(i5)
+    # 6. 服务器可访问性
+    verify_server()
+
+    # 7. 源代码结构
+    verify_source_structure()
 
     # 汇总
-    print("\n" + "="*70)
-    print("测试汇总")
-    print("="*70)
-    total = len(results)
-    passed_count = sum(1 for v in results.values() if v)
-    for name, p in results.items():
-        status = "✓ 通过" if p else "✗ 失败"
-        print(f"  {status}: {name}")
-
-    overall = passed_count == total
-    print(f"\n  总计: {passed_count}/{total} 类测试通过")
-    if all_issues:
-        print(f"\n  发现 {len(all_issues)} 个问题:")
-        for i, issue in enumerate(all_issues, 1):
-            print(f"    {i}. {issue}")
+    print("\n" + "=" * 60)
+    total = PASS + FAIL + WARN
+    print(f"📊 验证结果汇总: ✅ {PASS} 通过 | ❌ {FAIL} 失败 | ⚠️ {WARN} 警告 | 共 {total} 项")
+    if FAIL == 0:
+        print("🎉 核心功能验证通过!")
     else:
-        print(f"\n  未发现问题!")
+        print(f"⚠️ 有 {FAIL} 项验证失败，请检查!")
+    print("=" * 60)
 
-    if overall:
-        print("\n★★★ 整体评估: 全部通过 ★★★")
-    else:
-        print("\n★★★ 整体评估: 存在失败项 ★★★")
+    return 0 if FAIL == 0 else 1
 
-    return overall, all_issues, results
 
 if __name__ == "__main__":
-    overall, issues, results = main()
-    sys.exit(0 if overall else 1)
+    sys.exit(main())

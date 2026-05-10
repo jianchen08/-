@@ -201,8 +201,7 @@
     "era": "medieval",
     "domain": "math",
     "prerequisites": [
-      "math_arithmetic",
-      "soc_cultural_exchange"
+      "math_arithmetic"
     ],
     "description": "印度数学家发展出包含零的十进制位值记数法，这一系统后来经阿拉伯世界传入欧洲，成为现代数字系统的基础。",
     "importance": 5,
@@ -385,28 +384,6 @@
       "复分析",
       "欧拉",
       "美丽公式"
-    ]
-  },
-  {
-    "id": "math_bayesian",
-    "name": "贝叶斯定理",
-    "year": "1763",
-    "yearRange": [
-      1760,
-      1800
-    ],
-    "era": "industrial",
-    "domain": "math",
-    "prerequisites": [
-      "math_probability",
-      "math_calculus"
-    ],
-    "description": "贝叶斯定理提供了在获得新证据后更新信念的数学方法，后来在机器学习和人工智能中成为核心方法论。",
-    "importance": 5,
-    "tags": [
-      "贝叶斯",
-      "推断",
-      "更新"
     ]
   },
   {
@@ -629,28 +606,6 @@
     ]
   },
   {
-    "id": "math_tensor",
-    "name": "张量分析",
-    "year": "1900",
-    "yearRange": [
-      1890,
-      1915
-    ],
-    "era": "modern",
-    "domain": "math",
-    "prerequisites": [
-      "math_matrix",
-      "math_calculus"
-    ],
-    "description": "里奇和列维奇维塔发展的张量分析，为广义相对论和后来的连续介质力学提供了数学工具。",
-    "importance": 4,
-    "tags": [
-      "张量",
-      "微分",
-      "坐标"
-    ]
-  },
-  {
     "id": "math_measure_theory",
     "name": "测度论",
     "year": "1902",
@@ -670,6 +625,28 @@
       "测度",
       "积分",
       "勒贝格"
+    ]
+  },
+  {
+    "id": "math_tensor",
+    "name": "张量分析",
+    "year": "1900",
+    "yearRange": [
+      1890,
+      1915
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_matrix",
+      "math_calculus"
+    ],
+    "description": "里奇和列维奇维塔发展的张量分析，为广义相对论和后来的连续介质力学提供了数学工具。",
+    "importance": 4,
+    "tags": [
+      "张量",
+      "微分",
+      "坐标"
     ]
   },
   {
@@ -719,28 +696,6 @@
     ]
   },
   {
-    "id": "math_number_theory",
-    "name": "现代数论",
-    "year": "1930",
-    "yearRange": [
-      1920,
-      1950
-    ],
-    "era": "modern",
-    "domain": "math",
-    "prerequisites": [
-      "math_set_theory",
-      "math_algebra_khwarizmi"
-    ],
-    "description": "哈代、拉马努金、韦伊等人发展的现代数论，将解析方法和代数几何方法引入数论研究，远超古典数论的范畴。",
-    "importance": 4,
-    "tags": [
-      "数论",
-      "解析",
-      "代数"
-    ]
-  },
-  {
     "id": "math_incompleteness",
     "name": "哥德尔不完备性定理",
     "year": "1931",
@@ -785,25 +740,25 @@
     ]
   },
   {
-    "id": "math_linear_prog",
-    "name": "线性规划",
-    "year": "1939",
+    "id": "math_information_theory",
+    "name": "信息论",
+    "year": "1948",
     "yearRange": [
-      1935,
+      1945,
       1950
     ],
     "era": "modern",
     "domain": "math",
     "prerequisites": [
-      "math_matrix",
-      "math_algebra_khwarizmi"
+      "math_probability",
+      "math_logarithm"
     ],
-    "description": "坎托罗维奇和丹齐格分别发展的线性规划理论，用单纯形法求解资源最优分配问题，开创了现代运筹学。",
-    "importance": 4,
+    "description": "香农创立信息论，精确定义了信息的度量（熵），建立了数据压缩和通信信道的理论基础，是数字时代的数学基石。",
+    "importance": 5,
     "tags": [
-      "线性规划",
-      "单纯形",
-      "运筹"
+      "信息",
+      "熵",
+      "香农"
     ]
   },
   {
@@ -852,6 +807,28 @@
     ]
   },
   {
+    "id": "math_linear_prog",
+    "name": "线性规划",
+    "year": "1939",
+    "yearRange": [
+      1935,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_matrix",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "坎托罗维奇和丹齐格分别发展的线性规划理论，用单纯形法求解资源最优分配问题，开创了现代运筹学。",
+    "importance": 4,
+    "tags": [
+      "线性规划",
+      "单纯形",
+      "运筹"
+    ]
+  },
+  {
     "id": "math_optimization",
     "name": "优化理论",
     "year": "1947",
@@ -875,28 +852,6 @@
     ]
   },
   {
-    "id": "math_information_theory",
-    "name": "信息论",
-    "year": "1948",
-    "yearRange": [
-      1945,
-      1950
-    ],
-    "era": "modern",
-    "domain": "math",
-    "prerequisites": [
-      "math_probability",
-      "math_logarithm"
-    ],
-    "description": "香农创立信息论，精确定义了信息的度量（熵），建立了数据压缩和通信信道的理论基础，是数字时代的数学基石。",
-    "importance": 5,
-    "tags": [
-      "信息",
-      "熵",
-      "香农"
-    ]
-  },
-  {
     "id": "math_control_theory",
     "name": "控制论",
     "year": "1948",
@@ -917,28 +872,6 @@
       "控制",
       "反馈",
       "系统"
-    ]
-  },
-  {
-    "id": "math_graph_algorithms",
-    "name": "图算法",
-    "year": "1959",
-    "yearRange": [
-      1955,
-      1970
-    ],
-    "era": "modern",
-    "domain": "math",
-    "prerequisites": [
-      "math_graph_theory",
-      "math_complexity_theory"
-    ],
-    "description": "Dijkstra最短路径、Kruskal最小生成树等经典图算法，成为网络分析、路径规划和社交网络分析的核心工具。",
-    "importance": 4,
-    "tags": [
-      "图",
-      "算法",
-      "网络"
     ]
   },
   {
@@ -986,6 +919,50 @@
     ]
   },
   {
+    "id": "math_number_theory",
+    "name": "现代数论",
+    "year": "1930",
+    "yearRange": [
+      1920,
+      1950
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_set_theory",
+      "math_algebra_khwarizmi"
+    ],
+    "description": "哈代、拉马努金、韦伊等人发展的现代数论，将解析方法和代数几何方法引入数论研究，远超古典数论的范畴。",
+    "importance": 4,
+    "tags": [
+      "数论",
+      "解析",
+      "代数"
+    ]
+  },
+  {
+    "id": "math_rsa",
+    "name": "RSA加密算法",
+    "year": "1977",
+    "yearRange": [
+      1975,
+      1980
+    ],
+    "era": "information",
+    "domain": "math",
+    "prerequisites": [
+      "math_number_theory",
+      "math_information_theory"
+    ],
+    "description": "基于大数分解困难性的公钥加密算法，将数论从纯数学推向实用，成为互联网安全通信的数学基础。",
+    "importance": 5,
+    "tags": [
+      "加密",
+      "数论",
+      "安全"
+    ]
+  },
+  {
     "id": "math_complexity_theory",
     "name": "计算复杂性理论",
     "year": "1971",
@@ -1030,25 +1007,47 @@
     ]
   },
   {
-    "id": "math_rsa",
-    "name": "RSA加密算法",
-    "year": "1977",
+    "id": "math_wavelet",
+    "name": "小波分析",
+    "year": "1980",
     "yearRange": [
       1975,
-      1980
+      1990
     ],
     "era": "information",
     "domain": "math",
     "prerequisites": [
-      "math_number_theory",
-      "math_information_theory"
+      "math_fourier",
+      "math_set_theory"
     ],
-    "description": "基于大数分解困难性的公钥加密算法，将数论从纯数学推向实用，成为互联网安全通信的数学基础。",
-    "importance": 5,
+    "description": "小波分析是傅里叶分析的发展，能在时间和频率两个域同时获得良好分辨率，在图像压缩和信号处理中极为重要。",
+    "importance": 4,
     "tags": [
-      "加密",
-      "数论",
-      "安全"
+      "小波",
+      "信号",
+      "时频"
+    ]
+  },
+  {
+    "id": "math_graph_algorithms",
+    "name": "图算法",
+    "year": "1959",
+    "yearRange": [
+      1955,
+      1970
+    ],
+    "era": "modern",
+    "domain": "math",
+    "prerequisites": [
+      "math_graph_theory",
+      "math_complexity_theory"
+    ],
+    "description": "Dijkstra最短路径、Kruskal最小生成树等经典图算法，成为网络分析、路径规划和社交网络分析的核心工具。",
+    "importance": 4,
+    "tags": [
+      "图",
+      "算法",
+      "网络"
     ]
   },
   {
@@ -1074,28 +1073,6 @@
     ]
   },
   {
-    "id": "math_wavelet",
-    "name": "小波分析",
-    "year": "1980",
-    "yearRange": [
-      1975,
-      1990
-    ],
-    "era": "information",
-    "domain": "math",
-    "prerequisites": [
-      "math_fourier",
-      "math_set_theory"
-    ],
-    "description": "小波分析是傅里叶分析的发展，能在时间和频率两个域同时获得良好分辨率，在图像压缩和信号处理中极为重要。",
-    "importance": 4,
-    "tags": [
-      "小波",
-      "信号",
-      "时频"
-    ]
-  },
-  {
     "id": "math_homotopy_type",
     "name": "同伦类型论",
     "year": "2013",
@@ -1116,6 +1093,28 @@
       "类型论",
       "同伦",
       "形式化"
+    ]
+  },
+  {
+    "id": "math_bayesian",
+    "name": "贝叶斯定理",
+    "year": "1763",
+    "yearRange": [
+      1760,
+      1800
+    ],
+    "era": "industrial",
+    "domain": "math",
+    "prerequisites": [
+      "math_probability",
+      "math_calculus"
+    ],
+    "description": "贝叶斯定理提供了在获得新证据后更新信念的数学方法，后来在机器学习和人工智能中成为核心方法论。",
+    "importance": 5,
+    "tags": [
+      "贝叶斯",
+      "推断",
+      "更新"
     ]
   }
 ]

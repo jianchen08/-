@@ -19,28 +19,6 @@
     ]
   },
   {
-    "id": "soc_state",
-    "name": "国家组织",
-    "year": "-3500",
-    "yearRange": [
-      -4000,
-      -2500
-    ],
-    "era": "ancient",
-    "domain": "social",
-    "prerequisites": [
-      "soc_language",
-      "ag_plant_domestication"
-    ],
-    "description": "农业剩余产品催生了社会分工和等级制度，出现了最早的城邦和国家形态。",
-    "importance": 5,
-    "tags": [
-      "国家",
-      "城邦",
-      "分工"
-    ]
-  },
-  {
     "id": "soc_writing",
     "name": "文字系统",
     "year": "-3200",
@@ -60,28 +38,6 @@
       "文字",
       "记录",
       "历史"
-    ]
-  },
-  {
-    "id": "soc_trade_route",
-    "name": "贸易网络",
-    "year": "-2000",
-    "yearRange": [
-      -3000,
-      -500
-    ],
-    "era": "ancient",
-    "domain": "social",
-    "prerequisites": [
-      "soc_state",
-      "soc_money"
-    ],
-    "description": "从早期城邦间贸易到丝绸之路，远距离贸易网络促进了经济繁荣和文化交流。",
-    "importance": 4,
-    "tags": [
-      "贸易",
-      "丝路",
-      "网络"
     ]
   },
   {
@@ -107,25 +63,25 @@
     ]
   },
   {
-    "id": "soc_religion_org",
-    "name": "制度化宗教",
-    "year": "-1500",
+    "id": "soc_state",
+    "name": "国家组织",
+    "year": "-3500",
     "yearRange": [
-      -2000,
-      -500
+      -4000,
+      -2500
     ],
     "era": "ancient",
     "domain": "social",
     "prerequisites": [
-      "soc_state",
-      "soc_language"
+      "soc_language",
+      "ag_plant_domestication"
     ],
-    "description": "从多神教到一神教，制度化宗教提供了社会凝聚力、道德框架和知识传承的载体。",
-    "importance": 4,
+    "description": "农业剩余产品催生了社会分工和等级制度，出现了最早的城邦和国家形态。",
+    "importance": 5,
     "tags": [
-      "宗教",
-      "制度",
-      "信仰"
+      "国家",
+      "城邦",
+      "分工"
     ]
   },
   {
@@ -151,28 +107,6 @@
     ]
   },
   {
-    "id": "soc_philosophy",
-    "name": "哲学传统",
-    "year": "-600",
-    "yearRange": [
-      -700,
-      -300
-    ],
-    "era": "ancient",
-    "domain": "social",
-    "prerequisites": [
-      "soc_language",
-      "soc_state"
-    ],
-    "description": "从古希腊到中国诸子百家，不同文明独立发展出理性思考世界和人性的哲学传统。",
-    "importance": 5,
-    "tags": [
-      "哲学",
-      "理性",
-      "传统"
-    ]
-  },
-  {
     "id": "soc_democracy_ancient",
     "name": "古代民主",
     "year": "-508",
@@ -195,6 +129,50 @@
     ]
   },
   {
+    "id": "soc_religion_org",
+    "name": "制度化宗教",
+    "year": "-1500",
+    "yearRange": [
+      -2000,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_language"
+    ],
+    "description": "从多神教到一神教，制度化宗教提供了社会凝聚力、道德框架和知识传承的载体。",
+    "importance": 4,
+    "tags": [
+      "宗教",
+      "制度",
+      "信仰"
+    ]
+  },
+  {
+    "id": "soc_philosophy",
+    "name": "哲学传统",
+    "year": "-600",
+    "yearRange": [
+      -700,
+      -300
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_language",
+      "soc_state"
+    ],
+    "description": "从古希腊到中国诸子百家，不同文明独立发展出理性思考世界和人性的哲学传统。",
+    "importance": 5,
+    "tags": [
+      "哲学",
+      "理性",
+      "传统"
+    ]
+  },
+  {
     "id": "soc_empire",
     "name": "帝国体系",
     "year": "-500",
@@ -206,8 +184,7 @@
     "domain": "social",
     "prerequisites": [
       "soc_state",
-      "soc_law_code",
-      "mat_bronze"
+      "soc_law_code"
     ],
     "description": "从波斯帝国到罗马帝国，大规模跨民族的政治整合创造了行政管理、基础设施和文化传播的新模式。",
     "importance": 4,
@@ -215,28 +192,6 @@
       "帝国",
       "行政",
       "整合"
-    ]
-  },
-  {
-    "id": "soc_cultural_exchange",
-    "name": "文化交流",
-    "year": "-300",
-    "yearRange": [
-      -500,
-      2000
-    ],
-    "era": "ancient",
-    "domain": "social",
-    "prerequisites": [
-      "soc_writing",
-      "soc_trade_route"
-    ],
-    "description": "丝绸之路和大航海时代等跨文化交流推动了技术、思想和艺术的全球传播。",
-    "importance": 4,
-    "tags": [
-      "文化",
-      "交流",
-      "丝路"
     ]
   },
   {
@@ -317,8 +272,7 @@
     "domain": "social",
     "prerequisites": [
       "soc_university",
-      "soc_philosophy",
-      "soc_cultural_exchange"
+      "soc_philosophy"
     ],
     "description": "对古典文化的重新发现和人文主义的兴起，挑战了中世纪的宗教权威，强调人的价值和理性。",
     "importance": 5,
@@ -407,8 +361,7 @@
     "domain": "social",
     "prerequisites": [
       "soc_money",
-      "eng_steam_engine",
-      "soc_enlightenment"
+      "eng_steam_engine"
     ],
     "description": "以私有制、市场竞争和利润驱动为特征的经济体系，与工业革命相互促进，创造了前所未有的财富。",
     "importance": 5,
@@ -416,50 +369,6 @@
       "资本",
       "市场",
       "私有制"
-    ]
-  },
-  {
-    "id": "soc_economics",
-    "name": "现代经济学",
-    "year": "1776",
-    "yearRange": [
-      1770,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "social",
-    "prerequisites": [
-      "math_statistics_modern",
-      "soc_capitalism"
-    ],
-    "description": "亚当·斯密的《国富论》开创了系统的经济分析，边际革命后发展为新古典经济学。",
-    "importance": 5,
-    "tags": [
-      "经济学",
-      "斯密",
-      "市场"
-    ]
-  },
-  {
-    "id": "soc_democracy_modern",
-    "name": "现代民主",
-    "year": "1789",
-    "yearRange": [
-      1776,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "social",
-    "prerequisites": [
-      "soc_enlightenment",
-      "soc_nation_state"
-    ],
-    "description": "美国独立和法国大革命将启蒙思想付诸实践，确立了人民主权、三权分立和权利法案。",
-    "importance": 5,
-    "tags": [
-      "革命",
-      "民主",
-      "权利"
     ]
   },
   {
@@ -485,25 +394,25 @@
     ]
   },
   {
-    "id": "soc_sociology",
-    "name": "社会学",
-    "year": "1838",
+    "id": "soc_democracy_modern",
+    "name": "现代民主",
+    "year": "1789",
     "yearRange": [
-      1835,
+      1776,
       1900
     ],
     "era": "industrial",
     "domain": "social",
     "prerequisites": [
-      "math_statistics_modern",
-      "soc_philosophy"
+      "soc_enlightenment",
+      "soc_nation_state"
     ],
-    "description": "孔德创立的社会学用科学方法研究社会现象，涂尔干和韦伯进一步建立了社会学的理论框架。",
-    "importance": 4,
+    "description": "美国独立和法国大革命将启蒙思想付诸实践，确立了人民主权、三权分立和权利法案。",
+    "importance": 5,
     "tags": [
-      "社会学",
-      "孔德",
-      "结构"
+      "革命",
+      "民主",
+      "权利"
     ]
   },
   {
@@ -529,28 +438,6 @@
     ]
   },
   {
-    "id": "soc_feminism_wave1",
-    "name": "第一波女权运动",
-    "year": "1848",
-    "yearRange": [
-      1840,
-      1920
-    ],
-    "era": "industrial",
-    "domain": "social",
-    "prerequisites": [
-      "soc_democracy_modern",
-      "soc_labor_movement"
-    ],
-    "description": "从塞内卡瀑布会议到女性获得投票权，第一波女权运动争取女性的基本政治权利。",
-    "importance": 5,
-    "tags": [
-      "女权",
-      "投票",
-      "平等"
-    ]
-  },
-  {
     "id": "soc_labor_movement",
     "name": "劳工运动",
     "year": "1860",
@@ -570,6 +457,50 @@
       "工会",
       "劳动",
       "权利"
+    ]
+  },
+  {
+    "id": "soc_sociology",
+    "name": "社会学",
+    "year": "1838",
+    "yearRange": [
+      1835,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "math_statistics_modern",
+      "soc_philosophy"
+    ],
+    "description": "孔德创立的社会学用科学方法研究社会现象，涂尔干和韦伯进一步建立了社会学的理论框架。",
+    "importance": 4,
+    "tags": [
+      "社会学",
+      "孔德",
+      "结构"
+    ]
+  },
+  {
+    "id": "soc_economics",
+    "name": "现代经济学",
+    "year": "1776",
+    "yearRange": [
+      1770,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "math_statistics_modern",
+      "soc_capitalism"
+    ],
+    "description": "亚当·斯密的《国富论》开创了系统的经济分析，边际革命后发展为新古典经济学。",
+    "importance": 5,
+    "tags": [
+      "经济学",
+      "斯密",
+      "市场"
     ]
   },
   {
@@ -595,48 +526,25 @@
     ]
   },
   {
-    "id": "soc_psychology",
-    "name": "科学心理学",
-    "year": "1879",
+    "id": "soc_feminism_wave1",
+    "name": "第一波女权运动",
+    "year": "1848",
     "yearRange": [
-      1875,
-      1900
+      1840,
+      1920
     ],
     "era": "industrial",
     "domain": "social",
     "prerequisites": [
-      "soc_philosophy",
-      "math_statistics_modern"
+      "soc_democracy_modern",
+      "soc_labor_movement"
     ],
-    "description": "冯特在莱比锡建立第一个心理学实验室，将人类心理过程纳入实验科学研究。",
+    "description": "从塞内卡瀑布会议到女性获得投票权，第一波女权运动争取女性的基本政治权利。",
     "importance": 5,
     "tags": [
-      "心理学",
-      "实验",
-      "冯特"
-    ]
-  },
-  {
-    "id": "soc_mass_media",
-    "name": "大众传媒",
-    "year": "1920",
-    "yearRange": [
-      1920,
-      1960
-    ],
-    "era": "modern",
-    "domain": "social",
-    "prerequisites": [
-      "eng_telegraph",
-      "eng_steam_engine",
-      "eng_printing_press"
-    ],
-    "description": "从广播到电视，大众传媒使信息传播速度从天缩短到秒，深刻影响了政治和文化。",
-    "importance": 4,
-    "tags": [
-      "传媒",
-      "广播",
-      "电视"
+      "女权",
+      "投票",
+      "平等"
     ]
   },
   {
@@ -662,25 +570,25 @@
     ]
   },
   {
-    "id": "soc_global_governance",
-    "name": "全球治理",
-    "year": "1945",
+    "id": "soc_human_rights",
+    "name": "普遍人权",
+    "year": "1948",
     "yearRange": [
       1945,
-      2000
+      1950
     ],
     "era": "modern",
     "domain": "social",
     "prerequisites": [
-      "soc_human_rights",
-      "soc_cold_war"
+      "soc_democracy_modern",
+      "soc_enlightenment"
     ],
-    "description": "联合国、世贸组织和世界银行等国际机构构建的全球治理框架，协调国际冲突和合作。",
-    "importance": 4,
+    "description": "联合国《世界人权宣言》首次在全球范围内确认了每个人与生俱来的基本权利。",
+    "importance": 5,
     "tags": [
+      "人权",
       "联合国",
-      "治理",
-      "国际"
+      "普遍"
     ]
   },
   {
@@ -718,7 +626,7 @@
     "prerequisites": [
       "soc_socialism",
       "soc_capitalism",
-      "phys_nuclear_fission"
+      "eng_nuclear_reactor"
     ],
     "description": "美苏两大阵营的意识形态对抗塑造了近半个世纪的世界格局，核威慑维持了不稳定的和平。",
     "importance": 5,
@@ -729,25 +637,25 @@
     ]
   },
   {
-    "id": "soc_human_rights",
-    "name": "普遍人权",
-    "year": "1948",
+    "id": "soc_mass_media",
+    "name": "大众传媒",
+    "year": "1920",
     "yearRange": [
-      1945,
-      1950
+      1920,
+      1960
     ],
     "era": "modern",
     "domain": "social",
     "prerequisites": [
-      "soc_democracy_modern",
-      "soc_enlightenment"
+      "eng_telegraph",
+      "eng_steam_engine"
     ],
-    "description": "联合国《世界人权宣言》首次在全球范围内确认了每个人与生俱来的基本权利。",
-    "importance": 5,
+    "description": "从广播到电视，大众传媒使信息传播速度从天缩短到秒，深刻影响了政治和文化。",
+    "importance": 4,
     "tags": [
-      "人权",
-      "联合国",
-      "普遍"
+      "传媒",
+      "广播",
+      "电视"
     ]
   },
   {
@@ -762,8 +670,7 @@
     "domain": "social",
     "prerequisites": [
       "soc_capitalism",
-      "eng_assembly_line",
-      "soc_industrial_society"
+      "eng_assembly_line"
     ],
     "description": "大规模生产带来的廉价商品和广告驱动的消费文化，创造了人类历史上最富裕的社会。",
     "importance": 4,
@@ -796,71 +703,26 @@
     ]
   },
   {
-    "id": "soc_cognitive_science",
-    "name": "认知科学",
-    "year": "1956",
+    "id": "soc_globalization",
+    "name": "全球化",
+    "year": "1990",
     "yearRange": [
-      1950,
-      1980
+      1985,
+      2010
     ],
-    "era": "modern",
+    "era": "information",
     "domain": "social",
     "prerequisites": [
-      "math_logic",
-      "bio_nervous",
-      "soc_psychology",
-      "it_computer"
+      "soc_cold_war",
+      "it_internet",
+      "soc_capitalism"
     ],
-    "description": "跨学科研究心智和智能的科学，融合心理学、语言学、神经科学和计算机科学。",
-    "importance": 4,
+    "description": "冷战结束后，互联网和国际贸易使全球连接为统一的经济和文化体系。",
+    "importance": 5,
     "tags": [
-      "认知",
-      "心智",
-      "跨学科"
-    ]
-  },
-  {
-    "id": "soc_population_transition",
-    "name": "人口转型",
-    "year": "1960",
-    "yearRange": [
-      1950,
-      2000
-    ],
-    "era": "modern",
-    "domain": "social",
-    "prerequisites": [
-      "med_public_health",
-      "soc_welfare_state"
-    ],
-    "description": "从高出生率高死亡率到低出生率低死亡率的人口转型，改变了全球人口结构和增长趋势。",
-    "importance": 4,
-    "tags": [
-      "人口",
-      "转型",
-      "老龄化"
-    ]
-  },
-  {
-    "id": "soc_feminism_wave2",
-    "name": "第二波女权运动",
-    "year": "1963",
-    "yearRange": [
-      1960,
-      1985
-    ],
-    "era": "modern",
-    "domain": "social",
-    "prerequisites": [
-      "soc_feminism_wave1",
-      "soc_civil_rights"
-    ],
-    "description": "争取职场平等、生育自主和终结性别歧视的社会运动，深刻改变了性别角色和期望。",
-    "importance": 4,
-    "tags": [
-      "女权",
-      "平等",
-      "性别"
+      "全球化",
+      "贸易",
+      "互联"
     ]
   },
   {
@@ -886,6 +748,95 @@
     ]
   },
   {
+    "id": "soc_feminism_wave2",
+    "name": "第二波女权运动",
+    "year": "1963",
+    "yearRange": [
+      1960,
+      1985
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_feminism_wave1",
+      "soc_civil_rights"
+    ],
+    "description": "争取职场平等、生育自主和终结性别歧视的社会运动，深刻改变了性别角色和期望。",
+    "importance": 4,
+    "tags": [
+      "女权",
+      "平等",
+      "性别"
+    ]
+  },
+  {
+    "id": "soc_digital_society",
+    "name": "数字社会",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2025
+    ],
+    "era": "information",
+    "domain": "social",
+    "prerequisites": [
+      "it_smartphone",
+      "it_social_media"
+    ],
+    "description": "社交媒体和智能手机使信息传播和人际互动彻底数字化，创造了虚拟社交和数字文化。",
+    "importance": 4,
+    "tags": [
+      "数字",
+      "社交",
+      "虚拟"
+    ]
+  },
+  {
+    "id": "soc_cognitive_science",
+    "name": "认知科学",
+    "year": "1956",
+    "yearRange": [
+      1950,
+      1980
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "math_logic",
+      "bio_nervous",
+      "soc_psychology"
+    ],
+    "description": "跨学科研究心智和智能的科学，融合心理学、语言学、神经科学和计算机科学。",
+    "importance": 4,
+    "tags": [
+      "认知",
+      "心智",
+      "跨学科"
+    ]
+  },
+  {
+    "id": "soc_psychology",
+    "name": "科学心理学",
+    "year": "1879",
+    "yearRange": [
+      1875,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "social",
+    "prerequisites": [
+      "soc_philosophy",
+      "math_statistics_modern"
+    ],
+    "description": "冯特在莱比锡建立第一个心理学实验室，将人类心理过程纳入实验科学研究。",
+    "importance": 5,
+    "tags": [
+      "心理学",
+      "实验",
+      "冯特"
+    ]
+  },
+  {
     "id": "soc_behavioral_econ",
     "name": "行为经济学",
     "year": "1979",
@@ -905,52 +856,6 @@
       "行为",
       "偏差",
       "决策"
-    ]
-  },
-  {
-    "id": "soc_globalization",
-    "name": "全球化",
-    "year": "1990",
-    "yearRange": [
-      1985,
-      2010
-    ],
-    "era": "information",
-    "domain": "social",
-    "prerequisites": [
-      "soc_cold_war",
-      "it_internet",
-      "soc_capitalism"
-    ],
-    "description": "冷战结束后，互联网和国际贸易使全球连接为统一的经济和文化体系。",
-    "importance": 5,
-    "tags": [
-      "全球化",
-      "贸易",
-      "互联"
-    ]
-  },
-  {
-    "id": "soc_digital_society",
-    "name": "数字社会",
-    "year": "2010",
-    "yearRange": [
-      2005,
-      2025
-    ],
-    "era": "information",
-    "domain": "social",
-    "prerequisites": [
-      "it_smartphone",
-      "it_social_media",
-      "it_internet"
-    ],
-    "description": "社交媒体和智能手机使信息传播和人际互动彻底数字化，创造了虚拟社交和数字文化。",
-    "importance": 4,
-    "tags": [
-      "数字",
-      "社交",
-      "虚拟"
     ]
   },
   {
@@ -995,6 +900,94 @@
       "隐私",
       "GDPR",
       "数据"
+    ]
+  },
+  {
+    "id": "soc_global_governance",
+    "name": "全球治理",
+    "year": "1945",
+    "yearRange": [
+      1945,
+      2000
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "soc_human_rights",
+      "soc_cold_war"
+    ],
+    "description": "联合国、世贸组织和世界银行等国际机构构建的全球治理框架，协调国际冲突和合作。",
+    "importance": 4,
+    "tags": [
+      "联合国",
+      "治理",
+      "国际"
+    ]
+  },
+  {
+    "id": "soc_population_transition",
+    "name": "人口转型",
+    "year": "1960",
+    "yearRange": [
+      1950,
+      2000
+    ],
+    "era": "modern",
+    "domain": "social",
+    "prerequisites": [
+      "med_public_health",
+      "soc_welfare_state"
+    ],
+    "description": "从高出生率高死亡率到低出生率低死亡率的人口转型，改变了全球人口结构和增长趋势。",
+    "importance": 4,
+    "tags": [
+      "人口",
+      "转型",
+      "老龄化"
+    ]
+  },
+  {
+    "id": "soc_cultural_exchange",
+    "name": "文化交流",
+    "year": "-300",
+    "yearRange": [
+      -500,
+      2000
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_writing",
+      "soc_trade_route"
+    ],
+    "description": "丝绸之路和大航海时代等跨文化交流推动了技术、思想和艺术的全球传播。",
+    "importance": 4,
+    "tags": [
+      "文化",
+      "交流",
+      "丝路"
+    ]
+  },
+  {
+    "id": "soc_trade_route",
+    "name": "贸易网络",
+    "year": "-2000",
+    "yearRange": [
+      -3000,
+      -500
+    ],
+    "era": "ancient",
+    "domain": "social",
+    "prerequisites": [
+      "soc_state",
+      "soc_money"
+    ],
+    "description": "从早期城邦间贸易到丝绸之路，远距离贸易网络促进了经济繁荣和文化交流。",
+    "importance": 4,
+    "tags": [
+      "贸易",
+      "丝路",
+      "网络"
     ]
   }
 ]

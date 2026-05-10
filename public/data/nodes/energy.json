@@ -38,28 +38,6 @@
     ]
   },
   {
-    "id": "energy_biogas",
-    "name": "生物质能",
-    "year": "-3000",
-    "yearRange": [
-      -5000,
-      -1000
-    ],
-    "era": "ancient",
-    "domain": "energy",
-    "prerequisites": [
-      "ag_fermentation",
-      "mat_pottery"
-    ],
-    "description": "利用动植物残体通过厌氧发酵产生沼气等能源，是最古老的可再生能源利用方式之一。",
-    "importance": 3,
-    "tags": [
-      "生物质",
-      "沼气",
-      "可再生"
-    ]
-  },
-  {
     "id": "energy_water_power",
     "name": "水力利用",
     "year": "-200",
@@ -145,73 +123,6 @@
     ]
   },
   {
-    "id": "energy_battery_voltaic",
-    "name": "伏打电池",
-    "year": "1800",
-    "yearRange": [
-      1795,
-      1805
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "phys_electromagnetism",
-      "chem_electrochemistry"
-    ],
-    "description": "伏打发明的化学电池首次提供持续的电流，开启了电化学和电学实验的新时代。",
-    "importance": 5,
-    "tags": [
-      "电池",
-      "伏打",
-      "电化学"
-    ]
-  },
-  {
-    "id": "energy_natural_gas",
-    "name": "天然气工业",
-    "year": "1821",
-    "yearRange": [
-      1820,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "mat_fire",
-      "mat_cast_iron",
-      "soc_industrial_society"
-    ],
-    "description": "天然气作为较清洁的化石能源广泛用于发电、供暖和化工，液化天然气贸易已全球化。",
-    "importance": 4,
-    "tags": [
-      "天然气",
-      "化石",
-      "清洁"
-    ]
-  },
-  {
-    "id": "energy_electricity_gen",
-    "name": "电力生产",
-    "year": "1831",
-    "yearRange": [
-      1830,
-      1840
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "eng_generator",
-      "energy_coal"
-    ],
-    "description": "法拉第电磁感应定律使机械能大规模转化为电能成为可能，电力时代由此开始。",
-    "importance": 5,
-    "tags": [
-      "发电",
-      "电磁感应",
-      "电力"
-    ]
-  },
-  {
     "id": "energy_photovoltaic_effect",
     "name": "光伏效应",
     "year": "1839",
@@ -233,113 +144,45 @@
     ]
   },
   {
-    "id": "energy_heat_pump",
-    "name": "热泵技术",
-    "year": "1852",
+    "id": "energy_battery_voltaic",
+    "name": "伏打电池",
+    "year": "1800",
     "yearRange": [
-      1850,
-      1980
+      1795,
+      1805
     ],
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "phys_thermodynamics_2",
-      "eng_refrigeration"
+      "phys_electromagnetism"
     ],
-    "description": "利用逆卡诺循环将低温热源的热量泵送到高温端的装置，能效比远超直接电加热。",
-    "importance": 3,
-    "tags": [
-      "热泵",
-      "能效",
-      "供暖"
-    ]
-  },
-  {
-    "id": "energy_oil",
-    "name": "石油工业",
-    "year": "1859",
-    "yearRange": [
-      1855,
-      1870
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "eng_internal_combustion",
-      "chem_organic"
-    ],
-    "description": "德雷克在宾夕法尼亚打出第一口商业油井，石油从此成为最重要的能源和化工原料。",
+    "description": "伏打发明的化学电池首次提供持续的电流，开启了电化学和电学实验的新时代。",
     "importance": 5,
     "tags": [
-      "石油",
-      "钻井",
-      "化石"
+      "电池",
+      "伏打",
+      "电化学"
     ]
   },
   {
-    "id": "energy_rechargeable",
-    "name": "可充电电池",
-    "year": "1859",
+    "id": "energy_electricity_gen",
+    "name": "电力生产",
+    "year": "1831",
     "yearRange": [
-      1855,
-      1870
+      1830,
+      1840
     ],
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "energy_battery_voltaic",
-      "chem_electrochemistry"
+      "eng_generator"
     ],
-    "description": "普朗特发明的铅酸电池是第一种可充电电池，使电能的储存和移动使用成为可能。",
-    "importance": 4,
+    "description": "法拉第电磁感应定律使机械能大规模转化为电能成为可能，电力时代由此开始。",
+    "importance": 5,
     "tags": [
-      "蓄电池",
-      "铅酸",
-      "储能"
-    ]
-  },
-  {
-    "id": "energy_pipeline",
-    "name": "管道输送",
-    "year": "1863",
-    "yearRange": [
-      1860,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "mat_cast_iron",
-      "energy_oil"
-    ],
-    "description": "长距离管道系统用于输送石油、天然气和水等，是能源基础设施的重要组成部分。",
-    "importance": 3,
-    "tags": [
-      "管道",
-      "输送",
-      "基础设施"
-    ]
-  },
-  {
-    "id": "energy_hydroelectric",
-    "name": "水力发电",
-    "year": "1882",
-    "yearRange": [
-      1880,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "energy",
-    "prerequisites": [
-      "eng_generator",
-      "energy_water_power"
-    ],
-    "description": "利用水流落差驱动发电机的水电站，是最成熟的可再生能源，目前提供全球约16%的电力。",
-    "importance": 4,
-    "tags": [
-      "水电",
-      "可再生",
-      "大坝"
+      "发电",
+      "电磁感应",
+      "电力"
     ]
   },
   {
@@ -365,112 +208,25 @@
     ]
   },
   {
-    "id": "energy_diesel_gen",
-    "name": "柴油发电机组",
-    "year": "1900",
+    "id": "energy_oil",
+    "name": "石油工业",
+    "year": "1859",
     "yearRange": [
-      1895,
-      1920
+      1855,
+      1870
     ],
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "eng_diesel",
-      "eng_generator"
+      "eng_internal_combustion",
+      "chem_organic"
     ],
-    "description": "柴油机驱动发电机的分布式发电装置，在偏远地区和应急供电中不可替代。",
-    "importance": 2,
+    "description": "德雷克在宾夕法尼亚打出第一口商业油井，石油从此成为最重要的能源和化工原料。",
+    "importance": 5,
     "tags": [
-      "柴油",
-      "发电",
-      "备用"
-    ]
-  },
-  {
-    "id": "energy_geothermal",
-    "name": "地热能利用",
-    "year": "1904",
-    "yearRange": [
-      1900,
-      1920
-    ],
-    "era": "modern",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_electricity_gen"
-    ],
-    "description": "利用地球内部热量发电或供暖，在冰岛等地热资源丰富地区已成为主要能源。",
-    "importance": 3,
-    "tags": [
-      "地热",
-      "可再生",
-      "供暖"
-    ]
-  },
-  {
-    "id": "energy_pumped_storage",
-    "name": "抽水蓄能",
-    "year": "1929",
-    "yearRange": [
-      1920,
-      1940
-    ],
-    "era": "modern",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_hydroelectric",
-      "eng_generator"
-    ],
-    "description": "利用电力低谷时段将水抽到高处储存，高峰时段放水发电的大规模储能方式，是目前最成熟的大规模储能技术。",
-    "importance": 3,
-    "tags": [
-      "抽水",
-      "储能",
-      "调峰"
-    ]
-  },
-  {
-    "id": "energy_plasma",
-    "name": "等离子体物理",
-    "year": "1929",
-    "yearRange": [
-      1920,
-      1960
-    ],
-    "era": "modern",
-    "domain": "energy",
-    "prerequisites": [
-      "phys_quantum_theory",
-      "phys_electromagnetism"
-    ],
-    "description": "对物质第四态等离子体的研究，是受控核聚变和空间推进技术的物理基础。",
-    "importance": 4,
-    "tags": [
-      "等离子体",
-      "聚变",
-      "第四态"
-    ]
-  },
-  {
-    "id": "energy_hydro_electric_dam",
-    "name": "大型水坝",
-    "year": "1936",
-    "yearRange": [
-      1930,
-      1970
-    ],
-    "era": "modern",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_hydroelectric",
-      "eng_reinforced_concrete"
-    ],
-    "description": "胡佛大坝等巨型水利工程实现了河流的综合利用——发电、防洪和灌溉。",
-    "importance": 3,
-    "tags": [
-      "大坝",
-      "水利",
-      "综合"
+      "石油",
+      "钻井",
+      "化石"
     ]
   },
   {
@@ -518,6 +274,29 @@
     ]
   },
   {
+    "id": "energy_nuclear_fusion_reactor",
+    "name": "受控核聚变",
+    "year": "2025",
+    "yearRange": [
+      1950,
+      2030
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "phys_nuclear_fusion",
+      "eng_nuclear_reactor",
+      "energy_plasma"
+    ],
+    "description": "在地球上实现可控核聚变反应以获取能量，ITER等大型项目正在推进，被视为终极清洁能源。",
+    "importance": 5,
+    "tags": [
+      "聚变",
+      "ITER",
+      "终极能源"
+    ]
+  },
+  {
     "id": "energy_solar_cell",
     "name": "太阳能电池",
     "year": "1954",
@@ -537,6 +316,93 @@
       "太阳能",
       "光伏",
       "清洁"
+    ]
+  },
+  {
+    "id": "energy_wind_turbine",
+    "name": "现代风力发电",
+    "year": "1980",
+    "yearRange": [
+      1970,
+      2000
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_wind_power",
+      "eng_generator"
+    ],
+    "description": "大型风力涡轮机组将风能转化为电能，成本已降至与化石能源竞争的水平，装机量快速增长。",
+    "importance": 4,
+    "tags": [
+      "风力",
+      "涡轮",
+      "清洁"
+    ]
+  },
+  {
+    "id": "energy_hydroelectric",
+    "name": "水力发电",
+    "year": "1882",
+    "yearRange": [
+      1880,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "eng_generator",
+      "energy_water_power"
+    ],
+    "description": "利用水流落差驱动发电机的水电站，是最成熟的可再生能源，目前提供全球约16%的电力。",
+    "importance": 4,
+    "tags": [
+      "水电",
+      "可再生",
+      "大坝"
+    ]
+  },
+  {
+    "id": "energy_rechargeable",
+    "name": "可充电电池",
+    "year": "1859",
+    "yearRange": [
+      1855,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_battery_voltaic"
+    ],
+    "description": "普朗特发明的铅酸电池是第一种可充电电池，使电能的储存和移动使用成为可能。",
+    "importance": 4,
+    "tags": [
+      "蓄电池",
+      "铅酸",
+      "储能"
+    ]
+  },
+  {
+    "id": "energy_lithium_ion",
+    "name": "锂电池",
+    "year": "1991",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_rechargeable",
+      "chem_electrochemistry"
+    ],
+    "description": "高能量密度的锂离子电池革命性地改变了移动电子设备和电动汽车，2019年获诺贝尔化学奖。",
+    "importance": 5,
+    "tags": [
+      "锂电池",
+      "储能",
+      "诺贝尔"
     ]
   },
   {
@@ -562,6 +428,27 @@
     ]
   },
   {
+    "id": "energy_geothermal",
+    "name": "地热能利用",
+    "year": "1904",
+    "yearRange": [
+      1900,
+      1920
+    ],
+    "era": "modern",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_electricity_gen"
+    ],
+    "description": "利用地球内部热量发电或供暖，在冰岛等地热资源丰富地区已成为主要能源。",
+    "importance": 3,
+    "tags": [
+      "地热",
+      "可再生",
+      "供暖"
+    ]
+  },
+  {
     "id": "energy_tidal",
     "name": "潮汐能",
     "year": "1966",
@@ -584,159 +471,24 @@
     ]
   },
   {
-    "id": "energy_efficiency",
-    "name": "能源效率革命",
-    "year": "1973",
+    "id": "energy_biogas",
+    "name": "生物质能",
+    "year": "-3000",
     "yearRange": [
-      1970,
-      1990
+      -5000,
+      -1000
     ],
-    "era": "information",
+    "era": "ancient",
     "domain": "energy",
     "prerequisites": [
-      "energy_nuclear",
-      "energy_oil"
+      "ag_fermentation"
     ],
-    "description": "石油危机后对能源效率的重视，催生了节能建筑、高效照明和混合动力等节能技术。",
+    "description": "利用动植物残体通过厌氧发酵产生沼气等能源，是最古老的可再生能源利用方式之一。",
     "importance": 3,
     "tags": [
-      "节能",
-      "效率",
-      "危机"
-    ]
-  },
-  {
-    "id": "energy_wind_turbine",
-    "name": "现代风力发电",
-    "year": "1980",
-    "yearRange": [
-      1970,
-      2000
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_wind_power",
-      "eng_generator",
-      "mat_fiber_glass"
-    ],
-    "description": "大型风力涡轮机组将风能转化为电能，成本已降至与化石能源竞争的水平，装机量快速增长。",
-    "importance": 4,
-    "tags": [
-      "风力",
-      "涡轮",
-      "清洁"
-    ]
-  },
-  {
-    "id": "energy_concentrated_solar",
-    "name": "聚光太阳能",
-    "year": "1980",
-    "yearRange": [
-      1970,
-      2000
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_solar_cell",
-      "eng_mechanical"
-    ],
-    "description": "用镜面聚焦太阳光产生高温蒸汽推动汽轮机发电，可实现大规模太阳能热发电。",
-    "importance": 3,
-    "tags": [
-      "聚光",
-      "太阳能",
-      "热发电"
-    ]
-  },
-  {
-    "id": "energy_lithium_ion",
-    "name": "锂电池",
-    "year": "1991",
-    "yearRange": [
-      1980,
-      1995
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_rechargeable",
-      "chem_electrochemistry",
-      "mat_nanomaterial"
-    ],
-    "description": "高能量密度的锂离子电池革命性地改变了移动电子设备和电动汽车，2019年获诺贝尔化学奖。",
-    "importance": 5,
-    "tags": [
-      "锂电池",
-      "储能",
-      "诺贝尔"
-    ]
-  },
-  {
-    "id": "energy_carbon_capture",
-    "name": "碳捕获与封存",
-    "year": "1996",
-    "yearRange": [
-      1990,
-      2010
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "chem_gas_laws",
-      "energy_coal"
-    ],
-    "description": "从工业排放或大气中捕获二氧化碳并永久封存的技术，是应对气候变化的重要手段。",
-    "importance": 4,
-    "tags": [
-      "碳捕获",
-      "CCS",
-      "气候"
-    ]
-  },
-  {
-    "id": "energy_wave",
-    "name": "波浪能",
-    "year": "2000",
-    "yearRange": [
-      1980,
-      2020
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_tidal",
-      "phys_classical_mechanics"
-    ],
-    "description": "利用海浪运动的动能发电的技术，目前仍处于商业化的早期阶段。",
-    "importance": 2,
-    "tags": [
-      "波浪",
-      "海洋",
-      "开发中"
-    ]
-  },
-  {
-    "id": "energy_energy_mgmt",
-    "name": "能源管理系统",
-    "year": "2005",
-    "yearRange": [
-      2000,
-      2015
-    ],
-    "era": "information",
-    "domain": "energy",
-    "prerequisites": [
-      "energy_smart_grid",
-      "it_cloud"
-    ],
-    "description": "利用物联网和大数据优化建筑和工厂能源使用的系统，可节能20-30%。",
-    "importance": 3,
-    "tags": [
-      "管理",
-      "物联网",
-      "节能"
+      "生物质",
+      "沼气",
+      "可再生"
     ]
   },
   {
@@ -760,6 +512,27 @@
       "智能",
       "电网",
       "优化"
+    ]
+  },
+  {
+    "id": "energy_pumped_storage",
+    "name": "抽水蓄能",
+    "year": "1929",
+    "yearRange": [
+      1920,
+      1940
+    ],
+    "era": "modern",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_hydroelectric"
+    ],
+    "description": "利用电力低谷时段将水抽到高处储存，高峰时段放水发电的大规模储能方式，是目前最成熟的大规模储能技术。",
+    "importance": 3,
+    "tags": [
+      "抽水",
+      "储能",
+      "调峰"
     ]
   },
   {
@@ -796,8 +569,7 @@
     "domain": "energy",
     "prerequisites": [
       "energy_lithium_ion",
-      "mat_nanomaterial",
-      "chem_electrolysis"
+      "mat_nanomaterial"
     ],
     "description": "用固态电解质替代液态电解质的下一代电池，安全性更高、能量密度更大。",
     "importance": 4,
@@ -805,6 +577,138 @@
       "固态",
       "电池",
       "下一代"
+    ]
+  },
+  {
+    "id": "energy_plasma",
+    "name": "等离子体物理",
+    "year": "1929",
+    "yearRange": [
+      1920,
+      1960
+    ],
+    "era": "modern",
+    "domain": "energy",
+    "prerequisites": [
+      "phys_quantum_theory",
+      "phys_electromagnetism"
+    ],
+    "description": "对物质第四态等离子体的研究，是受控核聚变和空间推进技术的物理基础。",
+    "importance": 4,
+    "tags": [
+      "等离子体",
+      "聚变",
+      "第四态"
+    ]
+  },
+  {
+    "id": "energy_efficiency",
+    "name": "能源效率革命",
+    "year": "1973",
+    "yearRange": [
+      1970,
+      1990
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_nuclear",
+      "energy_oil"
+    ],
+    "description": "石油危机后对能源效率的重视，催生了节能建筑、高效照明和混合动力等节能技术。",
+    "importance": 3,
+    "tags": [
+      "节能",
+      "效率",
+      "危机"
+    ]
+  },
+  {
+    "id": "energy_heat_pump",
+    "name": "热泵技术",
+    "year": "1852",
+    "yearRange": [
+      1850,
+      1980
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "phys_thermodynamics_2",
+      "eng_refrigeration"
+    ],
+    "description": "利用逆卡诺循环将低温热源的热量泵送到高温端的装置，能效比远超直接电加热。",
+    "importance": 3,
+    "tags": [
+      "热泵",
+      "能效",
+      "供暖"
+    ]
+  },
+  {
+    "id": "energy_carbon_capture",
+    "name": "碳捕获与封存",
+    "year": "1996",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "chem_gas_laws",
+      "energy_coal"
+    ],
+    "description": "从工业排放或大气中捕获二氧化碳并永久封存的技术，是应对气候变化的重要手段。",
+    "importance": 4,
+    "tags": [
+      "碳捕获",
+      "CCS",
+      "气候"
+    ]
+  },
+  {
+    "id": "energy_concentrated_solar",
+    "name": "聚光太阳能",
+    "year": "1980",
+    "yearRange": [
+      1970,
+      2000
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_solar_cell",
+      "eng_mechanical"
+    ],
+    "description": "用镜面聚焦太阳光产生高温蒸汽推动汽轮机发电，可实现大规模太阳能热发电。",
+    "importance": 3,
+    "tags": [
+      "聚光",
+      "太阳能",
+      "热发电"
+    ]
+  },
+  {
+    "id": "energy_wave",
+    "name": "波浪能",
+    "year": "2000",
+    "yearRange": [
+      1980,
+      2020
+    ],
+    "era": "information",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_tidal",
+      "phys_classical_mechanics"
+    ],
+    "description": "利用海浪运动的动能发电的技术，目前仍处于商业化的早期阶段。",
+    "importance": 2,
+    "tags": [
+      "波浪",
+      "海洋",
+      "开发中"
     ]
   },
   {
@@ -819,7 +723,7 @@
     "domain": "energy",
     "prerequisites": [
       "energy_nuclear",
-      "eng_control_system"
+      "eng_rocket"
     ],
     "description": "小型模块化核反应堆可为偏远地区或太空基地提供可靠电力，被视为核能应用的新方向。",
     "importance": 3,
@@ -841,8 +745,7 @@
     "domain": "energy",
     "prerequisites": [
       "energy_hydrogen_fuel",
-      "energy_solar_cell",
-      "chem_electrolysis"
+      "energy_solar_cell"
     ],
     "description": "利用可再生能源电解水制取的零碳氢气，被视为工业脱碳和长期能源储存的关键载体。",
     "importance": 4,
@@ -853,28 +756,113 @@
     ]
   },
   {
-    "id": "energy_nuclear_fusion_reactor",
-    "name": "受控核聚变",
-    "year": "2025",
+    "id": "energy_natural_gas",
+    "name": "天然气工业",
+    "year": "1821",
     "yearRange": [
-      1950,
-      2030
+      1820,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_oil",
+      "energy_gas_turbine"
+    ],
+    "description": "天然气作为较清洁的化石能源广泛用于发电、供暖和化工，液化天然气贸易已全球化。",
+    "importance": 4,
+    "tags": [
+      "天然气",
+      "化石",
+      "清洁"
+    ]
+  },
+  {
+    "id": "energy_pipeline",
+    "name": "管道输送",
+    "year": "1863",
+    "yearRange": [
+      1860,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "mat_cast_iron",
+      "energy_oil"
+    ],
+    "description": "长距离管道系统用于输送石油、天然气和水等，是能源基础设施的重要组成部分。",
+    "importance": 3,
+    "tags": [
+      "管道",
+      "输送",
+      "基础设施"
+    ]
+  },
+  {
+    "id": "energy_hydro_electric_dam",
+    "name": "大型水坝",
+    "year": "1936",
+    "yearRange": [
+      1930,
+      1970
+    ],
+    "era": "modern",
+    "domain": "energy",
+    "prerequisites": [
+      "energy_hydroelectric",
+      "eng_reinforced_concrete"
+    ],
+    "description": "胡佛大坝等巨型水利工程实现了河流的综合利用——发电、防洪和灌溉。",
+    "importance": 3,
+    "tags": [
+      "大坝",
+      "水利",
+      "综合"
+    ]
+  },
+  {
+    "id": "energy_diesel_gen",
+    "name": "柴油发电机组",
+    "year": "1900",
+    "yearRange": [
+      1895,
+      1920
+    ],
+    "era": "industrial",
+    "domain": "energy",
+    "prerequisites": [
+      "eng_diesel",
+      "eng_generator"
+    ],
+    "description": "柴油机驱动发电机的分布式发电装置，在偏远地区和应急供电中不可替代。",
+    "importance": 2,
+    "tags": [
+      "柴油",
+      "发电",
+      "备用"
+    ]
+  },
+  {
+    "id": "energy_energy_mgmt",
+    "name": "能源管理系统",
+    "year": "2005",
+    "yearRange": [
+      2000,
+      2015
     ],
     "era": "information",
     "domain": "energy",
     "prerequisites": [
-      "phys_nuclear_fusion",
-      "energy_plasma",
-      "eng_nuclear_reactor",
-      "eng_superconductor_magnet",
-      "eng_high_temp_material"
+      "energy_smart_grid",
+      "it_cloud"
     ],
-    "description": "在地球上实现可控核聚变反应以获取能量，ITER等大型项目正在推进，被视为终极清洁能源。",
-    "importance": 5,
+    "description": "利用物联网和大数据优化建筑和工厂能源使用的系统，可节能20-30%。",
+    "importance": 3,
     "tags": [
-      "聚变",
-      "ITER",
-      "终极能源"
+      "管理",
+      "物联网",
+      "节能"
     ]
   }
 ]

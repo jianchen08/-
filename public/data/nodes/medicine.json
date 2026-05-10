@@ -1,26 +1,5 @@
 [
   {
-    "id": "med_trepanation",
-    "name": "颅骨钻孔术",
-    "year": "-6500",
-    "yearRange": [
-      -8000,
-      -3000
-    ],
-    "era": "prehistoric",
-    "domain": "medicine",
-    "prerequisites": [
-      "mat_stone_tools"
-    ],
-    "description": "史前人类进行的最古老外科手术，在颅骨上钻孔可能用于治疗头痛或释放邪灵，许多患者术后存活。",
-    "importance": 3,
-    "tags": [
-      "外科",
-      "颅骨",
-      "远古"
-    ]
-  },
-  {
     "id": "med_herbal",
     "name": "草药医学",
     "year": "-5000",
@@ -42,6 +21,27 @@
     ]
   },
   {
+    "id": "med_trepanation",
+    "name": "颅骨钻孔术",
+    "year": "-6500",
+    "yearRange": [
+      -8000,
+      -3000
+    ],
+    "era": "prehistoric",
+    "domain": "medicine",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "史前人类进行的最古老外科手术，在颅骨上钻孔可能用于治疗头痛或释放邪灵，许多患者术后存活。",
+    "importance": 3,
+    "tags": [
+      "外科",
+      "颅骨",
+      "远古"
+    ]
+  },
+  {
     "id": "med_hippocrates",
     "name": "希波克拉底医学",
     "year": "-400",
@@ -52,8 +52,7 @@
     "era": "ancient",
     "domain": "medicine",
     "prerequisites": [
-      "med_herbal",
-      "bio_natural_history"
+      "med_herbal"
     ],
     "description": "希波克拉底将医学从巫术和宗教中分离，提出疾病有自然原因，强调观察和记录，被称为医学之父。",
     "importance": 5,
@@ -61,28 +60,6 @@
       "希波克拉底",
       "理性",
       "观察"
-    ]
-  },
-  {
-    "id": "med_traditional_chinese",
-    "name": "中医药体系",
-    "year": "-200",
-    "yearRange": [
-      -500,
-      200
-    ],
-    "era": "ancient",
-    "domain": "medicine",
-    "prerequisites": [
-      "med_herbal",
-      "soc_philosophy"
-    ],
-    "description": "以阴阳五行理论为基础的传统医学体系，包括针灸、中药、推拿等，延续两千多年。",
-    "importance": 4,
-    "tags": [
-      "中医",
-      "针灸",
-      "中药"
     ]
   },
   {
@@ -118,8 +95,7 @@
     "era": "ancient",
     "domain": "medicine",
     "prerequisites": [
-      "med_hippocrates",
-      "soc_religion_org"
+      "med_hippocrates"
     ],
     "description": "从拜占庭和伊斯兰世界的医疗机构到中世纪教会医院，系统化的医疗照护机构逐渐发展。",
     "importance": 4,
@@ -162,8 +138,7 @@
     "era": "renaissance",
     "domain": "medicine",
     "prerequisites": [
-      "med_anatomy_galen",
-      "soc_renaissance"
+      "med_anatomy_galen"
     ],
     "description": "维萨里通过实际人体解剖纠正了盖伦的诸多错误，出版《人体结构》，开创了现代解剖学。",
     "importance": 5,
@@ -240,51 +215,6 @@
     ]
   },
   {
-    "id": "med_public_health",
-    "name": "公共卫生体系",
-    "year": "1850",
-    "yearRange": [
-      1850,
-      1950
-    ],
-    "era": "industrial",
-    "domain": "medicine",
-    "prerequisites": [
-      "med_epidemiology",
-      "med_germ_disease",
-      "soc_democracy_modern"
-    ],
-    "description": "系统化的公共卫生基础设施，包括饮水安全、疫苗接种、传染病监控和健康教育。",
-    "importance": 5,
-    "tags": [
-      "公共卫生",
-      "防疫",
-      "体系"
-    ]
-  },
-  {
-    "id": "med_epidemiology",
-    "name": "流行病学",
-    "year": "1854",
-    "yearRange": [
-      1850,
-      1870
-    ],
-    "era": "industrial",
-    "domain": "medicine",
-    "prerequisites": [
-      "math_statistics_modern",
-      "med_germ_disease"
-    ],
-    "description": "斯诺通过霍乱地图开创流行病学调查方法，系统研究疾病在人群中的分布和传播规律。",
-    "importance": 4,
-    "tags": [
-      "流行病",
-      "斯诺",
-      "统计"
-    ]
-  },
-  {
     "id": "med_antiseptic",
     "name": "防腐消毒",
     "year": "1867",
@@ -350,28 +280,6 @@
     ]
   },
   {
-    "id": "med_mental_illness",
-    "name": "精神医学",
-    "year": "1900",
-    "yearRange": [
-      1880,
-      1950
-    ],
-    "era": "modern",
-    "domain": "medicine",
-    "prerequisites": [
-      "med_hippocrates",
-      "bio_nervous"
-    ],
-    "description": "从弗洛伊德的精神分析到现代生物精神病学，精神疾病从道德缺陷转变为可治疗的医学状况。",
-    "importance": 4,
-    "tags": [
-      "精神",
-      "心理",
-      "治疗"
-    ]
-  },
-  {
     "id": "med_blood_transfusion",
     "name": "输血技术",
     "year": "1901",
@@ -394,28 +302,6 @@
     ]
   },
   {
-    "id": "med_vitamin",
-    "name": "维生素发现",
-    "year": "1912",
-    "yearRange": [
-      1905,
-      1925
-    ],
-    "era": "modern",
-    "domain": "medicine",
-    "prerequisites": [
-      "chem_organic",
-      "med_herbal"
-    ],
-    "description": "芬克提出维生素概念，发现微量营养素缺乏是脚气病、坏血病等疾病的原因，开创了营养医学。",
-    "importance": 4,
-    "tags": [
-      "维生素",
-      "营养",
-      "微量"
-    ]
-  },
-  {
     "id": "med_insulin",
     "name": "胰岛素",
     "year": "1922",
@@ -427,8 +313,7 @@
     "domain": "medicine",
     "prerequisites": [
       "med_germ_disease",
-      "bio_cell_theory",
-      "chem_organic"
+      "bio_cell_theory"
     ],
     "description": "班廷和贝斯特提取的胰岛素使糖尿病从绝症变为可控的慢性病，是生物制药的开端。",
     "importance": 5,
@@ -461,6 +346,28 @@
     ]
   },
   {
+    "id": "med_vitamin",
+    "name": "维生素发现",
+    "year": "1912",
+    "yearRange": [
+      1905,
+      1925
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "chem_organic",
+      "med_herbal"
+    ],
+    "description": "芬克提出维生素概念，发现微量营养素缺乏是脚气病、坏血病等疾病的原因，开创了营养医学。",
+    "importance": 4,
+    "tags": [
+      "维生素",
+      "营养",
+      "微量"
+    ]
+  },
+  {
     "id": "med_chemotherapy",
     "name": "化学疗法",
     "year": "1946",
@@ -480,6 +387,28 @@
       "化疗",
       "癌症",
       "药物"
+    ]
+  },
+  {
+    "id": "med_polio_vaccine",
+    "name": "脊髓灰质炎疫苗",
+    "year": "1955",
+    "yearRange": [
+      1950,
+      1965
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_vaccination",
+      "bio_cell_theory"
+    ],
+    "description": "索尔克和萨宾分别开发的注射和口服脊灰疫苗使小儿麻痹症在多数国家绝迹。",
+    "importance": 4,
+    "tags": [
+      "脊灰",
+      "疫苗",
+      "预防"
     ]
   },
   {
@@ -503,28 +432,6 @@
       "移植",
       "器官",
       "免疫"
-    ]
-  },
-  {
-    "id": "med_polio_vaccine",
-    "name": "脊髓灰质炎疫苗",
-    "year": "1955",
-    "yearRange": [
-      1950,
-      1965
-    ],
-    "era": "modern",
-    "domain": "medicine",
-    "prerequisites": [
-      "med_vaccination",
-      "bio_cell_theory"
-    ],
-    "description": "索尔克和萨宾分别开发的注射和口服脊灰疫苗使小儿麻痹症在多数国家绝迹。",
-    "importance": 4,
-    "tags": [
-      "脊灰",
-      "疫苗",
-      "预防"
     ]
   },
   {
@@ -685,28 +592,6 @@
     ]
   },
   {
-    "id": "med_stroke_treatment",
-    "name": "卒中急救",
-    "year": "1996",
-    "yearRange": [
-      1990,
-      2010
-    ],
-    "era": "information",
-    "domain": "medicine",
-    "prerequisites": [
-      "med_ct_scan",
-      "med_blood_transfusion"
-    ],
-    "description": "溶栓药物和机械取栓术使缺血性脑卒中从不可逆损伤变为可治疗的急症，时间就是大脑。",
-    "importance": 4,
-    "tags": [
-      "卒中",
-      "溶栓",
-      "急救"
-    ]
-  },
-  {
     "id": "med_targeted_therapy",
     "name": "靶向药物",
     "year": "1997",
@@ -730,28 +615,6 @@
     ]
   },
   {
-    "id": "med_tissue_eng",
-    "name": "组织工程",
-    "year": "1997",
-    "yearRange": [
-      1990,
-      2010
-    ],
-    "era": "information",
-    "domain": "medicine",
-    "prerequisites": [
-      "bio_stem_cell",
-      "mat_biomaterial"
-    ],
-    "description": "结合细胞、生物材料和工程学方法在体外构建功能性组织替代物，为器官短缺问题提供解决方案。",
-    "importance": 4,
-    "tags": [
-      "组织",
-      "工程",
-      "再生"
-    ]
-  },
-  {
     "id": "med_robotic_surgery",
     "name": "手术机器人",
     "year": "2000",
@@ -771,72 +634,6 @@
       "机器人",
       "精确",
       "微创"
-    ]
-  },
-  {
-    "id": "med_nanomedicine",
-    "name": "纳米医学",
-    "year": "2005",
-    "yearRange": [
-      2000,
-      2020
-    ],
-    "era": "information",
-    "domain": "medicine",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "med_targeted_therapy"
-    ],
-    "description": "利用纳米尺度的材料和器件进行药物递送、诊断和治疗，纳米颗粒可精准靶向肿瘤细胞。",
-    "importance": 4,
-    "tags": [
-      "纳米",
-      "递送",
-      "靶向"
-    ]
-  },
-  {
-    "id": "med_telemedicine",
-    "name": "远程医疗",
-    "year": "2010",
-    "yearRange": [
-      2005,
-      2025
-    ],
-    "era": "information",
-    "domain": "medicine",
-    "prerequisites": [
-      "it_internet",
-      "it_smartphone"
-    ],
-    "description": "通过互联网实现远程诊断和治疗，新冠疫情期间大规模应用，使优质医疗资源突破地理限制。",
-    "importance": 3,
-    "tags": [
-      "远程",
-      "互联网",
-      "新冠"
-    ]
-  },
-  {
-    "id": "med_immunotherapy",
-    "name": "免疫疗法",
-    "year": "2011",
-    "yearRange": [
-      2010,
-      2020
-    ],
-    "era": "information",
-    "domain": "medicine",
-    "prerequisites": [
-      "bio_immunology",
-      "med_targeted_therapy"
-    ],
-    "description": "利用患者自身免疫系统攻击癌症的免疫检查点抑制剂，对某些晚期癌症展现出前所未有的疗效。",
-    "importance": 5,
-    "tags": [
-      "免疫",
-      "癌症",
-      "PD-1"
     ]
   },
   {
@@ -863,6 +660,50 @@
     ]
   },
   {
+    "id": "med_immunotherapy",
+    "name": "免疫疗法",
+    "year": "2011",
+    "yearRange": [
+      2010,
+      2020
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_immunology",
+      "med_targeted_therapy"
+    ],
+    "description": "利用患者自身免疫系统攻击癌症的免疫检查点抑制剂，对某些晚期癌症展现出前所未有的疗效。",
+    "importance": 5,
+    "tags": [
+      "免疫",
+      "癌症",
+      "PD-1"
+    ]
+  },
+  {
+    "id": "med_crispr_therapy",
+    "name": "CRISPR基因治疗",
+    "year": "2020",
+    "yearRange": [
+      2018,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_crispr",
+      "med_gene_therapy"
+    ],
+    "description": "利用CRISPR在体内直接编辑致病基因，已在镰刀型贫血和先天性失明等疾病中取得突破。",
+    "importance": 5,
+    "tags": [
+      "CRISPR",
+      "编辑",
+      "遗传"
+    ]
+  },
+  {
     "id": "med_ai_diagnosis",
     "name": "AI辅助诊断",
     "year": "2018",
@@ -883,6 +724,50 @@
       "AI",
       "诊断",
       "影像"
+    ]
+  },
+  {
+    "id": "med_telemedicine",
+    "name": "远程医疗",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2025
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "it_internet",
+      "it_smartphone"
+    ],
+    "description": "通过互联网实现远程诊断和治疗，新冠疫情期间大规模应用，使优质医疗资源突破地理限制。",
+    "importance": 3,
+    "tags": [
+      "远程",
+      "互联网",
+      "新冠"
+    ]
+  },
+  {
+    "id": "med_tissue_eng",
+    "name": "组织工程",
+    "year": "1997",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "bio_stem_cell",
+      "mat_biomaterial"
+    ],
+    "description": "结合细胞、生物材料和工程学方法在体外构建功能性组织替代物，为器官短缺问题提供解决方案。",
+    "importance": 4,
+    "tags": [
+      "组织",
+      "工程",
+      "再生"
     ]
   },
   {
@@ -909,25 +794,134 @@
     ]
   },
   {
-    "id": "med_crispr_therapy",
-    "name": "CRISPR基因治疗",
-    "year": "2020",
+    "id": "med_nanomedicine",
+    "name": "纳米医学",
+    "year": "2005",
     "yearRange": [
-      2018,
-      2025
+      2000,
+      2020
     ],
     "era": "information",
     "domain": "medicine",
     "prerequisites": [
-      "bio_crispr",
-      "med_gene_therapy"
+      "mat_nanomaterial",
+      "med_targeted_therapy"
     ],
-    "description": "利用CRISPR在体内直接编辑致病基因，已在镰刀型贫血和先天性失明等疾病中取得突破。",
+    "description": "利用纳米尺度的材料和器件进行药物递送、诊断和治疗，纳米颗粒可精准靶向肿瘤细胞。",
+    "importance": 4,
+    "tags": [
+      "纳米",
+      "递送",
+      "靶向"
+    ]
+  },
+  {
+    "id": "med_stroke_treatment",
+    "name": "卒中急救",
+    "year": "1996",
+    "yearRange": [
+      1990,
+      2010
+    ],
+    "era": "information",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_ct_scan",
+      "med_blood_transfusion"
+    ],
+    "description": "溶栓药物和机械取栓术使缺血性脑卒中从不可逆损伤变为可治疗的急症，时间就是大脑。",
+    "importance": 4,
+    "tags": [
+      "卒中",
+      "溶栓",
+      "急救"
+    ]
+  },
+  {
+    "id": "med_epidemiology",
+    "name": "流行病学",
+    "year": "1854",
+    "yearRange": [
+      1850,
+      1870
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "math_statistics_modern",
+      "med_germ_disease"
+    ],
+    "description": "斯诺通过霍乱地图开创流行病学调查方法，系统研究疾病在人群中的分布和传播规律。",
+    "importance": 4,
+    "tags": [
+      "流行病",
+      "斯诺",
+      "统计"
+    ]
+  },
+  {
+    "id": "med_public_health",
+    "name": "公共卫生体系",
+    "year": "1850",
+    "yearRange": [
+      1850,
+      1950
+    ],
+    "era": "industrial",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_epidemiology",
+      "med_germ_disease"
+    ],
+    "description": "系统化的公共卫生基础设施，包括饮水安全、疫苗接种、传染病监控和健康教育。",
     "importance": 5,
     "tags": [
-      "CRISPR",
-      "编辑",
-      "遗传"
+      "公共卫生",
+      "防疫",
+      "体系"
+    ]
+  },
+  {
+    "id": "med_mental_illness",
+    "name": "精神医学",
+    "year": "1900",
+    "yearRange": [
+      1880,
+      1950
+    ],
+    "era": "modern",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_hippocrates",
+      "bio_nervous"
+    ],
+    "description": "从弗洛伊德的精神分析到现代生物精神病学，精神疾病从道德缺陷转变为可治疗的医学状况。",
+    "importance": 4,
+    "tags": [
+      "精神",
+      "心理",
+      "治疗"
+    ]
+  },
+  {
+    "id": "med_traditional_chinese",
+    "name": "中医药体系",
+    "year": "-200",
+    "yearRange": [
+      -500,
+      200
+    ],
+    "era": "ancient",
+    "domain": "medicine",
+    "prerequisites": [
+      "med_herbal"
+    ],
+    "description": "以阴阳五行理论为基础的传统医学体系，包括针灸、中药、推拿等，延续两千多年。",
+    "importance": 4,
+    "tags": [
+      "中医",
+      "针灸",
+      "中药"
     ]
   }
 ]

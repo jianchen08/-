@@ -53,8 +53,7 @@
     "era": "industrial",
     "domain": "it",
     "prerequisites": [
-      "it_mechanical_calc",
-      "mat_paper"
+      "it_mechanical_calc"
     ],
     "description": "雅卡尔织布机用穿孔卡片控制图案，后来 Hollerith 将其用于数据制表，是程序控制概念的起源。",
     "importance": 4,
@@ -84,28 +83,6 @@
       "分析机",
       "巴贝奇",
       "通用"
-    ]
-  },
-  {
-    "id": "it_wireless",
-    "name": "无线通信",
-    "year": "1895",
-    "yearRange": [
-      1890,
-      1910
-    ],
-    "era": "industrial",
-    "domain": "it",
-    "prerequisites": [
-      "phys_maxwell",
-      "eng_electric_motor"
-    ],
-    "description": "马可尼实现的无线电通信开创了无线时代，后来发展为移动通信和WiFi等技术。",
-    "importance": 5,
-    "tags": [
-      "无线",
-      "马可尼",
-      "电波"
     ]
   },
   {
@@ -142,8 +119,7 @@
     "domain": "it",
     "prerequisites": [
       "it_boolean_logic",
-      "math_turing",
-      "eng_electromagnet"
+      "math_turing"
     ],
     "description": "世界第一台可编程电子计算机，用于破解德国密码，证明了电子计算的可行性。",
     "importance": 4,
@@ -151,29 +127,6 @@
       "电子",
       "编程",
       "密码"
-    ]
-  },
-  {
-    "id": "it_neural_network",
-    "name": "人工神经网络",
-    "year": "1943",
-    "yearRange": [
-      1943,
-      1970
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "math_boolean",
-      "math_calculus",
-      "math_probability"
-    ],
-    "description": "McCulloch和Pitts提出的神经网络数学模型，Rosenblatt发明感知机，是人工智能的起源之一。",
-    "importance": 5,
-    "tags": [
-      "神经网络",
-      "感知机",
-      "AI"
     ]
   },
   {
@@ -188,8 +141,7 @@
     "domain": "it",
     "prerequisites": [
       "it_colossus",
-      "phys_electron",
-      "eng_electromagnet"
+      "phys_electron"
     ],
     "description": "第一台通用电子数字计算机，重30吨，用18000个真空管，标志着计算机时代的正式开始。",
     "importance": 5,
@@ -241,50 +193,6 @@
       "晶体管",
       "半导体",
       "贝尔"
-    ]
-  },
-  {
-    "id": "it_signal_processing",
-    "name": "信号处理",
-    "year": "1948",
-    "yearRange": [
-      1945,
-      1965
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "math_fourier",
-      "math_information_theory"
-    ],
-    "description": "利用数学方法对信号进行分析、变换和恢复的技术，是通信、雷达和音视频处理的基础。",
-    "importance": 4,
-    "tags": [
-      "信号",
-      "滤波",
-      "处理"
-    ]
-  },
-  {
-    "id": "it_nlp",
-    "name": "自然语言处理",
-    "year": "1950",
-    "yearRange": [
-      1950,
-      2020
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "math_logic",
-      "it_computer"
-    ],
-    "description": "让计算机理解和生成人类语言的技术，从规则方法到统计方法再到深度学习的演进历程。",
-    "importance": 4,
-    "tags": [
-      "NLP",
-      "语言",
-      "理解"
     ]
   },
   {
@@ -376,50 +284,6 @@
     ]
   },
   {
-    "id": "it_digital",
-    "name": "数字信号处理",
-    "year": "1965",
-    "yearRange": [
-      1960,
-      1980
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "math_fourier",
-      "it_computer"
-    ],
-    "description": "FFT算法和数字信号处理理论使音频、图像和视频可以被计算机高效处理和传输。",
-    "importance": 5,
-    "tags": [
-      "数字",
-      "FFT",
-      "信号"
-    ]
-  },
-  {
-    "id": "it_software_eng",
-    "name": "软件工程",
-    "year": "1968",
-    "yearRange": [
-      1965,
-      1980
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "it_high_level_lang",
-      "it_operating_system"
-    ],
-    "description": "将系统化和工程化方法应用于软件开发，解决软件危机，使大规模可靠软件的生产成为可能。",
-    "importance": 4,
-    "tags": [
-      "软件",
-      "工程",
-      "方法"
-    ]
-  },
-  {
     "id": "it_relational_db",
     "name": "关系数据库",
     "year": "1970",
@@ -464,24 +328,46 @@
     ]
   },
   {
-    "id": "it_email",
-    "name": "电子邮件",
-    "year": "1971",
+    "id": "it_personal_computer",
+    "name": "个人电脑",
+    "year": "1977",
     "yearRange": [
-      1970,
-      1980
+      1975,
+      1985
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_internet"
+      "it_microprocessor",
+      "it_operating_system"
     ],
-    "description": "最早的互联网应用之一，使异步文字通信成为可能，至今仍是互联网上最重要的通信工具之一。",
-    "importance": 4,
+    "description": "苹果II和IBM PC使计算能力从机构走进家庭，改变了每个人的工作和生活方式。",
+    "importance": 5,
     "tags": [
-      "邮件",
-      "通信",
-      "异步"
+      "PC",
+      "个人",
+      "苹果"
+    ]
+  },
+  {
+    "id": "it_graphical_ui",
+    "name": "图形用户界面",
+    "year": "1984",
+    "yearRange": [
+      1975,
+      1990
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_personal_computer"
+    ],
+    "description": "施乐PARC发明、苹果和微软推广的图形界面和鼠标操作使计算机从专家工具变为大众工具。",
+    "importance": 5,
+    "tags": [
+      "GUI",
+      "鼠标",
+      "易用"
     ]
   },
   {
@@ -507,94 +393,6 @@
     ]
   },
   {
-    "id": "it_fiber_optic",
-    "name": "光纤通信",
-    "year": "1975",
-    "yearRange": [
-      1970,
-      1990
-    ],
-    "domain": "it",
-    "prerequisites": [
-      "mat_optical_fiber",
-      "phys_laser"
-    ],
-    "description": "利用光纤传输光脉冲实现超大容量远距离数据传输，是互联网骨干网络的核心技术。",
-    "importance": 5,
-    "tags": [
-      "光纤",
-      "激光",
-      "带宽"
-    ],
-    "era": "information"
-  },
-  {
-    "id": "it_cryptography",
-    "name": "现代密码学",
-    "year": "1976",
-    "yearRange": [
-      1975,
-      1985
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "math_rsa",
-      "it_computer"
-    ],
-    "description": "公钥密码体制使安全通信成为可能，SSL/TLS协议保护了互联网上的所有敏感数据传输。",
-    "importance": 5,
-    "tags": [
-      "密码",
-      "公钥",
-      "安全"
-    ]
-  },
-  {
-    "id": "it_personal_computer",
-    "name": "个人电脑",
-    "year": "1977",
-    "yearRange": [
-      1975,
-      1985
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_microprocessor",
-      "it_operating_system"
-    ],
-    "description": "苹果II和IBM PC使计算能力从机构走进家庭，改变了每个人的工作和生活方式。",
-    "importance": 5,
-    "tags": [
-      "PC",
-      "个人",
-      "苹果"
-    ]
-  },
-  {
-    "id": "it_mobile_network",
-    "name": "移动通信网络",
-    "year": "1979",
-    "yearRange": [
-      1978,
-      2020
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_wireless",
-      "it_digital"
-    ],
-    "description": "从1G模拟到5G数字，移动通信网络每十年一代的升级使数据速率提升了百万倍。",
-    "importance": 5,
-    "tags": [
-      "5G",
-      "移动",
-      "蜂窝"
-    ]
-  },
-  {
     "id": "it_internet",
     "name": "互联网",
     "year": "1983",
@@ -605,8 +403,7 @@
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_tcp_ip",
-      "eng_power_grid"
+      "it_tcp_ip"
     ],
     "description": "从ARPANET发展而来的全球计算机网络，连接了数十亿设备和用户，是信息时代的基础设施。",
     "importance": 5,
@@ -617,46 +414,24 @@
     ]
   },
   {
-    "id": "it_graphical_ui",
-    "name": "图形用户界面",
-    "year": "1984",
+    "id": "it_email",
+    "name": "电子邮件",
+    "year": "1971",
     "yearRange": [
-      1975,
-      1990
+      1970,
+      1980
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_personal_computer"
+      "it_internet"
     ],
-    "description": "施乐PARC发明、苹果和微软推广的图形界面和鼠标操作使计算机从专家工具变为大众工具。",
-    "importance": 5,
+    "description": "最早的互联网应用之一，使异步文字通信成为可能，至今仍是互联网上最重要的通信工具之一。",
+    "importance": 4,
     "tags": [
-      "GUI",
-      "鼠标",
-      "易用"
-    ]
-  },
-  {
-    "id": "it_backprop",
-    "name": "反向传播算法",
-    "year": "1986",
-    "yearRange": [
-      1974,
-      1990
-    ],
-    "era": "modern",
-    "domain": "it",
-    "prerequisites": [
-      "it_neural_network",
-      "math_calculus"
-    ],
-    "description": "Rumelhart等人推广的反向传播算法使多层神经网络的训练成为可能，是深度学习的核心算法。",
-    "importance": 5,
-    "tags": [
-      "反向传播",
-      "梯度",
-      "训练"
+      "邮件",
+      "通信",
+      "异步"
     ]
   },
   {
@@ -682,72 +457,6 @@
     ]
   },
   {
-    "id": "it_open_source",
-    "name": "开源软件运动",
-    "year": "1991",
-    "yearRange": [
-      1985,
-      2000
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_operating_system",
-      "it_internet"
-    ],
-    "description": "Linux操作系统和开源运动证明大规模协作可以产生高质量软件，改变了软件产业的发展模式。",
-    "importance": 5,
-    "tags": [
-      "开源",
-      "Linux",
-      "协作"
-    ]
-  },
-  {
-    "id": "it_battery",
-    "name": "电池技术",
-    "year": "1991",
-    "yearRange": [
-      1990,
-      2020
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "energy_lithium_ion"
-    ],
-    "description": "锂离子电池技术为所有移动电子设备提供能源，高能量密度和可充电特性是便携设备普及的基础。",
-    "importance": 4,
-    "tags": [
-      "电池",
-      "锂",
-      "便携"
-    ]
-  },
-  {
-    "id": "it_server_farm",
-    "name": "数据中心",
-    "year": "1997",
-    "yearRange": [
-      1995,
-      2005
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_computer",
-      "it_internet",
-      "eng_power_grid"
-    ],
-    "description": "大规模服务器集群和精密冷却系统构成的数据中心，是互联网和云计算的物理基础设施。",
-    "importance": 4,
-    "tags": [
-      "数据中心",
-      "服务器",
-      "基础设施"
-    ]
-  },
-  {
     "id": "it_search_engine",
     "name": "搜索引擎",
     "year": "1998",
@@ -770,25 +479,48 @@
     "era": "information"
   },
   {
-    "id": "it_social_media",
-    "name": "社交媒体",
-    "year": "2004",
+    "id": "it_open_source",
+    "name": "开源软件运动",
+    "year": "1991",
     "yearRange": [
-      2003,
-      2010
+      1985,
+      2000
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_world_wide_web",
-      "it_smartphone"
+      "it_operating_system",
+      "it_internet"
     ],
-    "description": "Facebook、Twitter等社交平台使每个人都能发布内容和建立社交网络，改变了信息传播和社会互动方式。",
-    "importance": 4,
+    "description": "Linux操作系统和开源运动证明大规模协作可以产生高质量软件，改变了软件产业的发展模式。",
+    "importance": 5,
     "tags": [
-      "社交",
-      "Facebook",
-      "互动"
+      "开源",
+      "Linux",
+      "协作"
+    ]
+  },
+  {
+    "id": "it_smartphone",
+    "name": "智能手机",
+    "year": "2007",
+    "yearRange": [
+      2005,
+      2012
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_personal_computer",
+      "it_wireless",
+      "mat_lcd"
+    ],
+    "description": "iPhone和Android将计算、通信和传感功能集成于掌中设备，改变了数十亿人的日常生活。",
+    "importance": 5,
+    "tags": [
+      "手机",
+      "移动",
+      "iPhone"
     ]
   },
   {
@@ -814,115 +546,25 @@
     ]
   },
   {
-    "id": "it_big_data",
-    "name": "大数据技术",
-    "year": "2006",
+    "id": "it_social_media",
+    "name": "社交媒体",
+    "year": "2004",
     "yearRange": [
-      2005,
-      2015
+      2003,
+      2010
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_cloud",
-      "it_digital"
+      "it_world_wide_web",
+      "it_smartphone"
     ],
-    "description": "Hadoop和Spark等框架使海量数据的存储、处理和分析成为可能，推动了数据驱动的决策模式。",
+    "description": "Facebook、Twitter等社交平台使每个人都能发布内容和建立社交网络，改变了信息传播和社会互动方式。",
     "importance": 4,
     "tags": [
-      "大数据",
-      "Hadoop",
-      "分析"
-    ]
-  },
-  {
-    "id": "it_smartphone",
-    "name": "智能手机",
-    "year": "2007",
-    "yearRange": [
-      2005,
-      2012
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_personal_computer",
-      "it_wireless",
-      "mat_lcd",
-      "it_mobile_network"
-    ],
-    "description": "iPhone和Android将计算、通信和传感功能集成于掌中设备，改变了数十亿人的日常生活。",
-    "importance": 5,
-    "tags": [
-      "手机",
-      "移动",
-      "iPhone"
-    ]
-  },
-  {
-    "id": "it_gpu",
-    "name": "GPU通用计算",
-    "year": "2007",
-    "yearRange": [
-      2005,
-      2012
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_integrated_circuit",
-      "it_neural_network"
-    ],
-    "description": "NVIDIA的CUDA平台使GPU用于通用并行计算，为深度学习提供了数百倍于CPU的训练加速。",
-    "importance": 5,
-    "tags": [
-      "GPU",
-      "CUDA",
-      "并行"
-    ]
-  },
-  {
-    "id": "it_blockchain",
-    "name": "区块链",
-    "year": "2008",
-    "yearRange": [
-      2008,
-      2015
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_cryptography",
-      "math_game_theory"
-    ],
-    "description": "比特币引入的去中心化分布式账本技术，用密码学和共识机制实现无需信任中介的价值传递。",
-    "importance": 4,
-    "tags": [
-      "区块链",
-      "比特币",
-      "去中心化"
-    ]
-  },
-  {
-    "id": "it_devops",
-    "name": "DevOps实践",
-    "year": "2009",
-    "yearRange": [
-      2005,
-      2015
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_cloud",
-      "it_open_source"
-    ],
-    "description": "开发与运维的融合实践，通过持续集成和持续交付加速软件迭代，提高了发布频率和质量。",
-    "importance": 3,
-    "tags": [
-      "DevOps",
-      "CI/CD",
-      "敏捷"
+      "社交",
+      "Facebook",
+      "互动"
     ]
   },
   {
@@ -950,70 +592,69 @@
     ]
   },
   {
-    "id": "it_computer_vision",
-    "name": "计算机视觉",
-    "year": "2012",
+    "id": "it_neural_network",
+    "name": "人工神经网络",
+    "year": "1943",
     "yearRange": [
-      1990,
-      2020
+      1943,
+      1970
     ],
-    "era": "information",
+    "era": "modern",
     "domain": "it",
     "prerequisites": [
-      "it_deep_learning",
-      "it_neural_network"
+      "math_boolean",
+      "math_calculus"
     ],
-    "description": "让计算机理解图像和视频内容的技术，CNN在ImageNet上的突破标志着深度学习视觉时代的到来。",
-    "importance": 4,
+    "description": "McCulloch和Pitts提出的神经网络数学模型，Rosenblatt发明感知机，是人工智能的起源之一。",
+    "importance": 5,
     "tags": [
-      "视觉",
-      "CNN",
-      "图像"
+      "神经网络",
+      "感知机",
+      "AI"
     ]
   },
   {
-    "id": "it_attention",
-    "name": "注意力机制",
-    "year": "2014",
+    "id": "it_backprop",
+    "name": "反向传播算法",
+    "year": "1986",
     "yearRange": [
-      2013,
-      2016
+      1974,
+      1990
     ],
+    "era": "modern",
     "domain": "it",
     "prerequisites": [
       "it_neural_network",
-      "math_probability"
+      "math_calculus"
     ],
-    "description": "让神经网络能够关注输入中最相关部分的技术，从翻译扩展到所有序列到序列任务。",
-    "importance": 4,
+    "description": "Rumelhart等人推广的反向传播算法使多层神经网络的训练成为可能，是深度学习的核心算法。",
+    "importance": 5,
     "tags": [
-      "注意力",
-      "序列",
-      "翻译"
-    ],
-    "era": "information"
+      "反向传播",
+      "梯度",
+      "训练"
+    ]
   },
   {
-    "id": "it_framework_dl",
-    "name": "深度学习框架",
-    "year": "2015",
+    "id": "it_gpu",
+    "name": "GPU通用计算",
+    "year": "2007",
     "yearRange": [
-      2013,
-      2018
+      2005,
+      2012
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_gpu",
-      "it_neural_network",
-      "it_open_source"
+      "it_integrated_circuit",
+      "it_neural_network"
     ],
-    "description": "TensorFlow和PyTorch等框架降低了深度学习的开发门槛，自动微分功能使构建复杂网络变得简单。",
-    "importance": 4,
+    "description": "NVIDIA的CUDA平台使GPU用于通用并行计算，为深度学习提供了数百倍于CPU的训练加速。",
+    "importance": 5,
     "tags": [
-      "PyTorch",
-      "TensorFlow",
-      "框架"
+      "GPU",
+      "CUDA",
+      "并行"
     ]
   },
   {
@@ -1039,6 +680,28 @@
     ]
   },
   {
+    "id": "it_attention",
+    "name": "注意力机制",
+    "year": "2014",
+    "yearRange": [
+      2013,
+      2016
+    ],
+    "domain": "it",
+    "prerequisites": [
+      "it_neural_network",
+      "math_probability"
+    ],
+    "description": "让神经网络能够关注输入中最相关部分的技术，从翻译扩展到所有序列到序列任务。",
+    "importance": 4,
+    "tags": [
+      "注意力",
+      "序列",
+      "翻译"
+    ],
+    "era": "information"
+  },
+  {
     "id": "it_pretraining",
     "name": "预训练范式",
     "year": "2018",
@@ -1061,28 +724,6 @@
     ]
   },
   {
-    "id": "it_vector_db",
-    "name": "向量数据库",
-    "year": "2019",
-    "yearRange": [
-      2018,
-      2023
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_llm",
-      "it_relational_db"
-    ],
-    "description": "存储和检索高维向量表示的专用数据库，是大语言模型应用和RAG架构的关键基础设施。",
-    "importance": 3,
-    "tags": [
-      "向量",
-      "检索",
-      "RAG"
-    ]
-  },
-  {
     "id": "it_llm",
     "name": "大语言模型",
     "year": "2020",
@@ -1094,11 +735,12 @@
     "domain": "it",
     "prerequisites": [
       "it_transformer",
+      "it_gpu",
       "it_pretraining",
-      "it_compute_cluster",
-      "it_distributed_training"
+      "it_backprop",
+      "it_deep_learning"
     ],
-    "description": "参数规模达千亿级的语言模型展现出涌现能力，能理解上下文、推理和生成高质量文本。训练依赖大规模GPU算力集群和分布式训练算法。",
+    "description": "参数规模达千亿级的语言模型展现出涌现能力，能理解上下文、推理和生成高质量文本。",
     "importance": 5,
     "tags": [
       "LLM",
@@ -1118,7 +760,6 @@
     "domain": "it",
     "prerequisites": [
       "it_llm",
-      "it_reinforcement",
       "math_game_theory"
     ],
     "description": "基于人类反馈的强化学习技术使大模型输出更符合人类偏好，ChatGPT由此实现突破。",
@@ -1130,510 +771,209 @@
     ]
   },
   {
-    "id": "it_dalle",
-    "name": "DALL-E",
-    "year": "2021",
+    "id": "it_framework_dl",
+    "name": "深度学习框架",
+    "year": "2015",
     "yearRange": [
-      2021,
-      2023
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_transformer",
-      "it_pretraining",
-      "it_deep_learning"
-    ],
-    "description": "OpenAI发布的文本到图像生成模型，利用Transformer架构和自回归方法实现从自然语言描述生成高质量图像，开创了生成式AI的视觉创作新时代。",
-    "importance": 4,
-    "tags": [
-      "DALL-E",
-      "文生图",
-      "生成式AI"
-    ]
-  },
-  {
-    "id": "it_diffusion",
-    "name": "扩散模型",
-    "year": "2022",
-    "yearRange": [
-      2021,
-      2024
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_deep_learning",
-      "it_attention",
-      "it_compute_cluster"
-    ],
-    "description": "基于去噪扩散概率过程的生成模型，Stable Diffusion等产品将高精度图像生成带入大众化时代，成为生成式AI的核心技术路线。",
-    "importance": 4,
-    "tags": [
-      "扩散模型",
-      "Stable Diffusion",
-      "生成式AI"
-    ]
-  },
-  {
-    "id": "it_chatgpt",
-    "name": "ChatGPT",
-    "year": "2022",
-    "yearRange": [
-      2022,
-      2023
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_llm",
-      "it_rlhf"
-    ],
-    "description": "OpenAI推出的对话式大语言模型产品，通过RLHF对齐技术实现自然流畅的人机对话，发布两个月用户突破一亿，引爆全球生成式AI浪潮。",
-    "importance": 5,
-    "tags": [
-      "ChatGPT",
-      "对话AI",
-      "GPT"
-    ]
-  },
-  {
-    "id": "it_gpt4",
-    "name": "GPT-4",
-    "year": "2023",
-    "yearRange": [
-      2023,
-      2024
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_chatgpt",
-      "it_rlhf",
-      "it_compute_cluster",
-      "it_advanced_process"
-    ],
-    "description": "OpenAI发布的多模态大语言模型，支持文本和图像输入，在各类专业考试中达到人类顶尖水平，标志着大模型能力质的飞跃。",
-    "importance": 5,
-    "tags": [
-      "GPT-4",
-      "多模态",
-      "大模型"
-    ]
-  },
-  {
-    "id": "it_llama",
-    "name": "开源大模型",
-    "year": "2023",
-    "yearRange": [
-      2023,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_llm",
-      "it_pretraining"
-    ],
-    "description": "Meta发布LLaMA系列开源权重模型，催生了LLaMA、Mistral、Qwen等开源生态，大幅降低了大规模语言模型的研究和应用门槛。",
-    "importance": 4,
-    "tags": [
-      "LLaMA",
-      "开源",
-      "大模型"
-    ]
-  },
-  {
-    "id": "it_multimodal",
-    "name": "多模态AI",
-    "year": "2023",
-    "yearRange": [
-      2023,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_llm",
-      "it_computer_vision",
-      "it_transformer"
-    ],
-    "description": "融合视觉和语言能力的多模态大模型，以GPT-4V为代表实现了图像理解、视觉推理和跨模态生成，推动了通用人工智能的发展。",
-    "importance": 4,
-    "tags": [
-      "多模态",
-      "视觉语言",
-      "GPT-4V"
-    ]
-  },
-  {
-    "id": "it_rag",
-    "name": "检索增强生成",
-    "year": "2023",
-    "yearRange": [
-      2023,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_llm",
-      "it_vector_db"
-    ],
-    "description": "将大语言模型与外部知识库检索相结合的技术，有效解决模型幻觉和知识时效性问题，成为企业级AI应用的核心架构范式。",
-    "importance": 4,
-    "tags": [
-      "RAG",
-      "检索增强",
-      "知识库"
-    ]
-  },
-  {
-    "id": "it_ai_agent",
-    "name": "AI Agent",
-    "year": "2024",
-    "yearRange": [
-      2023,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_gpt4",
-      "it_rag",
-      "it_reinforcement"
-    ],
-    "description": "具备自主规划、工具调用和任务执行能力的AI智能体，能够分解复杂目标并自主完成多步骤操作，被视为AI应用的下一个重要形态。",
-    "importance": 5,
-    "tags": [
-      "Agent",
-      "自主智能体",
-      "AI助手"
-    ]
-  },
-  {
-    "id": "it_sora",
-    "name": "Sora视频生成",
-    "year": "2024",
-    "yearRange": [
-      2024,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_diffusion",
-      "it_transformer",
-      "it_compute_cluster"
-    ],
-    "description": "OpenAI发布的文本生成视频模型，结合扩散模型与Transformer架构生成高保真长视频，标志着生成式AI从静态图像迈向动态视频时代。",
-    "importance": 4,
-    "tags": [
-      "Sora",
-      "视频生成",
-      "扩散模型"
-    ]
-  },
-  {
-    "id": "it_reasoning",
-    "name": "AI推理模型",
-    "year": "2024",
-    "yearRange": [
-      2024,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_gpt4",
-      "it_rlhf",
-      "it_reinforcement"
-    ],
-    "description": "以OpenAI o1为代表的推理增强模型，通过思维链和强化学习实现深度推理能力，在数学、编程和科学问题上展现突破性表现。",
-    "importance": 5,
-    "tags": [
-      "推理",
-      "o1",
-      "思维链"
-    ]
-  },
-  {
-    "id": "it_code_gen",
-    "name": "AI代码生成",
-    "year": "2024",
-    "yearRange": [
-      2023,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_gpt4",
-      "it_llm"
-    ],
-    "description": "以GitHub Copilot和Cursor为代表的AI编程助手，能够理解自然语言需求并自动生成、补全和重构代码，正在深刻改变软件开发流程。",
-    "importance": 4,
-    "tags": [
-      "代码生成",
-      "Copilot",
-      "AI编程"
-    ]
-  },
-  {
-    "id": "it_deepseek",
-    "name": "DeepSeek",
-    "year": "2025",
-    "yearRange": [
-      2024,
-      2025
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_reasoning",
-      "it_llama",
-      "it_model_distillation",
-      "it_model_quantization"
-    ],
-    "description": "深度求索发布的开源推理模型，以极低成本实现与顶级闭源模型媲美的推理能力，推动了开源AI社区的快速发展。",
-    "importance": 4,
-    "tags": [
-      "DeepSeek",
-      "开源",
-      "推理模型"
-    ]
-  },
-  {
-    "id": "it_agentic",
-    "name": "Agentic AI",
-    "year": "2025",
-    "yearRange": [
-      2024,
-      2026
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_ai_agent",
-      "it_reasoning"
-    ],
-    "description": "多个AI智能体协同工作的系统架构，各Agent分工合作完成复杂任务，被视为通向通用人工智能的重要路径。",
-    "importance": 5,
-    "tags": [
-      "Agentic AI",
-      "多智能体",
-      "自主系统"
-    ]
-  },
-  {
-    "id": "it_deep_research",
-    "name": "Deep Research",
-    "year": "2025",
-    "yearRange": [
-      2024,
-      2026
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_ai_agent",
-      "it_rag",
-      "it_reasoning"
-    ],
-    "description": "AI驱动的深度研究能力，能够自主搜索文献、分析数据并生成综合研究报告，将AI从信息检索提升到知识创造层面。",
-    "importance": 4,
-    "tags": [
-      "Deep Research",
-      "AI研究",
-      "自动化"
-    ]
-  },
-  {
-    "id": "it_mcp",
-    "name": "AI工具调用协议",
-    "year": "2025",
-    "yearRange": [
-      2024,
-      2026
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_ai_agent"
-    ],
-    "description": "以MCP协议和Function Calling为代表的AI工具调用标准，使AI模型能够标准化地调用外部工具和API，是构建AI应用生态的基础设施。",
-    "importance": 4,
-    "tags": [
-      "MCP",
-      "Function Calling",
-      "工具调用"
-    ]
-  },
-  {
-    "id": "it_vlsi",
-    "name": "超大规模集成电路",
-    "year": "1971",
-    "yearRange": [
-      1970,
-      1985
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_integrated_circuit",
-      "mat_lithography"
-    ],
-    "description": "随着光刻技术的进步，单芯片上集成的晶体管数量从数千增长到数十亿，摩尔定律驱动半导体产业持续发展。",
-    "importance": 5,
-    "tags": [
-      "VLSI",
-      "超大规模集成",
-      "摩尔定律"
-    ]
-  },
-  {
-    "id": "it_parallel_computing",
-    "name": "并行计算",
-    "year": "1985",
-    "yearRange": [
-      1975,
-      1995
-    ],
-    "era": "information",
-    "domain": "it",
-    "prerequisites": [
-      "it_vlsi",
-      "it_server_farm"
-    ],
-    "description": "将计算任务分解到多个处理器上同时执行的技术，是超级计算机和大规模算力系统的理论基础。",
-    "importance": 3,
-    "tags": [
-      "并行计算",
-      "多处理器",
-      "HPC"
-    ]
-  },
-  {
-    "id": "it_chip_interconnect",
-    "name": "高速芯片互联",
-    "year": "2014",
-    "yearRange": [
-      2012,
+      2013,
       2018
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
       "it_gpu",
-      "it_vlsi"
+      "it_neural_network",
+      "it_open_source"
     ],
-    "description": "NVLink、InfiniBand等高速互联技术使数千块GPU协同工作成为可能，是大规模模型训练的关键基础设施。",
+    "description": "TensorFlow和PyTorch等框架降低了深度学习的开发门槛，自动微分功能使构建复杂网络变得简单。",
     "importance": 4,
     "tags": [
-      "NVLink",
-      "InfiniBand",
-      "芯片互联"
+      "PyTorch",
+      "TensorFlow",
+      "框架"
     ]
   },
   {
-    "id": "it_advanced_process",
-    "name": "先进制程芯片",
-    "year": "2015",
+    "id": "it_wireless",
+    "name": "无线通信",
+    "year": "1895",
     "yearRange": [
-      2013,
-      2020
+      1890,
+      1910
     ],
-    "era": "information",
+    "era": "industrial",
     "domain": "it",
     "prerequisites": [
-      "it_integrated_circuit",
-      "mat_lithography",
-      "mat_nanomaterial",
-      "phys_quantum_theory"
+      "phys_maxwell"
     ],
-    "description": "EUV极紫外光刻技术实现7nm以下制程，台积电和三星推动摩尔定律延续到3nm时代，为AI芯片提供更强算力。",
+    "description": "马可尼实现的无线电通信开创了无线时代，后来发展为移动通信和WiFi等技术。",
     "importance": 5,
     "tags": [
-      "7nm",
-      "5nm",
-      "3nm",
-      "EUV"
+      "无线",
+      "马可尼",
+      "电波"
     ]
   },
   {
-    "id": "it_compute_cluster",
-    "name": "大规模算力集群",
-    "year": "2017",
+    "id": "it_mobile_network",
+    "name": "移动通信网络",
+    "year": "1979",
     "yearRange": [
-      2015,
+      1978,
       2020
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_cloud",
-      "it_gpu",
-      "it_chip_interconnect"
+      "it_wireless",
+      "it_digital"
     ],
-    "description": "由数千块GPU组成的超大规模计算集群，配合高速互联和分布式存储，为大模型训练提供庞大的算力支撑。",
-    "importance": 4,
+    "description": "从1G模拟到5G数字，移动通信网络每十年一代的升级使数据速率提升了百万倍。",
+    "importance": 5,
     "tags": [
-      "算力集群",
-      "GPU集群",
-      "超算中心"
+      "5G",
+      "移动",
+      "蜂窝"
     ]
   },
   {
-    "id": "it_distributed_training",
-    "name": "分布式训练算法",
-    "year": "2019",
+    "id": "it_digital",
+    "name": "数字信号处理",
+    "year": "1965",
     "yearRange": [
-      2017,
-      2022
+      1960,
+      1980
+    ],
+    "era": "modern",
+    "domain": "it",
+    "prerequisites": [
+      "math_fourier",
+      "it_computer"
+    ],
+    "description": "FFT算法和数字信号处理理论使音频、图像和视频可以被计算机高效处理和传输。",
+    "importance": 5,
+    "tags": [
+      "数字",
+      "FFT",
+      "信号"
+    ]
+  },
+  {
+    "id": "it_cryptography",
+    "name": "现代密码学",
+    "year": "1976",
+    "yearRange": [
+      1975,
+      1985
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_compute_cluster",
-      "it_framework_dl"
+      "math_rsa",
+      "it_computer"
     ],
-    "description": "数据并行、模型并行、ZeRO优化等分布式训练技术，使万亿参数模型的训练成为可能。",
-    "importance": 4,
+    "description": "公钥密码体制使安全通信成为可能，SSL/TLS协议保护了互联网上的所有敏感数据传输。",
+    "importance": 5,
     "tags": [
-      "数据并行",
-      "模型并行",
-      "ZeRO"
+      "密码",
+      "公钥",
+      "安全"
     ]
   },
   {
-    "id": "it_reinforcement",
-    "name": "强化学习",
-    "year": "1998",
+    "id": "it_blockchain",
+    "name": "区块链",
+    "year": "2008",
     "yearRange": [
-      1989,
+      2008,
       2015
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "math_probability",
-      "math_calculus",
-      "it_neural_network"
+      "it_cryptography",
+      "math_game_theory"
     ],
-    "description": "智能体通过与环境交互获取奖励来学习最优策略的机器学习方法，从Q-learning发展到深度强化学习，是游戏AI和机器人控制的核心技术。",
+    "description": "比特币引入的去中心化分布式账本技术，用密码学和共识机制实现无需信任中介的价值传递。",
     "importance": 4,
     "tags": [
-      "强化学习",
-      "策略",
-      "奖励"
+      "区块链",
+      "比特币",
+      "去中心化"
     ]
   },
   {
-    "id": "it_model_distillation",
-    "name": "模型蒸馏",
-    "year": "2015",
+    "id": "it_server_farm",
+    "name": "数据中心",
+    "year": "1997",
     "yearRange": [
-      2014,
+      1995,
+      2005
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_computer",
+      "it_internet"
+    ],
+    "description": "大规模服务器集群和精密冷却系统构成的数据中心，是互联网和云计算的物理基础设施。",
+    "importance": 4,
+    "tags": [
+      "数据中心",
+      "服务器",
+      "基础设施"
+    ]
+  },
+  {
+    "id": "it_big_data",
+    "name": "大数据技术",
+    "year": "2006",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_cloud",
+      "it_digital"
+    ],
+    "description": "Hadoop和Spark等框架使海量数据的存储、处理和分析成为可能，推动了数据驱动的决策模式。",
+    "importance": 4,
+    "tags": [
+      "大数据",
+      "Hadoop",
+      "分析"
+    ]
+  },
+  {
+    "id": "it_signal_processing",
+    "name": "信号处理",
+    "year": "1948",
+    "yearRange": [
+      1945,
+      1965
+    ],
+    "era": "modern",
+    "domain": "it",
+    "prerequisites": [
+      "math_fourier",
+      "math_information_theory"
+    ],
+    "description": "利用数学方法对信号进行分析、变换和恢复的技术，是通信、雷达和音视频处理的基础。",
+    "importance": 4,
+    "tags": [
+      "信号",
+      "滤波",
+      "处理"
+    ]
+  },
+  {
+    "id": "it_computer_vision",
+    "name": "计算机视觉",
+    "year": "2012",
+    "yearRange": [
+      1990,
       2020
     ],
     "era": "information",
@@ -1642,34 +982,143 @@
       "it_deep_learning",
       "it_neural_network"
     ],
-    "description": "将大型模型（教师模型）的知识压缩到小型模型（学生模型）中的技术，使小模型在保持接近大模型性能的同时大幅降低推理成本。",
-    "importance": 3,
+    "description": "让计算机理解图像和视频内容的技术，CNN在ImageNet上的突破标志着深度学习视觉时代的到来。",
+    "importance": 4,
     "tags": [
-      "蒸馏",
-      "知识迁移",
-      "压缩"
+      "视觉",
+      "CNN",
+      "图像"
     ]
   },
   {
-    "id": "it_model_quantization",
-    "name": "模型量化",
-    "year": "2017",
+    "id": "it_nlp",
+    "name": "自然语言处理",
+    "year": "1950",
     "yearRange": [
-      2015,
-      2022
+      1950,
+      2020
+    ],
+    "era": "modern",
+    "domain": "it",
+    "prerequisites": [
+      "math_logic",
+      "it_computer"
+    ],
+    "description": "让计算机理解和生成人类语言的技术，从规则方法到统计方法再到深度学习的演进历程。",
+    "importance": 4,
+    "tags": [
+      "NLP",
+      "语言",
+      "理解"
+    ]
+  },
+  {
+    "id": "it_battery",
+    "name": "电池技术",
+    "year": "1991",
+    "yearRange": [
+      1990,
+      2020
     ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_deep_learning",
-      "it_gpu"
+      "energy_lithium_ion"
     ],
-    "description": "将模型权重从高精度浮点数压缩为低精度整数表示的技术，大幅降低模型存储和推理计算量，是AI模型部署的关键优化手段。",
+    "description": "锂离子电池技术为所有移动电子设备提供能源，高能量密度和可充电特性是便携设备普及的基础。",
+    "importance": 4,
+    "tags": [
+      "电池",
+      "锂",
+      "便携"
+    ]
+  },
+  {
+    "id": "it_software_eng",
+    "name": "软件工程",
+    "year": "1968",
+    "yearRange": [
+      1965,
+      1980
+    ],
+    "era": "modern",
+    "domain": "it",
+    "prerequisites": [
+      "it_high_level_lang",
+      "it_operating_system"
+    ],
+    "description": "将系统化和工程化方法应用于软件开发，解决软件危机，使大规模可靠软件的生产成为可能。",
+    "importance": 4,
+    "tags": [
+      "软件",
+      "工程",
+      "方法"
+    ]
+  },
+  {
+    "id": "it_devops",
+    "name": "DevOps实践",
+    "year": "2009",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_cloud",
+      "it_open_source"
+    ],
+    "description": "开发与运维的融合实践，通过持续集成和持续交付加速软件迭代，提高了发布频率和质量。",
     "importance": 3,
     "tags": [
-      "量化",
-      "压缩",
-      "推理优化"
+      "DevOps",
+      "CI/CD",
+      "敏捷"
+    ]
+  },
+  {
+    "id": "it_fiber_optic",
+    "name": "光纤通信",
+    "year": "1975",
+    "yearRange": [
+      1970,
+      1990
+    ],
+    "domain": "it",
+    "prerequisites": [
+      "mat_optical_fiber",
+      "phys_laser"
+    ],
+    "description": "利用光纤传输光脉冲实现超大容量远距离数据传输，是互联网骨干网络的核心技术。",
+    "importance": 5,
+    "tags": [
+      "光纤",
+      "激光",
+      "带宽"
+    ],
+    "era": "information"
+  },
+  {
+    "id": "it_vector_db",
+    "name": "向量数据库",
+    "year": "2019",
+    "yearRange": [
+      2018,
+      2023
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_relational_db"
+    ],
+    "description": "存储和检索高维向量表示的专用数据库，是大语言模型应用和RAG架构的关键基础设施。",
+    "importance": 3,
+    "tags": [
+      "向量",
+      "检索",
+      "RAG"
     ]
   }
 ]

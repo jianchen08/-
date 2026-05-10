@@ -231,6 +231,8 @@ function getCyStyle(): cytoscape.StylesheetStyle[] {
         'text-wrap': 'wrap',
         'text-max-width': '60px',
         opacity: 1,
+        'transition-property': 'background-color, border-color, border-width, opacity, text-outline-width, font-size',
+        'transition-duration': 150,
       },
     },
     {
@@ -261,18 +263,42 @@ function getCyStyle(): cytoscape.StylesheetStyle[] {
         'border-width': 5,
         'border-color': '#00FFFF',
         'border-opacity': 1,
+        'font-size': '10px',
+      },
+    },
+    {
+      selector: 'node.hovered',
+      style: {
+        'border-width': 4,
+        'border-color': '#ffffff',
+        'border-opacity': 0.9,
+        'z-index': 999,
+        'font-size': '10px',
+        'text-outline-width': 2,
+        opacity: 1,
       },
     },
     {
       selector: 'edge',
       style: {
-        width: 1,
-        'line-color': '#555',
-        'target-arrow-color': '#555',
+        width: 1.5,
+        'line-color': 'rgba(100, 140, 180, 0.35)',
+        'target-arrow-color': 'rgba(100, 140, 180, 0.35)',
         'target-arrow-shape': 'triangle',
         'arrow-scale': 0.6,
         'curve-style': 'bezier',
         opacity: 0.5,
+        'transition-property': 'line-color, target-arrow-color, width, opacity',
+        'transition-duration': 200,
+      },
+    },
+    {
+      selector: 'edge.highlighted',
+      style: {
+        width: 3,
+        'line-color': '#4fc3f7',
+        'target-arrow-color': '#4fc3f7',
+        opacity: 1,
       },
     },
   ];
@@ -358,10 +384,35 @@ export default function TechTree({
       }
     });
 
+    // 节点 hover 高亮：显示关联边和邻居节点
+    cy.on('mouseover', 'node', (evt) => {
+      const node = evt.target;
+      node.addClass('hovered');
+      // 高亮所有连接边
+      node.connectedEdges().addClass('highlighted');
+    });
+
+    cy.on('mouseout', 'node', (evt) => {
+      const node = evt.target;
+      node.removeClass('hovered');
+      node.connectedEdges().removeClass('highlighted');
+    });
+
     cyRef.current = cy;
-    if (layout === 'timeline') {
-      setTimeout(() => cy.fit(undefined, 50), 600);
-    }
+
+    // 确保布局完成后 fit 视图
+    cy.one('layoutstop', () => {
+      setTimeout(() => {
+        cy.fit(undefined, 50);
+      }, 100);
+    });
+
+    // 备用：如果布局在超时内没触发 layoutstop，也做 fit
+    setTimeout(() => {
+      if (cyRef.current === cy) {
+        cy.fit(undefined, 50);
+      }
+    }, 800);
     isFirstRenderRef.current = false;
     onCyReady?.(cy);
 
@@ -388,7 +439,16 @@ export default function TechTree({
 
     // 重新布局
     const layoutOpts = getLayoutOptions(layout, nodes, domains, eras);
-    cy.layout(layoutOpts as cytoscape.LayoutOptions).run();
+    const layoutInstance = cy.layout(layoutOpts as cytoscape.LayoutOptions);
+
+    // 布局完成后 fit 视图
+    layoutInstance.one('layoutstop', () => {
+      setTimeout(() => {
+        cy.fit(undefined, 50);
+      }, 100);
+    });
+
+    layoutInstance.run();
 
     // 重新应用选中状态
     if (selectedNodeId) {
@@ -397,7 +457,8 @@ export default function TechTree({
         selectedNode.addClass('selected');
       }
     }
-  }, [searchText, filter, nodes, layout, selectedNodeId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText, filter, nodes, layout]);
 
   // 选中节点高亮
   useEffect(() => {

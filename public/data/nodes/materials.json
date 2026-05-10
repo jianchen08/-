@@ -50,8 +50,7 @@
     "era": "prehistoric",
     "domain": "materials",
     "prerequisites": [
-      "mat_fire",
-      "mat_stone_tools"
+      "mat_fire"
     ],
     "description": "人类首次通过高温化学变化创造新材料，将粘土烧制成容器。陶器的出现使粮食储存和烹饪成为可能，直接促进了定居农业的发展。",
     "importance": 5,
@@ -59,27 +58,6 @@
       "陶器",
       "烧制",
       "容器"
-    ]
-  },
-  {
-    "id": "mat_weaving",
-    "name": "纺织技术",
-    "year": "-15000",
-    "yearRange": [
-      -25000,
-      -8000
-    ],
-    "era": "prehistoric",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_stone_tools"
-    ],
-    "description": "利用植物纤维和动物毛皮编织布料的技术，是人类最早的柔性材料加工，催生了纺纱、织布等复杂工艺。",
-    "importance": 4,
-    "tags": [
-      "纺织",
-      "纤维",
-      "布料"
     ]
   },
   {
@@ -105,6 +83,27 @@
     ]
   },
   {
+    "id": "mat_weaving",
+    "name": "纺织技术",
+    "year": "-15000",
+    "yearRange": [
+      -25000,
+      -8000
+    ],
+    "era": "prehistoric",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_stone_tools"
+    ],
+    "description": "利用植物纤维和动物毛皮编织布料的技术，是人类最早的柔性材料加工，催生了纺纱、织布等复杂工艺。",
+    "importance": 4,
+    "tags": [
+      "纺织",
+      "纤维",
+      "布料"
+    ]
+  },
+  {
     "id": "mat_bronze",
     "name": "青铜冶炼",
     "year": "-3300",
@@ -124,28 +123,6 @@
       "青铜",
       "合金",
       "冶炼"
-    ]
-  },
-  {
-    "id": "mat_glass",
-    "name": "玻璃制造",
-    "year": "-1500",
-    "yearRange": [
-      -2000,
-      -1000
-    ],
-    "era": "ancient",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_fire",
-      "mat_pottery"
-    ],
-    "description": "硅砂与碱在高温下熔融形成的透明材料。玻璃的发明使窗户、容器和光学仪器成为可能，深刻改变了人类生活。",
-    "importance": 4,
-    "tags": [
-      "玻璃",
-      "透明",
-      "硅"
     ]
   },
   {
@@ -202,8 +179,7 @@
     "era": "ancient",
     "domain": "materials",
     "prerequisites": [
-      "mat_iron_smelting",
-      "mat_fire"
+      "mat_iron_smelting"
     ],
     "description": "通过渗碳和反复锻打将铁转化为钢的技术。大马士革钢和中国的百炼钢代表了古代炼钢的最高水平。",
     "importance": 4,
@@ -214,26 +190,25 @@
     ]
   },
   {
-    "id": "mat_cement_roman",
-    "name": "罗马水泥",
-    "year": "-100",
+    "id": "mat_glass",
+    "name": "玻璃制造",
+    "year": "-1500",
     "yearRange": [
-      -200,
-      100
+      -2000,
+      -1000
     ],
     "era": "ancient",
     "domain": "materials",
     "prerequisites": [
       "mat_fire",
-      "mat_stone_tools",
-      "math_geometry_basic"
+      "mat_pottery"
     ],
-    "description": "罗马人发明的火山灰水泥，具有水下硬化的特性，使万神殿穹顶和罗马水道等巨型建筑得以建成。",
+    "description": "硅砂与碱在高温下熔融形成的透明材料。玻璃的发明使窗户、容器和光学仪器成为可能，深刻改变了人类生活。",
     "importance": 4,
     "tags": [
-      "水泥",
-      "建筑",
-      "罗马"
+      "玻璃",
+      "透明",
+      "硅"
     ]
   },
   {
@@ -256,6 +231,28 @@
       "造纸",
       "纤维",
       "中国"
+    ]
+  },
+  {
+    "id": "mat_cement_roman",
+    "name": "罗马水泥",
+    "year": "-100",
+    "yearRange": [
+      -200,
+      100
+    ],
+    "era": "ancient",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_fire",
+      "mat_stone_tools"
+    ],
+    "description": "罗马人发明的火山灰水泥，具有水下硬化的特性，使万神殿穹顶和罗马水道等巨型建筑得以建成。",
+    "importance": 4,
+    "tags": [
+      "水泥",
+      "建筑",
+      "罗马"
     ]
   },
   {
@@ -303,28 +300,6 @@
     ]
   },
   {
-    "id": "mat_printing_types",
-    "name": "活字印刷",
-    "year": "1040",
-    "yearRange": [
-      1030,
-      1050
-    ],
-    "era": "medieval",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_paper",
-      "eng_mechanical"
-    ],
-    "description": "毕昇发明的活字印刷术使用可重复使用的陶质活字排版，比雕版印刷更灵活高效，后经古腾堡发展为金属活字。",
-    "importance": 5,
-    "tags": [
-      "印刷",
-      "活字",
-      "毕昇"
-    ]
-  },
-  {
     "id": "mat_pig_iron",
     "name": "高炉炼铁",
     "year": "1300",
@@ -344,6 +319,27 @@
       "高炉",
       "生铁",
       "水力"
+    ]
+  },
+  {
+    "id": "mat_printing_types",
+    "name": "活字印刷",
+    "year": "1040",
+    "yearRange": [
+      1030,
+      1050
+    ],
+    "era": "medieval",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_paper"
+    ],
+    "description": "毕昇发明的活字印刷术使用可重复使用的陶质活字排版，比雕版印刷更灵活高效，后经古腾堡发展为金属活字。",
+    "importance": 5,
+    "tags": [
+      "印刷",
+      "活字",
+      "毕昇"
     ]
   },
   {
@@ -412,28 +408,6 @@
     ]
   },
   {
-    "id": "mat_rubber_vulcan",
-    "name": "硫化橡胶",
-    "year": "1839",
-    "yearRange": [
-      1835,
-      1845
-    ],
-    "era": "industrial",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_fire",
-      "chem_elements"
-    ],
-    "description": "固特异发明的硫化工艺将硫磺与橡胶加热反应，使橡胶变得坚韧而有弹性，催生了轮胎工业。",
-    "importance": 4,
-    "tags": [
-      "橡胶",
-      "硫化",
-      "弹性"
-    ]
-  },
-  {
     "id": "mat_steel_bessemer",
     "name": "贝塞麦转炉炼钢",
     "year": "1856",
@@ -477,6 +451,28 @@
     ]
   },
   {
+    "id": "mat_aluminum",
+    "name": "铝的工业冶炼",
+    "year": "1886",
+    "yearRange": [
+      1880,
+      1890
+    ],
+    "era": "industrial",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_fire",
+      "chem_electrolysis"
+    ],
+    "description": "霍尔和埃鲁同时发明的电解炼铝法，将氧化铝在熔融冰晶石中电解，使铝从贵金属变为大众金属。",
+    "importance": 5,
+    "tags": [
+      "铝",
+      "电解",
+      "轻金属"
+    ]
+  },
+  {
     "id": "mat_dynamite",
     "name": "炸药",
     "year": "1867",
@@ -499,47 +495,24 @@
     ]
   },
   {
-    "id": "mat_aluminum",
-    "name": "铝的工业冶炼",
-    "year": "1886",
+    "id": "mat_rubber_vulcan",
+    "name": "硫化橡胶",
+    "year": "1839",
     "yearRange": [
-      1880,
-      1890
+      1835,
+      1845
     ],
     "era": "industrial",
     "domain": "materials",
     "prerequisites": [
-      "mat_fire",
-      "chem_electrolysis",
-      "energy_electricity_gen"
+      "mat_fire"
     ],
-    "description": "霍尔和埃鲁同时发明的电解炼铝法，将氧化铝在熔融冰晶石中电解，使铝从贵金属变为大众金属。",
-    "importance": 5,
-    "tags": [
-      "铝",
-      "电解",
-      "轻金属"
-    ]
-  },
-  {
-    "id": "mat_alloy_steel",
-    "name": "合金钢",
-    "year": "1900",
-    "yearRange": [
-      1880,
-      1910
-    ],
-    "era": "modern",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_steel_bessemer"
-    ],
-    "description": "在碳钢中加入钨、钼、钒、铬等元素制成的特种钢材，具有更高的硬度、耐热性或耐磨性，是现代工业的基础材料。",
+    "description": "固特异发明的硫化工艺将硫磺与橡胶加热反应，使橡胶变得坚韧而有弹性，催生了轮胎工业。",
     "importance": 4,
     "tags": [
-      "合金",
-      "特种钢",
-      "硬度"
+      "橡胶",
+      "硫化",
+      "弹性"
     ]
   },
   {
@@ -554,8 +527,7 @@
     "domain": "materials",
     "prerequisites": [
       "chem_synthetic_dye",
-      "mat_fire",
-      "chem_polymer_theory"
+      "mat_fire"
     ],
     "description": "贝克兰发明的第一种完全合成塑料，标志着塑料时代的开启。酚醛树脂绝缘性好，广泛用于电器外壳。",
     "importance": 5,
@@ -588,25 +560,24 @@
     ]
   },
   {
-    "id": "mat_polyethylene",
-    "name": "聚乙烯",
-    "year": "1933",
+    "id": "mat_alloy_steel",
+    "name": "合金钢",
+    "year": "1900",
     "yearRange": [
-      1930,
-      1940
+      1880,
+      1910
     ],
     "era": "modern",
     "domain": "materials",
     "prerequisites": [
-      "mat_bakelite",
-      "chem_polymer_theory"
+      "mat_steel_bessemer"
     ],
-    "description": "帝国化学工业公司意外发现的最广泛使用的塑料，从塑料袋到人工关节，年产量超过一亿吨。",
+    "description": "在碳钢中加入钨、钼、钒、铬等元素制成的特种钢材，具有更高的硬度、耐热性或耐磨性，是现代工业的基础材料。",
     "importance": 4,
     "tags": [
-      "聚乙烯",
-      "塑料",
-      "包装"
+      "合金",
+      "特种钢",
+      "硬度"
     ]
   },
   {
@@ -632,69 +603,25 @@
     ]
   },
   {
-    "id": "mat_fiber_glass",
-    "name": "玻璃纤维",
-    "year": "1938",
+    "id": "mat_polyethylene",
+    "name": "聚乙烯",
+    "year": "1933",
     "yearRange": [
-      1935,
-      1942
+      1930,
+      1940
     ],
     "era": "modern",
     "domain": "materials",
     "prerequisites": [
-      "mat_glass",
-      "mat_weaving"
+      "mat_bakelite",
+      "chem_polymer_theory"
     ],
-    "description": "将玻璃熔融拉制成微米级纤维，具有强度高、绝缘好、耐腐蚀等特性，广泛用于复合材料和通信光纤。",
-    "importance": 3,
-    "tags": [
-      "玻璃纤维",
-      "复合材料",
-      "绝缘"
-    ]
-  },
-  {
-    "id": "mat_superalloy",
-    "name": "高温合金",
-    "year": "1940",
-    "yearRange": [
-      1935,
-      1955
-    ],
-    "era": "modern",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_alloy_steel",
-      "mat_stainless_steel"
-    ],
-    "description": "镍基和钴基高温合金能在800度以上保持强度，是喷气式发动机和燃气轮机的核心材料。",
+    "description": "帝国化学工业公司意外发现的最广泛使用的塑料，从塑料袋到人工关节，年产量超过一亿吨。",
     "importance": 4,
     "tags": [
-      "高温",
-      "镍基",
-      "发动机"
-    ]
-  },
-  {
-    "id": "mat_titanium",
-    "name": "钛合金",
-    "year": "1948",
-    "yearRange": [
-      1940,
-      1960
-    ],
-    "era": "modern",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_aluminum",
-      "chem_electrolysis"
-    ],
-    "description": "钛合金强度高、密度低、耐腐蚀，被誉为太空金属，在航空、医疗和化工领域有不可替代的地位。",
-    "importance": 4,
-    "tags": [
-      "钛",
-      "航空",
-      "耐腐蚀"
+      "聚乙烯",
+      "塑料",
+      "包装"
     ]
   },
   {
@@ -720,26 +647,245 @@
     ]
   },
   {
-    "id": "mat_lithography",
-    "name": "光刻技术",
-    "year": "1959",
+    "id": "mat_fiber_glass",
+    "name": "玻璃纤维",
+    "year": "1938",
     "yearRange": [
-      1955,
-      1965
+      1935,
+      1942
     ],
     "era": "modern",
     "domain": "materials",
     "prerequisites": [
       "mat_glass",
+      "mat_weaving"
+    ],
+    "description": "将玻璃熔融拉制成微米级纤维，具有强度高、绝缘好、耐腐蚀等特性，广泛用于复合材料和通信光纤。",
+    "importance": 3,
+    "tags": [
+      "玻璃纤维",
+      "复合材料",
+      "绝缘"
+    ]
+  },
+  {
+    "id": "mat_carbon_fiber",
+    "name": "碳纤维",
+    "year": "1969",
+    "yearRange": [
+      1960,
+      1980
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_fiber_glass",
+      "mat_silicon_purify"
+    ],
+    "description": "含碳量90%以上的高强度纤维材料，比钢强5倍但轻4倍，是航空航天和高性能运动器材的关键材料。",
+    "importance": 4,
+    "tags": [
+      "碳纤维",
+      "轻质",
+      "高强度"
+    ]
+  },
+  {
+    "id": "mat_kevlar",
+    "name": "凯夫拉纤维",
+    "year": "1965",
+    "yearRange": [
+      1960,
+      1975
+    ],
+    "era": "modern",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nylon",
+      "chem_polymer_theory"
+    ],
+    "description": "杜邦公司发明的芳纶纤维，强度是钢丝的5倍但重量仅为五分之一，广泛用于防弹衣和航天材料。",
+    "importance": 4,
+    "tags": [
+      "芳纶",
+      "防弹",
+      "杜邦"
+    ]
+  },
+  {
+    "id": "mat_titanium",
+    "name": "钛合金",
+    "year": "1948",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_aluminum",
+      "chem_electrolysis"
+    ],
+    "description": "钛合金强度高、密度低、耐腐蚀，被誉为太空金属，在航空、医疗和化工领域有不可替代的地位。",
+    "importance": 4,
+    "tags": [
+      "钛",
+      "航空",
+      "耐腐蚀"
+    ]
+  },
+  {
+    "id": "mat_lcd",
+    "name": "液晶材料",
+    "year": "1968",
+    "yearRange": [
+      1960,
+      1975
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_silicon_purify",
+      "chem_organic"
+    ],
+    "description": "液晶材料在电场作用下改变透光性的特性被用于显示技术，催生了从计算器到智能手机的整个平板显示产业。",
+    "importance": 4,
+    "tags": [
+      "液晶",
+      "显示",
+      "电子"
+    ]
+  },
+  {
+    "id": "mat_optical_fiber",
+    "name": "光纤材料",
+    "year": "1970",
+    "yearRange": [
+      1966,
+      1975
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_fiber_glass",
+      "mat_silicon_purify"
+    ],
+    "description": "高纯二氧化硅制成的光导纤维，通过全反射传输光信号，是互联网时代信息传输的物理基础。",
+    "importance": 5,
+    "tags": [
+      "光纤",
+      "通信",
+      "二氧化硅"
+    ]
+  },
+  {
+    "id": "mat_rare_earth",
+    "name": "稀土材料应用",
+    "year": "1966",
+    "yearRange": [
+      1955,
+      1980
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_alloy_steel",
+      "chem_periodic"
+    ],
+    "description": "稀土元素独特的磁性和光学特性被开发利用，钕铁硼永磁体和荧光粉成为电子和新能源产业的关键材料。",
+    "importance": 4,
+    "tags": [
+      "稀土",
+      "磁体",
+      "荧光"
+    ]
+  },
+  {
+    "id": "mat_superalloy",
+    "name": "高温合金",
+    "year": "1940",
+    "yearRange": [
+      1935,
+      1955
+    ],
+    "era": "modern",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_alloy_steel",
+      "mat_stainless_steel"
+    ],
+    "description": "镍基和钴基高温合金能在800度以上保持强度，是喷气式发动机和燃气轮机的核心材料。",
+    "importance": 4,
+    "tags": [
+      "高温",
+      "镍基",
+      "发动机"
+    ]
+  },
+  {
+    "id": "mat_superconductor",
+    "name": "高温超导材料",
+    "year": "1986",
+    "yearRange": [
+      1980,
+      1990
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_silicon_purify",
+      "phys_superconductor"
+    ],
+    "description": "钇钡铜氧等铜氧化物超导体在液氮温度以上实现超导，大幅降低了超导应用的冷却成本，有望革新电力传输。",
+    "importance": 5,
+    "tags": [
+      "超导",
+      "铜氧化物",
+      "液氮"
+    ]
+  },
+  {
+    "id": "mat_nanomaterial",
+    "name": "纳米材料",
+    "year": "1985",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
       "mat_silicon_purify",
       "phys_quantum_theory"
     ],
-    "description": "利用光学投影将电路图案转移到硅片上的技术，光刻精度的不断提升是摩尔定律得以延续的关键。",
+    "description": "在纳米尺度（1-100nm）上操控材料的结构，利用量子效应和表面效应获得宏观材料不具备的特殊性能。",
     "importance": 5,
     "tags": [
-      "光刻",
-      "半导体",
-      "纳米"
+      "纳米",
+      "量子",
+      "表面"
+    ]
+  },
+  {
+    "id": "mat_graphene",
+    "name": "石墨烯",
+    "year": "2004",
+    "yearRange": [
+      2002,
+      2010
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "mat_carbon_fiber"
+    ],
+    "description": "单层碳原子构成的二维材料，是已知最薄最硬的材料，导电导热性能优异，被视为下一代电子材料。",
+    "importance": 5,
+    "tags": [
+      "石墨烯",
+      "二维",
+      "碳"
     ]
   },
   {
@@ -762,6 +908,116 @@
       "CVD",
       "薄膜",
       "半导体"
+    ]
+  },
+  {
+    "id": "mat_lithography",
+    "name": "光刻技术",
+    "year": "1959",
+    "yearRange": [
+      1955,
+      1965
+    ],
+    "era": "modern",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_glass",
+      "mat_silicon_purify"
+    ],
+    "description": "利用光学投影将电路图案转移到硅片上的技术，光刻精度的不断提升是摩尔定律得以延续的关键。",
+    "importance": 5,
+    "tags": [
+      "光刻",
+      "半导体",
+      "纳米"
+    ]
+  },
+  {
+    "id": "mat_3d_print",
+    "name": "3D打印材料",
+    "year": "1986",
+    "yearRange": [
+      1980,
+      1995
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "mat_polyethylene"
+    ],
+    "description": "增材制造专用材料的发展，包括光敏树脂、金属粉末和生物相容材料，正在变革传统制造模式。",
+    "importance": 4,
+    "tags": [
+      "3D打印",
+      "增材",
+      "制造"
+    ]
+  },
+  {
+    "id": "mat_perovskite",
+    "name": "钙钛矿材料",
+    "year": "2009",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "mat_silicon_purify"
+    ],
+    "description": "钙钛矿结构材料在太阳能电池中展现出高效率和低成本的潜力，被认为是下一代光伏技术的候选者。",
+    "importance": 4,
+    "tags": [
+      "钙钛矿",
+      "光伏",
+      "太阳能"
+    ]
+  },
+  {
+    "id": "mat_metamaterial",
+    "name": "超材料",
+    "year": "2000",
+    "yearRange": [
+      1995,
+      2010
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "mat_lithography"
+    ],
+    "description": "人工设计的微观结构材料，具有自然界材料不存在的电磁特性，如负折射率，可用于隐身和超分辨率成像。",
+    "importance": 4,
+    "tags": [
+      "超材料",
+      "负折射",
+      "隐身"
+    ]
+  },
+  {
+    "id": "mat_quantum_dot",
+    "name": "量子点材料",
+    "year": "1993",
+    "yearRange": [
+      1985,
+      2000
+    ],
+    "era": "information",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_nanomaterial",
+      "phys_quantum_theory"
+    ],
+    "description": "半导体纳米晶粒，尺寸量子效应使其发光颜色可调，在显示技术和生物成像中有重要应用。",
+    "importance": 4,
+    "tags": [
+      "量子点",
+      "发光",
+      "纳米"
     ]
   },
   {
@@ -806,294 +1062,6 @@
       "记忆合金",
       "形状",
       "镍钛"
-    ]
-  },
-  {
-    "id": "mat_kevlar",
-    "name": "凯夫拉纤维",
-    "year": "1965",
-    "yearRange": [
-      1960,
-      1975
-    ],
-    "era": "modern",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nylon",
-      "chem_polymer_theory"
-    ],
-    "description": "杜邦公司发明的芳纶纤维，强度是钢丝的5倍但重量仅为五分之一，广泛用于防弹衣和航天材料。",
-    "importance": 4,
-    "tags": [
-      "芳纶",
-      "防弹",
-      "杜邦"
-    ]
-  },
-  {
-    "id": "mat_rare_earth",
-    "name": "稀土材料应用",
-    "year": "1966",
-    "yearRange": [
-      1955,
-      1980
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_alloy_steel",
-      "chem_periodic"
-    ],
-    "description": "稀土元素独特的磁性和光学特性被开发利用，钕铁硼永磁体和荧光粉成为电子和新能源产业的关键材料。",
-    "importance": 4,
-    "tags": [
-      "稀土",
-      "磁体",
-      "荧光"
-    ]
-  },
-  {
-    "id": "mat_lcd",
-    "name": "液晶材料",
-    "year": "1968",
-    "yearRange": [
-      1960,
-      1975
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_silicon_purify",
-      "chem_organic"
-    ],
-    "description": "液晶材料在电场作用下改变透光性的特性被用于显示技术，催生了从计算器到智能手机的整个平板显示产业。",
-    "importance": 4,
-    "tags": [
-      "液晶",
-      "显示",
-      "电子"
-    ]
-  },
-  {
-    "id": "mat_carbon_fiber",
-    "name": "碳纤维",
-    "year": "1969",
-    "yearRange": [
-      1960,
-      1980
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_fiber_glass",
-      "mat_silicon_purify"
-    ],
-    "description": "含碳量90%以上的高强度纤维材料，比钢强5倍但轻4倍，是航空航天和高性能运动器材的关键材料。",
-    "importance": 4,
-    "tags": [
-      "碳纤维",
-      "轻质",
-      "高强度"
-    ]
-  },
-  {
-    "id": "mat_optical_fiber",
-    "name": "光纤材料",
-    "year": "1970",
-    "yearRange": [
-      1966,
-      1975
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_fiber_glass",
-      "mat_silicon_purify",
-      "phys_laser"
-    ],
-    "description": "高纯二氧化硅制成的光导纤维，通过全反射传输光信号，是互联网时代信息传输的物理基础。",
-    "importance": 5,
-    "tags": [
-      "光纤",
-      "通信",
-      "二氧化硅"
-    ]
-  },
-  {
-    "id": "mat_nanomaterial",
-    "name": "纳米材料",
-    "year": "1985",
-    "yearRange": [
-      1980,
-      1995
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_silicon_purify",
-      "phys_quantum_theory"
-    ],
-    "description": "在纳米尺度（1-100nm）上操控材料的结构，利用量子效应和表面效应获得宏观材料不具备的特殊性能。",
-    "importance": 5,
-    "tags": [
-      "纳米",
-      "量子",
-      "表面"
-    ]
-  },
-  {
-    "id": "mat_superconductor",
-    "name": "高温超导材料",
-    "year": "1986",
-    "yearRange": [
-      1980,
-      1990
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_silicon_purify",
-      "phys_superconductor"
-    ],
-    "description": "钇钡铜氧等铜氧化物超导体在液氮温度以上实现超导，大幅降低了超导应用的冷却成本，有望革新电力传输。",
-    "importance": 5,
-    "tags": [
-      "超导",
-      "铜氧化物",
-      "液氮"
-    ]
-  },
-  {
-    "id": "mat_3d_print",
-    "name": "3D打印材料",
-    "year": "1986",
-    "yearRange": [
-      1980,
-      1995
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "mat_polyethylene",
-      "it_computer"
-    ],
-    "description": "增材制造专用材料的发展，包括光敏树脂、金属粉末和生物相容材料，正在变革传统制造模式。",
-    "importance": 4,
-    "tags": [
-      "3D打印",
-      "增材",
-      "制造"
-    ]
-  },
-  {
-    "id": "mat_quantum_dot",
-    "name": "量子点材料",
-    "year": "1993",
-    "yearRange": [
-      1985,
-      2000
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "phys_quantum_theory"
-    ],
-    "description": "半导体纳米晶粒，尺寸量子效应使其发光颜色可调，在显示技术和生物成像中有重要应用。",
-    "importance": 4,
-    "tags": [
-      "量子点",
-      "发光",
-      "纳米"
-    ]
-  },
-  {
-    "id": "mat_metamaterial",
-    "name": "超材料",
-    "year": "2000",
-    "yearRange": [
-      1995,
-      2010
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "mat_lithography"
-    ],
-    "description": "人工设计的微观结构材料，具有自然界材料不存在的电磁特性，如负折射率，可用于隐身和超分辨率成像。",
-    "importance": 4,
-    "tags": [
-      "超材料",
-      "负折射",
-      "隐身"
-    ]
-  },
-  {
-    "id": "mat_graphene",
-    "name": "石墨烯",
-    "year": "2004",
-    "yearRange": [
-      2002,
-      2010
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "mat_carbon_fiber"
-    ],
-    "description": "单层碳原子构成的二维材料，是已知最薄最硬的材料，导电导热性能优异，被视为下一代电子材料。",
-    "importance": 5,
-    "tags": [
-      "石墨烯",
-      "二维",
-      "碳"
-    ]
-  },
-  {
-    "id": "mat_perovskite",
-    "name": "钙钛矿材料",
-    "year": "2009",
-    "yearRange": [
-      2005,
-      2015
-    ],
-    "era": "information",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_nanomaterial",
-      "mat_silicon_purify"
-    ],
-    "description": "钙钛矿结构材料在太阳能电池中展现出高效率和低成本的潜力，被认为是下一代光伏技术的候选者。",
-    "importance": 4,
-    "tags": [
-      "钙钛矿",
-      "光伏",
-      "太阳能"
-    ]
-  },
-  {
-    "id": "eng_high_temp_material",
-    "name": "耐高温材料",
-    "year": "1955",
-    "yearRange": [
-      1950,
-      1970
-    ],
-    "era": "modern",
-    "domain": "materials",
-    "prerequisites": [
-      "mat_superalloy",
-      "mat_titanium"
-    ],
-    "description": "能在极高温度下保持结构强度的材料体系，包括耐高温陶瓷和热防护系统，是火箭发动机、航天器再入和核聚变装置不可或缺的材料。",
-    "importance": 4,
-    "tags": [
-      "耐高温",
-      "热防护",
-      "陶瓷"
     ]
   }
 ]

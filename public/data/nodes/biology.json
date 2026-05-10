@@ -10,8 +10,7 @@
     "era": "ancient",
     "domain": "biology",
     "prerequisites": [
-      "math_counting",
-      "soc_language"
+      "math_counting"
     ],
     "description": "亚里士多德对动植物的系统观察和分类，开创了博物学传统，是最早的系统性生物学研究。",
     "importance": 4,
@@ -53,8 +52,7 @@
     "era": "ancient",
     "domain": "biology",
     "prerequisites": [
-      "bio_natural_history",
-      "med_herbal"
+      "bio_natural_history"
     ],
     "description": "迪奥斯科里德斯的《药物论》详细记录了约600种植物的药用价值，影响了此后1500年的药学实践。",
     "importance": 3,
@@ -62,28 +60,6 @@
       "草药",
       "药物",
       "植物"
-    ]
-  },
-  {
-    "id": "bio_microscope",
-    "name": "显微镜发明",
-    "year": "1674",
-    "yearRange": [
-      1665,
-      1680
-    ],
-    "era": "renaissance",
-    "domain": "biology",
-    "prerequisites": [
-      "mat_glass",
-      "phys_optics_ancient"
-    ],
-    "description": "列文虎克制作的单式显微镜首次观察到细菌、红细胞和精子等微生物，打开了微观生命世界的大门。",
-    "importance": 5,
-    "tags": [
-      "显微镜",
-      "微生物",
-      "列文虎克"
     ]
   },
   {
@@ -109,72 +85,6 @@
     ]
   },
   {
-    "id": "bio_immunology",
-    "name": "免疫学",
-    "year": "1796",
-    "yearRange": [
-      1790,
-      1900
-    ],
-    "era": "industrial",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_germ_theory",
-      "bio_cell_theory"
-    ],
-    "description": "从詹纳的牛痘接种到现代免疫学理论，研究机体如何识别和抵御外来入侵者的科学。",
-    "importance": 5,
-    "tags": [
-      "免疫",
-      "疫苗",
-      "抗体"
-    ]
-  },
-  {
-    "id": "bio_paleontology",
-    "name": "古生物学",
-    "year": "1812",
-    "yearRange": [
-      1800,
-      1830
-    ],
-    "era": "industrial",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_natural_history",
-      "math_counting"
-    ],
-    "description": "居维叶等通过对化石的系统研究，揭示了地球历史上曾存在大量已灭绝的生物，为进化论提供了证据。",
-    "importance": 4,
-    "tags": [
-      "化石",
-      "灭绝",
-      "地层"
-    ]
-  },
-  {
-    "id": "bio_embryology",
-    "name": "胚胎学",
-    "year": "1828",
-    "yearRange": [
-      1820,
-      1840
-    ],
-    "era": "industrial",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_microscope",
-      "bio_cell_theory"
-    ],
-    "description": "冯贝尔对胚胎发育的系统研究，发现了哺乳动物卵细胞并建立了比较胚胎学的基本原理。",
-    "importance": 3,
-    "tags": [
-      "胚胎",
-      "发育",
-      "卵"
-    ]
-  },
-  {
     "id": "bio_cell_theory",
     "name": "细胞学说",
     "year": "1838",
@@ -194,6 +104,28 @@
       "细胞",
       "基本单位",
       "学说"
+    ]
+  },
+  {
+    "id": "bio_microscope",
+    "name": "显微镜发明",
+    "year": "1674",
+    "yearRange": [
+      1665,
+      1680
+    ],
+    "era": "renaissance",
+    "domain": "biology",
+    "prerequisites": [
+      "mat_glass",
+      "phys_optics_ancient"
+    ],
+    "description": "列文虎克制作的单式显微镜首次观察到细菌、红细胞和精子等微生物，打开了微观生命世界的大门。",
+    "importance": 5,
+    "tags": [
+      "显微镜",
+      "微生物",
+      "列文虎克"
     ]
   },
   {
@@ -220,28 +152,6 @@
     ]
   },
   {
-    "id": "bio_germ_theory",
-    "name": "病原菌学说",
-    "year": "1861",
-    "yearRange": [
-      1855,
-      1870
-    ],
-    "era": "industrial",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_microscope",
-      "bio_cell_theory"
-    ],
-    "description": "巴斯德和科赫建立的病原菌学说证明传染病由微生物引起，为现代医学和公共卫生奠定了科学基础。",
-    "importance": 5,
-    "tags": [
-      "细菌",
-      "病原",
-      "巴斯德"
-    ]
-  },
-  {
     "id": "bio_genetics_mendel",
     "name": "孟德尔遗传学",
     "year": "1866",
@@ -264,47 +174,47 @@
     ]
   },
   {
-    "id": "bio_ecology",
-    "name": "生态学",
-    "year": "1866",
+    "id": "bio_germ_theory",
+    "name": "病原菌学说",
+    "year": "1861",
     "yearRange": [
-      1860,
-      1900
+      1855,
+      1870
     ],
     "era": "industrial",
     "domain": "biology",
     "prerequisites": [
-      "bio_evolution",
-      "bio_taxonomy"
+      "bio_microscope",
+      "bio_cell_theory"
     ],
-    "description": "海克尔提出的生态学概念，研究生物与环境之间的相互关系，后来发展为关注生物多样性和生态系统的重要学科。",
-    "importance": 4,
+    "description": "巴斯德和科赫建立的病原菌学说证明传染病由微生物引起，为现代医学和公共卫生奠定了科学基础。",
+    "importance": 5,
     "tags": [
-      "生态",
-      "环境",
-      "系统"
+      "细菌",
+      "病原",
+      "巴斯德"
     ]
   },
   {
-    "id": "bio_virology",
-    "name": "病毒学",
-    "year": "1898",
+    "id": "bio_embryology",
+    "name": "胚胎学",
+    "year": "1828",
     "yearRange": [
-      1890,
-      1910
+      1820,
+      1840
     ],
     "era": "industrial",
     "domain": "biology",
     "prerequisites": [
-      "bio_germ_theory",
-      "bio_microscope"
+      "bio_microscope",
+      "bio_cell_theory"
     ],
-    "description": "伊万诺夫斯基发现烟草花叶病毒，贝杰林克确认病毒是一种新型感染因子，开创了病毒学研究。",
-    "importance": 4,
+    "description": "冯贝尔对胚胎发育的系统研究，发现了哺乳动物卵细胞并建立了比较胚胎学的基本原理。",
+    "importance": 3,
     "tags": [
-      "病毒",
-      "感染",
-      "烟草"
+      "胚胎",
+      "发育",
+      "卵"
     ]
   },
   {
@@ -327,73 +237,6 @@
       "染色体",
       "遗传",
       "减数分裂"
-    ]
-  },
-  {
-    "id": "bio_nervous",
-    "name": "神经科学",
-    "year": "1906",
-    "yearRange": [
-      1890,
-      1920
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_cell_theory",
-      "bio_anatomy_ancient"
-    ],
-    "description": "卡哈尔通过显微镜研究揭示神经元是神经系统的基本单位，提出了神经元学说，开创了现代神经科学。",
-    "importance": 4,
-    "tags": [
-      "神经元",
-      "大脑",
-      "卡哈尔"
-    ]
-  },
-  {
-    "id": "bio_neuroplasticity",
-    "name": "神经可塑性",
-    "year": "1949",
-    "yearRange": [
-      1940,
-      1970
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_nervous",
-      "bio_cell_theory"
-    ],
-    "description": "大脑在经验和学习影响下改变其结构和功能的能力，推翻了成人大脑不可改变的旧观念。",
-    "importance": 4,
-    "tags": [
-      "可塑性",
-      "学习",
-      "突触"
-    ]
-  },
-  {
-    "id": "bio_molecular_bio",
-    "name": "分子生物学",
-    "year": "1950",
-    "yearRange": [
-      1940,
-      1960
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_dna",
-      "bio_genetics_mendel",
-      "chem_organic"
-    ],
-    "description": "在分子水平上研究生命现象的学科，融合了遗传学、生物化学和生物物理学的方法和理论。",
-    "importance": 5,
-    "tags": [
-      "分子",
-      "生物化学",
-      "融合"
     ]
   },
   {
@@ -463,28 +306,6 @@
     ]
   },
   {
-    "id": "bio_mitochondria",
-    "name": "内共生学说",
-    "year": "1967",
-    "yearRange": [
-      1960,
-      1980
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_cell_theory",
-      "bio_evolution"
-    ],
-    "description": "马古利斯提出的内共生学说认为线粒体和叶绿体起源于被原始真核细胞吞噬的细菌，解释了真核细胞的起源。",
-    "importance": 4,
-    "tags": [
-      "内共生",
-      "线粒体",
-      "起源"
-    ]
-  },
-  {
     "id": "bio_restriction_enzyme",
     "name": "限制性内切酶",
     "year": "1970",
@@ -504,72 +325,6 @@
       "酶",
       "切割",
       "工具"
-    ]
-  },
-  {
-    "id": "bio_signal_transduction",
-    "name": "细胞信号转导",
-    "year": "1970",
-    "yearRange": [
-      1960,
-      1985
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_molecular_bio",
-      "bio_cell_theory"
-    ],
-    "description": "研究细胞如何接收、处理和响应外界信号的分子机制，是理解癌症、发育和免疫的关键。",
-    "importance": 4,
-    "tags": [
-      "信号",
-      "通路",
-      "受体"
-    ]
-  },
-  {
-    "id": "bio_circadian",
-    "name": "生物节律",
-    "year": "1971",
-    "yearRange": [
-      1960,
-      1985
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_genetics_mendel",
-      "bio_molecular_bio"
-    ],
-    "description": "生物体内在的昼夜节律调控机制，2017年诺贝尔奖表彰了周期基因的发现和分子机制的阐明。",
-    "importance": 3,
-    "tags": [
-      "昼夜",
-      "节律",
-      "时钟"
-    ]
-  },
-  {
-    "id": "bio_apoptosis",
-    "name": "细胞凋亡",
-    "year": "1972",
-    "yearRange": [
-      1970,
-      1990
-    ],
-    "era": "modern",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_cell_theory",
-      "bio_molecular_bio"
-    ],
-    "description": "细胞程序性死亡机制的发现，揭示了生命通过有序的细胞死亡维持组织稳态和发育的重要过程。",
-    "importance": 3,
-    "tags": [
-      "凋亡",
-      "程序性死亡",
-      "稳态"
     ]
   },
   {
@@ -595,73 +350,6 @@
     ]
   },
   {
-    "id": "bio_epigenetics",
-    "name": "表观遗传学",
-    "year": "1975",
-    "yearRange": [
-      1970,
-      2000
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_dna",
-      "bio_central_dogma"
-    ],
-    "description": "研究不改变DNA序列而影响基因表达的机制，如DNA甲基化和组蛋白修饰，揭示了环境对基因的调控作用。",
-    "importance": 4,
-    "tags": [
-      "表观",
-      "甲基化",
-      "调控"
-    ]
-  },
-  {
-    "id": "bio_bioinformatics",
-    "name": "生物信息学",
-    "year": "1980",
-    "yearRange": [
-      1970,
-      1990
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "it_computer",
-      "bio_dna",
-      "math_statistics_modern"
-    ],
-    "description": "利用计算机科学和统计学方法分析生物数据，特别是基因组序列数据，是现代生物学研究不可或缺的工具。",
-    "importance": 5,
-    "tags": [
-      "信息学",
-      "计算",
-      "基因组"
-    ]
-  },
-  {
-    "id": "bio_gmo",
-    "name": "转基因生物",
-    "year": "1980",
-    "yearRange": [
-      1978,
-      1985
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_genetic_eng",
-      "bio_restriction_enzyme"
-    ],
-    "description": "通过基因工程将外源基因导入生物体，创造自然界不存在的新品种，在农业和医药领域影响深远。",
-    "importance": 4,
-    "tags": [
-      "转基因",
-      "生物",
-      "改造"
-    ]
-  },
-  {
     "id": "bio_pcr",
     "name": "PCR技术",
     "year": "1985",
@@ -684,48 +372,48 @@
     ]
   },
   {
-    "id": "bio_protein_struct",
-    "name": "蛋白质组学",
-    "year": "1995",
+    "id": "bio_genome_human",
+    "name": "人类基因组计划",
+    "year": "2003",
     "yearRange": [
       1990,
-      2005
+      2003
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_genome_human",
-      "bio_dna",
-      "bio_molecular_bio"
+      "bio_pcr",
+      "it_computer",
+      "bio_dna"
     ],
-    "description": "大规模研究细胞中所有蛋白质的结构、功能和相互作用，是后基因组时代生物学研究的核心方向。",
-    "importance": 4,
+    "description": "历时13年完成的人类全基因组测序，确定了约20000个蛋白编码基因的位置和序列，开启了基因组医学时代。",
+    "importance": 5,
     "tags": [
-      "蛋白质",
-      "组学",
-      "功能"
+      "基因组",
+      "测序",
+      "人类"
     ]
   },
   {
-    "id": "bio_cloning",
-    "name": "动物克隆",
-    "year": "1996",
+    "id": "bio_crispr",
+    "name": "CRISPR基因编辑",
+    "year": "2012",
     "yearRange": [
-      1995,
-      1998
+      2010,
+      2015
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_cell_theory",
-      "bio_genetic_eng"
+      "bio_genetic_eng",
+      "bio_genome_human"
     ],
-    "description": "多利羊的诞生证明了成体哺乳动物细胞可以被重编程为全能性，是生物技术的里程碑事件。",
-    "importance": 4,
+    "description": "杜德纳和沙尔庞蒂耶开发的CRISPR-Cas9基因编辑工具，能精确修改基因组中任何位置的DNA序列，革命性地简化了基因编辑。",
+    "importance": 5,
     "tags": [
-      "克隆",
-      "多利",
-      "核移植"
+      "CRISPR",
+      "编辑",
+      "精确"
     ]
   },
   {
@@ -740,8 +428,7 @@
     "domain": "biology",
     "prerequisites": [
       "bio_cell_theory",
-      "bio_dna",
-      "bio_embryology"
+      "bio_dna"
     ],
     "description": "汤姆森首次分离人类胚胎干细胞，山中伸弥后来将成体细胞重编程为诱导多能干细胞(iPSC)，开辟了再生医学。",
     "importance": 5,
@@ -752,137 +439,47 @@
     ]
   },
   {
-    "id": "bio_rna_interference",
-    "name": "RNA干扰",
-    "year": "1998",
+    "id": "bio_epigenetics",
+    "name": "表观遗传学",
+    "year": "1975",
     "yearRange": [
-      1995,
-      2002
+      1970,
+      2000
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_central_dogma",
-      "bio_genetic_eng"
+      "bio_dna",
+      "bio_central_dogma"
     ],
-    "description": "小RNA分子能沉默特定基因表达的现象，提供了研究基因功能的新工具和疾病治疗的新策略。",
+    "description": "研究不改变DNA序列而影响基因表达的机制，如DNA甲基化和组蛋白修饰，揭示了环境对基因的调控作用。",
     "importance": 4,
     "tags": [
-      "RNAi",
-      "沉默",
+      "表观",
+      "甲基化",
       "调控"
     ]
   },
   {
-    "id": "bio_genome_human",
-    "name": "人类基因组计划",
-    "year": "2003",
+    "id": "bio_ecology",
+    "name": "生态学",
+    "year": "1866",
     "yearRange": [
-      1990,
-      2003
+      1860,
+      1900
     ],
-    "era": "information",
+    "era": "industrial",
     "domain": "biology",
     "prerequisites": [
-      "bio_pcr",
-      "it_computer",
-      "bio_dna",
-      "bio_bioinformatics"
+      "bio_evolution",
+      "bio_taxonomy"
     ],
-    "description": "历时13年完成的人类全基因组测序，确定了约20000个蛋白编码基因的位置和序列，开启了基因组医学时代。",
-    "importance": 5,
-    "tags": [
-      "基因组",
-      "测序",
-      "人类"
-    ]
-  },
-  {
-    "id": "bio_connectome",
-    "name": "连接组学",
-    "year": "2005",
-    "yearRange": [
-      2005,
-      2020
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_nervous",
-      "bio_bioinformatics"
-    ],
-    "description": "绘制大脑中所有神经元及其突触连接的完整图谱，是理解大脑功能的终极挑战之一。",
+    "description": "海克尔提出的生态学概念，研究生物与环境之间的相互关系，后来发展为关注生物多样性和生态系统的重要学科。",
     "importance": 4,
     "tags": [
-      "连接组",
-      "大脑",
-      "图谱"
-    ]
-  },
-  {
-    "id": "bio_microbiome",
-    "name": "微生物组研究",
-    "year": "2007",
-    "yearRange": [
-      2005,
-      2015
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_genome_human",
-      "bio_germ_theory"
-    ],
-    "description": "研究人体内和体表微生物群落对人体健康的影响，发现微生物组与肥胖、免疫和精神疾病等密切相关。",
-    "importance": 4,
-    "tags": [
-      "微生物组",
-      "肠道",
-      "健康"
-    ]
-  },
-  {
-    "id": "bio_single_cell",
-    "name": "单细胞测序",
-    "year": "2009",
-    "yearRange": [
-      2005,
-      2015
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_pcr",
-      "bio_genome_human"
-    ],
-    "description": "在单个细胞水平上进行基因组、转录组分析的技术，揭示了同一组织中不同细胞类型的异质性。",
-    "importance": 4,
-    "tags": [
-      "单细胞",
-      "异质性",
-      "测序"
-    ]
-  },
-  {
-    "id": "bio_organoid",
-    "name": "类器官技术",
-    "year": "2009",
-    "yearRange": [
-      2005,
-      2015
-    ],
-    "era": "information",
-    "domain": "biology",
-    "prerequisites": [
-      "bio_stem_cell",
-      "bio_cell_theory"
-    ],
-    "description": "在体外培养出具有三维结构和部分功能的微型器官，用于疾病建模、药物筛选和个性化医疗。",
-    "importance": 4,
-    "tags": [
-      "类器官",
-      "三维",
-      "培养"
+      "生态",
+      "环境",
+      "系统"
     ]
   },
   {
@@ -909,48 +506,246 @@
     ]
   },
   {
-    "id": "bio_xenobiology",
-    "name": "异种生物学",
-    "year": "2010",
+    "id": "bio_protein_struct",
+    "name": "蛋白质组学",
+    "year": "1995",
     "yearRange": [
-      2005,
-      2020
+      1990,
+      2005
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_synth_bio",
-      "bio_genetic_eng"
+      "bio_genome_human",
+      "bio_dna"
     ],
-    "description": "设计和创造自然界不存在的生物分子和代谢途径，探索生命的替代化学基础。",
-    "importance": 3,
+    "description": "大规模研究细胞中所有蛋白质的结构、功能和相互作用，是后基因组时代生物学研究的核心方向。",
+    "importance": 4,
     "tags": [
-      "异种",
-      "人工",
-      "替代"
+      "蛋白质",
+      "组学",
+      "功能"
     ]
   },
   {
-    "id": "bio_crispr",
-    "name": "CRISPR基因编辑",
-    "year": "2012",
+    "id": "bio_virology",
+    "name": "病毒学",
+    "year": "1898",
     "yearRange": [
-      2010,
+      1890,
+      1910
+    ],
+    "era": "industrial",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_germ_theory",
+      "bio_microscope"
+    ],
+    "description": "伊万诺夫斯基发现烟草花叶病毒，贝杰林克确认病毒是一种新型感染因子，开创了病毒学研究。",
+    "importance": 4,
+    "tags": [
+      "病毒",
+      "感染",
+      "烟草"
+    ]
+  },
+  {
+    "id": "bio_immunology",
+    "name": "免疫学",
+    "year": "1796",
+    "yearRange": [
+      1790,
+      1900
+    ],
+    "era": "industrial",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_germ_theory"
+    ],
+    "description": "从詹纳的牛痘接种到现代免疫学理论，研究机体如何识别和抵御外来入侵者的科学。",
+    "importance": 5,
+    "tags": [
+      "免疫",
+      "疫苗",
+      "抗体"
+    ]
+  },
+  {
+    "id": "bio_nervous",
+    "name": "神经科学",
+    "year": "1906",
+    "yearRange": [
+      1890,
+      1920
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_cell_theory",
+      "bio_anatomy_ancient"
+    ],
+    "description": "卡哈尔通过显微镜研究揭示神经元是神经系统的基本单位，提出了神经元学说，开创了现代神经科学。",
+    "importance": 4,
+    "tags": [
+      "神经元",
+      "大脑",
+      "卡哈尔"
+    ]
+  },
+  {
+    "id": "bio_molecular_bio",
+    "name": "分子生物学",
+    "year": "1950",
+    "yearRange": [
+      1940,
+      1960
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_dna",
+      "bio_genetics_mendel",
+      "chem_organic"
+    ],
+    "description": "在分子水平上研究生命现象的学科，融合了遗传学、生物化学和生物物理学的方法和理论。",
+    "importance": 5,
+    "tags": [
+      "分子",
+      "生物化学",
+      "融合"
+    ]
+  },
+  {
+    "id": "bio_cloning",
+    "name": "动物克隆",
+    "year": "1996",
+    "yearRange": [
+      1995,
+      1998
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_cell_theory",
+      "bio_genetic_eng"
+    ],
+    "description": "多利羊的诞生证明了成体哺乳动物细胞可以被重编程为全能性，是生物技术的里程碑事件。",
+    "importance": 4,
+    "tags": [
+      "克隆",
+      "多利",
+      "核移植"
+    ]
+  },
+  {
+    "id": "bio_bioinformatics",
+    "name": "生物信息学",
+    "year": "1980",
+    "yearRange": [
+      1970,
+      1990
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "it_computer",
+      "bio_dna",
+      "math_statistics_modern"
+    ],
+    "description": "利用计算机科学和统计学方法分析生物数据，特别是基因组序列数据，是现代生物学研究不可或缺的工具。",
+    "importance": 5,
+    "tags": [
+      "信息学",
+      "计算",
+      "基因组"
+    ]
+  },
+  {
+    "id": "bio_microbiome",
+    "name": "微生物组研究",
+    "year": "2007",
+    "yearRange": [
+      2005,
       2015
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_genetic_eng",
       "bio_genome_human",
-      "bio_restriction_enzyme"
+      "bio_germ_theory"
     ],
-    "description": "杜德纳和沙尔庞蒂耶开发的CRISPR-Cas9基因编辑工具，能精确修改基因组中任何位置的DNA序列，革命性地简化了基因编辑。",
-    "importance": 5,
+    "description": "研究人体内和体表微生物群落对人体健康的影响，发现微生物组与肥胖、免疫和精神疾病等密切相关。",
+    "importance": 4,
     "tags": [
-      "CRISPR",
-      "编辑",
-      "精确"
+      "微生物组",
+      "肠道",
+      "健康"
+    ]
+  },
+  {
+    "id": "bio_signal_transduction",
+    "name": "细胞信号转导",
+    "year": "1970",
+    "yearRange": [
+      1960,
+      1985
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_molecular_bio",
+      "bio_cell_theory"
+    ],
+    "description": "研究细胞如何接收、处理和响应外界信号的分子机制，是理解癌症、发育和免疫的关键。",
+    "importance": 4,
+    "tags": [
+      "信号",
+      "通路",
+      "受体"
+    ]
+  },
+  {
+    "id": "bio_apoptosis",
+    "name": "细胞凋亡",
+    "year": "1972",
+    "yearRange": [
+      1970,
+      1990
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_cell_theory",
+      "bio_molecular_bio"
+    ],
+    "description": "细胞程序性死亡机制的发现，揭示了生命通过有序的细胞死亡维持组织稳态和发育的重要过程。",
+    "importance": 3,
+    "tags": [
+      "凋亡",
+      "程序性死亡",
+      "稳态"
+    ]
+  },
+  {
+    "id": "bio_rna_interference",
+    "name": "RNA干扰",
+    "year": "1998",
+    "yearRange": [
+      1995,
+      2002
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_central_dogma",
+      "bio_genetic_eng"
+    ],
+    "description": "小RNA分子能沉默特定基因表达的现象，提供了研究基因功能的新工具和疾病治疗的新策略。",
+    "importance": 4,
+    "tags": [
+      "RNAi",
+      "沉默",
+      "调控"
     ]
   },
   {
@@ -1000,28 +795,201 @@
     ]
   },
   {
-    "id": "bio_alphafold2",
-    "name": "AlphaFold 2",
-    "year": "2021",
+    "id": "bio_neuroplasticity",
+    "name": "神经可塑性",
+    "year": "1949",
     "yearRange": [
-      2020,
-      2024
+      1940,
+      1970
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_nervous",
+      "bio_cell_theory"
+    ],
+    "description": "大脑在经验和学习影响下改变其结构和功能的能力，推翻了成人大脑不可改变的旧观念。",
+    "importance": 4,
+    "tags": [
+      "可塑性",
+      "学习",
+      "突触"
+    ]
+  },
+  {
+    "id": "bio_circadian",
+    "name": "生物节律",
+    "year": "1971",
+    "yearRange": [
+      1960,
+      1985
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_genetics_mendel",
+      "bio_molecular_bio"
+    ],
+    "description": "生物体内在的昼夜节律调控机制，2017年诺贝尔奖表彰了周期基因的发现和分子机制的阐明。",
+    "importance": 3,
+    "tags": [
+      "昼夜",
+      "节律",
+      "时钟"
+    ]
+  },
+  {
+    "id": "bio_paleontology",
+    "name": "古生物学",
+    "year": "1812",
+    "yearRange": [
+      1800,
+      1830
+    ],
+    "era": "industrial",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_natural_history",
+      "math_counting"
+    ],
+    "description": "居维叶等通过对化石的系统研究，揭示了地球历史上曾存在大量已灭绝的生物，为进化论提供了证据。",
+    "importance": 4,
+    "tags": [
+      "化石",
+      "灭绝",
+      "地层"
+    ]
+  },
+  {
+    "id": "bio_mitochondria",
+    "name": "内共生学说",
+    "year": "1967",
+    "yearRange": [
+      1960,
+      1980
+    ],
+    "era": "modern",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_cell_theory",
+      "bio_evolution"
+    ],
+    "description": "马古利斯提出的内共生学说认为线粒体和叶绿体起源于被原始真核细胞吞噬的细菌，解释了真核细胞的起源。",
+    "importance": 4,
+    "tags": [
+      "内共生",
+      "线粒体",
+      "起源"
+    ]
+  },
+  {
+    "id": "bio_gmo",
+    "name": "转基因生物",
+    "year": "1980",
+    "yearRange": [
+      1978,
+      1985
     ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
-      "bio_protein_folding",
-      "bio_bioinformatics",
-      "it_deep_learning",
-      "it_attention",
-      "chem_crystallography"
+      "bio_genetic_eng",
+      "bio_restriction_enzyme"
     ],
-    "description": "DeepMind发布的蛋白质结构预测系统，在CASP14竞赛中达到原子级精度，被誉为AI在生命科学领域最具变革性的突破之一。",
-    "importance": 5,
+    "description": "通过基因工程将外源基因导入生物体，创造自然界不存在的新品种，在农业和医药领域影响深远。",
+    "importance": 4,
     "tags": [
-      "AlphaFold",
-      "蛋白质",
-      "AI for Science"
+      "转基因",
+      "生物",
+      "改造"
+    ]
+  },
+  {
+    "id": "bio_single_cell",
+    "name": "单细胞测序",
+    "year": "2009",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_pcr",
+      "bio_genome_human"
+    ],
+    "description": "在单个细胞水平上进行基因组、转录组分析的技术，揭示了同一组织中不同细胞类型的异质性。",
+    "importance": 4,
+    "tags": [
+      "单细胞",
+      "异质性",
+      "测序"
+    ]
+  },
+  {
+    "id": "bio_organoid",
+    "name": "类器官技术",
+    "year": "2009",
+    "yearRange": [
+      2005,
+      2015
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_stem_cell",
+      "bio_cell_theory"
+    ],
+    "description": "在体外培养出具有三维结构和部分功能的微型器官，用于疾病建模、药物筛选和个性化医疗。",
+    "importance": 4,
+    "tags": [
+      "类器官",
+      "三维",
+      "培养"
+    ]
+  },
+  {
+    "id": "bio_xenobiology",
+    "name": "异种生物学",
+    "year": "2010",
+    "yearRange": [
+      2005,
+      2020
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_synth_bio",
+      "bio_genetic_eng"
+    ],
+    "description": "设计和创造自然界不存在的生物分子和代谢途径，探索生命的替代化学基础。",
+    "importance": 3,
+    "tags": [
+      "异种",
+      "人工",
+      "替代"
+    ]
+  },
+  {
+    "id": "bio_connectome",
+    "name": "连接组学",
+    "year": "2005",
+    "yearRange": [
+      2005,
+      2020
+    ],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_nervous",
+      "bio_bioinformatics"
+    ],
+    "description": "绘制大脑中所有神经元及其突触连接的完整图谱，是理解大脑功能的终极挑战之一。",
+    "importance": 4,
+    "tags": [
+      "连接组",
+      "大脑",
+      "图谱"
     ]
   }
 ]
