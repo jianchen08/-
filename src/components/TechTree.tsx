@@ -153,9 +153,9 @@ function getLayoutOptions(
       return {
         name: 'dagre',
         rankDir: 'LR' as const,
-        spacingFactor: 1.2,
-        nodeSep: 30,
-        rankSep: 80,
+        spacingFactor: 3.0,
+        nodeSep: 80,
+        rankSep: 160,
         animate: true,
         animationDuration: 500,
       };
@@ -164,18 +164,33 @@ function getLayoutOptions(
         name: 'cose-bilkent',
         animate: true,
         animationDuration: 800,
-        nodeRepulsion: 80000,
-        idealEdgeLength: 80,
-        gravity: 0.3,
+        nodeRepulsion: 400000,
+        idealEdgeLength: 180,
+        gravity: 0.08,
+        nodeSpacing: 40,
         randomize: true,
+        tile: false,
+        coolingFactor: 0.99,
+        minTemp: 1,
       };
     case 'timeline': {
       if (!nodes || !domains || !eras) {
         return { name: 'circle', animate: true, animationDuration: 500 };
       }
+
       const eraWeights = [0.08, 0.10, 0.10, 0.10, 0.12, 0.15, 0.35];
       const domainMap = new Map(domains.map((d, i) => [d.id, i]));
-      const positions: Record<string, { x: number; y: number }> = {};
+
+      // Layout constants — tuned for 500+ nodes across 12 domains
+      const DOMAIN_BAND_HEIGHT = 420;
+      const DOMAIN_GAP = 80;
+      const TOTAL_DOMAIN_PITCH = DOMAIN_BAND_HEIGHT + DOMAIN_GAP;
+      const CANVAS_WIDTH = 10000;
+      const NODE_RADIUS = 25;
+      const MIN_DIST = NODE_RADIUS * 2 + 12; // minimum center-to-center distance
+
+      // Step 1: compute X positions for each node
+      const rawPositions: Record<string, { x: number; _domainIdx: number; _hash: number }> = {};
       for (const node of nodes) {
         const year = typeof node.year === 'string' ? parseInt(node.year, 10) : node.year;
         let xPos = 0;
@@ -184,7 +199,7 @@ function getLayoutOptions(
           const weight = eraWeights[i] ?? 0.1;
           if (!era) break;
           const [eraStart, eraEnd] = era.yearRange;
-          const segmentWidth = weight * 5000;
+          const segmentWidth = weight * CANVAS_WIDTH;
           if (year <= eraStart) break;
           if (year >= eraEnd) {
             xPos += segmentWidth;
@@ -194,16 +209,73 @@ function getLayoutOptions(
             break;
           }
         }
-        const domainIdx = domainMap.get(node.domain) ?? 0;
-        const yBase = domainIdx * 120;
+        // deterministic small jitter to avoid exact X alignment
         let hash = 0;
         for (let i = 0; i < node.id.length; i++) {
           hash = ((hash << 5) - hash) + node.id.charCodeAt(i);
           hash |= 0;
         }
-        const jitter = (Math.abs(hash) % 60) - 30;
-        positions[node.id] = { x: xPos + jitter * 0.3, y: yBase + jitter };
+        xPos += (Math.abs(hash) % 40) - 20;
+        rawPositions[node.id] = {
+          x: xPos,
+          _domainIdx: domainMap.get(node.domain) ?? 0,
+          _hash: hash,
+        };
       }
+
+      // Step 2: within each domain, spread nodes vertically with collision avoidance
+      const domainGroups: Record<number, string[]> = {};
+      for (const node of nodes) {
+        const dIdx = rawPositions[node.id]._domainIdx;
+        if (!domainGroups[dIdx]) domainGroups[dIdx] = [];
+        domainGroups[dIdx].push(node.id);
+      }
+
+      const positions: Record<string, { x: number; y: number }> = {};
+
+      for (const dIdxStr of Object.keys(domainGroups)) {
+        const dIdx = parseInt(dIdxStr, 10);
+        const ids = domainGroups[dIdx];
+        // Sort by X position for deterministic placement
+        ids.sort((a, b) => rawPositions[a].x - rawPositions[b].x);
+
+        const yTop = dIdx * TOTAL_DOMAIN_PITCH;
+        const placed: { x: number; y: number }[] = [];
+
+        for (const id of ids) {
+          const px = rawPositions[id].x;
+          const hash2 = rawPositions[id]._hash;
+          const baseYOffset = Math.abs(hash2) % DOMAIN_BAND_HEIGHT;
+          let bestY = yTop + baseYOffset;
+          let found = false;
+
+          for (let attempt = 0; attempt < 50; attempt++) {
+            const tryY = yTop + ((baseYOffset + attempt * MIN_DIST * 0.75) % DOMAIN_BAND_HEIGHT);
+            let collision = false;
+            for (const p of placed) {
+              const ddx = px - p.x;
+              const ddy = tryY - p.y;
+              if (ddx * ddx + ddy * ddy < MIN_DIST * MIN_DIST) {
+                collision = true;
+                break;
+              }
+            }
+            if (!collision) {
+              bestY = tryY;
+              found = true;
+              break;
+            }
+          }
+
+          if (!found) {
+            bestY = yTop + ((baseYOffset + placed.length * 8) % DOMAIN_BAND_HEIGHT);
+          }
+
+          placed.push({ x: px, y: bestY });
+          positions[id] = { x: px, y: bestY };
+        }
+      }
+
       return {
         name: 'preset',
         positions: (ele: cytoscape.NodeSingular) => positions[ele.id()] ?? { x: 0, y: 0 },
@@ -215,20 +287,6 @@ function getLayoutOptions(
       return { name: 'dagre', animate: true };
   }
 }
-
-/** TechTree 暴露给父组件的方法 */
-export interface TechTreeHandle {
-  resetView: () => void;
-  focusNode: (nodeId: string) => void;
-}
-
-/** Cytoscape 样式 */
-function getCyStyle(): cytoscape.StylesheetStyle[] {
-  return [
-    {
-      selector: 'node',
-      style: {
-        label: 'data(name)',
         width: 'data(nodeSize)',
         height: 'data(nodeSize)',
         'background-color': 'data(displayColor)',

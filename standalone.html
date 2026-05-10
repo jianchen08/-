@@ -13159,51 +13159,107 @@ function buildElements() {
 function getLayoutOptions() {
   const layout = state.layout;
   if (layout === 'dagre') {
-    return { name:'dagre', rankDir:'LR', spacingFactor:1.2, nodeSep:30, rankSep:80, animate:true, animationDuration:500 };
+    return { name:'dagre', rankDir:'LR', spacingFactor:3.0, nodeSep:80, rankSep:160, animate:true, animationDuration:500 };
   } else if (layout === 'force') {
-    return { name:'cose-bilkent', animate:true, animationDuration:800, nodeRepulsion:80000, idealEdgeLength:80, gravity:0.3, randomize:true };
+    return { name:'cose-bilkent', animate:true, animationDuration:800, nodeRepulsion:400000, idealEdgeLength:180, gravity:0.08, nodeSpacing:40, randomize:true, tile:false, coolingFactor:0.99, minTemp:1 };
   } else {
-    // timeline layout
-    const eraWeights = [0.08, 0.10, 0.10, 0.10, 0.12, 0.15, 0.35];
-    const domainMap = new Map(allDomains.map((d, i) => [d.id, i]));
-    const positions = {};
-    const visibleNodes = allNodes.filter(n => passesFilter(n));
-    for (const node of visibleNodes) {
-      const year = node.year;
-      let xPos = 0;
-      for (let i = 0; i < allEras.length; i++) {
-        const era = allEras[i];
-        const weight = eraWeights[i] || 0.1;
-        const segmentWidth = weight * 5000;
-        const [eraStart, eraEnd] = era.yearRange;
+    // timeline layout — improved: large domain spacing + per-domain vertical spread + collision avoidance
+    var eraWeights = [0.08, 0.10, 0.10, 0.10, 0.12, 0.15, 0.35];
+    var domainMap = new Map(allDomains.map(function(d, i) { return [d.id, i]; }));
+    var domainCount = allDomains.length || 12;
+    var positions = {};
+    var visibleNodes = allNodes.filter(function(n) { return passesFilter(n); });
+    // Layout constants — tuned for 500+ nodes across 12 domains
+    var DOMAIN_BAND_HEIGHT = 420;
+    var DOMAIN_GAP = 80;
+    var TOTAL_DOMAIN_PITCH = DOMAIN_BAND_HEIGHT + DOMAIN_GAP;
+    var CANVAS_WIDTH = 10000;
+    var NODE_RADIUS = 25;
+    // Step 1: compute X positions for each node
+    for (var ni = 0; ni < visibleNodes.length; ni++) {
+      var node = visibleNodes[ni];
+      var year = node.year;
+      var xPos = 0;
+      for (var i = 0; i < allEras.length; i++) {
+        var era = allEras[i];
+        var weight = eraWeights[i] || 0.1;
+        var segmentWidth = weight * CANVAS_WIDTH;
+        var eraStart = era.yearRange[0];
+        var eraEnd = era.yearRange[1];
         if (year <= eraStart) break;
         if (year >= eraEnd) {
           xPos += segmentWidth;
         } else {
-          const t = (year - eraStart) / (eraEnd - eraStart);
+          var t = (year - eraStart) / (eraEnd - eraStart);
           xPos += t * segmentWidth;
           break;
         }
       }
-      const domainIdx = domainMap.get(node.domain) || 0;
-      const yBase = domainIdx * 120;
-      let hash = 0;
-      for (let i = 0; i < node.id.length; i++) {
-        hash = ((hash << 5) - hash) + node.id.charCodeAt(i);
+      // deterministic small jitter to avoid exact X alignment
+      var hash = 0;
+      for (var ci = 0; ci < node.id.length; ci++) {
+        hash = ((hash << 5) - hash) + node.id.charCodeAt(ci);
         hash |= 0;
       }
-      const jitter = (Math.abs(hash) % 60) - 30;
-      positions[node.id] = { x: xPos + jitter * 0.3, y: yBase + jitter };
+      xPos += (Math.abs(hash) % 40) - 20;
+      positions[node.id] = { x: xPos, _domainIdx: domainMap.get(node.domain) || 0, _hash: hash };
+    }
+    // Step 2: within each domain, spread nodes vertically to avoid overlap
+    var domainGroups = {};
+    for (var ni2 = 0; ni2 < visibleNodes.length; ni2++) {
+      var dIdx = positions[visibleNodes[ni2].id]._domainIdx;
+      if (!domainGroups[dIdx]) domainGroups[dIdx] = [];
+      domainGroups[dIdx].push(visibleNodes[ni2].id);
+    }
+    var dIdxKeys = Object.keys(domainGroups);
+    for (var ki = 0; ki < dIdxKeys.length; ki++) {
+      var dIdx = parseInt(dIdxKeys[ki]);
+      var ids = domainGroups[dIdx];
+      // Sort by X position for deterministic placement
+      ids.sort(function(a, b) { return positions[a].x - positions[b].x; });
+      var yTop = dIdx * TOTAL_DOMAIN_PITCH;
+      // Collision-avoidance: place nodes checking against already-placed
+      var placed = [];
+      var minDist = NODE_RADIUS * 2 + 12;
+      for (var ii = 0; ii < ids.length; ii++) {
+        var id = ids[ii];
+        var px = positions[id].x;
+        var hash2 = positions[id]._hash;
+        var baseYOffset = Math.abs(hash2) % DOMAIN_BAND_HEIGHT;
+        var bestY = yTop + baseYOffset;
+        var found = false;
+        for (var attempt = 0; attempt < 50; attempt++) {
+          var tryY = yTop + ((baseYOffset + attempt * (minDist * 0.75)) % DOMAIN_BAND_HEIGHT);
+          var collision = false;
+          for (var pi = 0; pi < placed.length; pi++) {
+            var ddx = px - placed[pi].x;
+            var ddy = tryY - placed[pi].y;
+            if (ddx * ddx + ddy * ddy < minDist * minDist) {
+              collision = true;
+              break;
+            }
+          }
+          if (!collision) {
+            bestY = tryY;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          bestY = yTop + (baseYOffset + placed.length * 8) % DOMAIN_BAND_HEIGHT;
+        }
+        placed.push({ x: px, y: bestY });
+        positions[id] = { x: px, y: bestY };
+      }
     }
     return {
       name: 'preset',
-      positions: function(ele) { return positions[ele.id()] || { x: 0, y: 0 }; },
+      positions: function(ele) { var p = positions[ele.id()]; return p ? { x: p.x, y: p.y } : { x: 0, y: 0 }; },
       animate: true,
       animationDuration: 500,
     };
   }
 }
-
 function getCyStyle() {
   return [
     {
