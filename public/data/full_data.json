@@ -107,7 +107,8 @@
     "era": "prehistoric",
     "domain": "materials",
     "prerequisites": [
-      "mat_fire"
+      "mat_fire",
+      "mat_stone_tools"
     ],
     "description": "人类首次通过高温化学变化创造新材料，将粘土烧制成容器。陶器的出现使粮食储存和烹饪成为可能，直接促进了定居农业的发展。",
     "importance": 5,
@@ -168,7 +169,8 @@
     "era": "prehistoric",
     "domain": "agriculture",
     "prerequisites": [
-      "mat_stone_tools"
+      "mat_stone_tools",
+      "soc_language"
     ],
     "description": "人类开始有选择地培育野生植物，将小麦、水稻、玉米等从野生种驯化为栽培种，是农业起源的标志。",
     "importance": 5,
@@ -189,7 +191,8 @@
     "era": "prehistoric",
     "domain": "agriculture",
     "prerequisites": [
-      "mat_stone_tools"
+      "mat_stone_tools",
+      "soc_language"
     ],
     "description": "从驯化狗开始，逐步驯化羊、牛、猪、马等动物，为人类提供稳定的肉、奶、毛皮和劳动力来源。",
     "importance": 5,
@@ -296,7 +299,8 @@
     "era": "ancient",
     "domain": "agriculture",
     "prerequisites": [
-      "ag_plant_domestication"
+      "ag_plant_domestication",
+      "mat_stone_tools"
     ],
     "description": "人工引水灌溉农田的技术，美索不达米亚和古埃及最早发展出沟渠灌溉系统，使农业不再完全依赖降雨。",
     "importance": 5,
@@ -317,7 +321,8 @@
     "era": "ancient",
     "domain": "agriculture",
     "prerequisites": [
-      "ag_plant_domestication"
+      "ag_plant_domestication",
+      "mat_pottery"
     ],
     "description": "利用微生物发酵制作面包、啤酒、葡萄酒和酱油的技术，是人类最早利用生物化学过程的实践。",
     "importance": 4,
@@ -424,7 +429,6 @@
     "era": "ancient",
     "domain": "engineering",
     "prerequisites": [
-      "mat_stone_tools",
       "mat_stone_tools"
     ],
     "description": "轮子是人类最重要的机械发明之一，将滑动摩擦转化为滚动摩擦，使运输效率革命性提升。",
@@ -577,7 +581,7 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_plant_domestication",
-      "chem_distillation"
+      "mat_fire"
     ],
     "description": "腌制、烟熏、干燥等保存食物的方法，使人类能够储存食物度过冬季和饥荒。",
     "importance": 4,
@@ -598,7 +602,8 @@
     "era": "ancient",
     "domain": "astronomy",
     "prerequisites": [
-      "math_counting"
+      "math_counting",
+      "soc_writing"
     ],
     "description": "古埃及、美索不达米亚和古中国的天文观测记录，用于制定历法、预测季节和导航，是天文学的起源。",
     "importance": 4,
@@ -619,7 +624,8 @@
     "era": "ancient",
     "domain": "energy",
     "prerequisites": [
-      "ag_fermentation"
+      "ag_fermentation",
+      "mat_pottery"
     ],
     "description": "利用动植物残体通过厌氧发酵产生沼气等能源，是最古老的可再生能源利用方式之一。",
     "importance": 3,
@@ -704,7 +710,8 @@
     "domain": "engineering",
     "prerequisites": [
       "mat_stone_tools",
-      "math_geometry_basic"
+      "math_geometry_basic",
+      "eng_mechanical"
     ],
     "description": "埃及金字塔、帕特农神庙和罗马万神殿等巨型建筑展示了古代工程的惊人成就。",
     "importance": 4,
@@ -857,7 +864,8 @@
     "era": "ancient",
     "domain": "agriculture",
     "prerequisites": [
-      "ag_plant_domestication"
+      "ag_plant_domestication",
+      "soc_trade_route"
     ],
     "description": "胡椒、肉桂、丁香等香料的生产和远距离贸易，推动了东西方贸易路线的开辟和大航海时代的到来。",
     "importance": 4,
@@ -1049,7 +1057,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_water_wheel",
-      "eng_aqueduct"
+      "eng_aqueduct",
+      "mat_stone_tools"
     ],
     "description": "从中国大运河到苏伊士运河的漫长发展，运河连接水系实现大规模物资运输，是重要的水利工程。",
     "importance": 4,
@@ -1134,7 +1143,8 @@
     "domain": "social",
     "prerequisites": [
       "soc_state",
-      "soc_law_code"
+      "soc_law_code",
+      "mat_bronze"
     ],
     "description": "从波斯帝国到罗马帝国，大规模跨民族的政治整合创造了行政管理、基础设施和文化传播的新模式。",
     "importance": 4,
@@ -1155,7 +1165,8 @@
     "era": "ancient",
     "domain": "biology",
     "prerequisites": [
-      "math_counting"
+      "math_counting",
+      "soc_language"
     ],
     "description": "亚里士多德对动植物的系统观察和分类，开创了博物学传统，是最早的系统性生物学研究。",
     "importance": 4,
@@ -1176,7 +1187,8 @@
     "era": "ancient",
     "domain": "medicine",
     "prerequisites": [
-      "med_herbal"
+      "med_herbal",
+      "bio_natural_history"
     ],
     "description": "希波克拉底将医学从巫术和宗教中分离，提出疾病有自然原因，强调观察和记录，被称为医学之父。",
     "importance": 5,
@@ -1198,7 +1210,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_mechanical",
-      "math_geometry_basic"
+      "math_geometry_basic",
+      "mat_stone_tools"
     ],
     "description": "罗马高架引水渠是古代最伟大的工程成就之一，利用重力将远处的水源引入城市，供应百万人口。",
     "importance": 4,
@@ -1241,7 +1254,8 @@
     "era": "ancient",
     "domain": "materials",
     "prerequisites": [
-      "mat_iron_smelting"
+      "mat_iron_smelting",
+      "mat_fire"
     ],
     "description": "通过渗碳和反复锻打将铁转化为钢的技术。大马士革钢和中国的百炼钢代表了古代炼钢的最高水平。",
     "importance": 4,
@@ -1348,7 +1362,8 @@
     "era": "ancient",
     "domain": "physics",
     "prerequisites": [
-      "math_geometry_basic"
+      "math_geometry_basic",
+      "eng_mechanical"
     ],
     "description": "阿基米德系统阐述的杠杆原理，给出了力矩平衡的数学描述，是静力学和机械工程的基础。",
     "importance": 4,
@@ -1413,7 +1428,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_irrigation",
-      "ag_plant_domestication"
+      "ag_plant_domestication",
+      "mat_stone_tools"
     ],
     "description": "在山坡上修筑阶梯状田地的技术，有效利用了山地资源，防止水土流失，中国、东南亚和印加帝国都有杰出的梯田系统。",
     "importance": 3,
@@ -1499,7 +1515,8 @@
     "era": "ancient",
     "domain": "medicine",
     "prerequisites": [
-      "med_herbal"
+      "med_herbal",
+      "soc_philosophy"
     ],
     "description": "以阴阳五行理论为基础的传统医学体系，包括针灸、中药、推拿等，延续两千多年。",
     "importance": 4,
@@ -1543,7 +1560,8 @@
     "domain": "materials",
     "prerequisites": [
       "mat_fire",
-      "mat_stone_tools"
+      "mat_stone_tools",
+      "math_geometry_basic"
     ],
     "description": "罗马人发明的火山灰水泥，具有水下硬化的特性，使万神殿穹顶和罗马水道等巨型建筑得以建成。",
     "importance": 4,
@@ -1564,7 +1582,8 @@
     "era": "ancient",
     "domain": "biology",
     "prerequisites": [
-      "bio_natural_history"
+      "bio_natural_history",
+      "med_herbal"
     ],
     "description": "迪奥斯科里德斯的《药物论》详细记录了约600种植物的药用价值，影响了此后1500年的药学实践。",
     "importance": 3,
@@ -1630,7 +1649,8 @@
     "domain": "chemistry",
     "prerequisites": [
       "mat_fire",
-      "mat_bronze"
+      "mat_bronze",
+      "soc_trade_route"
     ],
     "description": "欧洲和伊斯兰世界炼金术士试图将贱金属转化为黄金的实践，虽目标错误但积累了大量实验技术和化学知识。",
     "importance": 4,
@@ -1651,7 +1671,8 @@
     "era": "ancient",
     "domain": "medicine",
     "prerequisites": [
-      "med_hippocrates"
+      "med_hippocrates",
+      "soc_religion_org"
     ],
     "description": "从拜占庭和伊斯兰世界的医疗机构到中世纪教会医院，系统化的医疗照护机构逐渐发展。",
     "importance": 4,
@@ -1694,7 +1715,8 @@
     "era": "medieval",
     "domain": "math",
     "prerequisites": [
-      "math_arithmetic"
+      "math_arithmetic",
+      "soc_cultural_exchange"
     ],
     "description": "印度数学家发展出包含零的十进制位值记数法，这一系统后来经阿拉伯世界传入欧洲，成为现代数字系统的基础。",
     "importance": 5,
@@ -1738,7 +1760,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_plant_domestication",
-      "mat_stone_tools"
+      "eng_mechanical",
+      "eng_windmill_power"
     ],
     "description": "利用风能驱动磨石碾磨粮食的装置，在荷兰和中东广泛使用，是农业加工机械化的重要里程碑。",
     "importance": 3,
@@ -1802,7 +1825,8 @@
     "era": "medieval",
     "domain": "agriculture",
     "prerequisites": [
-      "ag_crop_rotation"
+      "ag_crop_rotation",
+      "ag_plow"
     ],
     "description": "将耕地分为三部分轮流种植冬作物、春作物和休耕的农业制度，比二圃制提高了土地利用效率。",
     "importance": 4,
@@ -1954,7 +1978,8 @@
     "era": "medieval",
     "domain": "materials",
     "prerequisites": [
-      "mat_paper"
+      "mat_paper",
+      "eng_mechanical"
     ],
     "description": "毕昇发明的活字印刷术使用可重复使用的陶质活字排版，比雕版印刷更灵活高效，后经古腾堡发展为金属活字。",
     "importance": 5,
@@ -1998,7 +2023,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_architecture_ancient",
-      "mat_stone_tools"
+      "mat_stone_tools",
+      "math_geometry_basic"
     ],
     "description": "飞扶壁、尖拱和肋架拱顶使哥特教堂能达到前所未有的高度，是中世纪建筑技术的巅峰。",
     "importance": 3,
@@ -2019,7 +2045,8 @@
     "era": "medieval",
     "domain": "engineering",
     "prerequisites": [
-      "eng_water_wheel"
+      "eng_water_wheel",
+      "eng_mechanical"
     ],
     "description": "欧洲广泛使用的风车为排水、磨面和锯木提供动力，是工业革命前机械动力的重要来源。",
     "importance": 3,
@@ -2150,7 +2177,8 @@
     "domain": "social",
     "prerequisites": [
       "soc_university",
-      "soc_philosophy"
+      "soc_philosophy",
+      "soc_cultural_exchange"
     ],
     "description": "对古典文化的重新发现和人文主义的兴起，挑战了中世纪的宗教权威，强调人的价值和理性。",
     "importance": 5,
@@ -2258,7 +2286,8 @@
     "era": "renaissance",
     "domain": "medicine",
     "prerequisites": [
-      "med_anatomy_galen"
+      "med_anatomy_galen",
+      "soc_renaissance"
     ],
     "description": "维萨里通过实际人体解剖纠正了盖伦的诸多错误，出版《人体结构》，开创了现代解剖学。",
     "importance": 5,
@@ -2588,7 +2617,8 @@
     "domain": "astronomy",
     "prerequisites": [
       "astro_telescope_refract",
-      "mat_glass"
+      "mat_glass",
+      "phys_optics_ancient"
     ],
     "description": "牛顿发明的反射望远镜用凹面镜代替透镜聚焦，避免了色差问题，成为大型天文望远镜的主流设计。",
     "importance": 4,
@@ -2744,7 +2774,8 @@
     "domain": "social",
     "prerequisites": [
       "soc_money",
-      "eng_steam_engine"
+      "eng_steam_engine",
+      "soc_enlightenment"
     ],
     "description": "以私有制、市场竞争和利润驱动为特征的经济体系，与工业革命相互促进，创造了前所未有的财富。",
     "importance": 5,
@@ -2766,7 +2797,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_plant_domestication",
-      "eng_mechanical"
+      "eng_mechanical",
+      "mat_wrought_iron"
     ],
     "description": "杰思罗·塔尔发明的机械播种机将种子以精确的间距和深度播入土中，大幅提高了播种效率和出苗率。",
     "importance": 4,
@@ -3158,7 +3190,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_seed_drill",
-      "mat_wrought_iron"
+      "mat_wrought_iron",
+      "eng_mechanical"
     ],
     "description": "安德鲁·梅克尔发明的机械脱粒机将谷物从穗上分离，结束了人工打谷的历史，是农业机械化的重要一步。",
     "importance": 4,
@@ -3201,7 +3234,8 @@
     "era": "industrial",
     "domain": "biology",
     "prerequisites": [
-      "bio_germ_theory"
+      "bio_germ_theory",
+      "bio_cell_theory"
     ],
     "description": "从詹纳的牛痘接种到现代免疫学理论，研究机体如何识别和抵御外来入侵者的科学。",
     "importance": 5,
@@ -3310,7 +3344,8 @@
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "chem_electrochemistry"
     ],
     "description": "伏打发明的化学电池首次提供持续的电流，开启了电化学和电学实验的新时代。",
     "importance": 5,
@@ -3353,7 +3388,8 @@
     "era": "industrial",
     "domain": "it",
     "prerequisites": [
-      "it_mechanical_calc"
+      "it_mechanical_calc",
+      "mat_paper"
     ],
     "description": "雅卡尔织布机用穿孔卡片控制图案，后来 Hollerith 将其用于数据制表，是程序控制概念的起源。",
     "importance": 4,
@@ -3442,7 +3478,7 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_steam_engine",
-      "eng_wheel"
+      "eng_fluid_mechanics"
     ],
     "description": "富尔顿建造的蒸汽轮船克勒蒙号首次实现商业航行，使水运不再完全依赖风力。",
     "importance": 4,
@@ -3464,7 +3500,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_food_preserve",
-      "mat_glass"
+      "mat_glass",
+      "mat_wrought_iron"
     ],
     "description": "阿佩尔发明的加热密封保存食物的方法，为拿破仑军队解决口粮问题而诞生，开启了现代食品工业。",
     "importance": 4,
@@ -3530,8 +3567,9 @@
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "energy_oil",
-      "energy_gas_turbine"
+      "mat_fire",
+      "mat_cast_iron",
+      "soc_industrial_society"
     ],
     "description": "天然气作为较清洁的化石能源广泛用于发电、供暖和化工，液化天然气贸易已全球化。",
     "importance": 4,
@@ -3597,7 +3635,8 @@
     "domain": "engineering",
     "prerequisites": [
       "mat_steel_bessemer",
-      "math_calculus"
+      "math_calculus",
+      "eng_structural_analysis"
     ],
     "description": "特尔福德和布鲁内尔建造的现代悬索桥利用钢缆承受荷载，实现了前所未有的大跨度。",
     "importance": 3,
@@ -3706,7 +3745,8 @@
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "eng_generator"
+      "eng_generator",
+      "energy_coal"
     ],
     "description": "法拉第电磁感应定律使机械能大规模转化为电能成为可能，电力时代由此开始。",
     "importance": 5,
@@ -3727,7 +3767,8 @@
     "era": "industrial",
     "domain": "engineering",
     "prerequisites": [
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "eng_mechanical"
     ],
     "description": "法拉第发现的电磁感应原理使机械能转化为电能成为可能，是整个电力工业的基础。",
     "importance": 5,
@@ -3770,7 +3811,8 @@
     "era": "industrial",
     "domain": "engineering",
     "prerequisites": [
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "eng_mechanical"
     ],
     "description": "利用电磁感应将电能转化为机械能的装置，从工厂动力到家电驱动都离不开电动机。",
     "importance": 5,
@@ -3792,7 +3834,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_thresher",
-      "mat_steel_bessemer"
+      "mat_steel_bessemer",
+      "eng_internal_combustion"
     ],
     "description": "将收割、脱粒、清选合为一体的农业机械，一台联合收割机可替代上百人的劳动。",
     "importance": 4,
@@ -3813,7 +3856,8 @@
     "era": "industrial",
     "domain": "chemistry",
     "prerequisites": [
-      "chem_atomic_theory"
+      "chem_atomic_theory",
+      "chem_organic"
     ],
     "description": "贝采利乌斯提出的催化概念，催化剂能加速反应但自身不被消耗，后来成为化学工业的核心技术原理。",
     "importance": 4,
@@ -3834,7 +3878,8 @@
     "era": "industrial",
     "domain": "engineering",
     "prerequisites": [
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "eng_electric_motor"
     ],
     "description": "莫尔斯电报系统实现了远距离即时通信，铁路和电报的结合彻底改变了信息传递的速度。",
     "importance": 5,
@@ -3964,7 +4009,8 @@
     "era": "industrial",
     "domain": "materials",
     "prerequisites": [
-      "mat_fire"
+      "mat_fire",
+      "chem_elements"
     ],
     "description": "固特异发明的硫化工艺将硫磺与橡胶加热反应，使橡胶变得坚韧而有弹性，催生了轮胎工业。",
     "importance": 4,
@@ -4225,7 +4271,8 @@
     "era": "industrial",
     "domain": "chemistry",
     "prerequisites": [
-      "chem_thermochem"
+      "chem_thermochem",
+      "math_calculus"
     ],
     "description": "研究化学反应速率和机理的学科，从宏观速率方程到微观反应动力学，使化学家能理解和控制反应过程。",
     "importance": 4,
@@ -4269,7 +4316,8 @@
     "domain": "medicine",
     "prerequisites": [
       "med_epidemiology",
-      "med_germ_disease"
+      "med_germ_disease",
+      "soc_democracy_modern"
     ],
     "description": "系统化的公共卫生基础设施，包括饮水安全、疫苗接种、传染病监控和健康教育。",
     "importance": 5,
@@ -4311,7 +4359,8 @@
     "era": "industrial",
     "domain": "engineering",
     "prerequisites": [
-      "phys_thermodynamics_1"
+      "phys_thermodynamics_1",
+      "eng_mechanical"
     ],
     "description": "利用蒸发吸热原理的人工制冷技术，不仅用于食品保鲜，还为空调和工业冷却提供了基础。",
     "importance": 4,
@@ -4553,7 +4602,8 @@
     "era": "industrial",
     "domain": "energy",
     "prerequisites": [
-      "energy_battery_voltaic"
+      "energy_battery_voltaic",
+      "chem_electrochemistry"
     ],
     "description": "普朗特发明的铅酸电池是第一种可充电电池，使电能的储存和移动使用成为可能。",
     "importance": 4,
@@ -4970,7 +5020,8 @@
     "domain": "engineering",
     "prerequisites": [
       "phys_thermodynamics_1",
-      "chem_gas_laws"
+      "chem_gas_laws",
+      "eng_mechanical"
     ],
     "description": "奥托发明的四冲程内燃机将燃料直接在气缸内燃烧产生动力，比蒸汽机更轻便更高效。",
     "importance": 5,
@@ -5169,7 +5220,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_internal_combustion",
-      "mat_rubber_vulcan"
+      "mat_rubber_vulcan",
+      "eng_mechanical"
     ],
     "description": "本茨和戴姆勒各自制造的汽油汽车开启了个人交通工具的新时代，深刻改变了人类的生活方式。",
     "importance": 5,
@@ -5191,7 +5243,8 @@
     "domain": "materials",
     "prerequisites": [
       "mat_fire",
-      "chem_electrolysis"
+      "chem_electrolysis",
+      "energy_electricity_gen"
     ],
     "description": "霍尔和埃鲁同时发明的电解炼铝法，将氧化铝在熔融冰晶石中电解，使铝从贵金属变为大众金属。",
     "importance": 5,
@@ -5278,7 +5331,8 @@
     "era": "industrial",
     "domain": "it",
     "prerequisites": [
-      "phys_maxwell"
+      "phys_maxwell",
+      "eng_electric_motor"
     ],
     "description": "马可尼实现的无线电通信开创了无线时代，后来发展为移动通信和WiFi等技术。",
     "importance": 5,
@@ -5363,7 +5417,8 @@
     "era": "industrial",
     "domain": "physics",
     "prerequisites": [
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "phys_thermodynamics_2"
     ],
     "description": "汤姆孙通过阴极射线实验发现了电子，揭示了原子不是不可分割的最小粒子，打开了亚原子世界的大门。",
     "importance": 5,
@@ -5627,7 +5682,8 @@
     "prerequisites": [
       "eng_internal_combustion",
       "phys_classical_mechanics",
-      "mat_aluminum"
+      "mat_aluminum",
+      "eng_fluid_mechanics"
     ],
     "description": "莱特兄弟首次实现有动力可控飞行，开启了航空时代，最终使跨洋旅行只需数小时。",
     "importance": 5,
@@ -5736,7 +5792,8 @@
     "era": "modern",
     "domain": "chemistry",
     "prerequisites": [
-      "chem_organic"
+      "chem_organic",
+      "chem_structural"
     ],
     "description": "茨维特发明的色谱分离技术，利用混合物各组分在固定相和流动相间分配系数不同实现分离，是化学分析的核心方法。",
     "importance": 4,
@@ -5758,7 +5815,8 @@
     "domain": "materials",
     "prerequisites": [
       "chem_synthetic_dye",
-      "mat_fire"
+      "mat_fire",
+      "chem_polymer_theory"
     ],
     "description": "贝克兰发明的第一种完全合成塑料，标志着塑料时代的开启。酚醛树脂绝缘性好，广泛用于电器外壳。",
     "importance": 5,
@@ -6002,7 +6060,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_automobile",
-      "mat_steel_bessemer"
+      "mat_steel_bessemer",
+      "soc_industrial_society"
     ],
     "description": "福特发明的移动流水线将汽车装配时间从12小时缩短到1.5小时，开创了大规模工业生产模式。",
     "importance": 5,
@@ -6181,7 +6240,8 @@
     "prerequisites": [
       "chem_organic",
       "chem_catalysis",
-      "mat_steel_bessemer"
+      "mat_steel_bessemer",
+      "energy_oil"
     ],
     "description": "以石油为原料生产各种化学品的工业体系，从裂解到聚合，提供了现代塑料、合成纤维和橡胶的原材料。",
     "importance": 5,
@@ -6203,7 +6263,8 @@
     "domain": "social",
     "prerequisites": [
       "eng_telegraph",
-      "eng_steam_engine"
+      "eng_steam_engine",
+      "eng_printing_press"
     ],
     "description": "从广播到电视，大众传媒使信息传播速度从天缩短到秒，深刻影响了政治和文化。",
     "importance": 4,
@@ -6248,7 +6309,8 @@
     "domain": "medicine",
     "prerequisites": [
       "med_germ_disease",
-      "bio_cell_theory"
+      "bio_cell_theory",
+      "chem_organic"
     ],
     "description": "班廷和贝斯特提取的胰岛素使糖尿病从绝症变为可控的慢性病，是生物制药的开端。",
     "importance": 5,
@@ -6294,7 +6356,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_internal_combustion",
-      "phys_classical_mechanics"
+      "phys_classical_mechanics",
+      "eng_fluid_mechanics"
     ],
     "description": "戈达德发射的第一枚液体燃料火箭开启了航天推进技术，后来发展为送人类上月的土星五号。",
     "importance": 5,
@@ -6446,7 +6509,8 @@
     "era": "modern",
     "domain": "energy",
     "prerequisites": [
-      "energy_hydroelectric"
+      "energy_hydroelectric",
+      "eng_generator"
     ],
     "description": "利用电力低谷时段将水抽到高处储存，高峰时段放水发电的大规模储能方式，是目前最成熟的大规模储能技术。",
     "importance": 3,
@@ -6600,7 +6664,8 @@
     "domain": "astronomy",
     "prerequisites": [
       "phys_electromagnetism",
-      "phys_maxwell"
+      "phys_maxwell",
+      "it_signal_processing"
     ],
     "description": "央斯基发现来自银河系中心的射电辐射，开创了射电天文学，使人类可以在电磁波谱的射电波段观测宇宙。",
     "importance": 4,
@@ -6953,7 +7018,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_internal_combustion",
-      "mat_superalloy"
+      "mat_superalloy",
+      "eng_fluid_mechanics"
     ],
     "description": "惠特尔和冯奥安发明的喷气发动机以高速喷气产生推力，使飞行速度突破了螺旋桨的极限。",
     "importance": 5,
@@ -7063,7 +7129,8 @@
     "domain": "engineering",
     "prerequisites": [
       "phys_nuclear_fission",
-      "eng_plumbing"
+      "eng_plumbing",
+      "eng_control_system"
     ],
     "description": "费米领导的团队建造了第一座核反应堆，实现了可控核裂变链式反应，开启了核能时代。",
     "importance": 5,
@@ -7085,7 +7152,8 @@
     "domain": "it",
     "prerequisites": [
       "it_boolean_logic",
-      "math_turing"
+      "math_turing",
+      "eng_electromagnet"
     ],
     "description": "世界第一台可编程电子计算机，用于破解德国密码，证明了电子计算的可行性。",
     "importance": 4,
@@ -7107,7 +7175,8 @@
     "domain": "it",
     "prerequisites": [
       "math_boolean",
-      "math_calculus"
+      "math_calculus",
+      "math_probability"
     ],
     "description": "McCulloch和Pitts提出的神经网络数学模型，Rosenblatt发明感知机，是人工智能的起源之一。",
     "importance": 5,
@@ -7151,7 +7220,8 @@
     "domain": "it",
     "prerequisites": [
       "it_colossus",
-      "phys_electron"
+      "phys_electron",
+      "eng_electromagnet"
     ],
     "description": "第一台通用电子数字计算机，重30吨，用18000个真空管，标志着计算机时代的正式开始。",
     "importance": 5,
@@ -7262,7 +7332,8 @@
     "domain": "chemistry",
     "prerequisites": [
       "phys_quantum_theory",
-      "phys_electromagnetism"
+      "phys_electromagnetism",
+      "eng_electromagnet"
     ],
     "description": "布洛赫和珀塞尔发现的核磁共振现象，后来成为有机化学结构鉴定最重要的分析工具，也是MRI医学成像的基础。",
     "importance": 5,
@@ -7374,7 +7445,7 @@
     "prerequisites": [
       "soc_socialism",
       "soc_capitalism",
-      "eng_nuclear_reactor"
+      "phys_nuclear_fission"
     ],
     "description": "美苏两大阵营的意识形态对抗塑造了近半个世纪的世界格局，核威慑维持了不稳定的和平。",
     "importance": 5,
@@ -7396,7 +7467,8 @@
     "domain": "engineering",
     "prerequisites": [
       "math_control_theory",
-      "eng_mechanical"
+      "eng_mechanical",
+      "it_computer"
     ],
     "description": "维纳等人发展的自动控制理论，使机械系统能够自主调节和稳定运行，是自动化的核心。",
     "importance": 4,
@@ -7618,7 +7690,8 @@
     "era": "modern",
     "domain": "engineering",
     "prerequisites": [
-      "mat_polyethylene"
+      "mat_polyethylene",
+      "eng_mechanical"
     ],
     "description": "塑料管道耐腐蚀、低成本、易安装，取代了大量金属管道在建筑和市政工程中的应用。",
     "importance": 2,
@@ -7662,7 +7735,8 @@
     "domain": "social",
     "prerequisites": [
       "soc_capitalism",
-      "eng_assembly_line"
+      "eng_assembly_line",
+      "soc_industrial_society"
     ],
     "description": "大规模生产带来的廉价商品和广告驱动的消费文化，创造了人类历史上最富裕的社会。",
     "importance": 4,
@@ -7706,7 +7780,8 @@
     "domain": "engineering",
     "prerequisites": [
       "it_computer",
-      "eng_mechanical"
+      "eng_mechanical",
+      "eng_control_system"
     ],
     "description": "麻省理工学院开发的数控铣床用数字指令控制刀具运动，实现了加工精度和效率的飞跃。",
     "importance": 4,
@@ -7885,7 +7960,8 @@
     "prerequisites": [
       "math_logic",
       "bio_nervous",
-      "soc_psychology"
+      "soc_psychology",
+      "it_computer"
     ],
     "description": "跨学科研究心智和智能的科学，融合心理学、语言学、神经科学和计算机科学。",
     "importance": 4,
@@ -7929,7 +8005,9 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_rocket",
-      "phys_relativity_special"
+      "phys_relativity_special",
+      "it_computer",
+      "eng_control_system"
     ],
     "description": "苏联发射的第一颗人造卫星开启了太空时代，卫星通信和导航深刻改变了人类社会。",
     "importance": 5,
@@ -8038,7 +8116,8 @@
     "domain": "materials",
     "prerequisites": [
       "mat_glass",
-      "mat_silicon_purify"
+      "mat_silicon_purify",
+      "phys_quantum_theory"
     ],
     "description": "利用光学投影将电路图案转移到硅片上的技术，光刻精度的不断提升是摩尔定律得以延续的关键。",
     "importance": 5,
@@ -8216,7 +8295,8 @@
     "prerequisites": [
       "eng_satellite",
       "eng_rocket",
-      "mat_titanium"
+      "mat_titanium",
+      "eng_avionics"
     ],
     "description": "从加加林首次太空飞行到阿波罗登月，人类突破了地球引力的束缚，踏上了其他天体。",
     "importance": 5,
@@ -8239,7 +8319,8 @@
     "prerequisites": [
       "it_computer",
       "eng_mechanical",
-      "math_control_theory"
+      "math_control_theory",
+      "eng_electric_motor"
     ],
     "description": "第一台工业机器人Unimate在通用汽车工厂投入使用，开启了制造业自动化的新时代。",
     "importance": 5,
@@ -8436,7 +8517,8 @@
     "era": "modern",
     "domain": "astronomy",
     "prerequisites": [
-      "astro_big_bang"
+      "astro_big_bang",
+      "phys_electromagnetism"
     ],
     "description": "彭齐亚斯和威尔逊发现的宇宙微波背景辐射，温度约2.7K，是大爆炸理论最强有力的观测证据。",
     "importance": 5,
@@ -8787,7 +8869,8 @@
     "era": "information",
     "domain": "agriculture",
     "prerequisites": [
-      "ag_fertilizer_synthetic"
+      "ag_fertilizer_synthetic",
+      "ag_irrigation"
     ],
     "description": "系统化的鱼类和贝类养殖技术，已成为全球增长最快的食品生产部门，提供了人类消费的一半以上的鱼类。",
     "importance": 3,
@@ -8897,7 +8980,8 @@
     "domain": "materials",
     "prerequisites": [
       "mat_fiber_glass",
-      "mat_silicon_purify"
+      "mat_silicon_purify",
+      "phys_laser"
     ],
     "description": "高纯二氧化硅制成的光导纤维，通过全反射传输光信号，是互联网时代信息传输的物理基础。",
     "importance": 5,
@@ -9382,7 +9466,8 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_satellite",
-      "phys_relativity_special"
+      "phys_relativity_special",
+      "it_computer"
     ],
     "description": "全球定位系统利用卫星信号三角定位，精度可达米级，是现代导航和定位的基础设施。",
     "importance": 5,
@@ -9537,7 +9622,8 @@
     "domain": "energy",
     "prerequisites": [
       "energy_wind_power",
-      "eng_generator"
+      "eng_generator",
+      "mat_fiber_glass"
     ],
     "description": "大型风力涡轮机组将风能转化为电能，成本已降至与化石能源竞争的水平，装机量快速增长。",
     "importance": 4,
@@ -9647,7 +9733,8 @@
     "era": "information",
     "domain": "it",
     "prerequisites": [
-      "it_tcp_ip"
+      "it_tcp_ip",
+      "eng_power_grid"
     ],
     "description": "从ARPANET发展而来的全球计算机网络，连接了数十亿设备和用户，是信息时代的基础设施。",
     "importance": 5,
@@ -9778,7 +9865,8 @@
     "domain": "materials",
     "prerequisites": [
       "mat_nanomaterial",
-      "mat_polyethylene"
+      "mat_polyethylene",
+      "it_computer"
     ],
     "description": "增材制造专用材料的发展，包括光敏树脂、金属粉末和生物相容材料，正在变革传统制造模式。",
     "importance": 4,
@@ -9867,7 +9955,8 @@
     "domain": "astronomy",
     "prerequisites": [
       "astro_telescope_reflect",
-      "eng_rocket"
+      "eng_rocket",
+      "eng_satellite"
     ],
     "description": "哈勃太空望远镜在大气层外运行，不受大气湍流影响，拍摄了宇宙最深处的照片，深刻改变了人类对宇宙的认识。",
     "importance": 5,
@@ -9889,7 +9978,8 @@
     "domain": "chemistry",
     "prerequisites": [
       "chem_organic",
-      "it_computer"
+      "it_computer",
+      "chem_synthetic_dye"
     ],
     "description": "通过系统组合大量化学构建块快速生成化合物库的方法，加速了新药发现和材料筛选的过程。",
     "importance": 3,
@@ -9978,7 +10068,8 @@
     "domain": "energy",
     "prerequisites": [
       "energy_rechargeable",
-      "chem_electrochemistry"
+      "chem_electrochemistry",
+      "mat_nanomaterial"
     ],
     "description": "高能量密度的锂离子电池革命性地改变了移动电子设备和电动汽车，2019年获诺贝尔化学奖。",
     "importance": 5,
@@ -10134,7 +10225,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_tractor",
-      "eng_gps"
+      "eng_gps",
+      "it_computer"
     ],
     "description": "利用GPS定位、传感器和大数据分析实现精准施肥、喷药和灌溉，减少浪费提高产量的现代农业方式。",
     "importance": 4,
@@ -10156,7 +10248,8 @@
     "domain": "biology",
     "prerequisites": [
       "bio_genome_human",
-      "bio_dna"
+      "bio_dna",
+      "bio_molecular_bio"
     ],
     "description": "大规模研究细胞中所有蛋白质的结构、功能和相互作用，是后基因组时代生物学研究的核心方向。",
     "importance": 4,
@@ -10288,7 +10381,8 @@
     "domain": "it",
     "prerequisites": [
       "it_computer",
-      "it_internet"
+      "it_internet",
+      "eng_power_grid"
     ],
     "description": "大规模服务器集群和精密冷却系统构成的数据中心，是互联网和云计算的物理基础设施。",
     "importance": 4,
@@ -10399,7 +10493,8 @@
     "domain": "biology",
     "prerequisites": [
       "bio_cell_theory",
-      "bio_dna"
+      "bio_dna",
+      "bio_embryology"
     ],
     "description": "汤姆森首次分离人类胚胎干细胞，山中伸弥后来将成体细胞重编程为诱导多能干细胞(iPSC)，开辟了再生医学。",
     "importance": 5,
@@ -10642,7 +10737,8 @@
     "prerequisites": [
       "bio_pcr",
       "it_computer",
-      "bio_dna"
+      "bio_dna",
+      "bio_bioinformatics"
     ],
     "description": "历时13年完成的人类全基因组测序，确定了约20000个蛋白编码基因的位置和序列，开启了基因组医学时代。",
     "importance": 5,
@@ -10908,7 +11004,8 @@
     "prerequisites": [
       "it_personal_computer",
       "it_wireless",
-      "mat_lcd"
+      "mat_lcd",
+      "it_mobile_network"
     ],
     "description": "iPhone和Android将计算、通信和传感功能集成于掌中设备，改变了数十亿人的日常生活。",
     "importance": 5,
@@ -10952,7 +11049,7 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_automobile",
-      "it_battery",
+      "energy_lithium_ion",
       "eng_electric_motor"
     ],
     "description": "锂电池驱动的电动汽车正在取代内燃机汽车，引领交通运输的清洁能源转型。",
@@ -11085,7 +11182,8 @@
     "domain": "agriculture",
     "prerequisites": [
       "ag_hydroponics",
-      "eng_led_light"
+      "eng_led_light",
+      "energy_electricity_gen"
     ],
     "description": "在多层建筑中进行室内种植，利用人工光照和水培技术实现全年无休生产，是城市食物生产的前沿模式。",
     "importance": 3,
@@ -11197,7 +11295,8 @@
     "domain": "social",
     "prerequisites": [
       "it_smartphone",
-      "it_social_media"
+      "it_social_media",
+      "it_internet"
     ],
     "description": "社交媒体和智能手机使信息传播和人际互动彻底数字化，创造了虚拟社交和数字文化。",
     "importance": 4,
@@ -11421,7 +11520,8 @@
     "domain": "astronomy",
     "prerequisites": [
       "phys_relativity_general",
-      "phys_laser"
+      "phys_laser",
+      "it_signal_processing"
     ],
     "description": "LIGO首次探测到来自双黑洞合并的引力波信号，开启了多信使天文学时代。",
     "importance": 5,
@@ -11876,7 +11976,8 @@
     "domain": "astronomy",
     "prerequisites": [
       "astro_space_telescope",
-      "astro_infrared"
+      "astro_infrared",
+      "eng_rocket"
     ],
     "description": "詹姆斯·韦伯太空望远镜工作在红外波段，能观测宇宙最早期的星系和系外行星大气成分。",
     "importance": 4,
@@ -11938,7 +12039,10 @@
     "id": "it_dalle",
     "name": "DALL-E",
     "year": "2021",
-    "yearRange": [2021, 2023],
+    "yearRange": [
+      2021,
+      2023
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -11958,7 +12062,10 @@
     "id": "bio_alphafold2",
     "name": "AlphaFold 2",
     "year": "2021",
-    "yearRange": [2020, 2024],
+    "yearRange": [
+      2020,
+      2024
+    ],
     "era": "information",
     "domain": "biology",
     "prerequisites": [
@@ -11980,7 +12087,10 @@
     "id": "it_diffusion",
     "name": "扩散模型",
     "year": "2022",
-    "yearRange": [2021, 2024],
+    "yearRange": [
+      2021,
+      2024
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12000,7 +12110,10 @@
     "id": "it_chatgpt",
     "name": "ChatGPT",
     "year": "2022",
-    "yearRange": [2022, 2023],
+    "yearRange": [
+      2022,
+      2023
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12019,7 +12132,10 @@
     "id": "it_gpt4",
     "name": "GPT-4",
     "year": "2023",
-    "yearRange": [2023, 2024],
+    "yearRange": [
+      2023,
+      2024
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12040,7 +12156,10 @@
     "id": "it_llama",
     "name": "开源大模型",
     "year": "2023",
-    "yearRange": [2023, 2025],
+    "yearRange": [
+      2023,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12059,7 +12178,10 @@
     "id": "it_multimodal",
     "name": "多模态AI",
     "year": "2023",
-    "yearRange": [2023, 2025],
+    "yearRange": [
+      2023,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12079,7 +12201,10 @@
     "id": "it_rag",
     "name": "检索增强生成",
     "year": "2023",
-    "yearRange": [2023, 2025],
+    "yearRange": [
+      2023,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12098,7 +12223,10 @@
     "id": "it_ai_agent",
     "name": "AI Agent",
     "year": "2024",
-    "yearRange": [2023, 2025],
+    "yearRange": [
+      2023,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12118,7 +12246,10 @@
     "id": "it_sora",
     "name": "Sora视频生成",
     "year": "2024",
-    "yearRange": [2024, 2025],
+    "yearRange": [
+      2024,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12138,7 +12269,10 @@
     "id": "it_reasoning",
     "name": "AI推理模型",
     "year": "2024",
-    "yearRange": [2024, 2025],
+    "yearRange": [
+      2024,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12158,7 +12292,10 @@
     "id": "it_code_gen",
     "name": "AI代码生成",
     "year": "2024",
-    "yearRange": [2023, 2025],
+    "yearRange": [
+      2023,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12177,7 +12314,10 @@
     "id": "it_deepseek",
     "name": "DeepSeek",
     "year": "2025",
-    "yearRange": [2024, 2025],
+    "yearRange": [
+      2024,
+      2025
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12198,7 +12338,10 @@
     "id": "it_agentic",
     "name": "Agentic AI",
     "year": "2025",
-    "yearRange": [2024, 2026],
+    "yearRange": [
+      2024,
+      2026
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12217,7 +12360,10 @@
     "id": "it_deep_research",
     "name": "Deep Research",
     "year": "2025",
-    "yearRange": [2024, 2026],
+    "yearRange": [
+      2024,
+      2026
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12237,7 +12383,10 @@
     "id": "it_mcp",
     "name": "AI工具调用协议",
     "year": "2025",
-    "yearRange": [2024, 2026],
+    "yearRange": [
+      2024,
+      2026
+    ],
     "era": "information",
     "domain": "it",
     "prerequisites": [
@@ -12466,7 +12615,8 @@
     "domain": "engineering",
     "prerequisites": [
       "phys_superconductor",
-      "eng_electromagnet"
+      "eng_electromagnet",
+      "mat_superconductor"
     ],
     "description": "利用超导材料制造的无损强磁场线圈，能产生远超常规电磁铁的磁场强度，是核磁共振、粒子加速器和托卡马克聚变装置的核心部件。",
     "importance": 4,
