@@ -10108,9 +10108,11 @@
     "era": "information",
     "domain": "engineering",
     "prerequisites": [
-      "it_computer",
+      "eng_airplane",
+      "eng_avionics",
       "eng_robotics",
-      "eng_airplane"
+      "eng_gps",
+      "it_wireless"
     ],
     "description": "无人驾驶飞行器从军事侦察发展到商业物流和航拍，正在改变航空运输的格局。",
     "importance": 4,
@@ -11261,7 +11263,8 @@
     "domain": "biology",
     "prerequisites": [
       "bio_genetic_eng",
-      "bio_genome_human"
+      "bio_genome_human",
+      "bio_restriction_enzyme"
     ],
     "description": "杜德纳和沙尔庞蒂耶开发的CRISPR-Cas9基因编辑工具，能精确修改基因组中任何位置的DNA序列，革命性地简化了基因编辑。",
     "importance": 5,
@@ -11462,8 +11465,11 @@
     "domain": "engineering",
     "prerequisites": [
       "eng_rocket",
-      "it_computer",
-      "eng_control_system"
+      "eng_avionics",
+      "eng_vtol",
+      "eng_control_system",
+      "eng_gps",
+      "mat_carbon_fiber"
     ],
     "description": "SpaceX实现火箭第一级回收复用，将航天发射成本降低了一个数量级，开启了商业航天新时代。",
     "importance": 5,
@@ -11756,7 +11762,8 @@
     "domain": "energy",
     "prerequisites": [
       "energy_lithium_ion",
-      "mat_nanomaterial"
+      "mat_nanomaterial",
+      "chem_electrolysis"
     ],
     "description": "用固态电解质替代液态电解质的下一代电池，安全性更高、能量密度更大。",
     "importance": 4,
@@ -11778,7 +11785,7 @@
     "domain": "energy",
     "prerequisites": [
       "energy_nuclear",
-      "eng_rocket"
+      "eng_control_system"
     ],
     "description": "小型模块化核反应堆可为偏远地区或太空基地提供可靠电力，被视为核能应用的新方向。",
     "importance": 3,
@@ -11800,7 +11807,8 @@
     "domain": "energy",
     "prerequisites": [
       "energy_hydrogen_fuel",
-      "energy_solar_cell"
+      "energy_solar_cell",
+      "chem_electrolysis"
     ],
     "description": "利用可再生能源电解水制取的零碳氢气，被视为工业脱碳和长期能源储存的关键载体。",
     "importance": 4,
@@ -11822,12 +11830,11 @@
     "domain": "it",
     "prerequisites": [
       "it_transformer",
-      "it_gpu",
       "it_pretraining",
-      "it_backprop",
-      "it_deep_learning"
+      "it_compute_cluster",
+      "it_distributed_training"
     ],
-    "description": "参数规模达千亿级的语言模型展现出涌现能力，能理解上下文、推理和生成高质量文本。",
+    "description": "参数规模达千亿级的语言模型展现出涌现能力，能理解上下文、推理和生成高质量文本。训练依赖大规模GPU算力集群和分布式训练算法。",
     "importance": 5,
     "tags": [
       "LLM",
@@ -11891,6 +11898,7 @@
     "domain": "it",
     "prerequisites": [
       "it_llm",
+      "it_reinforcement",
       "math_game_theory"
     ],
     "description": "基于人类反馈的强化学习技术使大模型输出更符合人类偏好，ChatGPT由此实现突破。",
@@ -11913,8 +11921,10 @@
     "domain": "energy",
     "prerequisites": [
       "phys_nuclear_fusion",
+      "energy_plasma",
       "eng_nuclear_reactor",
-      "energy_plasma"
+      "eng_superconductor_magnet",
+      "eng_high_temp_material"
     ],
     "description": "在地球上实现可控核聚变反应以获取能量，ITER等大型项目正在推进，被视为终极清洁能源。",
     "importance": 5,
@@ -11922,6 +11932,637 @@
       "聚变",
       "ITER",
       "终极能源"
+    ]
+  },
+  {
+    "id": "it_dalle",
+    "name": "DALL-E",
+    "year": "2021",
+    "yearRange": [2021, 2023],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_transformer",
+      "it_pretraining",
+      "it_deep_learning"
+    ],
+    "description": "OpenAI发布的文本到图像生成模型，利用Transformer架构和自回归方法实现从自然语言描述生成高质量图像，开创了生成式AI的视觉创作新时代。",
+    "importance": 4,
+    "tags": [
+      "DALL-E",
+      "文生图",
+      "生成式AI"
+    ]
+  },
+  {
+    "id": "bio_alphafold2",
+    "name": "AlphaFold 2",
+    "year": "2021",
+    "yearRange": [2020, 2024],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_protein_folding",
+      "bio_bioinformatics",
+      "it_deep_learning",
+      "it_attention",
+      "chem_crystallography"
+    ],
+    "description": "DeepMind发布的蛋白质结构预测系统，在CASP14竞赛中达到原子级精度，被誉为AI在生命科学领域最具变革性的突破之一。",
+    "importance": 5,
+    "tags": [
+      "AlphaFold",
+      "蛋白质",
+      "AI for Science"
+    ]
+  },
+  {
+    "id": "it_diffusion",
+    "name": "扩散模型",
+    "year": "2022",
+    "yearRange": [2021, 2024],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_deep_learning",
+      "it_attention",
+      "it_compute_cluster"
+    ],
+    "description": "基于去噪扩散概率过程的生成模型，Stable Diffusion等产品将高精度图像生成带入大众化时代，成为生成式AI的核心技术路线。",
+    "importance": 4,
+    "tags": [
+      "扩散模型",
+      "Stable Diffusion",
+      "生成式AI"
+    ]
+  },
+  {
+    "id": "it_chatgpt",
+    "name": "ChatGPT",
+    "year": "2022",
+    "yearRange": [2022, 2023],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_rlhf"
+    ],
+    "description": "OpenAI推出的对话式大语言模型产品，通过RLHF对齐技术实现自然流畅的人机对话，发布两个月用户突破一亿，引爆全球生成式AI浪潮。",
+    "importance": 5,
+    "tags": [
+      "ChatGPT",
+      "对话AI",
+      "GPT"
+    ]
+  },
+  {
+    "id": "it_gpt4",
+    "name": "GPT-4",
+    "year": "2023",
+    "yearRange": [2023, 2024],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_chatgpt",
+      "it_rlhf",
+      "it_compute_cluster",
+      "it_advanced_process"
+    ],
+    "description": "OpenAI发布的多模态大语言模型，支持文本和图像输入，在各类专业考试中达到人类顶尖水平，标志着大模型能力质的飞跃。",
+    "importance": 5,
+    "tags": [
+      "GPT-4",
+      "多模态",
+      "大模型"
+    ]
+  },
+  {
+    "id": "it_llama",
+    "name": "开源大模型",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_pretraining"
+    ],
+    "description": "Meta发布LLaMA系列开源权重模型，催生了LLaMA、Mistral、Qwen等开源生态，大幅降低了大规模语言模型的研究和应用门槛。",
+    "importance": 4,
+    "tags": [
+      "LLaMA",
+      "开源",
+      "大模型"
+    ]
+  },
+  {
+    "id": "it_multimodal",
+    "name": "多模态AI",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_computer_vision",
+      "it_transformer"
+    ],
+    "description": "融合视觉和语言能力的多模态大模型，以GPT-4V为代表实现了图像理解、视觉推理和跨模态生成，推动了通用人工智能的发展。",
+    "importance": 4,
+    "tags": [
+      "多模态",
+      "视觉语言",
+      "GPT-4V"
+    ]
+  },
+  {
+    "id": "it_rag",
+    "name": "检索增强生成",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_vector_db"
+    ],
+    "description": "将大语言模型与外部知识库检索相结合的技术，有效解决模型幻觉和知识时效性问题，成为企业级AI应用的核心架构范式。",
+    "importance": 4,
+    "tags": [
+      "RAG",
+      "检索增强",
+      "知识库"
+    ]
+  },
+  {
+    "id": "it_ai_agent",
+    "name": "AI Agent",
+    "year": "2024",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpt4",
+      "it_rag",
+      "it_reinforcement"
+    ],
+    "description": "具备自主规划、工具调用和任务执行能力的AI智能体，能够分解复杂目标并自主完成多步骤操作，被视为AI应用的下一个重要形态。",
+    "importance": 5,
+    "tags": [
+      "Agent",
+      "自主智能体",
+      "AI助手"
+    ]
+  },
+  {
+    "id": "it_sora",
+    "name": "Sora视频生成",
+    "year": "2024",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_diffusion",
+      "it_transformer",
+      "it_compute_cluster"
+    ],
+    "description": "OpenAI发布的文本生成视频模型，结合扩散模型与Transformer架构生成高保真长视频，标志着生成式AI从静态图像迈向动态视频时代。",
+    "importance": 4,
+    "tags": [
+      "Sora",
+      "视频生成",
+      "扩散模型"
+    ]
+  },
+  {
+    "id": "it_reasoning",
+    "name": "AI推理模型",
+    "year": "2024",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpt4",
+      "it_rlhf",
+      "it_reinforcement"
+    ],
+    "description": "以OpenAI o1为代表的推理增强模型，通过思维链和强化学习实现深度推理能力，在数学、编程和科学问题上展现突破性表现。",
+    "importance": 5,
+    "tags": [
+      "推理",
+      "o1",
+      "思维链"
+    ]
+  },
+  {
+    "id": "it_code_gen",
+    "name": "AI代码生成",
+    "year": "2024",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpt4",
+      "it_llm"
+    ],
+    "description": "以GitHub Copilot和Cursor为代表的AI编程助手，能够理解自然语言需求并自动生成、补全和重构代码，正在深刻改变软件开发流程。",
+    "importance": 4,
+    "tags": [
+      "代码生成",
+      "Copilot",
+      "AI编程"
+    ]
+  },
+  {
+    "id": "it_deepseek",
+    "name": "DeepSeek",
+    "year": "2025",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_reasoning",
+      "it_llama",
+      "it_model_distillation",
+      "it_model_quantization"
+    ],
+    "description": "深度求索发布的开源推理模型，以极低成本实现与顶级闭源模型媲美的推理能力，推动了开源AI社区的快速发展。",
+    "importance": 4,
+    "tags": [
+      "DeepSeek",
+      "开源",
+      "推理模型"
+    ]
+  },
+  {
+    "id": "it_agentic",
+    "name": "Agentic AI",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent",
+      "it_reasoning"
+    ],
+    "description": "多个AI智能体协同工作的系统架构，各Agent分工合作完成复杂任务，被视为通向通用人工智能的重要路径。",
+    "importance": 5,
+    "tags": [
+      "Agentic AI",
+      "多智能体",
+      "自主系统"
+    ]
+  },
+  {
+    "id": "it_deep_research",
+    "name": "Deep Research",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent",
+      "it_rag",
+      "it_reasoning"
+    ],
+    "description": "AI驱动的深度研究能力，能够自主搜索文献、分析数据并生成综合研究报告，将AI从信息检索提升到知识创造层面。",
+    "importance": 4,
+    "tags": [
+      "Deep Research",
+      "AI研究",
+      "自动化"
+    ]
+  },
+  {
+    "id": "it_mcp",
+    "name": "AI工具调用协议",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent"
+    ],
+    "description": "以MCP协议和Function Calling为代表的AI工具调用标准，使AI模型能够标准化地调用外部工具和API，是构建AI应用生态的基础设施。",
+    "importance": 4,
+    "tags": [
+      "MCP",
+      "Function Calling",
+      "工具调用"
+    ]
+  },
+  {
+    "id": "it_vlsi",
+    "name": "超大规模集成电路",
+    "year": "1971",
+    "yearRange": [
+      1970,
+      1985
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_integrated_circuit",
+      "mat_lithography"
+    ],
+    "description": "随着光刻技术的进步，单芯片上集成的晶体管数量从数千增长到数十亿，摩尔定律驱动半导体产业持续发展。",
+    "importance": 5,
+    "tags": [
+      "VLSI",
+      "超大规模集成",
+      "摩尔定律"
+    ]
+  },
+  {
+    "id": "it_parallel_computing",
+    "name": "并行计算",
+    "year": "1985",
+    "yearRange": [
+      1975,
+      1995
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_vlsi",
+      "it_server_farm"
+    ],
+    "description": "将计算任务分解到多个处理器上同时执行的技术，是超级计算机和大规模算力系统的理论基础。",
+    "importance": 3,
+    "tags": [
+      "并行计算",
+      "多处理器",
+      "HPC"
+    ]
+  },
+  {
+    "id": "it_chip_interconnect",
+    "name": "高速芯片互联",
+    "year": "2014",
+    "yearRange": [
+      2012,
+      2018
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpu",
+      "it_vlsi"
+    ],
+    "description": "NVLink、InfiniBand等高速互联技术使数千块GPU协同工作成为可能，是大规模模型训练的关键基础设施。",
+    "importance": 4,
+    "tags": [
+      "NVLink",
+      "InfiniBand",
+      "芯片互联"
+    ]
+  },
+  {
+    "id": "it_advanced_process",
+    "name": "先进制程芯片",
+    "year": "2015",
+    "yearRange": [
+      2013,
+      2020
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_integrated_circuit",
+      "mat_lithography",
+      "mat_nanomaterial",
+      "phys_quantum_theory"
+    ],
+    "description": "EUV极紫外光刻技术实现7nm以下制程，台积电和三星推动摩尔定律延续到3nm时代，为AI芯片提供更强算力。",
+    "importance": 5,
+    "tags": [
+      "7nm",
+      "5nm",
+      "3nm",
+      "EUV"
+    ]
+  },
+  {
+    "id": "it_compute_cluster",
+    "name": "大规模算力集群",
+    "year": "2017",
+    "yearRange": [
+      2015,
+      2020
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_cloud",
+      "it_gpu",
+      "it_chip_interconnect"
+    ],
+    "description": "由数千块GPU组成的超大规模计算集群，配合高速互联和分布式存储，为大模型训练提供庞大的算力支撑。",
+    "importance": 4,
+    "tags": [
+      "算力集群",
+      "GPU集群",
+      "超算中心"
+    ]
+  },
+  {
+    "id": "it_distributed_training",
+    "name": "分布式训练算法",
+    "year": "2019",
+    "yearRange": [
+      2017,
+      2022
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_compute_cluster",
+      "it_framework_dl"
+    ],
+    "description": "数据并行、模型并行、ZeRO优化等分布式训练技术，使万亿参数模型的训练成为可能。",
+    "importance": 4,
+    "tags": [
+      "数据并行",
+      "模型并行",
+      "ZeRO"
+    ]
+  },
+  {
+    "id": "it_reinforcement",
+    "name": "强化学习",
+    "year": "1998",
+    "yearRange": [
+      1989,
+      2015
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "math_probability",
+      "math_calculus",
+      "it_neural_network"
+    ],
+    "description": "智能体通过与环境交互获取奖励来学习最优策略的机器学习方法，从Q-learning发展到深度强化学习，是游戏AI和机器人控制的核心技术。",
+    "importance": 4,
+    "tags": [
+      "强化学习",
+      "策略",
+      "奖励"
+    ]
+  },
+  {
+    "id": "it_model_distillation",
+    "name": "模型蒸馏",
+    "year": "2015",
+    "yearRange": [
+      2014,
+      2020
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_deep_learning",
+      "it_neural_network"
+    ],
+    "description": "将大型模型（教师模型）的知识压缩到小型模型（学生模型）中的技术，使小模型在保持接近大模型性能的同时大幅降低推理成本。",
+    "importance": 3,
+    "tags": [
+      "蒸馏",
+      "知识迁移",
+      "压缩"
+    ]
+  },
+  {
+    "id": "it_model_quantization",
+    "name": "模型量化",
+    "year": "2017",
+    "yearRange": [
+      2015,
+      2022
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_deep_learning",
+      "it_gpu"
+    ],
+    "description": "将模型权重从高精度浮点数压缩为低精度整数表示的技术，大幅降低模型存储和推理计算量，是AI模型部署的关键优化手段。",
+    "importance": 3,
+    "tags": [
+      "量化",
+      "压缩",
+      "推理优化"
+    ]
+  },
+  {
+    "id": "eng_superconductor_magnet",
+    "name": "超导磁体",
+    "year": "1965",
+    "yearRange": [
+      1960,
+      1980
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_superconductor",
+      "eng_electromagnet"
+    ],
+    "description": "利用超导材料制造的无损强磁场线圈，能产生远超常规电磁铁的磁场强度，是核磁共振、粒子加速器和托卡马克聚变装置的核心部件。",
+    "importance": 4,
+    "tags": [
+      "超导磁体",
+      "强磁场",
+      "无损"
+    ]
+  },
+  {
+    "id": "eng_vtol",
+    "name": "垂直起降技术",
+    "year": "1960",
+    "yearRange": [
+      1955,
+      1975
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "eng_airplane",
+      "eng_internal_combustion",
+      "eng_control_system"
+    ],
+    "description": "无需跑道即可垂直起降的飞行器技术，从鹞式战斗机发展至今，是可回收火箭和现代无人机的关键技术基础。",
+    "importance": 4,
+    "tags": [
+      "垂直起降",
+      "VTOL",
+      "悬停"
+    ]
+  },
+  {
+    "id": "eng_avionics",
+    "name": "航电系统",
+    "year": "1955",
+    "yearRange": [
+      1950,
+      1970
+    ],
+    "era": "modern",
+    "domain": "engineering",
+    "prerequisites": [
+      "it_computer",
+      "eng_control_system",
+      "eng_airplane"
+    ],
+    "description": "飞行器上的电子系统，包括飞行控制计算机、导航、通信和传感器等，是现代飞行器实现自主飞行和精确控制的核心系统。",
+    "importance": 4,
+    "tags": [
+      "航电",
+      "飞行控制",
+      "导航"
+    ]
+  },
+  {
+    "id": "eng_high_temp_material",
+    "name": "耐高温材料",
+    "year": "1955",
+    "yearRange": [
+      1950,
+      1970
+    ],
+    "era": "modern",
+    "domain": "materials",
+    "prerequisites": [
+      "mat_superalloy",
+      "mat_titanium"
+    ],
+    "description": "能在极高温度下保持结构强度的材料体系，包括耐高温陶瓷和热防护系统，是火箭发动机、航天器再入和核聚变装置不可或缺的材料。",
+    "importance": 4,
+    "tags": [
+      "耐高温",
+      "热防护",
+      "陶瓷"
+    ]
+  },
+  {
+    "id": "eng_electromagnet",
+    "name": "电磁铁",
+    "year": "1824",
+    "yearRange": [
+      1820,
+      1840
+    ],
+    "era": "industrial",
+    "domain": "engineering",
+    "prerequisites": [
+      "phys_electromagnetism"
+    ],
+    "description": "利用电流通过线圈产生磁场的装置，是电动机、发电机、粒子加速器等电磁设备的基础部件，也是超导磁体的前身。",
+    "importance": 3,
+    "tags": [
+      "电磁铁",
+      "磁场",
+      "线圈"
     ]
   }
 ]

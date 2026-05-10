@@ -11923,5 +11923,449 @@
       "ITER",
       "终极能源"
     ]
+  },
+  {
+    "id": "it_dalle",
+    "name": "DALL-E",
+    "year": "2021",
+    "yearRange": [2021, 2023],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_transformer",
+      "it_pretraining",
+      "it_deep_learning"
+    ],
+    "description": "OpenAI发布的文本到图像生成模型，利用Transformer架构和自回归方法实现从自然语言描述生成高质量图像，开创了生成式AI的视觉创作新时代。",
+    "importance": 4,
+    "tags": [
+      "DALL-E",
+      "文生图",
+      "生成式AI"
+    ]
+  },
+  {
+    "id": "bio_alphafold2",
+    "name": "AlphaFold 2",
+    "year": "2021",
+    "yearRange": [2020, 2024],
+    "era": "information",
+    "domain": "biology",
+    "prerequisites": [
+      "bio_protein_folding",
+      "it_deep_learning",
+      "it_attention"
+    ],
+    "description": "DeepMind发布的蛋白质结构预测系统，在CASP14竞赛中达到原子级精度，被誉为AI在生命科学领域最具变革性的突破之一。",
+    "importance": 5,
+    "tags": [
+      "AlphaFold",
+      "蛋白质",
+      "AI for Science"
+    ]
+  },
+  {
+    "id": "it_diffusion",
+    "name": "扩散模型",
+    "year": "2022",
+    "yearRange": [2021, 2024],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_deep_learning",
+      "it_transformer"
+    ],
+    "description": "基于去噪扩散概率过程的生成模型，Stable Diffusion等产品将高精度图像生成带入大众化时代，成为生成式AI的核心技术路线。",
+    "importance": 4,
+    "tags": [
+      "扩散模型",
+      "Stable Diffusion",
+      "生成式AI"
+    ]
+  },
+  {
+    "id": "it_chatgpt",
+    "name": "ChatGPT",
+    "year": "2022",
+    "yearRange": [2022, 2023],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_rlhf"
+    ],
+    "description": "OpenAI推出的对话式大语言模型产品，通过RLHF对齐技术实现自然流畅的人机对话，发布两个月用户突破一亿，引爆全球生成式AI浪潮。",
+    "importance": 5,
+    "tags": [
+      "ChatGPT",
+      "对话AI",
+      "GPT"
+    ]
+  },
+  {
+    "id": "it_gpt4",
+    "name": "GPT-4",
+    "year": "2023",
+    "yearRange": [2023, 2024],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_chatgpt",
+      "it_rlhf",
+      "it_compute_cluster",
+      "it_advanced_process"
+    ],
+    "description": "OpenAI发布的多模态大语言模型，支持文本和图像输入，在各类专业考试中达到人类顶尖水平，标志着大模型能力质的飞跃。",
+    "importance": 5,
+    "tags": [
+      "GPT-4",
+      "多模态",
+      "大模型"
+    ]
+  },
+  {
+    "id": "it_llama",
+    "name": "开源大模型",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_pretraining"
+    ],
+    "description": "Meta发布LLaMA系列开源权重模型，催生了LLaMA、Mistral、Qwen等开源生态，大幅降低了大规模语言模型的研究和应用门槛。",
+    "importance": 4,
+    "tags": [
+      "LLaMA",
+      "开源",
+      "大模型"
+    ]
+  },
+  {
+    "id": "it_multimodal",
+    "name": "多模态AI",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_computer_vision",
+      "it_transformer"
+    ],
+    "description": "融合视觉和语言能力的多模态大模型，以GPT-4V为代表实现了图像理解、视觉推理和跨模态生成，推动了通用人工智能的发展。",
+    "importance": 4,
+    "tags": [
+      "多模态",
+      "视觉语言",
+      "GPT-4V"
+    ]
+  },
+  {
+    "id": "it_rag",
+    "name": "检索增强生成",
+    "year": "2023",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_vector_db"
+    ],
+    "description": "将大语言模型与外部知识库检索相结合的技术，有效解决模型幻觉和知识时效性问题，成为企业级AI应用的核心架构范式。",
+    "importance": 4,
+    "tags": [
+      "RAG",
+      "检索增强",
+      "知识库"
+    ]
+  },
+  {
+    "id": "it_ai_agent",
+    "name": "AI Agent",
+    "year": "2024",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpt4",
+      "it_rag"
+    ],
+    "description": "具备自主规划、工具调用和任务执行能力的AI智能体，能够分解复杂目标并自主完成多步骤操作，被视为AI应用的下一个重要形态。",
+    "importance": 5,
+    "tags": [
+      "Agent",
+      "自主智能体",
+      "AI助手"
+    ]
+  },
+  {
+    "id": "it_sora",
+    "name": "Sora视频生成",
+    "year": "2024",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_diffusion",
+      "it_transformer",
+      "it_compute_cluster"
+    ],
+    "description": "OpenAI发布的文本生成视频模型，结合扩散模型与Transformer架构生成高保真长视频，标志着生成式AI从静态图像迈向动态视频时代。",
+    "importance": 4,
+    "tags": [
+      "Sora",
+      "视频生成",
+      "扩散模型"
+    ]
+  },
+  {
+    "id": "it_reasoning",
+    "name": "AI推理模型",
+    "year": "2024",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpt4",
+      "it_rlhf"
+    ],
+    "description": "以OpenAI o1为代表的推理增强模型，通过思维链和强化学习实现深度推理能力，在数学、编程和科学问题上展现突破性表现。",
+    "importance": 5,
+    "tags": [
+      "推理",
+      "o1",
+      "思维链"
+    ]
+  },
+  {
+    "id": "it_code_gen",
+    "name": "AI代码生成",
+    "year": "2024",
+    "yearRange": [2023, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_llm",
+      "it_gpt4"
+    ],
+    "description": "以GitHub Copilot和Cursor为代表的AI编程助手，能够理解自然语言需求并自动生成、补全和重构代码，正在深刻改变软件开发流程。",
+    "importance": 4,
+    "tags": [
+      "代码生成",
+      "Copilot",
+      "AI编程"
+    ]
+  },
+  {
+    "id": "it_deepseek",
+    "name": "DeepSeek",
+    "year": "2025",
+    "yearRange": [2024, 2025],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_reasoning",
+      "it_llama"
+    ],
+    "description": "深度求索发布的开源推理模型，以极低成本实现与顶级闭源模型媲美的推理能力，推动了开源AI社区的快速发展。",
+    "importance": 4,
+    "tags": [
+      "DeepSeek",
+      "开源",
+      "推理模型"
+    ]
+  },
+  {
+    "id": "it_agentic",
+    "name": "Agentic AI",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent",
+      "it_reasoning"
+    ],
+    "description": "多个AI智能体协同工作的系统架构，各Agent分工合作完成复杂任务，被视为通向通用人工智能的重要路径。",
+    "importance": 5,
+    "tags": [
+      "Agentic AI",
+      "多智能体",
+      "自主系统"
+    ]
+  },
+  {
+    "id": "it_deep_research",
+    "name": "Deep Research",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent",
+      "it_rag",
+      "it_reasoning"
+    ],
+    "description": "AI驱动的深度研究能力，能够自主搜索文献、分析数据并生成综合研究报告，将AI从信息检索提升到知识创造层面。",
+    "importance": 4,
+    "tags": [
+      "Deep Research",
+      "AI研究",
+      "自动化"
+    ]
+  },
+  {
+    "id": "it_mcp",
+    "name": "AI工具调用协议",
+    "year": "2025",
+    "yearRange": [2024, 2026],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_ai_agent"
+    ],
+    "description": "以MCP协议和Function Calling为代表的AI工具调用标准，使AI模型能够标准化地调用外部工具和API，是构建AI应用生态的基础设施。",
+    "importance": 4,
+    "tags": [
+      "MCP",
+      "Function Calling",
+      "工具调用"
+    ]
+  },
+  {
+    "id": "it_vlsi",
+    "name": "超大规模集成电路",
+    "year": "1971",
+    "yearRange": [
+      1970,
+      1985
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_integrated_circuit",
+      "mat_lithography"
+    ],
+    "description": "随着光刻技术的进步，单芯片上集成的晶体管数量从数千增长到数十亿，摩尔定律驱动半导体产业持续发展。",
+    "importance": 5,
+    "tags": [
+      "VLSI",
+      "超大规模集成",
+      "摩尔定律"
+    ]
+  },
+  {
+    "id": "it_parallel_computing",
+    "name": "并行计算",
+    "year": "1985",
+    "yearRange": [
+      1975,
+      1995
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_vlsi",
+      "it_server_farm"
+    ],
+    "description": "将计算任务分解到多个处理器上同时执行的技术，是超级计算机和大规模算力系统的理论基础。",
+    "importance": 3,
+    "tags": [
+      "并行计算",
+      "多处理器",
+      "HPC"
+    ]
+  },
+  {
+    "id": "it_chip_interconnect",
+    "name": "高速芯片互联",
+    "year": "2014",
+    "yearRange": [
+      2012,
+      2018
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_gpu",
+      "it_vlsi"
+    ],
+    "description": "NVLink、InfiniBand等高速互联技术使数千块GPU协同工作成为可能，是大规模模型训练的关键基础设施。",
+    "importance": 4,
+    "tags": [
+      "NVLink",
+      "InfiniBand",
+      "芯片互联"
+    ]
+  },
+  {
+    "id": "it_advanced_process",
+    "name": "先进制程芯片",
+    "year": "2015",
+    "yearRange": [
+      2013,
+      2020
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "mat_lithography",
+      "it_integrated_circuit"
+    ],
+    "description": "EUV极紫外光刻技术实现7nm以下制程，台积电和三星推动摩尔定律延续到3nm时代，为AI芯片提供更强算力。",
+    "importance": 5,
+    "tags": [
+      "7nm",
+      "5nm",
+      "3nm",
+      "EUV"
+    ]
+  },
+  {
+    "id": "it_compute_cluster",
+    "name": "大规模算力集群",
+    "year": "2017",
+    "yearRange": [
+      2015,
+      2020
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_cloud",
+      "it_gpu",
+      "it_chip_interconnect"
+    ],
+    "description": "由数千块GPU组成的超大规模计算集群，配合高速互联和分布式存储，为大模型训练提供庞大的算力支撑。",
+    "importance": 4,
+    "tags": [
+      "算力集群",
+      "GPU集群",
+      "超算中心"
+    ]
+  },
+  {
+    "id": "it_distributed_training",
+    "name": "分布式训练算法",
+    "year": "2019",
+    "yearRange": [
+      2017,
+      2022
+    ],
+    "era": "information",
+    "domain": "it",
+    "prerequisites": [
+      "it_compute_cluster",
+      "it_framework_dl"
+    ],
+    "description": "数据并行、模型并行、ZeRO优化等分布式训练技术，使万亿参数模型的训练成为可能。",
+    "importance": 4,
+    "tags": [
+      "数据并行",
+      "模型并行",
+      "ZeRO"
+    ]
   }
 ]

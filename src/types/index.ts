@@ -48,6 +48,8 @@ export interface FilterState {
   selectedEras: string[];
   selectedDomains: string[];
   hubThreshold: number;
+  /** 年份范围：[起始年份, 结束年份] */
+  yearRange: [number, number];
 }
 
 /** 选中节点信息（传递给 NodeDetail） */

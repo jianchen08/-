@@ -1,9 +1,9 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import coseBilkent from 'cytoscape-cose-bilkent';
 import type cytoscapeType from 'cytoscape';
-import type { TechNode, Domain, LayoutType, FilterState } from '../types';
+import type { TechNode, Domain, Era, LayoutType, FilterState } from '../types';
 
 cytoscape.use(dagre);
 cytoscape.use(coseBilkent);
@@ -11,6 +11,7 @@ cytoscape.use(coseBilkent);
 interface TechTreeProps {
   nodes: TechNode[];
   domains: Domain[];
+  eras: Era[];
   searchText: string;
   filter: FilterState;
   layout: LayoutType;
@@ -46,11 +47,16 @@ function matchesSearch(node: TechNode, text: string): boolean {
   return false;
 }
 
-/** 筛选判断 */
+/** 筛选判断（含年份范围检查） */
 function passesFilter(node: TechNode, filter: FilterState): boolean {
   if (filter.selectedEras.length > 0 && !filter.selectedEras.includes(node.era)) return false;
   if (filter.selectedDomains.length > 0 && !filter.selectedDomains.includes(node.domain)) return false;
   if ((node.hubScore ?? 0) < filter.hubThreshold) return false;
+  // 年份范围检查
+  const nodeYear = typeof node.year === 'string' ? parseInt(node.year, 10) : node.year;
+  if (filter.yearRange) {
+    if (nodeYear < filter.yearRange[0] || nodeYear > filter.yearRange[1]) return false;
+  }
   return true;
 }
 
@@ -64,8 +70,14 @@ function buildElements(
   const elements: cytoscape.ElementDefinition[] = [];
   const visibleIds = new Set<string>();
 
-  // 筛选可见节点
-  const visibleNodes = nodes.filter((n) => passesFilter(n, filter));
+  // 筛选可见节点，并按年份升序排序（影响 dagre 布局中同层级节点的排列）
+  const visibleNodes = nodes
+    .filter((n) => passesFilter(n, filter))
+    .sort((a, b) => {
+      const yearA = typeof a.year === 'string' ? parseInt(a.year, 10) : a.year;
+      const yearB = typeof b.year === 'string' ? parseInt(b.year, 10) : b.year;
+      return yearA - yearB;
+    });
   for (const n of visibleNodes) {
     visibleIds.add(n.id);
   }
@@ -126,7 +138,12 @@ function buildElements(
 }
 
 /** 获取布局配置 */
-function getLayoutOptions(layout: LayoutType) {
+function getLayoutOptions(
+  layout: LayoutType,
+  nodes?: TechNode[],
+  domains?: Domain[],
+  eras?: Era[],
+) {
   switch (layout) {
     case 'dagre':
       return {
@@ -148,12 +165,48 @@ function getLayoutOptions(layout: LayoutType) {
         gravity: 0.3,
         randomize: true,
       };
-    case 'timeline':
+    case 'timeline': {
+      if (!nodes || !domains || !eras) {
+        return { name: 'circle', animate: true, animationDuration: 500 };
+      }
+      const eraWeights = [0.08, 0.10, 0.10, 0.10, 0.12, 0.15, 0.35];
+      const domainMap = new Map(domains.map((d, i) => [d.id, i]));
+      const positions: Record<string, { x: number; y: number }> = {};
+      for (const node of nodes) {
+        const year = typeof node.year === 'string' ? parseInt(node.year, 10) : node.year;
+        let xPos = 0;
+        for (let i = 0; i < eras.length; i++) {
+          const era = eras[i];
+          const weight = eraWeights[i] ?? 0.1;
+          if (!era) break;
+          const [eraStart, eraEnd] = era.yearRange;
+          const segmentWidth = weight * 5000;
+          if (year <= eraStart) break;
+          if (year >= eraEnd) {
+            xPos += segmentWidth;
+          } else {
+            const t = (year - eraStart) / (eraEnd - eraStart);
+            xPos += t * segmentWidth;
+            break;
+          }
+        }
+        const domainIdx = domainMap.get(node.domain) ?? 0;
+        const yBase = domainIdx * 120;
+        let hash = 0;
+        for (let i = 0; i < node.id.length; i++) {
+          hash = ((hash << 5) - hash) + node.id.charCodeAt(i);
+          hash |= 0;
+        }
+        const jitter = (Math.abs(hash) % 60) - 30;
+        positions[node.id] = { x: xPos + jitter * 0.3, y: yBase + jitter };
+      }
       return {
-        name: 'circle',
+        name: 'preset',
+        positions: (ele: cytoscape.NodeSingular) => positions[ele.id()] ?? { x: 0, y: 0 },
         animate: true,
         animationDuration: 500,
       };
+    }
     default:
       return { name: 'dagre', animate: true };
   }
@@ -228,6 +281,7 @@ function getCyStyle(): cytoscape.StylesheetStyle[] {
 export default function TechTree({
   nodes,
   domains,
+  eras,
   searchText,
   filter,
   layout,
@@ -239,6 +293,13 @@ export default function TechTree({
   const cyRef = useRef<cytoscape.Core | null>(null);
   const domainColorMapRef = useRef<Map<string, string>>(new Map());
   const isFirstRenderRef = useRef(true);
+  const isBoxSelectingRef = useRef(false);
+  const [boxSelect, setBoxSelect] = useState<{
+    startX: number;
+    startY: number;
+    endX: number;
+    endY: number;
+  } | null>(null);
 
   // 初始化 domainColorMap
   useEffect(() => {
@@ -253,6 +314,11 @@ export default function TechTree({
   useEffect(() => {
     if (!containerRef.current || nodes.length === 0) return;
 
+    // 禁用浏览器默认右键菜单
+    const container = containerRef.current;
+    const preventContextMenu = (e: MouseEvent) => e.preventDefault();
+    container.addEventListener('contextmenu', preventContextMenu);
+
     const domainColorMap = domainColorMapRef.current;
     const { elements } = buildElements(nodes, domainColorMap, searchText, filter);
 
@@ -262,7 +328,7 @@ export default function TechTree({
       cyRef.current = null;
     }
 
-    const layoutOpts = getLayoutOptions(layout);
+    const layoutOpts = getLayoutOptions(layout, nodes, domains, eras);
 
     const cy = cytoscape({
       container: containerRef.current,
@@ -271,11 +337,16 @@ export default function TechTree({
       layout: layoutOpts as cytoscape.LayoutOptions,
       minZoom: 0.1,
       maxZoom: 3,
-      wheelSensitivity: 0.3,
     });
 
     // 节点点击事件
     cy.on('tap', 'node', (evt) => {
+      const nodeId = evt.target.id();
+      onNodeSelect(nodeId);
+    });
+
+    // 右键选中节点
+    cy.on('cxttap', 'node', (evt) => {
       const nodeId = evt.target.id();
       onNodeSelect(nodeId);
     });
@@ -288,10 +359,14 @@ export default function TechTree({
     });
 
     cyRef.current = cy;
+    if (layout === 'timeline') {
+      setTimeout(() => cy.fit(undefined, 50), 600);
+    }
     isFirstRenderRef.current = false;
     onCyReady?.(cy);
 
     return () => {
+      container.removeEventListener('contextmenu', preventContextMenu);
       cy.destroy();
       cyRef.current = null;
       onCyReady?.(null);
@@ -312,7 +387,7 @@ export default function TechTree({
     cy.add(elements);
 
     // 重新布局
-    const layoutOpts = getLayoutOptions(layout);
+    const layoutOpts = getLayoutOptions(layout, nodes, domains, eras);
     cy.layout(layoutOpts as cytoscape.LayoutOptions).run();
 
     // 重新应用选中状态
@@ -337,6 +412,126 @@ export default function TechTree({
       }
     }
   }, [selectedNodeId]);
+
+  /** 框选开始：右键拖拽 */
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 2) return;
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    isBoxSelectingRef.current = true;
+    setBoxSelect({
+      startX: e.clientX - rect.left,
+      startY: e.clientY - rect.top,
+      endX: e.clientX - rect.left,
+      endY: e.clientY - rect.top,
+    });
+    e.preventDefault();
+  }, []);
+
+  /** 框选移动 */
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (!isBoxSelectingRef.current || !boxSelect) return;
+      const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+      setBoxSelect({
+        ...boxSelect,
+        endX: e.clientX - rect.left,
+        endY: e.clientY - rect.top,
+      });
+    },
+    [boxSelect],
+  );
+
+  /** 框选结束：放大到选中区域 */
+  const handleMouseUp = useCallback(
+    (_e: React.MouseEvent) => {
+      if (!isBoxSelectingRef.current || !boxSelect) return;
+      isBoxSelectingRef.current = false;
+
+      const cy = cyRef.current;
+      if (!cy) {
+        setBoxSelect(null);
+        return;
+      }
+
+      const wrapper = _e.currentTarget as HTMLElement;
+      const container = containerRef.current;
+      if (!container) {
+        setBoxSelect(null);
+        return;
+      }
+
+      const x1 = Math.min(boxSelect.startX, boxSelect.endX);
+      const y1 = Math.min(boxSelect.startY, boxSelect.endY);
+      const x2 = Math.max(boxSelect.startX, boxSelect.endX);
+      const y2 = Math.max(boxSelect.startY, boxSelect.endY);
+
+      // 选框太小则忽略
+      if (x2 - x1 < 10 || y2 - y1 < 10) {
+        setBoxSelect(null);
+        return;
+      }
+
+      // 获取 cytoscape 容器在 wrapper 中的偏移
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const cx1 = x1 - (containerRect.left - wrapperRect.left);
+      const cy1 = y1 - (containerRect.top - wrapperRect.top);
+      const cx2 = x2 - (containerRect.left - wrapperRect.left);
+      const cy2 = y2 - (containerRect.top - wrapperRect.top);
+
+      // 将渲染坐标转换为模型坐标
+      const pan = cy.pan();
+      const zoom = cy.zoom();
+      const modelX1 = (cx1 - pan.x) / zoom;
+      const modelY1 = (cy1 - pan.y) / zoom;
+      const modelX2 = (cx2 - pan.x) / zoom;
+      const modelY2 = (cy2 - pan.y) / zoom;
+
+      // 找到在框内的节点
+      const boxedNodes = cy.nodes().filter((node) => {
+        const pos = node.position();
+        return (
+          pos.x >= modelX1 &&
+          pos.x <= modelX2 &&
+          pos.y >= modelY1 &&
+          pos.y <= modelY2
+        );
+      });
+
+      if (boxedNodes.length > 0) {
+        cy.animate({
+          fit: { eles: boxedNodes, padding: 30 },
+          duration: 400,
+        });
+      } else {
+        // 框内无节点时直接缩放到该区域
+        const centerX = (modelX1 + modelX2) / 2;
+        const centerY = (modelY1 + modelY2) / 2;
+        const containerW = container.clientWidth;
+        const containerH = container.clientHeight;
+        const newZoom =
+          Math.min(
+            containerW / (modelX2 - modelX1),
+            containerH / (modelY2 - modelY1),
+          ) * 0.9;
+        const clampedZoom = Math.max(
+          cy.minZoom() ?? 0.1,
+          Math.min(cy.maxZoom() ?? 3, newZoom),
+        );
+        cy.animate({
+          pan: {
+            x: containerW / 2 - centerX * clampedZoom,
+            y: containerH / 2 - centerY * clampedZoom,
+          },
+          zoom: clampedZoom,
+          duration: 400,
+        });
+      }
+
+      setBoxSelect(null);
+    },
+    [boxSelect],
+  );
 
   // 暴露重置视图方法
   const resetView = useCallback(() => {
@@ -368,8 +563,24 @@ export default function TechTree({
   }, [resetView, focusNode]);
 
   return (
-    <div className="tech-tree-wrapper">
+    <div
+      className="tech-tree-wrapper"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
       <div ref={containerRef} className="tech-tree-container" />
+      {boxSelect && (
+        <div
+          className="box-select-overlay"
+          style={{
+            left: `${Math.min(boxSelect.startX, boxSelect.endX)}px`,
+            top: `${Math.min(boxSelect.startY, boxSelect.endY)}px`,
+            width: `${Math.abs(boxSelect.endX - boxSelect.startX)}px`,
+            height: `${Math.abs(boxSelect.endY - boxSelect.startY)}px`,
+          }}
+        />
+      )}
     </div>
   );
 }

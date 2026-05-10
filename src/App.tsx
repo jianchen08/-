@@ -25,8 +25,9 @@ export default function App() {
     selectedEras: [],
     selectedDomains: [],
     hubThreshold: 0,
+    yearRange: [-3000000, 2025],
   });
-  const [layout, setLayout] = useState<LayoutType>('dagre');
+  const [layout, setLayout] = useState<LayoutType>('timeline');
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   // 导出状态
@@ -50,11 +51,18 @@ export default function App() {
         const result = await loadTechTreeData();
         if (!cancelled) {
           setData(result);
-          // 初始化筛选：全选所有时代和领域
+          // 计算年份范围
+          const years = result.nodes.map((n) =>
+            typeof n.year === 'string' ? parseInt(n.year, 10) : n.year,
+          );
+          const minYear = Math.min(...years);
+          const maxYear = Math.max(...years);
+          // 初始化筛选：全选所有时代和领域，年份范围覆盖全部数据
           setFilter({
             selectedEras: result.eras.map((e) => e.id),
             selectedDomains: result.domains.map((d) => d.id),
             hubThreshold: 0,
+            yearRange: [minYear, maxYear],
           });
           setLoading(false);
         }
@@ -189,6 +197,7 @@ export default function App() {
         <TechTree
           nodes={data.nodes}
           domains={data.domains}
+          eras={data.eras}
           searchText={searchText}
           filter={filter}
           layout={layout}
@@ -204,7 +213,7 @@ export default function App() {
         <MiniMap domains={data.domains} cy={cyInstance} />
 
         {/* 底部时间轴 */}
-        <TimelineSlider eras={data.eras} filter={filter} onFilterChange={setFilter} />
+        <TimelineSlider eras={data.eras} nodes={data.nodes} filter={filter} onFilterChange={setFilter} />
       </main>
 
       {/* 右侧：详情侧栏 */}
